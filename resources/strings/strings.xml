@@ -1,0 +1,12 @@
+<strings>
+    <string id="AppName">barbecue_app</string>
+
+    <string id="prompt">Barbecue Boss</string>
+
+    <string id="menu_label_1">1 min</string>
+    <string id="menu_label_2">2 min</string>
+    <string id="menu_label_3">3 min</string>
+    <string id="menu_label_4">4 min</string>
+    <string id="menu_label_5">5 min</string>
+    <string id="timer_string">00:00:00</string>
+</strings>
