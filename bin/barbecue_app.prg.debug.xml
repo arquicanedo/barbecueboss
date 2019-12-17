@@ -35,89 +35,98 @@
         <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="19" lineNum="23" pc="268436112" symbol="onKey"/>
         <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="19" lineNum="24" pc="268436116" symbol="onKey"/>
         <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="19" lineNum="25" pc="268436143" symbol="onKey"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="13" pc="268436147" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="14" pc="268436151" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="15" pc="268436172" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="16" pc="268436190" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="17" pc="268436208" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="18" pc="268436215" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="22" pc="268436299" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="23" pc="268436333" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="24" pc="268436374" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="25" pc="268436387" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="22" lineNum="30" pc="268436404" symbol="onLayout"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="22" lineNum="31" pc="268436408" symbol="onLayout"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="22" lineNum="32" pc="268436429" symbol="onLayout"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="23" lineNum="38" pc="268436477" symbol="onShow"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="23" lineNum="39" pc="268436481" symbol="onShow"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="50" pc="268436622" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="53" pc="268436626" symbol="onUpdate"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="15" pc="268436147" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="16" pc="268436151" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="17" pc="268436172" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="18" pc="268436190" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="19" pc="268436208" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="20" pc="268436215" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="24" pc="268436299" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="25" pc="268436333" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="26" pc="268436374" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="27" pc="268436387" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="28" pc="268436403" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="21" lineNum="29" pc="268436413" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="22" lineNum="34" pc="268436424" symbol="onLayout"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="22" lineNum="35" pc="268436428" symbol="onLayout"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="22" lineNum="36" pc="268436449" symbol="onLayout"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="23" lineNum="42" pc="268436497" symbol="onShow"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="23" lineNum="43" pc="268436501" symbol="onShow"/>
         <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="54" pc="268436642" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="56" pc="268436658" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="57" pc="268436674" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="59" pc="268436690" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="63" pc="268436774" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="64" pc="268436790" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="65" pc="268436827" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="67" pc="268436846" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="68" pc="268436863" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="71" pc="268436882" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="79" pc="268437010" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="80" pc="268437050" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="81" pc="268437062" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="25" lineNum="87" pc="268437083" symbol="onHide"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="91" pc="268437088" symbol="timerCallback"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="92" pc="268437092" symbol="timerCallback"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="93" pc="268437114" symbol="timerCallback"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="94" pc="268437136" symbol="timerCallback"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="28" lineNum="8" pc="268437153" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="28" lineNum="9" pc="268437157" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="12" pc="268437176" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="13" pc="268437180" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="14" pc="268437191" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="15" pc="268437212" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="17" pc="268437292" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="18" pc="268437303" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="19" pc="268437324" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="21" pc="268437404" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="22" pc="268437415" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="23" pc="268437436" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="25" pc="268437516" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="26" pc="268437527" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="27" pc="268437548" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="29" pc="268437628" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="30" pc="268437639" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="29" lineNum="31" pc="268437660" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="30" lineNum="36" pc="268437741" symbol="timerCooking"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="30" lineNum="37" pc="268437745" symbol="timerCooking"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="32" lineNum="6" pc="268437775" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="32" lineNum="7" pc="268437779" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="32" lineNum="8" pc="268437800" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="33" lineNum="11" pc="268437819" symbol="onMenu"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="33" lineNum="12" pc="268437823" symbol="onMenu"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="33" lineNum="13" pc="268437844" symbol="onMenu"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="34" lineNum="16" pc="268437848" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="34" lineNum="17" pc="268437852" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="34" lineNum="18" pc="268437873" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="35" lineNum="22" pc="268437877" symbol="onKey"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="35" lineNum="23" pc="268437881" symbol="onKey"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="35" lineNum="24" pc="268437908" symbol="onKey"/>
-        <entry filename="Rez" id="41" lineNum="16" pc="268437912" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="41" lineNum="18" pc="268437924" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="41" lineNum="20" pc="268437937" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="41" lineNum="21" pc="268438092" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="41" lineNum="22" pc="268438204" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="41" lineNum="24" pc="268438241" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="42" lineNum="33" pc="268438269" symbol="TimerLayout"/>
-        <entry filename="Rez" id="42" lineNum="36" pc="268438281" symbol="TimerLayout"/>
-        <entry filename="Rez" id="42" lineNum="38" pc="268438481" symbol="TimerLayout"/>
-        <entry filename="Rez" id="45" lineNum="51" pc="268438499" symbol="initialize"/>
-        <entry filename="Rez" id="45" lineNum="52" pc="268438503" symbol="initialize"/>
-        <entry filename="Rez" id="45" lineNum="53" pc="268438521" symbol="initialize"/>
-        <entry filename="Rez" id="45" lineNum="54" pc="268438577" symbol="initialize"/>
-        <entry filename="Rez" id="45" lineNum="55" pc="268438633" symbol="initialize"/>
-        <entry filename="Rez" id="45" lineNum="56" pc="268438689" symbol="initialize"/>
-        <entry filename="Rez" id="45" lineNum="57" pc="268438745" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="56" pc="268436646" symbol="onUpdate"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="57" pc="268436660" symbol="onUpdate"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="24" lineNum="60" pc="268436677" symbol="onUpdate"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="25" lineNum="68" pc="268436698" symbol="onHide"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="71" pc="268436703" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="72" pc="268436707" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="73" pc="268436723" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="75" pc="268436739" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="76" pc="268436755" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="78" pc="268436771" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="82" pc="268436855" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="83" pc="268436871" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="84" pc="268436908" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="86" pc="268436927" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="87" pc="268436964" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="90" pc="268436983" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="98" pc="268437111" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="99" pc="268437151" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="26" lineNum="100" pc="268437163" symbol="countDown"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="27" lineNum="103" pc="268437184" symbol="flipMeat"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="28" lineNum="106" pc="268437189" symbol="timerCallback"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="28" lineNum="107" pc="268437193" symbol="timerCallback"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="28" lineNum="108" pc="268437215" symbol="timerCallback"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="28" lineNum="109" pc="268437237" symbol="timerCallback"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="28" lineNum="112" pc="268437253" symbol="timerCallback"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="28" lineNum="113" pc="268437270" symbol="timerCallback"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="28" lineNum="114" pc="268437288" symbol="timerCallback"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="30" lineNum="8" pc="268437302" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="30" lineNum="9" pc="268437306" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="12" pc="268437325" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="13" pc="268437329" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="14" pc="268437340" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="15" pc="268437361" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="17" pc="268437441" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="18" pc="268437452" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="19" pc="268437473" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="21" pc="268437553" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="22" pc="268437564" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="23" pc="268437585" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="25" pc="268437665" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="26" pc="268437676" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="27" pc="268437697" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="29" pc="268437777" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="30" pc="268437788" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="31" lineNum="31" pc="268437809" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="32" lineNum="36" pc="268437890" symbol="timerCooking"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="32" lineNum="37" pc="268437894" symbol="timerCooking"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="34" lineNum="6" pc="268437924" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="34" lineNum="7" pc="268437928" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="34" lineNum="8" pc="268437949" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="35" lineNum="11" pc="268437968" symbol="onMenu"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="35" lineNum="12" pc="268437972" symbol="onMenu"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="35" lineNum="13" pc="268437993" symbol="onMenu"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="36" lineNum="16" pc="268437997" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="36" lineNum="17" pc="268438001" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="36" lineNum="18" pc="268438022" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="37" lineNum="22" pc="268438026" symbol="onKey"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="37" lineNum="23" pc="268438030" symbol="onKey"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="37" lineNum="24" pc="268438057" symbol="onKey"/>
+        <entry filename="Rez" id="43" lineNum="16" pc="268438061" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="43" lineNum="18" pc="268438073" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="43" lineNum="19" pc="268438225" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="43" lineNum="20" pc="268438337" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="43" lineNum="22" pc="268438377" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="44" lineNum="31" pc="268438405" symbol="TimerLayout"/>
+        <entry filename="Rez" id="44" lineNum="33" pc="268438417" symbol="TimerLayout"/>
+        <entry filename="Rez" id="44" lineNum="35" pc="268438599" symbol="TimerLayout"/>
+        <entry filename="Rez" id="47" lineNum="48" pc="268438617" symbol="initialize"/>
+        <entry filename="Rez" id="47" lineNum="49" pc="268438621" symbol="initialize"/>
+        <entry filename="Rez" id="47" lineNum="50" pc="268438639" symbol="initialize"/>
+        <entry filename="Rez" id="47" lineNum="51" pc="268438695" symbol="initialize"/>
+        <entry filename="Rez" id="47" lineNum="52" pc="268438751" symbol="initialize"/>
+        <entry filename="Rez" id="47" lineNum="53" pc="268438807" symbol="initialize"/>
+        <entry filename="Rez" id="47" lineNum="54" pc="268438863" symbol="initialize"/>
     </pcToLineNum>
     <symbolTable>
         <entry id="8388644" module="true" symbol="System"/>
@@ -128,60 +137,64 @@
         <entry field="true" id="21" symbol="totalSeconds"/>
         <entry id="8389097" method="true" symbol="onKey"/>
         <entry field="true" id="8388611" module="true" symbol="Toybox"/>
-        <entry id="27" object="true" symbol="MainMenu"/>
+        <entry id="31" object="true" symbol="MainMenu"/>
         <entry id="8389619" method="true" symbol="onSelect"/>
         <entry id="8388770" module="true" object="true" symbol="Strings"/>
         <entry id="8389280" method="true" symbol="getInitialView"/>
+        <entry id="24" method="true" symbol="countDown"/>
         <entry id="8388639" module="true" symbol="Graphics"/>
         <entry id="8388769" module="true" object="true" symbol="Rez"/>
         <entry id="8389123" method="true" symbol="onShow"/>
         <entry field="true" id="17" symbol="myText"/>
         <entry id="10" object="true" symbol="welcomeView"/>
         <entry id="8388702" method="true" symbol="initialize"/>
-        <entry field="true" id="37" symbol="AppName"/>
+        <entry field="true" id="41" symbol="AppName"/>
         <entry id="16" method="true" symbol="selectTime"/>
         <entry id="8389080" method="true" symbol="onMenu"/>
         <entry id="9" object="true" symbol="barbecue_appApp"/>
-        <entry id="43" symbol="item_5"/>
-        <entry id="42" symbol="item_4"/>
-        <entry id="41" symbol="item_3"/>
-        <entry id="40" symbol="item_2"/>
-        <entry id="39" symbol="item_1"/>
-        <entry field="true" id="26" symbol="LauncherIcon"/>
+        <entry id="47" symbol="item_5"/>
+        <entry id="46" symbol="item_4"/>
+        <entry id="45" symbol="item_3"/>
+        <entry id="44" symbol="item_2"/>
+        <entry id="43" symbol="item_1"/>
+        <entry field="true" id="30" symbol="LauncherIcon"/>
         <entry id="8388646" module="true" object="true" symbol="Timer"/>
-        <entry field="true" id="30" symbol="menu_label_5"/>
-        <entry field="true" id="32" symbol="menu_label_4"/>
-        <entry field="true" id="31" symbol="menu_label_3"/>
-        <entry field="true" id="35" symbol="menu_label_2"/>
-        <entry field="true" id="34" symbol="menu_label_1"/>
+        <entry field="true" id="34" symbol="menu_label_5"/>
+        <entry field="true" id="36" symbol="menu_label_4"/>
+        <entry field="true" id="35" symbol="menu_label_3"/>
+        <entry field="true" id="39" symbol="menu_label_2"/>
+        <entry field="true" id="38" symbol="menu_label_1"/>
         <entry id="8388648" module="true" symbol="WatchUi"/>
         <entry id="8389281" method="true" symbol="onStop"/>
-        <entry id="38" method="true" symbol="timerCooking"/>
+        <entry id="42" method="true" symbol="timerCooking"/>
         <entry field="true" id="8389065" symbol="locY"/>
         <entry field="true" id="8389064" symbol="locX"/>
         <entry id="8388771" module="true" object="true" symbol="Drawables"/>
-        <entry field="true" id="33" symbol="timer_string"/>
+        <entry field="true" id="37" symbol="timer_string"/>
         <entry id="8389122" method="true" symbol="onLayout"/>
         <entry id="8389279" method="true" symbol="onStart"/>
-        <entry field="true" id="25" symbol="id_bbq"/>
-        <entry id="28" method="true" symbol="WelcomeLayout"/>
+        <entry field="true" id="29" symbol="id_bbq"/>
+        <entry id="32" method="true" symbol="WelcomeLayout"/>
+        <entry id="25" method="true" symbol="flipMeat"/>
         <entry id="8389348" symbol="font"/>
         <entry id="8389347" symbol="color"/>
+        <entry field="true" id="22" symbol="flipped"/>
+        <entry field="true" id="23" symbol="targetMinutes"/>
         <entry id="8389109" method="true" symbol="onMenuItem"/>
         <entry id="12" object="true" symbol="timerView"/>
-        <entry id="23" module="true" symbol="Layouts"/>
-        <entry field="true" id="36" symbol="prompt"/>
-        <entry id="29" method="true" symbol="TimerLayout"/>
+        <entry id="27" module="true" symbol="Layouts"/>
+        <entry field="true" id="40" symbol="prompt"/>
+        <entry id="33" method="true" symbol="TimerLayout"/>
         <entry id="8389125" method="true" symbol="onHide"/>
         <entry field="true" id="20" symbol="elapsedSeconds"/>
         <entry id="8389345" symbol="rezId"/>
         <entry id="8390088" module="true" object="true" symbol="JsonData"/>
-        <entry id="22" method="true" symbol="timerCallback"/>
+        <entry id="26" method="true" symbol="timerCallback"/>
         <entry id="8389346" symbol="text"/>
         <entry field="true" id="8389063" symbol="identifier"/>
         <entry id="11" object="true" symbol="welcomeDelegate"/>
         <entry id="15" method="true" symbol="timerMainScreenCallback"/>
-        <entry id="24" module="true" symbol="Menus"/>
+        <entry id="28" module="true" symbol="Menus"/>
         <entry id="13" object="true" symbol="MenuDelegate"/>
         <entry id="8388772" module="true" object="true" symbol="Fonts"/>
         <entry id="14" object="true" symbol="timerDelegate"/>
@@ -194,23 +207,23 @@
         <entry endPc="268435656" name="dc" stackId="1" startPc="268435631"/>
         <entry endPc="268435863" name="minutes" stackId="1" startPc="268435819"/>
         <entry endPc="268436147" name="keyEvent" stackId="1" startPc="268436112"/>
-        <entry endPc="268436403" name="zero" stackId="2" startPc="268436151"/>
-        <entry endPc="268436404" name="minutes" stackId="1" startPc="268436147"/>
-        <entry endPc="268436477" name="dc" stackId="1" startPc="268436404"/>
-        <entry endPc="268437082" name="actualSeconds" stackId="3" startPc="268436626"/>
-        <entry endPc="268437082" name="color" stackId="6" startPc="268436626"/>
-        <entry endPc="268437082" name="reverseSeconds" stackId="5" startPc="268436626"/>
-        <entry endPc="268437082" name="reverseMinutes" stackId="4" startPc="268436626"/>
-        <entry endPc="268437082" name="actualMinutes" stackId="2" startPc="268436626"/>
-        <entry endPc="268437083" name="dc" stackId="1" startPc="268436622"/>
-        <entry endPc="268437741" name="item" stackId="1" startPc="268437176"/>
-        <entry endPc="268437912" name="keyEvent" stackId="1" startPc="268437877"/>
-        <entry endPc="268438268" name="rez_cmp_local_var_dc_getWidth" stackId="2" startPc="268437924"/>
-        <entry endPc="268438268" name="rez_cmp_local_text_6247780888" stackId="3" startPc="268437924"/>
-        <entry endPc="268438268" name="rez_cmp_local_bitmap_id_bbq" stackId="4" startPc="268437924"/>
-        <entry endPc="268438269" name="dc" stackId="1" startPc="268437912"/>
-        <entry endPc="268438498" name="rez_cmp_local_text_2136719008" stackId="2" startPc="268438281"/>
-        <entry endPc="268438499" name="dc" stackId="1" startPc="268438269"/>
+        <entry endPc="268436423" name="zero" stackId="2" startPc="268436151"/>
+        <entry endPc="268436424" name="minutes" stackId="1" startPc="268436147"/>
+        <entry endPc="268436497" name="dc" stackId="1" startPc="268436424"/>
+        <entry endPc="268436698" name="dc" stackId="1" startPc="268436642"/>
+        <entry endPc="268437183" name="actualSeconds" stackId="3" startPc="268436707"/>
+        <entry endPc="268437183" name="color" stackId="6" startPc="268436707"/>
+        <entry endPc="268437183" name="reverseSeconds" stackId="5" startPc="268436707"/>
+        <entry endPc="268437183" name="reverseMinutes" stackId="4" startPc="268436707"/>
+        <entry endPc="268437183" name="actualMinutes" stackId="2" startPc="268436707"/>
+        <entry endPc="268437184" name="dc" stackId="1" startPc="268436703"/>
+        <entry endPc="268437890" name="item" stackId="1" startPc="268437325"/>
+        <entry endPc="268438061" name="keyEvent" stackId="1" startPc="268438026"/>
+        <entry endPc="268438404" name="rez_cmp_local_text_5523789936" stackId="2" startPc="268438073"/>
+        <entry endPc="268438404" name="rez_cmp_local_bitmap_id_bbq" stackId="3" startPc="268438073"/>
+        <entry endPc="268438405" name="dc" stackId="1" startPc="268438061"/>
+        <entry endPc="268438616" name="rez_cmp_local_text_8720971561" stackId="2" startPc="268438417"/>
+        <entry endPc="268438617" name="dc" stackId="1" startPc="268438405"/>
     </localVars>
     <annotations/>
     <dataEntryOffsetMappings>
@@ -219,16 +232,16 @@
         <dataEntry offset="325" parentId="globals" symbolId="barbecue_appApp" type="class"/>
         <dataEntry offset="396" parentId="globals" symbolId="timerDelegate" type="class"/>
         <dataEntry offset="467" parentId="globals" symbolId="timerView" type="class"/>
-        <dataEntry offset="594" parentId="globals" symbolId="Rez" type="module"/>
-        <dataEntry offset="673" parentId="Rez" symbolId="Drawables" type="module"/>
-        <dataEntry offset="720" parentId="Rez" symbolId="Menus" type="module"/>
-        <dataEntry offset="759" parentId="Menus" symbolId="MainMenu" type="class"/>
-        <dataEntry offset="806" parentId="Rez" symbolId="Fonts" type="module"/>
-        <dataEntry offset="837" parentId="Rez" symbolId="Layouts" type="module"/>
-        <dataEntry offset="884" parentId="Rez" symbolId="JsonData" type="module"/>
-        <dataEntry offset="915" parentId="Rez" symbolId="Strings" type="module"/>
-        <dataEntry offset="1010" parentId="globals" symbolId="MenuDelegate" type="class"/>
-        <dataEntry offset="1073" parentId="globals" symbolId="welcomeDelegate" type="class"/>
+        <dataEntry offset="626" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry offset="705" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry offset="752" parentId="Rez" symbolId="Menus" type="module"/>
+        <dataEntry offset="791" parentId="Menus" symbolId="MainMenu" type="class"/>
+        <dataEntry offset="838" parentId="Rez" symbolId="Fonts" type="module"/>
+        <dataEntry offset="869" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry offset="916" parentId="Rez" symbolId="JsonData" type="module"/>
+        <dataEntry offset="947" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry offset="1042" parentId="globals" symbolId="MenuDelegate" type="class"/>
+        <dataEntry offset="1105" parentId="globals" symbolId="welcomeDelegate" type="class"/>
     </dataEntryOffsetMappings>
     <functions>
         <functionEntry accessMode="public" name="initialize" parent="barbecue_appApp">
@@ -298,6 +311,13 @@
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="onHide" parent="timerView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="countDown" parent="timerView">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="flipMeat" parent="timerView">
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="timerCallback" parent="timerView">

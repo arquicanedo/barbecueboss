@@ -9,6 +9,8 @@ class timerView extends WatchUi.View {
     hidden var myTimer;
     hidden var elapsedSeconds;
 	hidden var totalSeconds;
+	hidden var flipped;
+	hidden var targetMinutes;
 
     function initialize(minutes) {
     	System.println("timerView() initialized... ping");
@@ -23,6 +25,8 @@ class timerView extends WatchUi.View {
     	myTimer.start(method(:timerCallback), 1000, true);
     	elapsedSeconds = 0;
     	totalSeconds = minutes*60;
+    	flipped = false;
+    	targetMinutes = minutes;
     	
     }
 
@@ -49,7 +53,22 @@ class timerView extends WatchUi.View {
     // Update the view
     function onUpdate(dc) {
         // Call the parent onUpdate function to redraw the layout
+        if (flipped == false) {
+			countDown(dc);
+		}
+		else {
+			self.initialize(targetMinutes);
+		}
         
+    }
+
+    // Called when this View is removed from the screen. Save the
+    // state of this View here. This includes freeing resources from
+    // memory.
+    function onHide() {
+    }
+    
+    function countDown(dc) {
         var actualMinutes = elapsedSeconds / 60;
         var actualSeconds = elapsedSeconds % 60;
         
@@ -64,9 +83,9 @@ class timerView extends WatchUi.View {
     	if (totalSeconds <= 20 && totalSeconds > 10) {
     		color = Graphics.COLOR_ORANGE;
     	}
-    	else if (totalSeconds <= 10) {
+    	else if (totalSeconds <= 10 && totalSeconds >= 0) {
     		color = Graphics.COLOR_RED;
-    	}
+    	}    	
     		
     	myText = new WatchUi.Text({
             :text=>myMinutes,
@@ -80,18 +99,20 @@ class timerView extends WatchUi.View {
         dc.clear();
         myText.draw(dc);
     }
-
-    // Called when this View is removed from the screen. Save the
-    // state of this View here. This includes freeing resources from
-    // memory.
-    function onHide() {
-    }
     
+    function flipMeat() {
+    }
     
     function timerCallback() {
     	elapsedSeconds = elapsedSeconds + 1;
     	totalSeconds = totalSeconds - 1;
     	WatchUi.requestUpdate();
+    	
+    	// Stop the timer after the 00:00 has been rendered
+    	if (totalSeconds == 0) {
+    		myTimer.stop();
+    		flipped = true;
+    	}
 	}
 
 
