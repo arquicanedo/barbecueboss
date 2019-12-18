@@ -25,7 +25,8 @@ class Controller {
 	
 	enum {
     	COOKING, 
-    	FLIPPING,
+    	USER_FLIPPING,
+    	AUTO_FLIPPING,
     	SAVING,
     	EXIT
     }
@@ -73,8 +74,11 @@ class Controller {
     	if (self.status == COOKING) {
 			self.setCookingStatusText("Cooking");
 		}
-		else if (self.status == FLIPPING) {
-			self.setCookingStatusText("Confirm to continue");
+		else if (self.status == USER_FLIPPING) {
+			self.setCookingStatusText("Confirm flip");
+		}
+		else if (self.status == AUTO_FLIPPING) {
+			self.setCookingStatusText("Another flip?");
 		}
 		else if (self.status == SAVING) {
 			self.setCookingStatusText("Save?");
@@ -167,12 +171,14 @@ class Controller {
     
     function tick() {
         System.println("Tick...");
-        elapsedSeconds = elapsedSeconds + 1;
-    	totalSeconds = totalSeconds - 1;
     	// Stop the timer after the 00:00 has been reached and get confirmation to continue
-    	if (totalSeconds == 0) {
-    		status = FLIPPING;
+    	if (totalSeconds <= 0) {
+    		status = AUTO_FLIPPING;
     		self.timerStop();
+    	}
+    	else {
+    	    elapsedSeconds = elapsedSeconds + 1;
+    		totalSeconds = totalSeconds - 1;
     	}
     	Toybox.WatchUi.requestUpdate();
     }
@@ -196,11 +202,17 @@ class Controller {
 	
 	function decideSelection() {
 		if (self.status == COOKING) {
-			System.println("Selection received, going to FLIPPING");
+			System.println("Selection received, going to USER_FLIPPING");
 			self.timerStop();
-			self.status = FLIPPING;
+			self.status = USER_FLIPPING;
 		}
-		else if (self.status == FLIPPING) {
+		else if (self.status == USER_FLIPPING) {
+			System.println("Selection received, going to COOKING");
+			self.timerRestart();
+			self.status = COOKING;
+			self.flipMeat();
+		}
+		else if (self.status == AUTO_FLIPPING) {
 			System.println("Selection received, going to COOKING");
 			self.timerRestart();
 			self.status = COOKING;
@@ -220,10 +232,15 @@ class Controller {
 			self.timerStop();
 			self.status = SAVING;
 		}
-		else if (self.status == FLIPPING) {
+		else if (self.status == USER_FLIPPING) {
 			System.println("Back received, going to COOKING");
 			self.timerResume();
 			self.status = COOKING;
+		}
+		else if (self.status == AUTO_FLIPPING) {
+			System.println("Back received, going to SAVING");
+			self.timerStop();
+			self.status = SAVING;
 		}
 		else if (self.status == SAVING) {
 			System.println("Back received, going to COOKING");
