@@ -1,10 +1,15 @@
 using Toybox.Application;
 using Toybox.WatchUi;
+using Toybox.System;
+
 
 class barbecue_appApp extends Application.AppBase {
 
+	public var controller;
+	
     function initialize() {
         AppBase.initialize();
+        controller = new Controller();
     }
 
     // onStart() is called on application start up
@@ -19,5 +24,6 @@ class barbecue_appApp extends Application.AppBase {
     function getInitialView() {
         return [ new welcomeView(), new welcomeDelegate() ];
     }
+    
 
 }

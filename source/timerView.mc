@@ -25,7 +25,7 @@ class timerView extends WatchUi.View {
     	myTimer.start(method(:timerCallback), 1000, true);
     	elapsedSeconds = 0;
     	totalSeconds = minutes*60;
-    	flipped = false;
+    	flipped = 0;
     	targetMinutes = minutes;
     	
     }
@@ -53,7 +53,7 @@ class timerView extends WatchUi.View {
     // Update the view
     function onUpdate(dc) {
         // Call the parent onUpdate function to redraw the layout
-        if (flipped == false) {
+        if (flipped == 0) {
 			countDown(dc);
 		}
 		else {
@@ -101,6 +101,7 @@ class timerView extends WatchUi.View {
     }
     
     function flipMeat() {
+    	flipped = flipped + 1;
     }
     
     function timerCallback() {
@@ -111,7 +112,7 @@ class timerView extends WatchUi.View {
     	// Stop the timer after the 00:00 has been rendered
     	if (totalSeconds == 0) {
     		myTimer.stop();
-    		flipped = true;
+    		self.flipMeat();
     	}
 	}
 
