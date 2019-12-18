@@ -221,7 +221,8 @@ class Controller {
 		else if (self.status == SAVING) {
 			System.println("Selection received, going to EXIT");
 			self.saveActivity();
-			self.status = EXIT;
+			self.status = COOKING;
+			WatchUi.popView(Toybox.WatchUi.SLIDE_DOWN);
 		}
 		Toybox.WatchUi.requestUpdate();
 	}
