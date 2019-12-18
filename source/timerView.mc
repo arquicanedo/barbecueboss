@@ -16,8 +16,10 @@ class timerView extends WatchUi.View {
     	app = Application.getApp();
     	app.controller.initializeTimer(minutes);
     	
+    	/*
     	myTimer = new Timer.Timer();
     	myTimer.start(method(:timerCallback), 1000, true);
+    	*/
     	
     	View.initialize();
     }
@@ -47,10 +49,5 @@ class timerView extends WatchUi.View {
     // memory.
     function onHide() {
     }
- 
-    function timerCallback() {
-    	app.controller.tick(myTimer);
-	}
-
 
 }

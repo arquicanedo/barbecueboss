@@ -22,7 +22,14 @@ class timerDelegate extends WatchUi.BehaviorDelegate {
     
    	function onSelect() {
 		System.println("barbecue_timerDelegate.onSelect Menu behavior triggered");
-		app.controller.flipMeat();
+		//app.controller.flipMeat();
+		if (app.controller.isPaused() == false) {
+			System.println("controller is not paused");
+			app.controller.myTimer.stop();
+		}
+		else {
+			System.println("controller is PAUSED");
+		}
 		return true;
 	}
 	
