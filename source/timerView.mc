@@ -14,7 +14,8 @@ class timerView extends WatchUi.View {
     function initialize(minutes) {
     	System.println("timerView() initialized...");
     	app = Application.getApp();
-    	app.controller.initializeTimer(minutes);
+    	app.controller.initializeTimerView(minutes);
+
     	
     	/*
     	myTimer = new Timer.Timer();

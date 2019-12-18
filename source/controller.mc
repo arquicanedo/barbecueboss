@@ -21,6 +21,7 @@ class Controller {
 	
 	function initialize() {
 		System.println("initializing controller...");
+		myTimer = new Timer.Timer();
 		paused = false;
 	}
     
@@ -83,16 +84,21 @@ class Controller {
     function initializeTimer(minutes) {
         System.println(minutes);
      
-        myTimer = new Timer.Timer();
     	myTimer.start(method(:timerCallback), 1000, true);
      
-     
 		resetTimer(minutes);
-    	flipped = 0;
-    
-        self.setFlipText();
         self.setTimerText();    
     }
+    
+    function initializeFlip() {
+    	flipped = 0;
+    	self.setFlipText();
+    }
+    
+	function initializeTimerView(minutes) {
+		initializeTimer(minutes);
+		initializeFlip();
+	}
     
     
     function countDown(dc) {
@@ -114,20 +120,34 @@ class Controller {
     	
     	System.println("Tick...");
 
-    	// Stop the timer after the 00:00 has been rendered
+    	// Stop the timer after the 00:00 has been reached and get confirmation to continue
     	if (totalSeconds == 0) {
     		paused = true;
-    		flipMeat();
+    		self.myTimer.stop();
     	}
     }
     
     function isPaused() {
     	return self.paused;
     }
-
+    
 	 
     function timerCallback() {
     	self.tick();
+	}
+	
+	function decideSelection() {
+		if (self.isPaused() == false) {
+			System.println("Selection received, stopping");
+			self.myTimer.stop();
+			self.paused = true;
+		}
+		else {
+			System.println("Selection received, flipping");
+			self.flipMeat();
+			self.initializeTimer(targetMinutes);
+			self.paused = false;
+		}
 	}
 
 }
