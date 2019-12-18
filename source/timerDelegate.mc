@@ -23,17 +23,6 @@ class timerDelegate extends WatchUi.BehaviorDelegate {
    	function onSelect() {
 		System.println("barbecue_timerDelegate.onSelect Menu behavior triggered");
 		app.controller.decideSelection();
-		
-		/*
-		//app.controller.flipMeat();
-		if (app.controller.isPaused() == false) {
-			System.println("controller is not paused");
-			app.controller.myTimer.stop();
-		}
-		else {
-			System.println("controller is PAUSED");
-		}
-		*/
 		return true;
 	}
 	
@@ -41,6 +30,13 @@ class timerDelegate extends WatchUi.BehaviorDelegate {
     function onKey(keyEvent) {
         System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
         return true;
+    }
+    
+    // Detect Back button input
+    function onBack() {
+    	System.println("Back button input received");
+    	app.controller.decideCancellation();
+    	return true;
     }
 
 }

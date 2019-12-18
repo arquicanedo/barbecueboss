@@ -41,7 +41,7 @@ class timerView extends WatchUi.View {
     // Update the view
     function onUpdate(dc) {
         // Call the parent onUpdate function to redraw the layout
-		app.controller.countDown(dc);
+		app.controller.drawTimer(dc);
         
     }
 

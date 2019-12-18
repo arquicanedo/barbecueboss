@@ -24,5 +24,6 @@ class welcomeDelegate extends WatchUi.BehaviorDelegate {
         System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
         return true;
     }
+    
 
 }

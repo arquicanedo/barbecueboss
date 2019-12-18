@@ -1,7 +1,7 @@
 using Toybox.Application;
 using Toybox.WatchUi;
 using Toybox.System;
-
+using Toybox.Timer;
 
 class Controller {
 
@@ -12,23 +12,37 @@ class Controller {
 	hidden var myFlipText;
     hidden var myMinutes;
     hidden var myFlip;
+    hidden var myCookingStatusText;
+    hidden var myCookingStatus;
     hidden var elapsedSeconds;
 	hidden var totalSeconds;
 
 	hidden var targetMinutes;
 	hidden var app;
 	hidden var paused;
+	hidden var cancelled;
+	hidden var status;
+	
+	enum {
+    	COOKING, 
+    	FLIPPING,
+    	SAVING,
+    	EXIT
+    }
 	
 	function initialize() {
 		System.println("initializing controller...");
 		myTimer = new Timer.Timer();
 		paused = false;
+		cancelled = false;
+		status = COOKING;
 	}
     
     function flipMeat() {
     	flipped = flipped + 1;
     	System.println("The meat has been flipped");
     	self.resetTimer(targetMinutes);
+    	self.initializeSystemTimer(targetMinutes);
     }
     
     function setFlipText() {
@@ -44,12 +58,34 @@ class Controller {
 
     }
     
+    function setCookingStatusText(status) {
+    	myCookingStatus = Lang.format("$1$", [status]);
+    	myCookingStatusText = new WatchUi.Text({
+    	    :text=>myCookingStatus,
+            :color=>Graphics.COLOR_WHITE,
+            :font=>Graphics.FONT_MEDIUM,
+            :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY=>20
+        });
+    }
+    
+    function updateCookingStatusText() {
+    	if (self.status == COOKING) {
+			self.setCookingStatusText("Cooking");
+		}
+		else if (self.status == FLIPPING) {
+			self.setCookingStatusText("Confirm to continue");
+		}
+		else if (self.status == SAVING) {
+			self.setCookingStatusText("Save?");
+		}
+    }
+    
+    // Goes back to the user selection of time for a new flip
     function resetTimer(minutes) {
     	elapsedSeconds = 0;
     	totalSeconds = minutes*60;
     	targetMinutes = minutes;
-    	WatchUi.requestUpdate();
-    	
     }
     
     function setTimerText() {
@@ -81,11 +117,12 @@ class Controller {
         });
     }
     
-    function initializeTimer(minutes) {
+    // initializes System Timer
+    function initializeSystemTimer(minutes) {
         System.println(minutes);
-     
-    	myTimer.start(method(:timerCallback), 1000, true);
-     
+     	self.myTimer.stop();
+    	self.myTimer.start(method(:timerCallback), 1000, true);
+     	System.println("Resetting system timer");
 		resetTimer(minutes);
         self.setTimerText();    
     }
@@ -96,39 +133,56 @@ class Controller {
     }
     
 	function initializeTimerView(minutes) {
-		initializeTimer(minutes);
+		initializeSystemTimer(minutes);
 		initializeFlip();
+	}
+	
+	function timerStop() {
+		self.myTimer.stop();
+	}
+	
+	function timerResume() {
+	    self.myTimer.start(method(:timerCallback), 1000, true);
+	}
+	
+	function timerRestart() {
+	    self.initializeSystemTimer(targetMinutes);
 	}
     
     
-    function countDown(dc) {
-		System.println("countDown()");
-	
+    function drawTimer(dc) {
+    	System.println("drawTimer...");
     	self.setFlipText();
 		self.setTimerText();
+		self.updateCookingStatusText();
 		
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
         dc.clear();
+        
         myTimerText.draw(dc);
         myFlipText.draw(dc);
+        myCookingStatusText.draw(dc);        
     }
     
+    
     function tick() {
+        System.println("Tick...");
         elapsedSeconds = elapsedSeconds + 1;
     	totalSeconds = totalSeconds - 1;
-    	WatchUi.requestUpdate();
-    	
-    	System.println("Tick...");
-
     	// Stop the timer after the 00:00 has been reached and get confirmation to continue
     	if (totalSeconds == 0) {
-    		paused = true;
-    		self.myTimer.stop();
+    		status = FLIPPING;
+    		self.timerStop();
     	}
+    	Toybox.WatchUi.requestUpdate();
     }
     
     function isPaused() {
     	return self.paused;
+    }
+    
+    function isCancelled() {
+    	return self.cancelled;
     }
     
 	 
@@ -136,18 +190,47 @@ class Controller {
     	self.tick();
 	}
 	
+	function saveActivity() {
+		System.println("TODO: saving activity...");
+	}
+	
 	function decideSelection() {
-		if (self.isPaused() == false) {
-			System.println("Selection received, stopping");
-			self.myTimer.stop();
-			self.paused = true;
+		if (self.status == COOKING) {
+			System.println("Selection received, going to FLIPPING");
+			self.timerStop();
+			self.status = FLIPPING;
 		}
-		else {
-			System.println("Selection received, flipping");
+		else if (self.status == FLIPPING) {
+			System.println("Selection received, going to COOKING");
+			self.timerRestart();
+			self.status = COOKING;
 			self.flipMeat();
-			self.initializeTimer(targetMinutes);
-			self.paused = false;
 		}
+		else if (self.status == SAVING) {
+			System.println("Selection received, going to EXIT");
+			self.saveActivity();
+			self.status = EXIT;
+		}
+		Toybox.WatchUi.requestUpdate();
+	}
+	
+	function decideCancellation() {
+		if (self.status == COOKING) {
+			System.println("Back received, going to SAVING");
+			self.timerStop();
+			self.status = SAVING;
+		}
+		else if (self.status == FLIPPING) {
+			System.println("Back received, going to COOKING");
+			self.timerResume();
+			self.status = COOKING;
+		}
+		else if (self.status == SAVING) {
+			System.println("Back received, going to COOKING");
+			self.timerResume();
+			self.status = COOKING;
+		}
+		Toybox.WatchUi.requestUpdate();		
 	}
 
 }
