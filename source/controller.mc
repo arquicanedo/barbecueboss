@@ -2,6 +2,8 @@ using Toybox.Application;
 using Toybox.WatchUi;
 using Toybox.System;
 using Toybox.Timer;
+using Toybox.Position;
+
 
 class Controller {
 
@@ -30,6 +32,24 @@ class Controller {
     	SAVING,
     	EXIT
     }
+    
+    // https://forums.garmin.com/developer/connect-iq/f/discussion/6626/position-accuracy-is-always-position-quality_last_known/44227#44227	
+    function onPosition(info) {
+    	System.println("GPS Acc: " + info.accuracy);
+	    System.println("GPS Position " + info.position.toGeoString( Position.GEO_DEG ) );
+	}
+    
+	function initializeGPS() {
+		System.println("Initializing GPS sensing.......");
+	    Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :onPosition ) );
+	}
+	
+	function printGPS() {
+	    var gpsinfo = Position.getInfo();
+		System.println("GPS Acc: " + gpsinfo.accuracy);
+    	System.println("GPS Position " + gpsinfo.position.toGeoString( Position.GEO_DM ) );
+	}
+
 	
 	function initialize() {
 		System.println("initializing controller...");
@@ -37,6 +57,9 @@ class Controller {
 		paused = false;
 		cancelled = false;
 		status = COOKING;
+		self.initializeGPS();
+
+
 	}
     
     function flipMeat() {
@@ -171,6 +194,7 @@ class Controller {
     
     function tick() {
         System.println("Tick...");
+        self.printGPS();
     	// Stop the timer after the 00:00 has been reached and get confirmation to continue
     	if (totalSeconds <= 0) {
     		status = AUTO_FLIPPING;

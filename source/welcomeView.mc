@@ -2,9 +2,8 @@ using Toybox.WatchUi;
 using Toybox.Timer;
 using Toybox.System;
 
+
 class welcomeView extends WatchUi.View {
-
-
 	
     function initialize() {
         View.initialize();
