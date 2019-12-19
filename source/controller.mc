@@ -59,6 +59,9 @@ class Controller {
 		status = COOKING;
 		self.initializeGPS();
 
+		// TODO: Session
+		// TODO: https://forums.garmin.com/developer/connect-iq/f/q-a/171125/state-of-session-after-save/922655#922655
+		// TODO: https://developer.garmin.com/connect-iq/api-docs/
 
 	}
     

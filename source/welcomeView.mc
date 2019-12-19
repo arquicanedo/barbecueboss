@@ -11,7 +11,7 @@ class welcomeView extends WatchUi.View {
 
     // Load your resources here
     function onLayout(dc) {
-	    setLayout(Rez.Layouts.WelcomeLayout(dc));
+	    View.setLayout(Rez.Layouts.WelcomeLayout(dc));
     }
 
     // Called when this View is brought to the foreground. Restore
