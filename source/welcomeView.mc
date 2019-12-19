@@ -44,5 +44,4 @@ class welcomeView extends WatchUi.View {
 		System.println(minutes);
 	}
 
-
 }

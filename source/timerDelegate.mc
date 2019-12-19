@@ -13,6 +13,7 @@ class timerDelegate extends WatchUi.BehaviorDelegate {
         System.println("barbecue_timerDelegate.initialize()");
         app = Application.getApp();
         BehaviorDelegate.initialize();
+        app.controller.recordingStart();
     }
 
     function onMenu() {

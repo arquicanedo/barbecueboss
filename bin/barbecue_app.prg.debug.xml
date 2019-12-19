@@ -23,248 +23,279 @@
         <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeView.mc" id="14" lineNum="42" pc="268435855" symbol="selectTime"/>
         <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeView.mc" id="14" lineNum="43" pc="268435859" symbol="selectTime"/>
         <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeView.mc" id="14" lineNum="44" pc="268435880" symbol="selectTime"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="16" lineNum="37" pc="268435899" symbol="onPosition"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="16" lineNum="38" pc="268435903" symbol="onPosition"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="16" lineNum="39" pc="268435933" symbol="onPosition"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="17" lineNum="42" pc="268435985" symbol="initializeGPS"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="17" lineNum="43" pc="268435989" symbol="initializeGPS"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="17" lineNum="44" pc="268436010" symbol="initializeGPS"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="18" lineNum="47" pc="268436055" symbol="printGPS"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="18" lineNum="48" pc="268436059" symbol="printGPS"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="18" lineNum="49" pc="268436076" symbol="printGPS"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="18" lineNum="50" pc="268436106" symbol="printGPS"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="19" lineNum="54" pc="268436158" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="19" lineNum="55" pc="268436162" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="19" lineNum="56" pc="268436183" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="19" lineNum="57" pc="268436217" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="19" lineNum="58" pc="268436227" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="19" lineNum="59" pc="268436237" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="19" lineNum="60" pc="268436253" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="20" lineNum="68" pc="268436266" symbol="flipMeat"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="20" lineNum="69" pc="268436270" symbol="flipMeat"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="20" lineNum="70" pc="268436292" symbol="flipMeat"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="20" lineNum="71" pc="268436313" symbol="flipMeat"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="20" lineNum="72" pc="268436333" symbol="flipMeat"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="21" lineNum="75" pc="268436354" symbol="setFlipText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="21" lineNum="76" pc="268436358" symbol="setFlipText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="21" lineNum="78" pc="268436437" symbol="setFlipText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="22" lineNum="88" pc="268436571" symbol="setCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="22" lineNum="89" pc="268436575" symbol="setCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="22" lineNum="90" pc="268436621" symbol="setCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="99" pc="268436755" symbol="updateCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="100" pc="268436759" symbol="updateCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="101" pc="268436779" symbol="updateCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="103" pc="268436799" symbol="updateCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="104" pc="268436819" symbol="updateCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="106" pc="268436839" symbol="updateCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="107" pc="268436859" symbol="updateCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="109" pc="268436879" symbol="updateCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="110" pc="268436899" symbol="updateCookingStatusText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="24" lineNum="115" pc="268436920" symbol="resetTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="24" lineNum="116" pc="268436924" symbol="resetTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="24" lineNum="117" pc="268436937" symbol="resetTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="24" lineNum="118" pc="268436953" symbol="resetTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="121" pc="268436964" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="122" pc="268436968" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="123" pc="268436975" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="124" pc="268436991" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="126" pc="268437007" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="127" pc="268437023" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="129" pc="268437039" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="130" pc="268437055" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="131" pc="268437092" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="133" pc="268437111" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="134" pc="268437148" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="137" pc="268437167" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="141" pc="268437251" symbol="setTimerText"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="26" lineNum="151" pc="268437380" symbol="initializeSystemTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="26" lineNum="152" pc="268437384" symbol="initializeSystemTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="26" lineNum="153" pc="268437402" symbol="initializeSystemTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="26" lineNum="154" pc="268437420" symbol="initializeSystemTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="26" lineNum="155" pc="268437461" symbol="initializeSystemTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="26" lineNum="156" pc="268437482" symbol="initializeSystemTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="26" lineNum="157" pc="268437496" symbol="initializeSystemTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="160" pc="268437509" symbol="initializeFlip"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="161" pc="268437513" symbol="initializeFlip"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="162" pc="268437526" symbol="initializeFlip"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="28" lineNum="165" pc="268437539" symbol="initializeTimerView"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="28" lineNum="166" pc="268437543" symbol="initializeTimerView"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="28" lineNum="167" pc="268437557" symbol="initializeTimerView"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="170" pc="268437570" symbol="timerStop"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="171" pc="268437574" symbol="timerStop"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="30" lineNum="174" pc="268437593" symbol="timerResume"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="30" lineNum="175" pc="268437597" symbol="timerResume"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="31" lineNum="178" pc="268437639" symbol="timerRestart"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="31" lineNum="179" pc="268437643" symbol="timerRestart"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="183" pc="268437664" symbol="drawTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="184" pc="268437668" symbol="drawTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="185" pc="268437689" symbol="drawTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="186" pc="268437701" symbol="drawTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="187" pc="268437713" symbol="drawTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="189" pc="268437725" symbol="drawTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="190" pc="268437765" symbol="drawTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="192" pc="268437777" symbol="drawTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="193" pc="268437797" symbol="drawTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="194" pc="268437817" symbol="drawTimer"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="198" pc="268437838" symbol="tick"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="199" pc="268437842" symbol="tick"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="200" pc="268437863" symbol="tick"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="202" pc="268437875" symbol="tick"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="203" pc="268437892" symbol="tick"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="204" pc="268437908" symbol="tick"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="207" pc="268437923" symbol="tick"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="208" pc="268437945" symbol="tick"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="210" pc="268437967" symbol="tick"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="34" lineNum="213" pc="268437992" symbol="isPaused"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="34" lineNum="214" pc="268437996" symbol="isPaused"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="35" lineNum="217" pc="268438006" symbol="isCancelled"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="35" lineNum="218" pc="268438010" symbol="isCancelled"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="222" pc="268438020" symbol="timerCallback"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="223" pc="268438024" symbol="timerCallback"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="226" pc="268438037" symbol="saveActivity"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="227" pc="268438041" symbol="saveActivity"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="230" pc="268438063" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="231" pc="268438067" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="232" pc="268438087" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="233" pc="268438108" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="234" pc="268438120" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="236" pc="268438139" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="237" pc="268438159" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="238" pc="268438180" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="239" pc="268438192" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="240" pc="268438208" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="242" pc="268438223" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="243" pc="268438243" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="244" pc="268438264" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="245" pc="268438276" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="246" pc="268438292" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="248" pc="268438307" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="249" pc="268438327" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="250" pc="268438348" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="251" pc="268438360" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="252" pc="268438376" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="254" pc="268438415" symbol="decideSelection"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="257" pc="268438440" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="258" pc="268438444" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="259" pc="268438464" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="260" pc="268438485" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="261" pc="268438497" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="263" pc="268438516" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="264" pc="268438536" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="265" pc="268438557" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="266" pc="268438569" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="268" pc="268438588" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="269" pc="268438608" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="270" pc="268438629" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="271" pc="268438641" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="273" pc="268438660" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="274" pc="268438680" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="275" pc="268438701" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="276" pc="268438713" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="278" pc="268438732" symbol="decideCancellation"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="41" lineNum="6" pc="268438757" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="41" lineNum="7" pc="268438761" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="41" lineNum="8" pc="268438782" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="42" lineNum="11" pc="268438801" symbol="onMenu"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="42" lineNum="12" pc="268438805" symbol="onMenu"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="42" lineNum="13" pc="268438889" symbol="onMenu"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="43" lineNum="16" pc="268438893" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="43" lineNum="17" pc="268438897" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="43" lineNum="18" pc="268438918" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="43" lineNum="19" pc="268439002" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="44" lineNum="23" pc="268439006" symbol="onKey"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="44" lineNum="24" pc="268439010" symbol="onKey"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="44" lineNum="25" pc="268439037" symbol="onKey"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="46" lineNum="14" pc="268439041" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="46" lineNum="15" pc="268439045" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="46" lineNum="16" pc="268439066" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="46" lineNum="17" pc="268439089" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="46" lineNum="25" pc="268439115" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="47" lineNum="29" pc="268439134" symbol="onLayout"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="47" lineNum="30" pc="268439138" symbol="onLayout"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="47" lineNum="31" pc="268439159" symbol="onLayout"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="48" lineNum="37" pc="268439207" symbol="onShow"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="48" lineNum="38" pc="268439211" symbol="onShow"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="49" lineNum="42" pc="268439233" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="49" lineNum="44" pc="268439237" symbol="onUpdate"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="50" lineNum="51" pc="268439264" symbol="onHide"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="52" lineNum="8" pc="268439269" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="52" lineNum="9" pc="268439273" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="12" pc="268439292" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="13" pc="268439296" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="14" pc="268439307" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="15" pc="268439328" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="17" pc="268439408" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="18" pc="268439419" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="19" pc="268439440" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="21" pc="268439520" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="22" pc="268439531" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="23" pc="268439552" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="25" pc="268439632" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="26" pc="268439643" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="27" pc="268439664" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="29" pc="268439744" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="30" pc="268439755" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="53" lineNum="31" pc="268439776" symbol="onMenuItem"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="54" lineNum="36" pc="268439857" symbol="timerCooking"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="54" lineNum="37" pc="268439861" symbol="timerCooking"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="56" lineNum="12" pc="268439891" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="56" lineNum="13" pc="268439895" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="56" lineNum="14" pc="268439916" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="56" lineNum="15" pc="268439939" symbol="initialize"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="57" lineNum="18" pc="268439958" symbol="onMenu"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="57" lineNum="19" pc="268439962" symbol="onMenu"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="57" lineNum="20" pc="268439983" symbol="onMenu"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="58" lineNum="23" pc="268439987" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="58" lineNum="24" pc="268439991" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="58" lineNum="25" pc="268440012" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="58" lineNum="26" pc="268440036" symbol="onSelect"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="59" lineNum="30" pc="268440040" symbol="onKey"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="59" lineNum="31" pc="268440044" symbol="onKey"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="59" lineNum="32" pc="268440071" symbol="onKey"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="60" lineNum="36" pc="268440075" symbol="onBack"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="60" lineNum="37" pc="268440079" symbol="onBack"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="60" lineNum="38" pc="268440100" symbol="onBack"/>
-        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="60" lineNum="39" pc="268440124" symbol="onBack"/>
-        <entry filename="Rez" id="66" lineNum="16" pc="268440128" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="66" lineNum="18" pc="268440140" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="66" lineNum="19" pc="268440292" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="66" lineNum="20" pc="268440404" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="66" lineNum="22" pc="268440444" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="67" lineNum="31" pc="268440472" symbol="TimerLayout"/>
-        <entry filename="Rez" id="67" lineNum="33" pc="268440484" symbol="TimerLayout"/>
-        <entry filename="Rez" id="67" lineNum="35" pc="268440666" symbol="TimerLayout"/>
-        <entry filename="Rez" id="70" lineNum="48" pc="268440684" symbol="initialize"/>
-        <entry filename="Rez" id="70" lineNum="49" pc="268440688" symbol="initialize"/>
-        <entry filename="Rez" id="70" lineNum="50" pc="268440706" symbol="initialize"/>
-        <entry filename="Rez" id="70" lineNum="51" pc="268440762" symbol="initialize"/>
-        <entry filename="Rez" id="70" lineNum="52" pc="268440818" symbol="initialize"/>
-        <entry filename="Rez" id="70" lineNum="53" pc="268440874" symbol="initialize"/>
-        <entry filename="Rez" id="70" lineNum="54" pc="268440930" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="16" lineNum="39" pc="268435899" symbol="onPosition"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="16" lineNum="40" pc="268435903" symbol="onPosition"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="16" lineNum="41" pc="268435933" symbol="onPosition"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="17" lineNum="44" pc="268435985" symbol="initializeGPS"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="17" lineNum="45" pc="268435989" symbol="initializeGPS"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="17" lineNum="46" pc="268436010" symbol="initializeGPS"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="18" lineNum="49" pc="268436055" symbol="printGPS"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="18" lineNum="50" pc="268436059" symbol="printGPS"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="18" lineNum="51" pc="268436076" symbol="printGPS"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="18" lineNum="52" pc="268436106" symbol="printGPS"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="19" lineNum="58" pc="268436158" symbol="initializeActivityRecording"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="19" lineNum="59" pc="268436162" symbol="initializeActivityRecording"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="20" lineNum="66" pc="268436245" symbol="recordingStart"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="20" lineNum="67" pc="268436249" symbol="recordingStart"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="20" lineNum="68" pc="268436262" symbol="recordingStart"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="20" lineNum="69" pc="268436283" symbol="recordingStart"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="21" lineNum="73" pc="268436305" symbol="recordingStop"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="21" lineNum="74" pc="268436309" symbol="recordingStop"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="21" lineNum="75" pc="268436345" symbol="recordingStop"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="21" lineNum="76" pc="268436366" symbol="recordingStop"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="22" lineNum="80" pc="268436388" symbol="recordingSave"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="22" lineNum="81" pc="268436392" symbol="recordingSave"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="22" lineNum="82" pc="268436428" symbol="recordingSave"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="22" lineNum="83" pc="268436449" symbol="recordingSave"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="22" lineNum="84" pc="268436467" symbol="recordingSave"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="89" pc="268436480" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="90" pc="268436484" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="91" pc="268436505" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="92" pc="268436539" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="93" pc="268436549" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="94" pc="268436559" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="95" pc="268436575" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="23" lineNum="96" pc="268436587" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="24" lineNum="99" pc="268436600" symbol="flipMeat"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="24" lineNum="100" pc="268436604" symbol="flipMeat"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="24" lineNum="101" pc="268436626" symbol="flipMeat"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="24" lineNum="102" pc="268436647" symbol="flipMeat"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="24" lineNum="103" pc="268436667" symbol="flipMeat"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="24" lineNum="104" pc="268436687" symbol="flipMeat"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="107" pc="268436706" symbol="setFlipText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="108" pc="268436710" symbol="setFlipText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="25" lineNum="110" pc="268436789" symbol="setFlipText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="26" lineNum="120" pc="268436923" symbol="setCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="26" lineNum="121" pc="268436927" symbol="setCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="26" lineNum="122" pc="268436973" symbol="setCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="131" pc="268437107" symbol="updateCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="132" pc="268437111" symbol="updateCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="133" pc="268437131" symbol="updateCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="135" pc="268437151" symbol="updateCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="136" pc="268437171" symbol="updateCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="138" pc="268437191" symbol="updateCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="139" pc="268437211" symbol="updateCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="141" pc="268437231" symbol="updateCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="27" lineNum="142" pc="268437251" symbol="updateCookingStatusText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="28" lineNum="147" pc="268437272" symbol="resetTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="28" lineNum="148" pc="268437276" symbol="resetTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="28" lineNum="149" pc="268437289" symbol="resetTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="28" lineNum="150" pc="268437305" symbol="resetTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="153" pc="268437316" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="154" pc="268437320" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="155" pc="268437327" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="156" pc="268437343" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="158" pc="268437359" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="159" pc="268437375" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="161" pc="268437391" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="162" pc="268437407" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="163" pc="268437444" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="165" pc="268437463" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="166" pc="268437500" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="169" pc="268437519" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="29" lineNum="173" pc="268437603" symbol="setTimerText"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="30" lineNum="183" pc="268437732" symbol="initializeSystemTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="30" lineNum="184" pc="268437736" symbol="initializeSystemTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="30" lineNum="185" pc="268437754" symbol="initializeSystemTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="30" lineNum="186" pc="268437772" symbol="initializeSystemTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="30" lineNum="187" pc="268437813" symbol="initializeSystemTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="30" lineNum="188" pc="268437834" symbol="initializeSystemTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="30" lineNum="189" pc="268437848" symbol="initializeSystemTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="31" lineNum="192" pc="268437861" symbol="initializeFlip"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="31" lineNum="193" pc="268437865" symbol="initializeFlip"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="31" lineNum="194" pc="268437878" symbol="initializeFlip"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="197" pc="268437891" symbol="initializeTimerView"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="198" pc="268437895" symbol="initializeTimerView"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="32" lineNum="199" pc="268437909" symbol="initializeTimerView"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="202" pc="268437922" symbol="timerStop"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="33" lineNum="203" pc="268437926" symbol="timerStop"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="34" lineNum="206" pc="268437945" symbol="timerResume"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="34" lineNum="207" pc="268437949" symbol="timerResume"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="35" lineNum="210" pc="268437991" symbol="timerRestart"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="35" lineNum="211" pc="268437995" symbol="timerRestart"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="215" pc="268438016" symbol="drawTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="216" pc="268438020" symbol="drawTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="217" pc="268438041" symbol="drawTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="218" pc="268438053" symbol="drawTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="219" pc="268438065" symbol="drawTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="221" pc="268438077" symbol="drawTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="222" pc="268438117" symbol="drawTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="224" pc="268438129" symbol="drawTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="225" pc="268438149" symbol="drawTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="36" lineNum="226" pc="268438169" symbol="drawTimer"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="230" pc="268438190" symbol="tick"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="231" pc="268438194" symbol="tick"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="232" pc="268438215" symbol="tick"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="234" pc="268438227" symbol="tick"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="235" pc="268438244" symbol="tick"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="236" pc="268438260" symbol="tick"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="237" pc="268438272" symbol="tick"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="240" pc="268438287" symbol="tick"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="241" pc="268438309" symbol="tick"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="37" lineNum="243" pc="268438331" symbol="tick"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="246" pc="268438356" symbol="isPaused"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="38" lineNum="247" pc="268438360" symbol="isPaused"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="250" pc="268438370" symbol="isCancelled"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="39" lineNum="251" pc="268438374" symbol="isCancelled"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="40" lineNum="255" pc="268438384" symbol="timerCallback"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="40" lineNum="256" pc="268438388" symbol="timerCallback"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="41" lineNum="259" pc="268438401" symbol="saveActivity"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="41" lineNum="260" pc="268438405" symbol="saveActivity"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="263" pc="268438427" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="264" pc="268438431" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="265" pc="268438451" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="266" pc="268438472" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="267" pc="268438484" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="268" pc="268438496" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="270" pc="268438515" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="271" pc="268438535" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="272" pc="268438556" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="273" pc="268438568" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="274" pc="268438580" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="275" pc="268438596" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="277" pc="268438611" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="278" pc="268438631" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="279" pc="268438652" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="280" pc="268438664" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="281" pc="268438676" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="282" pc="268438692" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="284" pc="268438707" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="285" pc="268438727" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="286" pc="268438748" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="287" pc="268438760" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="288" pc="268438776" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="289" pc="268438788" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="290" pc="268438800" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="42" lineNum="292" pc="268438839" symbol="decideSelection"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="295" pc="268438864" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="296" pc="268438868" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="297" pc="268438888" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="298" pc="268438909" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="299" pc="268438921" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="300" pc="268438933" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="302" pc="268438952" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="303" pc="268438972" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="304" pc="268438993" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="305" pc="268439005" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="306" pc="268439017" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="308" pc="268439036" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="309" pc="268439056" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="310" pc="268439077" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="311" pc="268439089" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="312" pc="268439101" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="314" pc="268439120" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="315" pc="268439140" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="316" pc="268439161" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="317" pc="268439173" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="318" pc="268439185" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/controller.mc" id="43" lineNum="320" pc="268439204" symbol="decideCancellation"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="45" lineNum="6" pc="268439229" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="45" lineNum="7" pc="268439233" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="45" lineNum="8" pc="268439254" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="46" lineNum="11" pc="268439273" symbol="onMenu"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="46" lineNum="12" pc="268439277" symbol="onMenu"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="46" lineNum="13" pc="268439361" symbol="onMenu"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="47" lineNum="16" pc="268439365" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="47" lineNum="17" pc="268439369" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="47" lineNum="18" pc="268439390" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="47" lineNum="19" pc="268439474" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="48" lineNum="30" pc="268439478" symbol="onBack"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="48" lineNum="31" pc="268439482" symbol="onBack"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/welcomeDelegate.mc" id="48" lineNum="32" pc="268439518" symbol="onBack"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="50" lineNum="14" pc="268439522" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="50" lineNum="15" pc="268439526" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="50" lineNum="16" pc="268439547" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="50" lineNum="17" pc="268439570" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="50" lineNum="25" pc="268439596" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="51" lineNum="29" pc="268439615" symbol="onLayout"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="51" lineNum="30" pc="268439619" symbol="onLayout"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="51" lineNum="31" pc="268439640" symbol="onLayout"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="52" lineNum="37" pc="268439688" symbol="onShow"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="52" lineNum="38" pc="268439692" symbol="onShow"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="53" lineNum="42" pc="268439714" symbol="onUpdate"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="53" lineNum="44" pc="268439718" symbol="onUpdate"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerView.mc" id="54" lineNum="51" pc="268439745" symbol="onHide"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="56" lineNum="8" pc="268439750" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="56" lineNum="9" pc="268439754" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="12" pc="268439773" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="13" pc="268439777" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="14" pc="268439788" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="15" pc="268439809" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="17" pc="268439889" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="18" pc="268439900" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="19" pc="268439921" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="21" pc="268440001" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="22" pc="268440012" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="23" pc="268440033" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="25" pc="268440113" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="26" pc="268440124" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="27" pc="268440145" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="29" pc="268440225" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="30" pc="268440236" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="57" lineNum="31" pc="268440257" symbol="onMenuItem"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="58" lineNum="36" pc="268440338" symbol="timerCooking"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/MenuDelegate.mc" id="58" lineNum="37" pc="268440342" symbol="timerCooking"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="60" lineNum="12" pc="268440372" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="60" lineNum="13" pc="268440376" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="60" lineNum="14" pc="268440397" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="60" lineNum="15" pc="268440420" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="60" lineNum="16" pc="268440438" symbol="initialize"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="61" lineNum="19" pc="268440463" symbol="onMenu"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="61" lineNum="20" pc="268440467" symbol="onMenu"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="61" lineNum="21" pc="268440488" symbol="onMenu"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="62" lineNum="24" pc="268440492" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="62" lineNum="25" pc="268440496" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="62" lineNum="26" pc="268440517" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="62" lineNum="27" pc="268440541" symbol="onSelect"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="63" lineNum="31" pc="268440545" symbol="onKey"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="63" lineNum="32" pc="268440549" symbol="onKey"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="63" lineNum="33" pc="268440576" symbol="onKey"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="64" lineNum="37" pc="268440580" symbol="onBack"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="64" lineNum="38" pc="268440584" symbol="onBack"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="64" lineNum="39" pc="268440605" symbol="onBack"/>
+        <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="64" lineNum="40" pc="268440629" symbol="onBack"/>
+        <entry filename="Rez" id="70" lineNum="16" pc="268440633" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="70" lineNum="18" pc="268440645" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="70" lineNum="19" pc="268440797" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="70" lineNum="20" pc="268440909" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="70" lineNum="22" pc="268440949" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="71" lineNum="31" pc="268440977" symbol="TimerLayout"/>
+        <entry filename="Rez" id="71" lineNum="33" pc="268440989" symbol="TimerLayout"/>
+        <entry filename="Rez" id="71" lineNum="35" pc="268441171" symbol="TimerLayout"/>
+        <entry filename="Rez" id="74" lineNum="48" pc="268441189" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="49" pc="268441193" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="50" pc="268441211" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="51" pc="268441267" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="52" pc="268441323" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="53" pc="268441379" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="54" pc="268441435" symbol="initialize"/>
     </pcToLineNum>
     <symbolTable>
         <entry id="8388639" module="true" symbol="Graphics"/>
         <entry id="8389346" symbol="text"/>
-        <entry id="61" method="true" symbol="updateCookingStatusText"/>
+        <entry id="66" method="true" symbol="updateCookingStatusText"/>
         <entry id="14" object="true" symbol="MenuDelegate"/>
         <entry id="16" method="true" symbol="timerMainScreenCallback"/>
         <entry field="true" id="49" symbol="status"/>
         <entry field="true" id="47" symbol="paused"/>
-        <entry field="true" id="52" symbol="AUTO_FLIPPING"/>
-        <entry id="66" method="true" symbol="initializeTimerView"/>
-        <entry id="76" method="true" symbol="decideSelection"/>
-        <entry id="72" method="true" symbol="isPaused"/>
+        <entry id="8388638" module="true" symbol="ActivityRecording"/>
+        <entry field="true" id="53" symbol="AUTO_FLIPPING"/>
+        <entry id="71" method="true" symbol="initializeTimerView"/>
+        <entry id="81" method="true" symbol="decideSelection"/>
+        <entry id="8388890" symbol="sport"/>
+        <entry id="77" method="true" symbol="isPaused"/>
         <entry id="12" object="true" symbol="welcomeDelegate"/>
-        <entry id="55" method="true" symbol="onPosition"/>
+        <entry id="56" method="true" symbol="onPosition"/>
+        <entry id="60" method="true" symbol="recordingStart"/>
         <entry id="11" object="true" symbol="Controller"/>
-        <entry id="70" method="true" symbol="drawTimer"/>
+        <entry id="75" method="true" symbol="drawTimer"/>
         <entry field="true" id="8388611" module="true" symbol="Toybox"/>
         <entry id="26" method="true" symbol="WelcomeLayout"/>
-        <entry field="true" id="54" symbol="EXIT"/>
+        <entry field="true" id="55" symbol="EXIT"/>
         <entry field="true" id="19" symbol="app"/>
         <entry field="true" id="35" symbol="AppName"/>
-        <entry id="77" method="true" symbol="decideCancellation"/>
-        <entry id="65" method="true" symbol="initializeFlip"/>
+        <entry id="82" method="true" symbol="decideCancellation"/>
+        <entry id="70" method="true" symbol="initializeFlip"/>
         <entry id="8389080" method="true" symbol="onMenu"/>
         <entry id="8388772" module="true" object="true" symbol="Fonts"/>
         <entry id="8389345" symbol="rezId"/>
@@ -273,7 +304,7 @@
         <entry id="8389081" method="true" symbol="onBack"/>
         <entry field="true" id="37" symbol="flipped"/>
         <entry field="true" id="34" symbol="prompt"/>
-        <entry id="73" method="true" symbol="isCancelled"/>
+        <entry id="78" method="true" symbol="isCancelled"/>
         <entry field="true" id="31" symbol="timer_string"/>
         <entry field="true" id="41" symbol="myFlip"/>
         <entry id="8389124" method="true" symbol="onUpdate"/>
@@ -282,74 +313,80 @@
         <entry field="true" id="38" symbol="myTimerText"/>
         <entry id="8388771" module="true" object="true" symbol="Drawables"/>
         <entry id="8389348" symbol="font"/>
-        <entry id="68" method="true" symbol="timerResume"/>
-        <entry id="82" symbol="item_5"/>
-        <entry id="81" symbol="item_4"/>
-        <entry id="80" symbol="item_3"/>
-        <entry id="79" symbol="item_2"/>
-        <entry id="78" symbol="item_1"/>
+        <entry id="73" method="true" symbol="timerResume"/>
+        <entry id="87" symbol="item_5"/>
+        <entry id="86" symbol="item_4"/>
+        <entry id="85" symbol="item_3"/>
+        <entry id="84" symbol="item_2"/>
+        <entry id="83" symbol="item_1"/>
         <entry id="22" module="true" symbol="Menus"/>
         <entry field="true" id="44" symbol="elapsedSeconds"/>
         <entry id="8389122" method="true" symbol="onLayout"/>
         <entry field="true" id="8389063" symbol="identifier"/>
         <entry id="8389349" symbol="justification"/>
+        <entry id="62" method="true" symbol="recordingSave"/>
         <entry id="10" object="true" symbol="welcomeView"/>
         <entry id="15" object="true" symbol="timerDelegate"/>
-        <entry id="71" method="true" symbol="tick"/>
+        <entry id="76" method="true" symbol="tick"/>
+        <entry id="61" method="true" symbol="recordingStop"/>
         <entry id="36" method="true" symbol="timerCooking"/>
-        <entry id="67" method="true" symbol="timerStop"/>
+        <entry id="72" method="true" symbol="timerStop"/>
         <entry field="true" id="45" symbol="totalSeconds"/>
         <entry id="25" object="true" symbol="MainMenu"/>
+        <entry id="59" method="true" symbol="initializeActivityRecording"/>
         <entry field="true" id="39" symbol="myFlipText"/>
-        <entry id="56" method="true" symbol="initializeGPS"/>
+        <entry id="57" method="true" symbol="initializeGPS"/>
         <entry field="true" id="23" symbol="id_bbq"/>
         <entry field="true" id="43" symbol="myCookingStatus"/>
         <entry id="8388644" module="true" symbol="System"/>
         <entry id="8389619" method="true" symbol="onSelect"/>
-        <entry id="60" method="true" symbol="setCookingStatusText"/>
+        <entry id="65" method="true" symbol="setCookingStatusText"/>
         <entry id="8388769" module="true" object="true" symbol="Rez"/>
         <entry field="true" id="48" symbol="cancelled"/>
-        <entry id="74" method="true" symbol="timerCallback"/>
-        <entry id="64" method="true" symbol="initializeSystemTimer"/>
+        <entry id="79" method="true" symbol="timerCallback"/>
+        <entry id="69" method="true" symbol="initializeSystemTimer"/>
         <entry id="8390088" module="true" object="true" symbol="JsonData"/>
         <entry field="true" id="24" symbol="LauncherIcon"/>
         <entry id="8389123" method="true" symbol="onShow"/>
         <entry field="true" id="46" symbol="targetMinutes"/>
-        <entry id="57" method="true" symbol="printGPS"/>
+        <entry id="58" method="true" symbol="printGPS"/>
         <entry id="17" method="true" symbol="selectTime"/>
-        <entry id="59" method="true" symbol="setFlipText"/>
+        <entry id="64" method="true" symbol="setFlipText"/>
         <entry field="true" id="20" symbol="myTimer"/>
         <entry id="8388770" module="true" object="true" symbol="Strings"/>
-        <entry field="true" id="50" symbol="COOKING"/>
+        <entry field="true" id="51" symbol="COOKING"/>
         <entry id="8388702" method="true" symbol="initialize"/>
         <entry id="13" object="true" symbol="timerView"/>
         <entry id="8389279" method="true" symbol="onStart"/>
+        <entry id="8388891" symbol="subSport"/>
         <entry id="9" object="true" symbol="barbecue_appApp"/>
-        <entry field="true" id="51" symbol="USER_FLIPPING"/>
-        <entry id="63" method="true" symbol="setTimerText"/>
+        <entry field="true" id="52" symbol="USER_FLIPPING"/>
+        <entry field="true" id="8388892" symbol="name"/>
+        <entry id="68" method="true" symbol="setTimerText"/>
         <entry id="8389280" method="true" symbol="getInitialView"/>
         <entry id="8389281" method="true" symbol="onStop"/>
         <entry id="8389109" method="true" symbol="onMenuItem"/>
         <entry id="8389347" symbol="color"/>
         <entry id="8389097" method="true" symbol="onKey"/>
-        <entry id="75" method="true" symbol="saveActivity"/>
-        <entry id="58" method="true" symbol="flipMeat"/>
+        <entry id="80" method="true" symbol="saveActivity"/>
+        <entry id="63" method="true" symbol="flipMeat"/>
         <entry id="8388646" module="true" object="true" symbol="Timer"/>
         <entry id="21" module="true" symbol="Layouts"/>
         <entry id="8388642" module="true" symbol="Position"/>
         <entry field="true" id="42" symbol="myCookingStatusText"/>
-        <entry id="69" method="true" symbol="timerRestart"/>
+        <entry id="74" method="true" symbol="timerRestart"/>
         <entry id="8389125" method="true" symbol="onHide"/>
         <entry field="true" id="18" symbol="controller"/>
+        <entry field="true" id="50" symbol="session"/>
         <entry id="8388635" module="true" symbol="Application"/>
         <entry field="true" id="40" symbol="myMinutes"/>
-        <entry field="true" id="53" symbol="SAVING"/>
+        <entry field="true" id="54" symbol="SAVING"/>
         <entry field="true" id="28" symbol="menu_label_5"/>
         <entry field="true" id="30" symbol="menu_label_4"/>
         <entry field="true" id="29" symbol="menu_label_3"/>
         <entry field="true" id="33" symbol="menu_label_2"/>
         <entry field="true" id="32" symbol="menu_label_1"/>
-        <entry id="62" method="true" symbol="resetTimer"/>
+        <entry id="67" method="true" symbol="resetTimer"/>
     </symbolTable>
     <localVars>
         <entry endPc="268435514" name="state" stackId="1" startPc="268435509"/>
@@ -359,28 +396,27 @@
         <entry endPc="268435899" name="minutes" stackId="1" startPc="268435855"/>
         <entry endPc="268435985" name="info" stackId="1" startPc="268435899"/>
         <entry endPc="268436157" name="gpsinfo" stackId="1" startPc="268436059"/>
-        <entry endPc="268436755" name="status" stackId="1" startPc="268436571"/>
-        <entry endPc="268436964" name="minutes" stackId="1" startPc="268436920"/>
-        <entry endPc="268437379" name="actualSeconds" stackId="3" startPc="268436968"/>
-        <entry endPc="268437379" name="color" stackId="6" startPc="268436968"/>
-        <entry endPc="268437379" name="reverseSeconds" stackId="5" startPc="268436968"/>
-        <entry endPc="268437379" name="reverseMinutes" stackId="4" startPc="268436968"/>
-        <entry endPc="268437379" name="zero" stackId="1" startPc="268436968"/>
-        <entry endPc="268437379" name="actualMinutes" stackId="2" startPc="268436968"/>
-        <entry endPc="268437509" name="minutes" stackId="1" startPc="268437380"/>
-        <entry endPc="268437570" name="minutes" stackId="1" startPc="268437539"/>
-        <entry endPc="268437838" name="dc" stackId="1" startPc="268437664"/>
-        <entry endPc="268439041" name="keyEvent" stackId="1" startPc="268439006"/>
-        <entry endPc="268439134" name="minutes" stackId="1" startPc="268439041"/>
-        <entry endPc="268439207" name="dc" stackId="1" startPc="268439134"/>
-        <entry endPc="268439264" name="dc" stackId="1" startPc="268439233"/>
-        <entry endPc="268439857" name="item" stackId="1" startPc="268439292"/>
-        <entry endPc="268440075" name="keyEvent" stackId="1" startPc="268440040"/>
-        <entry endPc="268440471" name="rez_cmp_local_text_5781520914" stackId="2" startPc="268440140"/>
-        <entry endPc="268440471" name="rez_cmp_local_bitmap_id_bbq" stackId="3" startPc="268440140"/>
-        <entry endPc="268440472" name="dc" stackId="1" startPc="268440128"/>
-        <entry endPc="268440683" name="rez_cmp_local_text_2116803934" stackId="2" startPc="268440484"/>
-        <entry endPc="268440684" name="dc" stackId="1" startPc="268440472"/>
+        <entry endPc="268437107" name="status" stackId="1" startPc="268436923"/>
+        <entry endPc="268437316" name="minutes" stackId="1" startPc="268437272"/>
+        <entry endPc="268437731" name="actualSeconds" stackId="3" startPc="268437320"/>
+        <entry endPc="268437731" name="color" stackId="6" startPc="268437320"/>
+        <entry endPc="268437731" name="reverseSeconds" stackId="5" startPc="268437320"/>
+        <entry endPc="268437731" name="reverseMinutes" stackId="4" startPc="268437320"/>
+        <entry endPc="268437731" name="zero" stackId="1" startPc="268437320"/>
+        <entry endPc="268437731" name="actualMinutes" stackId="2" startPc="268437320"/>
+        <entry endPc="268437861" name="minutes" stackId="1" startPc="268437732"/>
+        <entry endPc="268437922" name="minutes" stackId="1" startPc="268437891"/>
+        <entry endPc="268438190" name="dc" stackId="1" startPc="268438016"/>
+        <entry endPc="268439615" name="minutes" stackId="1" startPc="268439522"/>
+        <entry endPc="268439688" name="dc" stackId="1" startPc="268439615"/>
+        <entry endPc="268439745" name="dc" stackId="1" startPc="268439714"/>
+        <entry endPc="268440338" name="item" stackId="1" startPc="268439773"/>
+        <entry endPc="268440580" name="keyEvent" stackId="1" startPc="268440545"/>
+        <entry endPc="268440976" name="rez_cmp_local_bitmap_id_bbq" stackId="3" startPc="268440645"/>
+        <entry endPc="268440976" name="rez_cmp_local_text_1579808196" stackId="2" startPc="268440645"/>
+        <entry endPc="268440977" name="dc" stackId="1" startPc="268440633"/>
+        <entry endPc="268441188" name="rez_cmp_local_text_8809167421" stackId="2" startPc="268440989"/>
+        <entry endPc="268441189" name="dc" stackId="1" startPc="268440977"/>
     </localVars>
     <annotations/>
     <dataEntryOffsetMappings>
@@ -399,7 +435,7 @@
         <dataEntry offset="923" parentId="Rez" symbolId="Strings" type="module"/>
         <dataEntry offset="1018" parentId="globals" symbolId="MenuDelegate" type="class"/>
         <dataEntry offset="1081" parentId="globals" symbolId="Controller" type="class"/>
-        <dataEntry offset="1472" parentId="globals" symbolId="welcomeDelegate" type="class"/>
+        <dataEntry offset="1512" parentId="globals" symbolId="welcomeDelegate" type="class"/>
     </dataEntryOffsetMappings>
     <functions>
         <functionEntry accessMode="public" name="initialize" parent="barbecue_appApp">
@@ -448,6 +484,18 @@
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="printGPS" parent="Controller">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="initializeActivityRecording" parent="Controller">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="recordingStart" parent="Controller">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="recordingStop" parent="Controller">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="recordingSave" parent="Controller">
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="initialize" parent="Controller">
@@ -527,8 +575,7 @@
         <functionEntry accessMode="public" name="onSelect" parent="welcomeDelegate">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" name="onKey" parent="welcomeDelegate">
-            <param id="keyEvent"/>
+        <functionEntry accessMode="public" name="onBack" parent="welcomeDelegate">
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="initialize" parent="timerView">

@@ -3,6 +3,7 @@ using Toybox.WatchUi;
 using Toybox.System;
 using Toybox.Timer;
 using Toybox.Position;
+using Toybox.ActivityRecording;
 
 
 class Controller {
@@ -24,6 +25,7 @@ class Controller {
 	hidden var paused;
 	hidden var cancelled;
 	hidden var status;
+	hidden var session;
 	
 	enum {
     	COOKING, 
@@ -49,6 +51,39 @@ class Controller {
 		System.println("GPS Acc: " + gpsinfo.accuracy);
     	System.println("GPS Position " + gpsinfo.position.toGeoString( Position.GEO_DM ) );
 	}
+	
+	
+	// https://forums.garmin.com/developer/connect-iq/f/q-a/171125/state-of-session-after-save/922655#922655
+	// https://developer.garmin.com/connect-iq/api-docs/
+	function initializeActivityRecording() {
+		self.session = ActivityRecording.createSession({     // set up recording session
+		    :name=>"Barbecue",                               // set session name
+		    :sport=>ActivityRecording.SPORT_GENERIC,        // set sport type
+		    :subSport=>ActivityRecording.SUB_SPORT_GENERIC  // set sub sport type
+		});
+	}
+	
+	function recordingStart() {
+		if (self.session != null) {
+			System.println("ActivityRecording session started");
+			self.session.start();
+		}
+	}
+	
+	function recordingStop() {
+		if (self.session != null && self.session.isRecording()) {
+			System.println("ActivityRecording session stopped");
+			self.session.stop();
+		}
+	}
+	
+	function recordingSave() {
+		if (self.session != null && self.session.isRecording()) {
+			System.println("ActivityRecording session saved");
+			self.session.save();
+			session = null;
+		}
+	}
 
 	
 	function initialize() {
@@ -58,11 +93,7 @@ class Controller {
 		cancelled = false;
 		status = COOKING;
 		self.initializeGPS();
-
-		// TODO: Session
-		// TODO: https://forums.garmin.com/developer/connect-iq/f/q-a/171125/state-of-session-after-save/922655#922655
-		// TODO: https://developer.garmin.com/connect-iq/api-docs/
-
+		self.initializeActivityRecording();
 	}
     
     function flipMeat() {
@@ -70,6 +101,7 @@ class Controller {
     	System.println("The meat has been flipped");
     	self.resetTimer(targetMinutes);
     	self.initializeSystemTimer(targetMinutes);
+    	self.session.addLap();
     }
     
     function setFlipText() {
@@ -202,6 +234,7 @@ class Controller {
     	if (totalSeconds <= 0) {
     		status = AUTO_FLIPPING;
     		self.timerStop();
+    		self.recordingStop();
     	}
     	else {
     	    elapsedSeconds = elapsedSeconds + 1;
@@ -231,17 +264,20 @@ class Controller {
 		if (self.status == COOKING) {
 			System.println("Selection received, going to USER_FLIPPING");
 			self.timerStop();
+			self.recordingStop();
 			self.status = USER_FLIPPING;
 		}
 		else if (self.status == USER_FLIPPING) {
 			System.println("Selection received, going to COOKING");
 			self.timerRestart();
+			self.recordingStart();
 			self.status = COOKING;
 			self.flipMeat();
 		}
 		else if (self.status == AUTO_FLIPPING) {
 			System.println("Selection received, going to COOKING");
 			self.timerRestart();
+			self.recordingStart();
 			self.status = COOKING;
 			self.flipMeat();
 		}
@@ -249,6 +285,8 @@ class Controller {
 			System.println("Selection received, going to EXIT");
 			self.saveActivity();
 			self.status = COOKING;
+			self.recordingStop();
+			self.recordingSave();
 			WatchUi.popView(Toybox.WatchUi.SLIDE_DOWN);
 		}
 		Toybox.WatchUi.requestUpdate();
@@ -258,21 +296,25 @@ class Controller {
 		if (self.status == COOKING) {
 			System.println("Back received, going to SAVING");
 			self.timerStop();
+			self.recordingStop();
 			self.status = SAVING;
 		}
 		else if (self.status == USER_FLIPPING) {
 			System.println("Back received, going to COOKING");
 			self.timerResume();
+			self.recordingStart();
 			self.status = COOKING;
 		}
 		else if (self.status == AUTO_FLIPPING) {
 			System.println("Back received, going to SAVING");
 			self.timerStop();
+			self.recordingStop();
 			self.status = SAVING;
 		}
 		else if (self.status == SAVING) {
 			System.println("Back received, going to COOKING");
 			self.timerResume();
+			self.recordingStart();
 			self.status = COOKING;
 		}
 		Toybox.WatchUi.requestUpdate();		
