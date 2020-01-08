@@ -32,6 +32,7 @@ class Controller {
     	USER_FLIPPING,
     	AUTO_FLIPPING,
     	SAVING,
+    	DISCARDING,
     	EXIT
     }
     
@@ -140,6 +141,9 @@ class Controller {
 		}
 		else if (self.status == SAVING) {
 			self.setCookingStatusText("Save?");
+		}
+		else if (self.status == DISCARDING) {
+			self.setCookingStatusText("Discard?");
 		}
     }
     
@@ -289,6 +293,11 @@ class Controller {
 			self.recordingSave();
 			WatchUi.popView(Toybox.WatchUi.SLIDE_DOWN);
 		}
+		else if (self.status == DISCARDING) {
+			System.println("Selection received, going to EXIT");
+			self.status = COOKING;	// FIXME: this should be EXIT
+			WatchUi.popView(Toybox.WatchUi.SLIDE_DOWN);
+		}
 		Toybox.WatchUi.requestUpdate();
 	}
 	
@@ -312,6 +321,12 @@ class Controller {
 			self.status = SAVING;
 		}
 		else if (self.status == SAVING) {
+			System.println("Back received, going to COOKING");
+			self.timerStop();
+			self.recordingStop();
+			self.status = DISCARDING;
+		}
+		else if (self.status == DISCARDING) {
 			System.println("Back received, going to COOKING");
 			self.timerResume();
 			self.recordingStart();
