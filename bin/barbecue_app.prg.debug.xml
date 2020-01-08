@@ -267,19 +267,20 @@
         <entry filename="/Users/canedo/eclipse-workspace/barbecue_app/source/timerDelegate.mc" id="64" lineNum="40" pc="268440849" symbol="onBack"/>
         <entry filename="Rez" id="70" lineNum="16" pc="268440853" symbol="WelcomeLayout"/>
         <entry filename="Rez" id="70" lineNum="18" pc="268440865" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="70" lineNum="19" pc="268441017" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="70" lineNum="20" pc="268441129" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="70" lineNum="22" pc="268441169" symbol="WelcomeLayout"/>
-        <entry filename="Rez" id="71" lineNum="31" pc="268441197" symbol="TimerLayout"/>
-        <entry filename="Rez" id="71" lineNum="33" pc="268441209" symbol="TimerLayout"/>
-        <entry filename="Rez" id="71" lineNum="35" pc="268441391" symbol="TimerLayout"/>
-        <entry filename="Rez" id="74" lineNum="48" pc="268441409" symbol="initialize"/>
-        <entry filename="Rez" id="74" lineNum="49" pc="268441413" symbol="initialize"/>
-        <entry filename="Rez" id="74" lineNum="50" pc="268441431" symbol="initialize"/>
-        <entry filename="Rez" id="74" lineNum="51" pc="268441487" symbol="initialize"/>
-        <entry filename="Rez" id="74" lineNum="52" pc="268441543" symbol="initialize"/>
-        <entry filename="Rez" id="74" lineNum="53" pc="268441599" symbol="initialize"/>
-        <entry filename="Rez" id="74" lineNum="54" pc="268441655" symbol="initialize"/>
+        <entry filename="Rez" id="70" lineNum="20" pc="268440878" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="70" lineNum="21" pc="268441033" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="70" lineNum="22" pc="268441145" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="70" lineNum="24" pc="268441182" symbol="WelcomeLayout"/>
+        <entry filename="Rez" id="71" lineNum="33" pc="268441210" symbol="TimerLayout"/>
+        <entry filename="Rez" id="71" lineNum="36" pc="268441222" symbol="TimerLayout"/>
+        <entry filename="Rez" id="71" lineNum="38" pc="268441422" symbol="TimerLayout"/>
+        <entry filename="Rez" id="74" lineNum="51" pc="268441440" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="52" pc="268441444" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="53" pc="268441462" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="54" pc="268441518" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="55" pc="268441574" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="56" pc="268441630" symbol="initialize"/>
+        <entry filename="Rez" id="74" lineNum="57" pc="268441686" symbol="initialize"/>
     </pcToLineNum>
     <symbolTable>
         <entry id="8388639" module="true" symbol="Graphics"/>
@@ -424,11 +425,12 @@
         <entry endPc="268439965" name="dc" stackId="1" startPc="268439934"/>
         <entry endPc="268440558" name="item" stackId="1" startPc="268439993"/>
         <entry endPc="268440800" name="keyEvent" stackId="1" startPc="268440765"/>
-        <entry endPc="268441196" name="rez_cmp_local_bitmap_id_bbq" stackId="3" startPc="268440865"/>
-        <entry endPc="268441196" name="rez_cmp_local_text_1925575287" stackId="2" startPc="268440865"/>
-        <entry endPc="268441197" name="dc" stackId="1" startPc="268440853"/>
-        <entry endPc="268441408" name="rez_cmp_local_text_1252008294" stackId="2" startPc="268441209"/>
-        <entry endPc="268441409" name="dc" stackId="1" startPc="268441197"/>
+        <entry endPc="268441209" name="rez_cmp_local_text_1764047666" stackId="3" startPc="268440865"/>
+        <entry endPc="268441209" name="rez_cmp_local_var_dc_getWidth" stackId="2" startPc="268440865"/>
+        <entry endPc="268441209" name="rez_cmp_local_bitmap_id_bbq" stackId="4" startPc="268440865"/>
+        <entry endPc="268441210" name="dc" stackId="1" startPc="268440853"/>
+        <entry endPc="268441439" name="rez_cmp_local_text_1913691262" stackId="2" startPc="268441222"/>
+        <entry endPc="268441440" name="dc" stackId="1" startPc="268441210"/>
     </localVars>
     <annotations/>
     <dataEntryOffsetMappings>
