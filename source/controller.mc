@@ -80,10 +80,17 @@ class Controller {
 	
 	function recordingSave() {
 		if (self.session != null && self.session.isRecording()) {
-			System.println("ActivityRecording session saved");
+			System.println("ActivityRecording session saved !!!!!!!!!!!!!!!!!");
 			self.session.save();
 			session = null;
 		}
+	}
+	
+	function recordingDiscard() {
+		if (self.session != null) {
+			System.println("ActivityRecording session discarded");
+			self.session.discard();
+		}	
 	}
 
 	
@@ -260,41 +267,39 @@ class Controller {
     	self.tick();
 	}
 	
-	function saveActivity() {
-		System.println("TODO: saving activity...");
-	}
 	
 	function decideSelection() {
 		if (self.status == COOKING) {
-			System.println("Selection received, going to USER_FLIPPING");
+			System.println("Selection received @ COOKING, going to USER_FLIPPING");
 			self.timerStop();
 			self.recordingStop();
 			self.status = USER_FLIPPING;
 		}
 		else if (self.status == USER_FLIPPING) {
-			System.println("Selection received, going to COOKING");
+			System.println("Selection received @ USER_FLIPPING, going to COOKING");
 			self.timerRestart();
 			self.recordingStart();
 			self.status = COOKING;
 			self.flipMeat();
 		}
 		else if (self.status == AUTO_FLIPPING) {
-			System.println("Selection received, going to COOKING");
+			System.println("Selection received @ AUTO_FLIPPING, going to COOKING");
 			self.timerRestart();
 			self.recordingStart();
 			self.status = COOKING;
 			self.flipMeat();
 		}
 		else if (self.status == SAVING) {
-			System.println("Selection received, going to EXIT");
-			self.saveActivity();
-			self.status = COOKING;
+			System.println("Selection received @ SAVING, going to EXIT");
 			self.recordingStop();
 			self.recordingSave();
+			self.status = COOKING;			
 			WatchUi.popView(Toybox.WatchUi.SLIDE_DOWN);
 		}
 		else if (self.status == DISCARDING) {
-			System.println("Selection received, going to EXIT");
+			System.println("Selection received @ DISCARDING, going to EXIT");
+			self.recordingStop();
+			self.recordingDiscard();		
 			self.status = COOKING;	// FIXME: this should be EXIT
 			WatchUi.popView(Toybox.WatchUi.SLIDE_DOWN);
 		}
@@ -303,31 +308,31 @@ class Controller {
 	
 	function decideCancellation() {
 		if (self.status == COOKING) {
-			System.println("Back received, going to SAVING");
+			System.println("Back received @ COOKING, going to SAVING");
 			self.timerStop();
 			self.recordingStop();
 			self.status = SAVING;
 		}
 		else if (self.status == USER_FLIPPING) {
-			System.println("Back received, going to COOKING");
+			System.println("Back received @ USER_FLIPPING, going to COOKING");
 			self.timerResume();
 			self.recordingStart();
 			self.status = COOKING;
 		}
 		else if (self.status == AUTO_FLIPPING) {
-			System.println("Back received, going to SAVING");
+			System.println("Back received @ AUTO_FLIPPING, going to SAVING");
 			self.timerStop();
 			self.recordingStop();
 			self.status = SAVING;
 		}
 		else if (self.status == SAVING) {
-			System.println("Back received, going to COOKING");
+			System.println("Back received @ SAVING, going to DISCARDING");
 			self.timerStop();
 			self.recordingStop();
 			self.status = DISCARDING;
 		}
 		else if (self.status == DISCARDING) {
-			System.println("Back received, going to COOKING");
+			System.println("Back received @ DISCARDING, going to COOKING");
 			self.timerResume();
 			self.recordingStart();
 			self.status = COOKING;
