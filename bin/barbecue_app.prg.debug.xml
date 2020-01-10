@@ -427,10 +427,10 @@
         <entry endPc="268440011" name="dc" stackId="1" startPc="268439980"/>
         <entry endPc="268440604" name="item" stackId="1" startPc="268440039"/>
         <entry endPc="268440846" name="keyEvent" stackId="1" startPc="268440811"/>
-        <entry endPc="268441242" name="rez_cmp_local_text_5641556222" stackId="2" startPc="268440911"/>
+        <entry endPc="268441242" name="rez_cmp_local_text_3672310691" stackId="2" startPc="268440911"/>
         <entry endPc="268441242" name="rez_cmp_local_bitmap_id_bbq" stackId="3" startPc="268440911"/>
         <entry endPc="268441243" name="dc" stackId="1" startPc="268440899"/>
-        <entry endPc="268441454" name="rez_cmp_local_text_1027957388" stackId="2" startPc="268441255"/>
+        <entry endPc="268441454" name="rez_cmp_local_text_4173462511" stackId="2" startPc="268441255"/>
         <entry endPc="268441455" name="dc" stackId="1" startPc="268441243"/>
     </localVars>
     <annotations/>
