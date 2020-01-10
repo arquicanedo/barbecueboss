@@ -7,6 +7,9 @@ Future release includes "smoking" timer in addition to the "searing" timer.
 Other:
 - Icon made by Pixel perfect from www.flaticon.com
 
+## Download
+Download from the Garmin app store: https://apps.garmin.com/en-US/apps/bfbcb162-f215-49cb-8185-dad7e6dc4595
+
 ## Screenshots
 ![welcome screen](./img/BBQIQ1.png)
 
