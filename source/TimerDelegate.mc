@@ -5,7 +5,7 @@ using Toybox.Application;
 
 // https://forums.garmin.com/developer/connect-iq/f/discussion/535/appropriate-way-to-handling-exiting-onback-in-an-app/2371#2371
 
-class timerDelegate extends WatchUi.BehaviorDelegate {
+class TimerDelegate extends WatchUi.BehaviorDelegate {
 
 	hidden var app;
 	
@@ -24,6 +24,8 @@ class timerDelegate extends WatchUi.BehaviorDelegate {
    	function onSelect() {
 		System.println("barbecue_timerDelegate.onSelect Menu behavior triggered");
 		app.controller.decideSelection();
+		
+		Toybox.WatchUi.requestUpdate();
 		return true;
 	}
 	
@@ -37,7 +39,16 @@ class timerDelegate extends WatchUi.BehaviorDelegate {
     function onBack() {
     	System.println("Back button input received");
     	app.controller.decideCancellation();
+    	
+    	if(app.controller.getStatus() == Controller.SAVING) {
+			WatchUi.popView(SLIDE_DOWN);
+		}
+		else {
+			Toybox.WatchUi.requestUpdate();
+		}
+
     	return true;
     }
-
+    
+    
 }

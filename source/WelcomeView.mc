@@ -3,7 +3,7 @@ using Toybox.Timer;
 using Toybox.System;
 
 
-class welcomeView extends WatchUi.View {
+class WelcomeView extends WatchUi.View {
 	
     function initialize() {
         View.initialize();
@@ -32,16 +32,8 @@ class welcomeView extends WatchUi.View {
     function onHide() {
     }
     
-	// https://developer.garmin.com/downloads/connect-iq/monkey-c/doc/Toybox/WatchUi.html#requestUpdate-instance_method
-	function timerMainScreenCallback() {
-		Toybox.WatchUi.pushView( new Rez.Menus.MainMenu(), new MenuDelegate(), Toybox.WatchUi.SLIDE_UP );
-		Toybox.System.println("Changed to MainMenu()");
-		Toybox.WatchUi.requestUpdate();
-	}
-
 	function selectTime(minutes) {
 		System.print("User selected");
 		System.println(minutes);
 	}
-
 }

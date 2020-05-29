@@ -3,7 +3,7 @@ using Toybox.WatchUi;
 using Toybox.System;
 
 
-class barbecue_appApp extends Application.AppBase {
+class BarbecueApp extends Application.AppBase {
 
 	public var controller;
 	
@@ -18,12 +18,11 @@ class barbecue_appApp extends Application.AppBase {
 
     // onStop() is called when your application is exiting
     function onStop(state) {
+    	self.controller.dispose();
     }
 
     // Return the initial view of your application here
     function getInitialView() {
-        return [ new welcomeView(), new welcomeDelegate() ];
+        return [ new WelcomeView(), new WelcomeDelegate() ];
     }
-    
-
 }
