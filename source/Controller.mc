@@ -52,6 +52,7 @@ class Controller {
 		paused = false;
 		cancelled = false;
 		self.setStatus(COOKING);
+		self.totalFlips = 0;
 		
 		self.initializeGPS();
 		self.initializeActivityRecording();
@@ -172,7 +173,7 @@ class Controller {
     
 	function initializeTimer(seconds) {
 		initializeSystemTimer(seconds);
-		initializeFlip();
+		//initializeFlip();
 	}
 	
 	function timerStop() {

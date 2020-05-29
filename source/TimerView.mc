@@ -42,6 +42,14 @@ class TimerView extends WatchUi.View {
 		app.controller.flipChanged.on(self.method(:onFlipChanged));
 		
     	app.controller.initializeTimer(self.timerSeconds);
+    	
+    	//Keep the flip count consistent to where the user was
+    	if (app.controller.totalFlips > 0) {
+    		app.controller.flipMeat();
+    	}
+    	else {
+    		app.controller.initializeFlip();
+    	}
     }
 
     // Update the view
