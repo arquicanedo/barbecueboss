@@ -63,6 +63,24 @@ class SteakMenuView extends WatchUi.View {
             :locY=>30
         });
     }
+    
+    
+    function decideColor(i) {
+		if (app.controller.getStatus(i) == app.controller.INIT) {
+			return Graphics.COLOR_LT_GRAY;
+    	}
+    	else {
+    		if (app.controller.getStatus(i) == app.controller.COOKING and app.controller.targetSeconds[i] <= 20 and app.controller.targetSeconds[i] > 10) {
+    			return Graphics.COLOR_ORANGE;
+    		}
+    		else if (app.controller.getStatus(i) == app.controller.COOKING and app.controller.targetSeconds[i] <= 10) {
+    			return Graphics.COLOR_RED;
+    		}
+    		else {
+    			return Graphics.COLOR_WHITE;
+    		}
+    	}
+    }
         
         
 	function setSteakLabels() {
@@ -78,9 +96,10 @@ class SteakMenuView extends WatchUi.View {
 		    
 		    var mySteakLabel = Lang.format(
 		    	"$1$   $2$   $3$", ["Steak", i, status]);
+		    		
 	    	mySteakLabelsText[i] = new WatchUi.Text({
 	            :text=>mySteakLabel,
-	            :color=>Graphics.COLOR_WHITE,
+	            :color=>decideColor(i),
 	            :font=>Graphics.FONT_SMALL,
 	            :locX =>steak_x_pos[i],
 	            :locY=>steak_y_pos[i]
@@ -123,7 +142,7 @@ class SteakMenuView extends WatchUi.View {
 			}
 	        myTimerText[i] = new WatchUi.Text({
 	            :text=>myMinutes,
-	            :color=>Graphics.COLOR_WHITE,
+	            :color=>decideColor(i),
 	            :font=>Graphics.FONT_SMALL,
 	            :locX =>steak_x_pos[i] + x_offset,
 	            :locY=>steak_y_pos[i]
@@ -146,6 +165,7 @@ class SteakMenuView extends WatchUi.View {
     	self.setTimers();
     	Toybox.WatchUi.requestUpdate();
     }
+    
 
     
         // Update the view
