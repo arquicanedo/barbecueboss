@@ -11,6 +11,18 @@
     <string id="menu_label_custom">Custom</string>
     <string id="timer_string">00:00:00</string>
     
+    
+   	<string id="steak_menu_1">Steak 1</string>
+   	<string id="steak_menu_2">Steak 2</string> 
+   	<string id="steak_menu_3">Steak 3</string>
+   	<string id="steak_menu_4">Steak 4</string>
+   	<string id="steak_timer_1">00:00:00</string>
+   	<string id="steak_timer_2">00:00:00</string> 
+   	<string id="steak_timer_3">00:00:00</string>
+   	<string id="steak_timer_4">00:00:00</string>
+   	<string id="steak_selected">></string>
+ 	
+    
         <!-- Main View -->
     <string id="clickHere">Click Here</string>
     <string id="string">Pick a string</string>

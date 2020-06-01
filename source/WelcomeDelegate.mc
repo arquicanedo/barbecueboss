@@ -9,7 +9,8 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onMenu() {
-        WatchUi.pushView(new Rez.Menus.MainMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
+    	Toybox.WatchUi.pushView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
+        //WatchUi.pushView(new Rez.Menus.MainMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
         return true;
     }
     
@@ -22,7 +23,8 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 			//Toybox.WatchUi.requestUpdate();
 		}
 		else*/ {
-			Toybox.WatchUi.pushView( new Rez.Menus.MainMenu(), new MenuDelegate(), Toybox.WatchUi.SLIDE_UP );
+			Toybox.WatchUi.pushView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
+			//Toybox.WatchUi.pushView( new Rez.Menus.MainMenu(), new MenuDelegate(), Toybox.WatchUi.SLIDE_UP );
 			Toybox.System.println("Changed to MainMenu()");
 			//Toybox.WatchUi.requestUpdate();
 		}
