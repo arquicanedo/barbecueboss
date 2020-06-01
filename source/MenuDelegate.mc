@@ -53,11 +53,9 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 			WatchUi.pushView(new DurationPicker(), pickerDelegate, WatchUi.SLIDE_UP);
 		}
 		else {
-			WatchUi.switchToView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
 			var steak_i = app.controller.steak_selection;
 			app.controller.steak_timeout[steak_i] = timeout * 60;
 			app.controller.decideSelection();
-			//WatchUi.pushView(new TimerView(timeout * 60), new TimerDelegate(), WatchUi.SLIDE_UP);
 		}
 		
 
@@ -76,8 +74,7 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 		var steak_i = app.controller.steak_selection;
 		app.controller.steak_timeout[steak_i] = timeout;
 		app.controller.decideSelection();
-		//WatchUi.pushView(new TimerView(timeout), new TimerDelegate(), WatchUi.SLIDE_UP);
-		WatchUi.switchToView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 		System.println("pong");
 	}
 }

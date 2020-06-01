@@ -49,6 +49,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     
     // Detect Back button input
     function onBack() {
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
 		return true;
     }
 

@@ -33,6 +33,7 @@ class Controller {
 	//the FIT activity session being used
 	hidden var session;
 	hidden var flipVibrator = [ new WatchUi.Attention.VibeProfile(75, 2500) ];
+	hidden var startSteakVibrator = [new WatchUi.Attention.VibeProfile(50, 500)];
 	
 	//"events"
 	public var timerChanged = new SimpleCallbackEvent("timerChanged");
@@ -87,6 +88,10 @@ class Controller {
 			self.totalSeconds[i] = 0;
 			self.targetSeconds[i] = 0;
 		}
+		
+		// Activity Recording. TODO: Investigate what custom data types we can come up with for grilling.
+		// For now every "flip" is a lap.
+		self.recordingStart();
 		
 	}
     
@@ -169,20 +174,9 @@ class Controller {
 	
     // ******* THIS WILL BE GONE EVENTUALLY ********/
     function flipMeat(i) {
-    	
     	Attention.vibrate(self.flipVibrator);
-    	
     	self.totalFlips[i]++;
-    	
-    	/*
-    	self.flipChanged.emit(totalFlips[i]);
-    	
-    	System.println("The meat has been flipped");
-    	
-    	self.resetTimer(i, targetSeconds[i]);
-    	self.initializeSystemTimer(i, targetSeconds[i]);
-    	self.session.addLap();
-    	*/
+		self.session.addLap();    	
     }
 
     
@@ -261,6 +255,7 @@ class Controller {
         self.timerChanged.emit([self.elapsedSeconds, self.totalSeconds]);
 	}
 	
+	
 	function decideSelection() {
 		var i = self.steak_selection;
 		var timeout = self.steak_timeout[i];
@@ -271,6 +266,7 @@ class Controller {
 			self.setStatus(i, COOKING);
 			System.println("Status set to COOKING");
 			self.targetSeconds[i] = timeout;
+			Attention.vibrate(self.startSteakVibrator);		
 		}
 		else if (self.getStatus(i) == COOKING) {
 			self.targetSeconds[i] = timeout;
@@ -281,7 +277,7 @@ class Controller {
 	
 	function decideCancellation() {
 		var i = self.steak_selection;
-		System.println("Deciding Cancellation on steak");
+		System.println("Deciding Cancellation on steak________________________________________");
 		System.println(i);
 
 	}

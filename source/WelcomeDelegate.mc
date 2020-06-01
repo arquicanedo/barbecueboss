@@ -42,16 +42,8 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
    	*/
    	
    	function onBack() {
-
 		var app = Application.getApp();
-		
-    	if(app.controller.getStatus() == Controller.SAVING) {
-			self.promptSaveSession();	
-		}
-		else {
-			WatchUi.popView(WatchUi.SLIDE_DOWN);
-		}
-
+		self.promptSaveSession();
    		return true;
    	}
     
@@ -64,6 +56,7 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 		//the delegate and in this case we're going to provide the onSaveConfirm defined below
 		resp.callbackMethod = self.method(:onSaveConfirm);
 		
+		// XXX: Is there a way to select "accept" by default? Now it is "reject" by default.
 		WatchUi.pushView(conf, resp, WatchUi.SLIDE_IMMEDIATE);
 	}
 	

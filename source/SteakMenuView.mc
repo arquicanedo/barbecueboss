@@ -54,7 +54,7 @@ class SteakMenuView extends WatchUi.View {
     function setSteakMenuTitle() {
     	System.println("setSteakMenu().............");
     	var mySteakMenu = Lang.format(
-		    "$1$", ["Steak Menu"]);
+		    "$1$", ["Grill"]);
     	mySteakMenuTitleText = new WatchUi.Text({
             :text=>mySteakMenu,
             :color=>Graphics.COLOR_WHITE,
@@ -104,7 +104,7 @@ class SteakMenuView extends WatchUi.View {
     function setTimers() {
 
     		
-    	var x_offset = 100;
+    	var x_offset = 120;
 
 		for( var i = 0; i < app.controller.total_steaks; i += 1 ) {
 			var myMinutes;
