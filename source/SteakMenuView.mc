@@ -68,11 +68,12 @@ class SteakMenuView extends WatchUi.View {
 	function setSteakLabels() {
 		for( var i = 0; i < app.controller.total_steaks; i += 1 ) {
 			var status;
-			if (app.controller.steak_status[i] == false) {
+			if (app.controller.getStatus(i) == app.controller.INIT) {
 				status = "Start";
 			}
 			else {
-				status = "Flip N";
+				status = Lang.format(
+				"$1$ $2$", ["Flip", app.controller.totalFlips[i]]);
 			}
 		    
 		    var mySteakLabel = Lang.format(
@@ -101,13 +102,25 @@ class SteakMenuView extends WatchUi.View {
     
     
     function setTimers() {
-       	var myMinutes = Lang.format(
-		    "$1$:$2$",
-    		["00", "00"]);
+
     		
     	var x_offset = 100;
 
-		for( var i = 0; i < app.controller.total_steaks; i += 1 ) {    	
+		for( var i = 0; i < app.controller.total_steaks; i += 1 ) {
+			var myMinutes;
+			
+			if (app.controller.getStatus(i) == app.controller.COOKING) { 	
+				var minutes = app.controller.targetSeconds[i] / 60;
+				var seconds = app.controller.targetSeconds[i] % 60;
+			    myMinutes = Lang.format(
+		    		"$1$:$2$",
+    				[minutes.format("%02d"), seconds.format("%02d")]);
+			}
+			else {
+				myMinutes = Lang.format(
+		    		"$1$:$2$",
+    				["00", "00"]);
+			}
 	        myTimerText[i] = new WatchUi.Text({
 	            :text=>myMinutes,
 	            :color=>Graphics.COLOR_WHITE,
@@ -124,6 +137,14 @@ class SteakMenuView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
+        //register for timer changed "events"
+		app.controller.timerChanged.on(self.method(:onTimerChanged));
+    }
+    
+    //handle timer changed event
+    function onTimerChanged(sender, value) {
+    	self.setTimers();
+    	Toybox.WatchUi.requestUpdate();
     }
 
     

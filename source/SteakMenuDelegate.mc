@@ -44,6 +44,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		return true;
     }
     
+
+    
     
     // Detect Back button input
     function onBack() {

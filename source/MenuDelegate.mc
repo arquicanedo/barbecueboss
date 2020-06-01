@@ -5,8 +5,11 @@ using Toybox.Timer;
 
 class MenuDelegate extends WatchUi.MenuInputDelegate {
 
+	hidden var app;
+
     function initialize() {
         MenuInputDelegate.initialize();
+        self.app = Application.getApp();
     }
 
 	//onMenuItem is for MenuDelegate
@@ -53,6 +56,10 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 			WatchUi.switchToView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
 			//WatchUi.pushView(new TimerView(timeout * 60), new TimerDelegate(), WatchUi.SLIDE_UP);
 		}
+		
+		var steak_i = app.controller.steak_selection;
+		app.controller.steak_timeout[steak_i] = timeout * 60;
+		app.controller.decideSelection();
     }
     
     
@@ -64,6 +71,9 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 		System.println("here");
 		
 		var timeout = ((values[0] * 60) + values[2]);
+		var steak_i = app.controller.steak_selection;
+		app.controller.steak_timeout[steak_i] = timeout;
+		app.controller.decideSelection();
 		//WatchUi.pushView(new TimerView(timeout), new TimerDelegate(), WatchUi.SLIDE_UP);
 		WatchUi.switchToView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
 	}

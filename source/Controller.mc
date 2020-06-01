@@ -14,6 +14,7 @@ class Controller {
 	public var totalFlips;
 	
 	//the 1 second timer driving things
+	// Looks like there is support for only *three* timers https://forums.garmin.com/developer/connect-iq/f/discussion/165057/too-many-timers-error
 	public var myTimer;
 	
 	//the total number of seconds running, and the number of seconds elapsed since start
@@ -21,7 +22,7 @@ class Controller {
 	public var totalSeconds;
 	
 	//the flip timer value
-	hidden var targetSeconds;
+	public var targetSeconds;
 		
 	hidden var paused;
 	hidden var cancelled;
@@ -42,8 +43,10 @@ class Controller {
 	public var steak_selection;
 	public var steak_status;
 	public var total_steaks;
+	public var steak_timeout;
 	
 	public enum {
+			INIT,
 	    	COOKING, 
 	    	USER_FLIPPING,
 	    	//AUTO_FLIPPING,
@@ -54,33 +57,49 @@ class Controller {
     
     function initialize() {
 		System.println("initializing controller...");
-		myTimer = new Timer.Timer();
 		paused = false;
 		cancelled = false;
-		self.setStatus(COOKING);
-		self.totalFlips = 0;
+
 		
 		self.initializeGPS();
 		self.initializeActivityRecording();
 		
 		self.total_steaks = 4;
 		self.steak_selection = 0;
-		self.steak_status = new [total_steaks];
+		self.steak_status = new [self.total_steaks];
+		self.status = new [self.total_steaks];
+		self.elapsedSeconds = new [self.total_steaks];
+		self.totalSeconds = new [self.total_steaks];
+		self.targetSeconds = new [self.total_steaks];
+		self.totalFlips = new [self.total_steaks];
+		self.steak_timeout = new [self.total_steaks];
+
+		
+		// Timer always running. 
+		self.myTimer = new Timer.Timer();
+		self.myTimer.start(method(:timerCallback), 1000, true);
+		
+		
 		for (var i=0; i<self.total_steaks; i+=1) {
 			self.steak_status[i] = false;
+			self.totalFlips[i] = 0;
+			self.setStatus(i, INIT);
+			self.totalSeconds[i] = 0;
+			self.targetSeconds[i] = 0;
 		}
+		
 	}
     
     function dispose() {
     
     }
     
-    function getStatus() {
-    	return self.status;
+    function getStatus(i) {
+    	return self.status[i];
     }
     
-    private function setStatus(status) {
-    	self.status = status;
+    private function setStatus(i, status_target) {
+    	self.status[i] = status_target;
     }
     
     // https://forums.garmin.com/developer/connect-iq/f/discussion/6626/position-accuracy-is-always-position-quality_last_known/44227#44227	
@@ -146,59 +165,67 @@ class Controller {
 			session = null;
 		}	
 	}
-    
-    function flipMeat() {
+	
+	
+    // ******* THIS WILL BE GONE EVENTUALLY ********/
+    function flipMeat(i) {
     	
     	Attention.vibrate(self.flipVibrator);
     	
-    	totalFlips++;
-    	self.flipChanged.emit(totalFlips);
+    	self.totalFlips[i]++;
+    	
+    	/*
+    	self.flipChanged.emit(totalFlips[i]);
     	
     	System.println("The meat has been flipped");
     	
-    	self.resetTimer(targetSeconds);
-    	self.initializeSystemTimer(targetSeconds);
+    	self.resetTimer(i, targetSeconds[i]);
+    	self.initializeSystemTimer(i, targetSeconds[i]);
     	self.session.addLap();
+    	*/
     }
+
     
     // Goes back to the user selection of time for a new flip
-    function resetTimer(seconds) {
-    	elapsedSeconds = 0;
-    	totalSeconds = seconds;
-    	targetSeconds = seconds;
+    function resetTimer(i, seconds) {
+    	System.println("resetTimer for");
+    	System.println(seconds);
+    	elapsedSeconds[i] = 0;
+    	totalSeconds[i] = seconds;
+    	targetSeconds[i] = seconds;
     }
 
     // initializes System Timer
-    function initializeSystemTimer(seconds) {
-    	self.setStatus(COOKING);
+    function initializeSystemTimer(i, seconds) {
+    	self.setStatus(i, COOKING);
         self.myTimer.stop();
         
-     	resetTimer(seconds);
+     	resetTimer(i, seconds);
     	
     	self.myTimer.start(method(:timerCallback), 1000, true);
-    	self.timerChanged.emit([self.elapsedSeconds, self.totalSeconds]);
+    	self.timerChanged.emit([self.elapsedSeconds[i], self.totalSeconds[i]]);
     }
         
-    function initializeFlip() {
-    	totalFlips = 0;
-    	self.flipChanged.emit(totalFlips);
+    function initializeFlip(i) {
+    	totalFlips[i] = 0;
+    	self.flipChanged.emit(totalFlips[i]);
     }
     
-	function initializeTimer(seconds) {
-		initializeSystemTimer(seconds);
+	function initializeTimer(i, seconds) {
+		initializeSystemTimer(i, seconds);
 		//initializeFlip();
 	}
 	
-	function timerStop() {
+	function timerStop(i) {
 		self.myTimer.stop();
 	}
 	
-	function timerResume() {
+	function timerResume(i) {
 	    self.myTimer.start(method(:timerCallback), 1000, true);
 	}
 	
-	function timerRestart() {
-	    self.initializeSystemTimer(targetSeconds);
+	function timerRestart(i) {
+	    self.initializeSystemTimer(i, targetSeconds[i]);
 	}
     
     function isPaused() {
@@ -208,72 +235,54 @@ class Controller {
     function isCancelled() {
     	return self.cancelled;
     }
+    /************** UNTIL HERE ***********/
+    
     
     function timerCallback() {
-
+		System.println("timerCallback________________");
         self.printGPS();        
-        self.timerChanged.emit([self.elapsedSeconds, self.totalSeconds]);
+
         
-    	// Stop the timer after the 00:00 has been reached and get confirmation to continue
-    	if (totalSeconds <= 0) {
-    		
-    		if(Attention has :vibrate) {
-    			Attention.vibrate(self.flipVibrator);
-    			//Attention.playTone(Attention.TONE_CANARY);
-    		}
-    		
-    		//self.setStatus(AUTO_FLIPPING);
-    		self.timerStop();
-    		//self.recordingStop();
-    	}
-    	else {
-    	    elapsedSeconds = elapsedSeconds + 1;
-    		totalSeconds = totalSeconds - 1;
-    	}
+        System.println("Steak target seconds");
+        System.println(self.targetSeconds);
+        
+        // Manage the timers
+        for (var i = 0; i<self.total_steaks; i+=1) {
+			// Decrease cooking steak timers
+        	if (self.getStatus(i) == COOKING) {
+        		self.targetSeconds[i] -= 1;
+				// Reset timers if expired
+				if (self.targetSeconds[i] < 0) {
+					self.targetSeconds[i] = self.steak_timeout[i];
+					self.flipMeat(i);
+				}
+        	}
+        }
+        self.timerChanged.emit([self.elapsedSeconds, self.totalSeconds]);
 	}
 	
 	function decideSelection() {
-		if (self.getStatus() == COOKING) {
-			System.println("Selection received @ COOKING, going to USER_FLIPPING");
-			self.timerStop();
-			self.recordingStop();
-			self.setStatus(USER_FLIPPING);
+		var i = self.steak_selection;
+		var timeout = self.steak_timeout[i];
+		System.println("Deciding Selection on steak");
+		System.println(i);
+		System.println(timeout);
+		if (self.getStatus(i) == INIT) {
+			self.setStatus(i, COOKING);
+			System.println("Status set to COOKING");
+			self.targetSeconds[i] = timeout;
 		}
-		else if (self.getStatus() == USER_FLIPPING) {
-			System.println("Selection received @ USER_FLIPPING, going to COOKING");
-			self.timerRestart();
-			self.recordingStart();
-			self.setStatus(COOKING);
-			self.flipMeat();
+		else if (self.getStatus(i) == COOKING) {
+			self.targetSeconds[i] = timeout;
+			self.flipMeat(i);
 		}
-		/*else if (self.getStatus() == AUTO_FLIPPING) {
-			System.println("Selection received @ AUTO_FLIPPING, going to COOKING");
-			self.timerRestart();
-			self.recordingStart();
-			self.status = COOKING;
-			self.flipMeat();
-		}*/
 	}
+
 	
 	function decideCancellation() {
-		if (self.getStatus() == COOKING) {
-			System.println("Back received @ COOKING, going to SAVING");
-			self.timerStop();
-			self.recordingStop();
-			self.setStatus(SAVING);
-		}
-		else if (self.getStatus() == USER_FLIPPING) {
-			System.println("Back received @ USER_FLIPPING, going to COOKING");
-			self.timerResume();
-			self.recordingStart();
-			self.setStatus(COOKING);
-		}
-		/*else if (self.getStatus() == AUTO_FLIPPING) {
-			System.println("Back received @ AUTO_FLIPPING, going to SAVING");
-			self.timerStop();
-			self.recordingStop();
-			self.status = SAVING;
-		}*/
+		var i = self.steak_selection;
+		System.println("Deciding Cancellation on steak");
+		System.println(i);
 
 	}
 	
