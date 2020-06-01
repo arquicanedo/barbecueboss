@@ -10,12 +10,12 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	hidden var app;
 
     function initialize() {
+        app = Application.getApp();
         BehaviorDelegate.initialize();
-
     }
 
     function onMenu() {
-		System.println("timerDelegate.onMenu pressed");
+		System.println("SteakMenuDelegate.onMenu pressed");
         return true;
     }
     
@@ -30,14 +30,17 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
     
+
     function onNextPage() {
-		System.println("next page");
+		app.controller.nextSteak();
+		Toybox.WatchUi.requestUpdate();
         return true;
     }
     
     function onPreviousPage() {
-		System.println("previous page");
-        return true;
+		app.controller.previousSteak();
+		Toybox.WatchUi.requestUpdate();
+		return true;
     }
     
     

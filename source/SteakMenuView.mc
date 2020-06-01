@@ -6,18 +6,19 @@ using Toybox.Application;
 
 class SteakMenuView extends WatchUi.View {
 
+	hidden var app;
 	hidden var mySteakMenuTitleText;
 	hidden var mySteakLabelsText;	// Array
 	hidden var mySelectorMarker;
-	hidden var total_steaks = 4;
+
 	hidden var steak_y_pos = [50, 65, 80, 95];
 	hidden var steak_x_pos = [30, 30, 30, 30];
-	hidden var steak_selection = 0;
-	hidden var steak_status = [false, false, false, false];
+
 
     function initialize() {
+        self.app = Application.getApp();
+        mySteakLabelsText = new [app.controller.total_steaks];
         View.initialize();
-        mySteakLabelsText = new [total_steaks];
     }
 
     // Load your resources here
@@ -34,7 +35,7 @@ class SteakMenuView extends WatchUi.View {
     	dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
         dc.clear();
     	mySteakMenuTitleText.draw(dc);
-    	for( var i = 0; i < total_steaks; i += 1 ) {
+    	for( var i = 0; i < app.controller.total_steaks; i += 1 ) {
     		mySteakLabelsText[i].draw(dc);
     	}
     	mySelectorMarker.draw(dc);
@@ -56,9 +57,9 @@ class SteakMenuView extends WatchUi.View {
         
         
 	function setSteakLabels() {
-		for( var i = 0; i < total_steaks; i += 1 ) {
+		for( var i = 0; i < app.controller.total_steaks; i += 1 ) {
 		    var mySteakLabel = Lang.format(
-		    	"$1$ $2$ $3$", ["Steak", i, steak_status[i]]);
+		    	"$1$ $2$ $3$", ["Steak", i, app.controller.steak_status[i]]);
 	    	mySteakLabelsText[i] = new WatchUi.Text({
 	            :text=>mySteakLabel,
 	            :color=>Graphics.COLOR_WHITE,
@@ -76,8 +77,8 @@ class SteakMenuView extends WatchUi.View {
 	            :text=>mySelector,
 	            :color=>Graphics.COLOR_ORANGE,
 	            :font=>Graphics.FONT_SMALL,
-	            :locX =>steak_x_pos[steak_selection]-10,
-	            :locY=>steak_y_pos[steak_selection]
+	            :locX =>steak_x_pos[app.controller.steak_selection]-10,
+	            :locY=>steak_y_pos[app.controller.steak_selection]
 	        });	
     }
     

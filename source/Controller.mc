@@ -37,6 +37,12 @@ class Controller {
 	public var timerChanged = new SimpleCallbackEvent("timerChanged");
 	public var flipChanged = new SimpleCallbackEvent("flipChanged");
 	
+	
+	// Steak menu related
+	public var steak_selection;
+	public var steak_status;
+	public var total_steaks;
+	
 	public enum {
 	    	COOKING, 
 	    	USER_FLIPPING,
@@ -56,6 +62,13 @@ class Controller {
 		
 		self.initializeGPS();
 		self.initializeActivityRecording();
+		
+		self.total_steaks = 4;
+		self.steak_selection = 0;
+		self.steak_status = new [total_steaks];
+		for (var i=0; i<self.total_steaks; i+=1) {
+			self.steak_status[i] = false;
+		}
 	}
     
     function dispose() {
@@ -262,5 +275,21 @@ class Controller {
 			self.status = SAVING;
 		}*/
 
+	}
+	
+	
+	function nextSteak() {
+		self.steak_selection = (self.steak_selection + 1 ) % self.total_steaks;
+		System.println("Steak selection");
+		System.println(self.steak_selection);
+	}
+	
+	function previousSteak() {
+		self.steak_selection = (self.steak_selection - 1 ) % self.total_steaks;
+		if (self.steak_selection < 0) {
+			self.steak_selection = self.total_steaks - 1;
+		}
+		System.println("Steak selection");
+		System.println(self.steak_selection);
 	}
 }
