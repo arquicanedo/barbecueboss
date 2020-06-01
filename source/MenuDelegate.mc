@@ -50,7 +50,8 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 			WatchUi.pushView(new DurationPicker(), pickerDelegate, WatchUi.SLIDE_UP);
 		}
 		else {
-			WatchUi.pushView(new TimerView(timeout * 60), new TimerDelegate(), WatchUi.SLIDE_UP);
+			WatchUi.switchToView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
+			//WatchUi.pushView(new TimerView(timeout * 60), new TimerDelegate(), WatchUi.SLIDE_UP);
 		}
     }
     
@@ -63,7 +64,8 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 		System.println("here");
 		
 		var timeout = ((values[0] * 60) + values[2]);
-		WatchUi.pushView(new TimerView(timeout), new TimerDelegate(), WatchUi.SLIDE_UP);
+		//WatchUi.pushView(new TimerView(timeout), new TimerDelegate(), WatchUi.SLIDE_UP);
+		WatchUi.switchToView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
 	}
 }
 

@@ -10,14 +10,18 @@ class SteakMenuView extends WatchUi.View {
 	hidden var mySteakMenuTitleText;
 	hidden var mySteakLabelsText;	// Array
 	hidden var mySelectorMarker;
+	hidden var myTimerText;			// Array
 
-	hidden var steak_y_pos = [50, 65, 80, 95];
+
+	// XXX: This should be watch-specific
+	hidden var steak_y_pos = [65, 80, 95, 110];
 	hidden var steak_x_pos = [30, 30, 30, 30];
 
 
     function initialize() {
         self.app = Application.getApp();
         mySteakLabelsText = new [app.controller.total_steaks];
+        myTimerText = new [app.controller.total_steaks];
         View.initialize();
     }
 
@@ -32,11 +36,16 @@ class SteakMenuView extends WatchUi.View {
     	self.setSteakMenuTitle();
     	self.setSteakLabels();
     	self.setSelectorMarker();
+    	self.setTimers();
     	dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
         dc.clear();
+        
+        // Draw on screen request
     	mySteakMenuTitleText.draw(dc);
     	for( var i = 0; i < app.controller.total_steaks; i += 1 ) {
     		mySteakLabelsText[i].draw(dc);
+    		myTimerText[i].draw(dc);
+
     	}
     	mySelectorMarker.draw(dc);
     }
@@ -58,8 +67,16 @@ class SteakMenuView extends WatchUi.View {
         
 	function setSteakLabels() {
 		for( var i = 0; i < app.controller.total_steaks; i += 1 ) {
+			var status;
+			if (app.controller.steak_status[i] == false) {
+				status = "Start";
+			}
+			else {
+				status = "Flip N";
+			}
+		    
 		    var mySteakLabel = Lang.format(
-		    	"$1$ $2$ $3$", ["Steak", i, app.controller.steak_status[i]]);
+		    	"$1$   $2$   $3$", ["Steak", i, status]);
 	    	mySteakLabelsText[i] = new WatchUi.Text({
 	            :text=>mySteakLabel,
 	            :color=>Graphics.COLOR_WHITE,
@@ -80,6 +97,25 @@ class SteakMenuView extends WatchUi.View {
 	            :locX =>steak_x_pos[app.controller.steak_selection]-10,
 	            :locY=>steak_y_pos[app.controller.steak_selection]
 	        });	
+    }
+    
+    
+    function setTimers() {
+       	var myMinutes = Lang.format(
+		    "$1$:$2$",
+    		["00", "00"]);
+    		
+    	var x_offset = 100;
+
+		for( var i = 0; i < app.controller.total_steaks; i += 1 ) {    	
+	        myTimerText[i] = new WatchUi.Text({
+	            :text=>myMinutes,
+	            :color=>Graphics.COLOR_WHITE,
+	            :font=>Graphics.FONT_SMALL,
+	            :locX =>steak_x_pos[i] + x_offset,
+	            :locY=>steak_y_pos[i]
+	        });
+	    }
     }
     
 
