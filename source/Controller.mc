@@ -233,7 +233,7 @@ class Controller {
     
     
     function timerCallback() {
-		System.println("timerCallback________________");
+		System.println("timerCallback");
         self.printGPS();        
 
         
@@ -277,7 +277,7 @@ class Controller {
 	
 	function decideCancellation() {
 		var i = self.steak_selection;
-		System.println("Deciding Cancellation on steak________________________________________");
+		System.println("Deciding Cancellation on steak");
 		System.println(i);
 
 	}

@@ -7,21 +7,9 @@ using Toybox.Application;
 class SteakMenuView extends WatchUi.View {
 
 	hidden var app;
-	hidden var mySteakMenuTitleText;
-	hidden var mySteakLabelsText;	// Array
-	hidden var mySelectorMarker;
-	hidden var myTimerText;			// Array
-
-
-	// XXX: This should be watch-specific
-	hidden var steak_y_pos = [65, 80, 95, 110];
-	hidden var steak_x_pos = [30, 30, 30, 30];
-
-
+	
     function initialize() {
         self.app = Application.getApp();
-        mySteakLabelsText = new [app.controller.total_steaks];
-        myTimerText = new [app.controller.total_steaks];
         View.initialize();
     }
 
@@ -186,9 +174,7 @@ class SteakMenuView extends WatchUi.View {
     	Toybox.WatchUi.requestUpdate();
     }
     
-
-    
-        // Update the view
+    // Update the view
     function onUpdate(dc) {
         // Call the parent onUpdate function to redraw the layout
 		//self.drawSteakMenu(dc);
@@ -202,110 +188,4 @@ class SteakMenuView extends WatchUi.View {
     // memory.
     function onHide() {
     }
-    
-    
-    
-    /********* DELETE. This code was used for a Layout created programatically. Now it is based on the SteakMenuLayout.xml ***********/
-    /*
-    
-    function drawSteakMenu(dc) {
-    	self.setSteakMenuTitle();
-    	self.setSteakLabels();
-    	self.setSelectorMarker();
-    	self.setTimers();
-    	dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-        dc.clear();
-        
-        // Draw on screen request
-    	mySteakMenuTitleText.draw(dc);
-    	for( var i = 0; i < app.controller.total_steaks; i += 1 ) {
-    		mySteakLabelsText[i].draw(dc);
-    		myTimerText[i].draw(dc);
-
-    	}
-    	mySelectorMarker.draw(dc);
-    }
-    
-    function setSteakMenuTitle() {
-    	System.println("setSteakMenu().............");
-    	var mySteakMenu = Lang.format(
-		    "$1$", ["Grill"]);
-    	mySteakMenuTitleText = new WatchUi.Text({
-            :text=>mySteakMenu,
-            :color=>Graphics.COLOR_WHITE,
-            :font=>Graphics.FONT_LARGE,
-            :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY=>30
-        });
-    }
-    
-        
-	function setSteakLabels() {
-		for( var i = 0; i < app.controller.total_steaks; i += 1 ) {
-			var status;
-			if (app.controller.getStatus(i) == app.controller.INIT) {
-				status = "Start";
-			}
-			else {
-				status = Lang.format(
-				"$1$ $2$", ["Flip", app.controller.totalFlips[i]]);
-			}
-		    
-		    var mySteakLabel = Lang.format(
-		    	"$1$   $2$   $3$", ["Steak", i, status]);
-		    		
-	    	mySteakLabelsText[i] = new WatchUi.Text({
-	            :text=>mySteakLabel,
-	            :color=>decideColor(i),
-	            :font=>Graphics.FONT_SMALL,
-	            :locX =>steak_x_pos[i],
-	            :locY=>steak_y_pos[i]
-	        });		
-		}
-    }
-    
-    
-    function setSelectorMarker() {
-	    var mySelector = Lang.format("$1$", [">"]);
-	    
-	   	mySelectorMarker = new WatchUi.Text({
-	            :text=>mySelector,
-	            :color=>Graphics.COLOR_ORANGE,
-	            :font=>Graphics.FONT_SMALL,
-	            :locX =>steak_x_pos[app.controller.steak_selection]-10,
-	            :locY=>steak_y_pos[app.controller.steak_selection]
-	        });	
-    }
-    
-    
-    function setTimers() {
-    	var x_offset = 120;
-		for( var i = 0; i < app.controller.total_steaks; i += 1 ) {
-			var myMinutes;
-			
-			if (app.controller.getStatus(i) == app.controller.COOKING) { 	
-				var minutes = app.controller.targetSeconds[i] / 60;
-				var seconds = app.controller.targetSeconds[i] % 60;
-			    myMinutes = Lang.format(
-		    		"$1$:$2$",
-    				[minutes.format("%02d"), seconds.format("%02d")]);
-			}
-			else {
-				myMinutes = Lang.format(
-		    		"$1$:$2$",
-    				["00", "00"]);
-			}
-	        myTimerText[i] = new WatchUi.Text({
-	            :text=>myMinutes,
-	            :color=>decideColor(i),
-	            :font=>Graphics.FONT_SMALL,
-	            :locX =>steak_x_pos[i] + x_offset,
-	            :locY=>steak_y_pos[i]
-	        });
-	    }
-    }
-    */
-
-
-
 }
