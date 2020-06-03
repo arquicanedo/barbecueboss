@@ -41,13 +41,13 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 	    }
 	    else if(id == :item_5) {
 			timeout = 5;
-	    } else if(id == :item_custom) {
+	    } 
+	    else if(id == :item_custom) {
 	    	timeout = -1;
 	    }
 
 		//custom timeout, show the picker
 		if(timeout == -1) {
-			//Application.getApp().setProperty("duration", true);
 			var pickerDelegate = new DurationPickerCallbackDelegate();
 			pickerDelegate.callbackMethod = method(:onPickerSelected);
 			WatchUi.pushView(new DurationPicker(), pickerDelegate, WatchUi.SLIDE_UP);
@@ -57,8 +57,6 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 			app.controller.steak_timeout[steak_i] = timeout * 60;
 			app.controller.decideSelection();
 		}
-		
-
     }
     
     

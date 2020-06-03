@@ -33,7 +33,7 @@ class Controller {
 	//the FIT activity session being used
 	hidden var session;
 	hidden var flipVibrator = [ new WatchUi.Attention.VibeProfile(75, 2500) ];
-	hidden var startSteakVibrator = [new WatchUi.Attention.VibeProfile(50, 500)];
+	hidden var startSteakVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
 	
 	//"events"
 	public var timerChanged = new SimpleCallbackEvent("timerChanged");
