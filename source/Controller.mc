@@ -32,8 +32,10 @@ class Controller {
 	
 	//the FIT activity session being used
 	hidden var session;
-	hidden var flipVibrator = [ new WatchUi.Attention.VibeProfile(75, 2500) ];
-	hidden var startSteakVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
+	
+	//vibration profiles set below conditionally if the device supports them
+	hidden var flipVibrator;
+	hidden var startSteakVibrator;
 	
 	//"events"
 	public var timerChanged = new SimpleCallbackEvent("timerChanged");
@@ -61,6 +63,10 @@ class Controller {
 		paused = false;
 		cancelled = false;
 
+		if(Attention has :vibrate){
+			self.flipVibrator = [ new WatchUi.Attention.VibeProfile(75, 2500) ];
+			self.startSteakVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
+		} 
 		
 		self.initializeGPS();
 		self.initializeActivityRecording();
@@ -174,7 +180,11 @@ class Controller {
 	
     // ******* THIS WILL BE GONE EVENTUALLY ********/
     function flipMeat(i) {
-    	Attention.vibrate(self.flipVibrator);
+    
+    	if(Attention has :vibrate) {
+    		Attention.vibrate(self.flipVibrator);
+    	}
+    	
     	self.totalFlips[i]++;
 		self.session.addLap();    	
     }
@@ -266,7 +276,11 @@ class Controller {
 			self.setStatus(i, COOKING);
 			System.println("Status set to COOKING");
 			self.targetSeconds[i] = timeout;
-			Attention.vibrate(self.startSteakVibrator);		
+			
+			if(Attention has :vibrate) {
+				Attention.vibrate(self.startSteakVibrator);
+			}
+					
 		}
 		else if (self.getStatus(i) == COOKING) {
 			self.targetSeconds[i] = timeout;

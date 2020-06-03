@@ -44,15 +44,21 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		return true;
     }
     
-
-    
-    
     // Detect Back button input
     function onBack() {
         WatchUi.popView(WatchUi.SLIDE_DOWN);
 		return true;
     }
 
+    function onSwipe(swipeEvent){
     
+    	var dir = swipeEvent.getDirection();
+    	
+    	if(dir == WatchUi.SWIPE_DOWN) {
+    		app.controller.nextSteak();
+    	} else if(dir == WatchUi.SWIPE_UP) {
+    		app.controller.previousSteak();
+    	}
+    }
     
 }
