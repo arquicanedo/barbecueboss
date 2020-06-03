@@ -27,10 +27,10 @@ class PickerChooserDelegate extends WatchUi.PickerDelegate {
     }
 
     function onAccept(values) {
-        if(values[0] == Rez.Strings.pickerChooserColor) {
+        /*if(values[0] == Rez.Strings.pickerChooserColor) {
             WatchUi.pushView(new ColorPicker(), new ColorPickerDelegate(), WatchUi.SLIDE_IMMEDIATE);
         }
-        else if(values[0] == Rez.Strings.pickerChooserDate) {
+        else*/ if(values[0] == Rez.Strings.pickerChooserDate) {
             WatchUi.pushView(new DatePicker(), new DatePickerDelegate(), WatchUi.SLIDE_IMMEDIATE);
         }
         else if(values[0] == Rez.Strings.pickerChooserString) {

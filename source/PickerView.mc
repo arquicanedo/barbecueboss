@@ -88,8 +88,8 @@ class PickerDelegate extends WatchUi.BehaviorDelegate {
             return onSelect();
         }
         return false;
-
     }
+    
     function onSelect() {
         return pushPicker();
     }
@@ -98,5 +98,4 @@ class PickerDelegate extends WatchUi.BehaviorDelegate {
         WatchUi.pushView(new PickerChooser(), new PickerChooserDelegate(), WatchUi.SLIDE_IMMEDIATE);
         return true;
     }
-
 }
