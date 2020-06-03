@@ -7,22 +7,78 @@ const DURATION_MINUTE_FORMAT = "%02d";
 
 class DurationPicker extends WatchUi.Picker {
 
+	hidden var fontSize = Graphics.FONT_MEDIUM;
+	
     function initialize() {
 
-        var title = new WatchUi.Text({:text=>Rez.Strings.durationPickerTitle, :locX=>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_BOTTOM, :color=>Graphics.COLOR_WHITE});
         var factories;
         var hourFactory;
         var numberFactories;
+        
+        //make sure if we're adjusting the display settings with json resources that the sdk is new enough AND that it has been specified in the device-specific resources
+        if(System.getDeviceSettings().monkeyVersion[0] >= 2 && Rez.JsonData has :PickerLayoutSettings ) {
+        
+	        var settings = WatchUi.loadResource(Rez.JsonData.PickerLayoutSettings);
+	        
+	        switch(settings["fontSize"]){
+	        	case "Graphics.FONT_SMALL":
+	        		self.fontSize = Graphics.FONT_SMALL;
+	        		break;
+	        	
+	        	case "Graphics.FONT_MEDIUM":
+	        		self.fontSize = Graphics.FONT_MEDIUM;
+	        		break;
+	        		
+	        	case "Graphics.FONT_LARGE":
+	        		self.fontSize = Graphics.FONT_LARGE;
+	        		break;
+	        		
+	        	default:
+	        		self.fontSize = Graphics.FONT_MEDIUM;
+	        		break; 
+	        }
+        }
+        
+        var title = new WatchUi.Text(
+        	{
+        		:text=>Rez.Strings.durationPickerTitle, 
+        		:locX=>WatchUi.LAYOUT_HALIGN_CENTER, 
+        		:locY=>WatchUi.LAYOUT_VALIGN_BOTTOM, 
+        		:color=>Graphics.COLOR_WHITE, 
+        		:font => self.fontSize 
+        	}
+        );
 
         factories = new [FACTORY_COUNT_24_HOUR];
-        factories[0] = new NumberFactory(0, 23, 1, {});
-        factories[1] = new WatchUi.Text({:text=>Rez.Strings.timeSeparator, :font=>Graphics.FONT_MEDIUM, :locX =>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_CENTER, :color=>Graphics.COLOR_WHITE});
-        factories[2] = new NumberFactory(0, 59, 1, {:format=>DURATION_MINUTE_FORMAT});
+        factories[0] = new NumberFactory(0, 23, 1, 
+        	{ 
+        		:font => self.fontSize
+        	}
+        );
+        
+        factories[1] = new WatchUi.Text(
+        	{
+        		:text=>Rez.Strings.timeSeparator, 
+        		:font=>self.fontSize, 
+        		:locX =>WatchUi.LAYOUT_HALIGN_CENTER, 
+        		:locY=>WatchUi.LAYOUT_VALIGN_CENTER, 
+        		:color=>Graphics.COLOR_WHITE, 
+        	}
+        );
+        
+        factories[2] = new NumberFactory(0, 59, 1, 
+        	{
+        		:format => DURATION_MINUTE_FORMAT, 
+        		:font => Graphics.FONT_MEDIUM 
+        	}
+        );
 
         var defaults = splitStoredTime(factories.size());
         if(defaults != null) {
+        
             defaults[0] = factories[0].getIndex(defaults[0].toNumber());
             defaults[2] = factories[2].getIndex(defaults[2].toNumber());
+        
             if(defaults.size() == FACTORY_COUNT_12_HOUR) {
                 defaults[3] = factories[3].getIndex(defaults[3]);
             }
