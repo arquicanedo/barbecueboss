@@ -1,0 +1,6 @@
+<layout id="WelcomeLayout">
+    <label x="center" y="210" text="@Strings.prompt" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <bitmap
+        filename="../../resources/images/steakfire.png" x="center" y="center" id="id_bbq">
+    </bitmap>
+</layout>
