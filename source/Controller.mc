@@ -273,12 +273,18 @@ class Controller {
 		System.println(i);
 		System.println(timeout);
 		if (self.getStatus(i) == INIT) {
-			self.setStatus(i, COOKING);
-			System.println("Status set to COOKING");
-			self.targetSeconds[i] = timeout;
-			
-			if(Attention has :vibrate) {
-				Attention.vibrate(self.startSteakVibrator);
+			if (timeout > 0) {
+				self.setStatus(i, COOKING);
+				System.println("Status set to COOKING");
+				self.targetSeconds[i] = timeout;
+				
+				if(Attention has :vibrate) {
+					Attention.vibrate(self.startSteakVibrator);
+				}
+			}
+			else {
+				self.setStatus(i, INIT);
+				System.println("The user picked 0 minutes 0 seconds. Not legal");
 			}
 					
 		}
