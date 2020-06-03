@@ -35,7 +35,15 @@ class NumberFactory extends WatchUi.PickerFactory {
     }
 
     function getDrawable(index, selected) {
-        return new WatchUi.Text( { :text=>getValue(index).format(mFormatString), :color=>Graphics.COLOR_WHITE, :font=> mFont, :locX =>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_CENTER } );
+        return new WatchUi.Text( 
+        	{ 
+        		:text=>getValue(index).format(mFormatString), 
+        		:color=>Graphics.COLOR_WHITE, 
+        		:font=> mFont, 
+        		:locX =>WatchUi.LAYOUT_HALIGN_CENTER, 
+        		:locY=>WatchUi.LAYOUT_VALIGN_CENTER 
+        	} 
+        );
     }
 
     function getValue(index) {
