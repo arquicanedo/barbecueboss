@@ -49,6 +49,4 @@ class TimerDelegate extends WatchUi.BehaviorDelegate {
 
     	return true;
     }
-    
-    
 }
