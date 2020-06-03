@@ -10,6 +10,7 @@
     <string id="menu_label_5">5 min</string>
     <string id="menu_label_custom">Custom</string>
     <string id="timer_string">00:00:00</string>
+ 	
     
         <!-- Main View -->
     <string id="clickHere">Click Here</string>

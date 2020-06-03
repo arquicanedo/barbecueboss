@@ -5,8 +5,11 @@ using Toybox.Timer;
 
 class MenuDelegate extends WatchUi.MenuInputDelegate {
 
+	hidden var app;
+
     function initialize() {
         MenuInputDelegate.initialize();
+        self.app = Application.getApp();
     }
 
 	//onMenuItem is for MenuDelegate
@@ -38,19 +41,21 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 	    }
 	    else if(id == :item_5) {
 			timeout = 5;
-	    } else if(id == :item_custom) {
+	    } 
+	    else if(id == :item_custom) {
 	    	timeout = -1;
 	    }
 
 		//custom timeout, show the picker
 		if(timeout == -1) {
-			//Application.getApp().setProperty("duration", true);
 			var pickerDelegate = new DurationPickerCallbackDelegate();
 			pickerDelegate.callbackMethod = method(:onPickerSelected);
 			WatchUi.pushView(new DurationPicker(), pickerDelegate, WatchUi.SLIDE_UP);
 		}
 		else {
-			WatchUi.pushView(new TimerView(timeout * 60), new TimerDelegate(), WatchUi.SLIDE_UP);
+			var steak_i = app.controller.steak_selection;
+			app.controller.steak_timeout[steak_i] = timeout * 60;
+			app.controller.decideSelection();
 		}
     }
     
@@ -61,9 +66,14 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 	
 	function onPickerSelected(values){
 		System.println("here");
+		System.println(values);
 		
 		var timeout = ((values[0] * 60) + values[2]);
-		WatchUi.pushView(new TimerView(timeout), new TimerDelegate(), WatchUi.SLIDE_UP);
+		var steak_i = app.controller.steak_selection;
+		app.controller.steak_timeout[steak_i] = timeout;
+		app.controller.decideSelection();
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+		System.println("pong");
 	}
 }
 

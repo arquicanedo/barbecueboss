@@ -27,10 +27,10 @@ class PickerChooserDelegate extends WatchUi.PickerDelegate {
     }
 
     function onAccept(values) {
-        if(values[0] == Rez.Strings.pickerChooserColor) {
+        /*if(values[0] == Rez.Strings.pickerChooserColor) {
             WatchUi.pushView(new ColorPicker(), new ColorPickerDelegate(), WatchUi.SLIDE_IMMEDIATE);
         }
-        else if(values[0] == Rez.Strings.pickerChooserDate) {
+        elseif(values[0] == Rez.Strings.pickerChooserDate) {
             WatchUi.pushView(new DatePicker(), new DatePickerDelegate(), WatchUi.SLIDE_IMMEDIATE);
         }
         else if(values[0] == Rez.Strings.pickerChooserString) {
@@ -42,7 +42,7 @@ class PickerChooserDelegate extends WatchUi.PickerDelegate {
         }
         else if(values[0] == Rez.Strings.pickerChooserLayout) {
             WatchUi.pushView(new LayoutPicker(), new LayoutPickerDelegate(), WatchUi.SLIDE_IMMEDIATE);
-        }
+        }*/
     }
 
 }
