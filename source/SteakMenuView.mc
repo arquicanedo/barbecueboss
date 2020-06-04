@@ -9,35 +9,23 @@ class SteakMenuView extends WatchUi.View {
 	hidden var app;
 	
     function initialize() {
-        self.app = Application.getApp();
         View.initialize();
+        self.app = Application.getApp();
     }
 
     // Load your resources here
     function onLayout(dc) {
-	    //View.initialize();
+	    
 	 	View.setLayout(Rez.Layouts.SteakMenuLayout(dc));
+	 	
+	 	var steakList = View.findDrawableById("steakList");
+	 	steakList.setMaxSteaks(app.controller.getTotalSteaks());
+	 	steakList.setSteaks(app.controller.getSteaks());
     }
     
-    function decideColor(i) {
-		if (app.controller.getStatus(i) == app.controller.INIT) {
-			return Graphics.COLOR_LT_GRAY;
-    	}
-    	else {
-    		if (app.controller.getStatus(i) == app.controller.COOKING and app.controller.targetSeconds[i] <= 20 and app.controller.targetSeconds[i] > 10) {
-    			return Graphics.COLOR_ORANGE;
-    		}
-    		else if (app.controller.getStatus(i) == app.controller.COOKING and app.controller.targetSeconds[i] <= 10) {
-    			return Graphics.COLOR_RED;
-    		}
-    		else {
-    			return Graphics.COLOR_WHITE;
-    		}
-    	}
-    }
     
     function updateSelector() {
-        var selection = app.controller.steak_selection;
+        var selection = app.controller.getSelectedSteak();
     	
     	// XXX: This is dirty. I don't know how to concatenate strings in Monkey-c. I'd like to do this in a loop.
     	var selector_drawable1;
@@ -170,7 +158,7 @@ class SteakMenuView extends WatchUi.View {
     //handle timer changed event
     function onTimerChanged(sender, value) {
     	//self.setTimers();
-    	self.updateTimers();
+    	//self.updateTimers();
     	Toybox.WatchUi.requestUpdate();
     }
     
@@ -178,7 +166,7 @@ class SteakMenuView extends WatchUi.View {
     function onUpdate(dc) {
         // Call the parent onUpdate function to redraw the layout
 		//self.drawSteakMenu(dc);
-		self.updateSteakMenu(dc);
+		//self.updateSteakMenu(dc);
 		View.onUpdate(dc);
 
     }

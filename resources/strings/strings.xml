@@ -53,4 +53,5 @@
     <string id="month12">Dec</string>
     <!-- CharacterFactory -->
     <string id="characterPickerOk">OK</string>
+    <string id="maxSteaks">6</string>
 </strings>

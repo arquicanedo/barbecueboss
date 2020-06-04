@@ -43,10 +43,11 @@ class Controller {
 	
 	
 	// Steak menu related
-	public var steak_selection;
-	public var steak_status;
+//	public var steak_selection;
 	public var total_steaks;
-	public var steak_timeout;
+//	public var steak_timeout;
+	
+	hidden var steaks;
 	
 	public enum {
 			INIT,
@@ -71,30 +72,22 @@ class Controller {
 		self.initializeGPS();
 		self.initializeActivityRecording();
 		
-		self.total_steaks = 4;
-		self.steak_selection = 0;
-		self.steak_status = new [self.total_steaks];
-		self.status = new [self.total_steaks];
-		self.elapsedSeconds = new [self.total_steaks];
-		self.totalSeconds = new [self.total_steaks];
-		self.targetSeconds = new [self.total_steaks];
-		self.totalFlips = new [self.total_steaks];
-		self.steak_timeout = new [self.total_steaks];
-
+		self.total_steaks = self.calculateMaxSteaks();
+		self.steaks = new [self.total_steaks];
 		
 		// Timer always running. 
 		self.myTimer = new Timer.Timer();
 		self.myTimer.start(method(:timerCallback), 1000, true);
 		
+	
+		for(var i = 0; i < self.total_steaks; i++) {
+			self.steaks[i] = new SteakEntry(Lang.format("Steak $1$", [i + 1]));
 		
-		for (var i=0; i<self.total_steaks; i+=1) {
-			self.steak_status[i] = false;
-			self.totalFlips[i] = 0;
-			self.setStatus(i, INIT);
-			self.totalSeconds[i] = 0;
-			self.targetSeconds[i] = 0;
+			if(i == 0) {
+				self.steaks[i].setSelected(true);
+			}
 		}
-		
+			
 		// Activity Recording. TODO: Investigate what custom data types we can come up with for grilling.
 		// For now every "flip" is a lap.
 		self.recordingStart();
@@ -105,12 +98,19 @@ class Controller {
     
     }
     
-    function getStatus(i) {
-    	return self.status[i];
+    function getSteaks() {
+    	return steaks;
+    }
+    function getTotalSteaks() {
+    	return self.total_steaks;
     }
     
-    private function setStatus(i, status_target) {
-    	self.status[i] = status_target;
+    function getStatus(i) {
+    	return self.steaks[i].getStatus();
+    }
+    
+	hidden function setStatus(idx, status) {
+    	self.steaks[idx].setStatus(status);
     }
     
     // https://forums.garmin.com/developer/connect-iq/f/discussion/6626/position-accuracy-is-always-position-quality_last_known/44227#44227	
@@ -185,7 +185,7 @@ class Controller {
     		Attention.vibrate(self.flipVibrator);
     	}
     	
-    	self.totalFlips[i]++;
+    	self.steaks[i].setTotalFlips(self.steaks[i].getTotalFlips() + 1);
 		self.session.addLap();    	
     }
 
@@ -201,7 +201,7 @@ class Controller {
 
     // initializes System Timer
     function initializeSystemTimer(i, seconds) {
-    	self.setStatus(i, COOKING);
+    	self.setStatus(i, Controller.COOKING);
         self.myTimer.stop();
         
      	resetTimer(i, seconds);
@@ -245,30 +245,42 @@ class Controller {
     function timerCallback() {
 		System.println("timerCallback");
         self.printGPS();        
-
-        
-        System.println("Steak target seconds");
-        System.println(self.targetSeconds);
         
         // Manage the timers
-        for (var i = 0; i<self.total_steaks; i+=1) {
+        for (var i = 0; i < self.total_steaks; i+=1) {
 			// Decrease cooking steak timers
-        	if (self.getStatus(i) == COOKING) {
-        		self.targetSeconds[i] -= 1;
+        	if (self.steaks[i].getStatus() == COOKING) {
+        		
+        		var targetSeconds = self.steaks[i].getTargetSeconds() - 1;
+        		
 				// Reset timers if expired
-				if (self.targetSeconds[i] < 0) {
-					self.targetSeconds[i] = self.steak_timeout[i];
+				if (targetSeconds < 0) {
+					self.steaks[i].setTargetSeconds(self.steaks[i].getTimeout());
 					self.flipMeat(i);
+				} 
+				else {
+					self.steaks[i].setTargetSeconds(targetSeconds);
 				}
+				
         	}
         }
+        
         self.timerChanged.emit([self.elapsedSeconds, self.totalSeconds]);
 	}
 	
+	function getSelectedSteak() {
+		for(var i = 0; i < self.total_steaks; i++) {
+			if(self.steaks[i].getSelected()) {
+				return i;
+			}
+		}
+		
+		return 0;
+	}
 	
 	function decideSelection() {
-		var i = self.steak_selection;
-		var timeout = self.steak_timeout[i];
+		var i = self.getSelectedSteak();
+		var timeout = self.steaks[i].getTimeout();
 		System.println("Deciding Selection on steak");
 		System.println(i);
 		System.println(timeout);
@@ -276,7 +288,7 @@ class Controller {
 			if (timeout > 0) {
 				self.setStatus(i, COOKING);
 				System.println("Status set to COOKING");
-				self.targetSeconds[i] = timeout;
+				self.steaks[i].setTimeout(timeout);
 				
 				if(Attention has :vibrate) {
 					Attention.vibrate(self.startSteakVibrator);
@@ -289,32 +301,40 @@ class Controller {
 					
 		}
 		else if (self.getStatus(i) == COOKING) {
-			self.targetSeconds[i] = timeout;
+			self.steaks[i].setTimeout(timeout);
 			self.flipMeat(i);
 		}
 	}
 
-	
 	function decideCancellation() {
-		var i = self.steak_selection;
+		var i = self.getSelectedSteak();
 		System.println("Deciding Cancellation on steak");
 		System.println(i);
 
 	}
 	
-	
 	function nextSteak() {
-		self.steak_selection = (self.steak_selection + 1 ) % self.total_steaks;
-		System.println("Steak selection");
-		System.println(self.steak_selection);
+		var i = self.getSelectedSteak();
+		
+		steaks[i].setSelected(false);
+		steaks[(i + 1) % self.total_steaks].setSelected(true);
+
+		System.println(Lang.format("Selected steak $1$", [(i + 1) % self.total_steaks]));
 	}
 	
 	function previousSteak() {
-		self.steak_selection = (self.steak_selection - 1 ) % self.total_steaks;
-		if (self.steak_selection < 0) {
-			self.steak_selection = self.total_steaks - 1;
-		}
-		System.println("Steak selection");
-		System.println(self.steak_selection);
+		var i = self.getSelectedSteak();
+		
+		steaks[i].setSelected(false);
+		steaks[(i - 1) % self.total_steaks].setSelected(true);
+
+		System.println(Lang.format("Selected steak $1$", [(i - 1) % self.total_steaks]));
 	}
+	
+	function calculateMaxSteaks() {
+    	
+		//this can be overridden per family/device in the string resource for that device
+    	return WatchUi.loadResource(Rez.Strings.maxSteaks).toNumber();    	
+    }
+    
 }
