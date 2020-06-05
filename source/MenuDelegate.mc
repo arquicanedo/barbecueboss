@@ -24,25 +24,32 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
     	//var id = item.getId();
     	var id = item;
     	var timeout = 1;
-    	
+		var selectedSteak = app.controller.getSelectedSteak();
+		
     	System.println("Selected timer menu item: " + id.toString());
 
-        if(id == :item_1) {
+		if(id == :timerMenuStop) {
+			app.controller.steak_timeout[selectedSteak] = 0;
+			app.controller.setStatus(selectedSteak, Controller.INIT);	
+			return;
+		}
+		
+        if(id == :timerMenu1) {
 			timeout = 1;
 	    }
-	    else if(id == :item_2) {
+	    else if(id == :timerMenu2) {
 			timeout = 2;
 	    }
-	    else if(id == :item_3) {
+	    else if(id == :timerMenu3) {
 			timeout = 3;
 	    }
-	    else if(id == :item_4) {
+	    else if(id == :timerMenu4) {
 			timeout = 4;
 	    }
-	    else if(id == :item_5) {
+	    else if(id == :timerMenu5) {
 			timeout = 5;
 	    } 
-	    else if(id == :item_custom) {
+	    else if(id == :timerMenuCustom) {
 	    	timeout = -1;
 	    }
 
@@ -53,8 +60,7 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 			WatchUi.pushView(new DurationPicker(), pickerDelegate, WatchUi.SLIDE_UP);
 		}
 		else {
-			var steak_i = app.controller.getSelectedSteak();
-			app.controller.getSteaks()[steak_i].setTimeout(timeout * 60);
+			app.controller.getSteaks()[selectedSteak].setTimeout(timeout * 60);
 			app.controller.decideSelection();
 		}
     }
