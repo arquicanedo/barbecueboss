@@ -3,7 +3,6 @@ using Toybox.WatchUi;
 
 class SteakListDrawable extends Toybox.WatchUi.Drawable {
 	
-	hidden var _params;
 	hidden var _listX;
 	hidden var _listY;
 	hidden var _font;
@@ -17,7 +16,6 @@ class SteakListDrawable extends Toybox.WatchUi.Drawable {
 	
 	function initialize(params) {
 		WatchUi.Drawable.initialize(params);
-		_params = params;
 		
 		_listX = params.get(:itemOriginX);
 		_listY = params.get(:itemOriginY);
