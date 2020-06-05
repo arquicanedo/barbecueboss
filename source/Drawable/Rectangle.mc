@@ -1,7 +1,7 @@
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
-class Rectangle extends WatchUi.Drawable {
+/*class Rectangle extends WatchUi.Drawable {
 
     var mColor;
 
@@ -14,4 +14,4 @@ class Rectangle extends WatchUi.Drawable {
         dc.setColor(mColor, mColor);
         dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
     }
-}
+}*/
