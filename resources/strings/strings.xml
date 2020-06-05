@@ -3,6 +3,7 @@
 
     <string id="prompt">Barbecue Boss</string>
 	<string id="menu_timer_title">Flip Time</string>
+	<string id="menu_label_stop">Stop</string>
     <string id="menu_label_1">1 min</string>
     <string id="menu_label_2">2 min</string>
     <string id="menu_label_3">3 min</string>
