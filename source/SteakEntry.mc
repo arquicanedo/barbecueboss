@@ -10,9 +10,14 @@ class SteakEntry {
 	hidden var _targetSeconds = 0;
 	hidden var _totalFlips = 0;
 	hidden var _label;
+	hidden var _initialized = false;
 	
 	function initialize(label) {
 		_label = label;	
+	}
+	
+	function getInitialized() {
+		return _initialized;
 	}
 	
 	function getStatus() {
@@ -45,8 +50,9 @@ class SteakEntry {
 	}
 	
 	function setTimeout(seconds) {
-		//System.println("setTimeout");
 		_timeout = seconds;
+		_targetSeconds = seconds;
+		_initialized = true;
 	}
 	
 	function getTimeout() {
@@ -59,6 +65,14 @@ class SteakEntry {
 	
 	function getTotalFlips() {
 		return _totalFlips;
+	}
+	
+	function getFlipString() {
+		return Lang.format("Flip $1$", [_totalFlips]);
+	}
+	
+	function getTargetString() {
+		return Lang.format("$1$:$2$", [ (_targetSeconds / 60).format("%02d"), (_targetSeconds % 60).format("%02d") ]);
 	}
 	
 	function getOverview() {

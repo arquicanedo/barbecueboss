@@ -5,6 +5,8 @@ class SteakListDrawable extends Toybox.WatchUi.Drawable {
 	
 	hidden var _listX;
 	hidden var _listY;
+	hidden var _targetOriginX;
+	hidden var _flipOriginX;
 	hidden var _font;
 	hidden var _justification;
 	hidden var _listItemOffsetY;
@@ -25,6 +27,8 @@ class SteakListDrawable extends Toybox.WatchUi.Drawable {
 		_justification = params.get(:listJustification);
 		_selectorColor = params.get(:selectorColor);
 		_itemColor = params.get(:itemColor);
+		_targetOriginX = params.get(:targetOriginX);
+		_flipOriginX = params.get(:flipOriginX);
 	}
 
 	function setSteaks(steaks) {
@@ -56,17 +60,19 @@ class SteakListDrawable extends Toybox.WatchUi.Drawable {
 			var offset = _listY + (i * _listItemOffsetY);
 			if(_steaks[i].getSelected()) {
 				dc.setColor(_selectorColor, Graphics.COLOR_BLACK);
-				dc.drawText(_selectorX, offset, _font, ">", _justification);			
+				dc.drawText(_selectorX, offset, _font, ">", _justification);
 			}
  		
 			dc.setColor(decideColor(_steaks[i]), Graphics.COLOR_BLACK);
-			dc.drawText(_listX, offset, _font, _steaks[i].getOverview(), _justification); 
-		
+			dc.drawText(_listX, offset, _font, _steaks[i].getLabel(), _justification);
+			dc.drawText(_flipOriginX, offset, _font, _steaks[i].getFlipString(), _justification);
+			dc.drawText(_targetOriginX, offset, _font, _steaks[i].getTargetString(), _justification); 
 		}
 	}
 	
 	function decideColor(steak) {
 		var status = steak.getStatus();
+		var initialized = steak.getInitialized();
 		var targetSeconds = steak.getTargetSeconds();
 		
 		if (status == Controller.INIT) {
@@ -76,7 +82,7 @@ class SteakListDrawable extends Toybox.WatchUi.Drawable {
     		if (status == Controller.COOKING && targetSeconds <= 20 && targetSeconds > 10) {
     			return Graphics.COLOR_ORANGE;
     		}
-    		else if (status == Controller.COOKING && targetSeconds <= 10) {
+    		else if (initialized && status == Controller.COOKING && targetSeconds <= 10) {
     			return Graphics.COLOR_RED;
     		}
     		else {

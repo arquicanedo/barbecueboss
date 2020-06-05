@@ -17,19 +17,6 @@ class Controller {
 	// Looks like there is support for only *three* timers https://forums.garmin.com/developer/connect-iq/f/discussion/165057/too-many-timers-error
 	public var myTimer;
 	
-	//the total number of seconds running, and the number of seconds elapsed since start
-    public var elapsedSeconds;
-	public var totalSeconds;
-	
-	//the flip timer value
-	public var targetSeconds;
-		
-	hidden var paused;
-	hidden var cancelled;
-	
-	//current cooking / machine state
-	hidden var status;
-	
 	//the FIT activity session being used
 	hidden var session;
 	
@@ -41,12 +28,8 @@ class Controller {
 	public var timerChanged = new SimpleCallbackEvent("timerChanged");
 	public var flipChanged = new SimpleCallbackEvent("flipChanged");
 	
-	
 	// Steak menu related
-//	public var steak_selection;
 	public var total_steaks;
-//	public var steak_timeout;
-	
 	hidden var steaks;
 	
 	public enum {
@@ -61,8 +44,6 @@ class Controller {
     
     function initialize() {
 		System.println("initializing controller...");
-		paused = false;
-		cancelled = false;
 
 		if(Attention has :vibrate){
 			self.flipVibrator = [ new WatchUi.Attention.VibeProfile(75, 2500) ];
@@ -90,8 +71,7 @@ class Controller {
 			
 		// Activity Recording. TODO: Investigate what custom data types we can come up with for grilling.
 		// For now every "flip" is a lap.
-		self.recordingStart();
-		
+		self.recordingStart();		
 	}
     
     function dispose() {
@@ -104,15 +84,7 @@ class Controller {
     function getTotalSteaks() {
     	return self.total_steaks;
     }
-    
-    function getStatus(i) {
-    	return self.steaks[i].getStatus();
-    }
-    
-	hidden function setStatus(idx, status) {
-    	self.steaks[idx].setStatus(status);
-    }
-    
+	
     // https://forums.garmin.com/developer/connect-iq/f/discussion/6626/position-accuracy-is-always-position-quality_last_known/44227#44227	
     function onPosition(info) {
     	System.println("GPS Acc: " + info.accuracy);
@@ -194,32 +166,13 @@ class Controller {
     function resetTimer(i, seconds) {
     	System.println("resetTimer for");
     	System.println(seconds);
-    	elapsedSeconds[i] = 0;
-    	totalSeconds[i] = seconds;
-    	targetSeconds[i] = seconds;
     }
 
-    // initializes System Timer
-    function initializeSystemTimer(i, seconds) {
-    	self.setStatus(i, Controller.COOKING);
-        self.myTimer.stop();
-        
-     	resetTimer(i, seconds);
-    	
-    	self.myTimer.start(method(:timerCallback), 1000, true);
-    	self.timerChanged.emit([self.elapsedSeconds[i], self.totalSeconds[i]]);
-    }
-        
     function initializeFlip(i) {
     	totalFlips[i] = 0;
     	self.flipChanged.emit(totalFlips[i]);
     }
     
-	function initializeTimer(i, seconds) {
-		initializeSystemTimer(i, seconds);
-		//initializeFlip();
-	}
-	
 	function timerStop(i) {
 		self.myTimer.stop();
 	}
@@ -227,20 +180,8 @@ class Controller {
 	function timerResume(i) {
 	    self.myTimer.start(method(:timerCallback), 1000, true);
 	}
-	
-	function timerRestart(i) {
-	    self.initializeSystemTimer(i, targetSeconds[i]);
-	}
-    
-    function isPaused() {
-    	return self.paused;
-    }
-    
-    function isCancelled() {
-    	return self.cancelled;
-    }
+	    
     /************** UNTIL HERE ***********/
-    
     
     function timerCallback() {
 		System.println("timerCallback");
@@ -251,21 +192,23 @@ class Controller {
 			// Decrease cooking steak timers
         	if (self.steaks[i].getStatus() == COOKING) {
         		
-        		var targetSeconds = self.steaks[i].getTargetSeconds() - 1;
+        		if(self.steaks[i].getInitialized()) {
         		
-				// Reset timers if expired
-				if (targetSeconds < 0) {
-					self.steaks[i].setTargetSeconds(self.steaks[i].getTimeout());
-					self.flipMeat(i);
-				} 
-				else {
-					self.steaks[i].setTargetSeconds(targetSeconds);
+	        		var targetSeconds = self.steaks[i].getTargetSeconds() - 1;
+	        		
+					// Reset timers if expired
+					if (targetSeconds < 0) {
+						self.steaks[i].setTargetSeconds(self.steaks[i].getTimeout());
+						self.flipMeat(i);
+					} 
+					else {
+						self.steaks[i].setTargetSeconds(targetSeconds);
+					}
 				}
-				
         	}
         }
         
-        self.timerChanged.emit([self.elapsedSeconds, self.totalSeconds]);
+        self.timerChanged.emit([]);
 	}
 	
 	function getSelectedSteak() {
@@ -285,11 +228,11 @@ class Controller {
 		System.println(i);
 		System.println(timeout);
 		
-		if (self.getStatus(i) == INIT) {
+		if (self.steaks[i].getStatus() == INIT) {
 		
 			if (timeout > 0) {
 				self.steaks[i].setTimeout(timeout);
-				self.setStatus(i, COOKING);
+				self.steaks[i].setStatus(COOKING);
 				System.println("Status set to COOKING");
 				
 				if(Attention has :vibrate) {
@@ -297,14 +240,20 @@ class Controller {
 				}
 			}
 			else {
-				self.setStatus(i, INIT);
+				self.steaks[i].setStatus(INIT);
 				System.println("The user picked 0 minutes 0 seconds. Not legal");
 			}
 					
 		}
-		else if (self.getStatus(i) == COOKING) {
+		else if (self.steaks[i].getStatus() == COOKING) {
+		
+			//if we are just now transitioning to cooking we don't want to count a flip yet.
+			var initialized = self.steaks[i].getInitialized(); 
 			self.steaks[i].setTimeout(timeout);
-			self.flipMeat(i);
+			
+			if(initialized) {
+				self.flipMeat(i);
+			}
 		}
 	}
 
@@ -312,7 +261,6 @@ class Controller {
 		var i = self.getSelectedSteak();
 		System.println("Deciding Cancellation on steak");
 		System.println(i);
-
 	}
 	
 	function nextSteak() {
@@ -320,17 +268,20 @@ class Controller {
 		
 		steaks[i].setSelected(false);
 		steaks[(i + 1) % self.total_steaks].setSelected(true);
-
-		System.println(Lang.format("Selected steak $1$", [(i + 1) % self.total_steaks]));
 	}
 	
 	function previousSteak() {
 		var i = self.getSelectedSteak();
 		
 		steaks[i].setSelected(false);
-		steaks[(i - 1) % self.total_steaks].setSelected(true);
-
-		System.println(Lang.format("Selected steak $1$", [(i - 1) % self.total_steaks]));
+		
+		var prevSteak = ((i - 1) % self.total_steaks);
+		
+		if(prevSteak < 0) {
+			prevSteak = self.total_steaks - 1;
+		}
+		
+		steaks[prevSteak].setSelected(true);
 	}
 	
 	function calculateMaxSteaks() {
@@ -338,5 +289,4 @@ class Controller {
 		//this can be overridden per family/device in the string resource for that device
     	return WatchUi.loadResource(Rez.Strings.maxSteaks).toNumber();    	
     }
-    
 }

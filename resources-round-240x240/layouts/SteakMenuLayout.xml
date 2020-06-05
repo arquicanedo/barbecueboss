@@ -1,23 +1,17 @@
 <layout id="SteakMenuLayout">
-    <label id="MainTitle" x="center" y="top" text="Grill" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_LARGE" />
-    
-    <label id="Steak1" x="35" y="80" text="Steak 1" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    <label id="Steak2" x="35" y="105" text="Steak 2" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    <label id="Steak3" x="35" y="130" text="Steak 3" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    <label id="Steak4" x="35" y="155" text="Steak 4" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    
-    <label id="SteakSelector1" x="20" y="80" text=">" color="Graphics.COLOR_ORANGE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    <label id="SteakSelector2" x="20" y="105" text="" color="Graphics.COLOR_ORANGE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    <label id="SteakSelector3" x="20" y="130" text="" color="Graphics.COLOR_ORANGE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    <label id="SteakSelector4" x="20" y="155" text="" color="Graphics.COLOR_ORANGE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    
-    <label id="SteakStatus1" x="130" y="80" text="Start" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_TINY" />
-    <label id="SteakStatus2" x="130" y="105" text="Start" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_TINY" />
-    <label id="SteakStatus3" x="130" y="130" text="Start" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_TINY" />
-    <label id="SteakStatus4" x="130" y="155" text="Start" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_TINY" />
-    
-    <label id="SteakTimer1" x="160" y="80" text="00:00" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    <label id="SteakTimer2" x="160" y="105" text="00:00" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    <label id="SteakTimer3" x="160" y="130" text="00:00" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
-    <label id="SteakTimer4" x="160" y="155" text="00:00" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+	<drawable id="steakList" class="SteakListDrawable">
+		<param name="titleX">"center"</param>
+		<param name="titleY">"top"</param>
+		<param name="itemOriginX">30</param>
+		<param name="itemOriginY">45</param>
+		<param name="flipOriginX">100</param>
+		<param name="targetOriginX">150</param>
+		<param name="selectorOriginX">20</param>
+		<param name="listItemOffsetY">20</param>
+		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
+		<param name="font">Graphics.FONT_XTINY</param>
+		<param name="itemColor">Graphics.COLOR_WHITE</param>
+		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
+	</drawable>
+	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="200" x="center"/>
 </layout>

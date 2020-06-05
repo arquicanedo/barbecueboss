@@ -31,6 +31,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	// Detect Menu button input
     function onKey(keyEvent) {
         System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
+        
         return true;
     }
     
