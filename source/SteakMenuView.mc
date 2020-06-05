@@ -163,7 +163,7 @@ class SteakMenuView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
-        //register for timer changed "events"
+    	//register for timer changed "events"
 		app.controller.timerChanged.on(self.method(:onTimerChanged));
     }
     
@@ -180,12 +180,13 @@ class SteakMenuView extends WatchUi.View {
 		//self.drawSteakMenu(dc);
 		self.updateSteakMenu(dc);
 		View.onUpdate(dc);
-
     }
 
     // Called when this View is removed from the screen. Save the
     // state of this View here. This includes freeing resources from
     // memory.
     function onHide() {
+    	//if the view isn't being displayed, there's no point in handling the timer callbacks and wasting memory
+    	app.controller.timerChanged.reset();
     }
 }
