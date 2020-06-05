@@ -1,7 +1,7 @@
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
-class WordFactory extends WatchUi.PickerFactory {
+/*class WordFactory extends WatchUi.PickerFactory {
     var mWords;
     var mFont;
 
@@ -49,4 +49,4 @@ class WordFactory extends WatchUi.PickerFactory {
     function getDrawable(index, selected) {
         return new WatchUi.Text({:text=>mWords[index], :color=>Graphics.COLOR_WHITE, :font=>mFont, :locX=>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_CENTER});
     }
-}
+}*/

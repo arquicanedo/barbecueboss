@@ -2,7 +2,7 @@ using Toybox.Application;
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
-class LayoutPicker extends WatchUi.Picker {
+/*class LayoutPicker extends WatchUi.Picker {
 
     function initialize() {
         var factory = new RectangleFactory(Graphics.COLOR_PURPLE);
@@ -34,4 +34,4 @@ class LayoutPickerDelegate extends WatchUi.PickerDelegate {
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
     }
     
-}
+}*/

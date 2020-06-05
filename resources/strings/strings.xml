@@ -14,31 +14,36 @@
  	
     
         <!-- Main View -->
-    <string id="clickHere">Click Here</string>
+    <!-- <string id="clickHere">Click Here</string>
     <string id="string">Pick a string</string>
     <string id="date">Pick a date</string>
-    <string id="time">Pick a time</string>
+    <string id="time">Pick a time</string> -->
     <string id="duration">Duration</string>
     
     <!-- Main Picker -->
-    <string id="pickerChooserTitle">Choose a picker</string>
+    <!-- <string id="pickerChooserTitle">Choose a picker</string>
     <string id="pickerChooserColor">Color</string>
     <string id="pickerChooserTime">Time</string>
     <string id="pickerChooserDate">Date</string>
     <string id="pickerChooserString">String</string>
-    <string id="pickerChooserLayout">Layout</string>
+    <string id="pickerChooserLayout">Layout</string> -->
+    
     <!-- Color Picker -->
-    <string id="colorPickerTitle">Pick a color</string>
+    <!-- <string id="colorPickerTitle">Pick a color</string> -->
+    
     <!-- Time/Duration Picker -->
-    <string id="timePickerTitle">Pick a time of day</string>
+    <!-- <string id="timePickerTitle">Pick a time of day</string>
+    <string id="morning">AM</string>
+    <string id="afternoon">PM</string> -->
+    
     <string id="durationPickerTitle">Timer (mm:ss)</string>
     <string id="timeSeparator">:</string>
-    <string id="morning">AM</string>
-    <string id="afternoon">PM</string>
+    
     <!-- String Picker -->
-    <string id="stringPickerTitle">Pick a string</string>
+    <!-- <string id="stringPickerTitle">Pick a string</string> -->
+    
     <!-- Date Picker -->
-    <string id="datePickerTitle">Pick a date</string>
+    <!-- <string id="datePickerTitle">Pick a date</string>
     <string id="dateSeparator">-</string>
     <string id="month01">Jan</string>
     <string id="month02">Feb</string>
@@ -51,7 +56,7 @@
     <string id="month09">Sep</string>
     <string id="month10">Oct</string>
     <string id="month11">Nov</string>
-    <string id="month12">Dec</string>
+    <string id="month12">Dec</string> -->
     <!-- CharacterFactory -->
     <string id="characterPickerOk">OK</string>
     <string id="maxSteaks">6</string>
