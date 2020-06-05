@@ -109,7 +109,7 @@ class Controller {
     	return self.status[i];
     }
     
-    private function setStatus(i, status_target) {
+    function setStatus(i, status_target) {
     	self.status[i] = status_target;
     }
     
