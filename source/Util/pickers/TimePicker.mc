@@ -7,7 +7,7 @@ const FACTORY_COUNT_24_HOUR = 3;
 const FACTORY_COUNT_12_HOUR = 4;
 const MINUTE_FORMAT = "%02d";
 
-class TimePicker extends WatchUi.Picker {
+/*class TimePicker extends WatchUi.Picker {
 
     function initialize() {
 
@@ -108,4 +108,4 @@ class TimePickerDelegate extends WatchUi.PickerDelegate {
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
     }
 
-}
+}*/

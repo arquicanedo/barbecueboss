@@ -1,7 +1,7 @@
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
-class RectangleFactory extends WatchUi.PickerFactory {
+/*class RectangleFactory extends WatchUi.PickerFactory {
 
     hidden var mColor;
 
@@ -21,4 +21,4 @@ class RectangleFactory extends WatchUi.PickerFactory {
     function getDrawable(index, selected) {
         return new Rectangle(mColor);
     }
-}
+}*/
