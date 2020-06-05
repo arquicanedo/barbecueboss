@@ -20,6 +20,7 @@ class SteakEntry {
 	}
 	
 	function setStatus(status) {
+		//System.println("setStatus");
 		_status = status;
 	}
 	
@@ -44,6 +45,7 @@ class SteakEntry {
 	}
 	
 	function setTimeout(seconds) {
+		//System.println("setTimeout");
 		_timeout = seconds;
 	}
 	

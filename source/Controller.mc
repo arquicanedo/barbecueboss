@@ -284,11 +284,13 @@ class Controller {
 		System.println("Deciding Selection on steak");
 		System.println(i);
 		System.println(timeout);
+		
 		if (self.getStatus(i) == INIT) {
+		
 			if (timeout > 0) {
+				self.steaks[i].setTimeout(timeout);
 				self.setStatus(i, COOKING);
 				System.println("Status set to COOKING");
-				self.steaks[i].setTimeout(timeout);
 				
 				if(Attention has :vibrate) {
 					Attention.vibrate(self.startSteakVibrator);
