@@ -76,7 +76,8 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 		
 		var timeout = ((values[0] * 60) + values[2]);
 		var steak_i = app.controller.getSelectedSteak();
-		app.controller.getSteaks(timeout);
+		var steaks = app.controller.getSteaks(); 
+		steaks[steak_i].setTimeout(timeout);
 		app.controller.decideSelection();
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}

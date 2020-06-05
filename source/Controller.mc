@@ -79,8 +79,9 @@ class Controller {
     }
     
     function getSteaks() {
-    	return steaks;
+    	return self.steaks;
     }
+    
     function getTotalSteaks() {
     	return self.total_steaks;
     }
