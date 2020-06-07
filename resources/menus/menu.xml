@@ -3,7 +3,7 @@
     <menu-item id="timerMenu1" label="@Strings.menu_label_1"/>
     <menu-item id="timerMenu2" label="@Strings.menu_label_2" />
     <menu-item id="timerMenu3" label="@Strings.menu_label_3" />
-    <menu-item id="timerMenu44" label="@Strings.menu_label_4" />
+    <menu-item id="timerMenu4" label="@Strings.menu_label_4" />
     <menu-item id="timerMenu5" label="@Strings.menu_label_5" />
     <menu-item id="timerMenuCustom" label="@Strings.menu_label_custom" />
 </menu>

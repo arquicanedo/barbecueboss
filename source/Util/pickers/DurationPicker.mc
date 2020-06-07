@@ -50,7 +50,7 @@ class DurationPicker extends WatchUi.Picker {
         );
 
         factories = new [FACTORY_COUNT_24_HOUR];
-        factories[0] = new NumberFactory(0, 23, 1, 
+        factories[0] = new NumberFactory(0, 59, 1, 
         	{ 
         		:font => self.fontSize
         	}
