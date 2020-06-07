@@ -102,7 +102,8 @@ class Controller {
 	}
     
     function dispose() {
-    
+    	myTimer.stop();
+    	
     }
     
     function getStatus(i) {
