@@ -63,7 +63,7 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     		app.controller.recordingDiscard();
     	}
     	
-    	app.controller.dispose();
+    	//app.controller.shutdown();
     	WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
 }

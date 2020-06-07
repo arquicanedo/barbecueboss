@@ -24,8 +24,6 @@ class Controller {
 	//the flip timer value
 	public var targetSeconds;
 		
-	hidden var paused;
-	hidden var cancelled;
 	
 	//current cooking / machine state
 	hidden var status;
@@ -60,8 +58,6 @@ class Controller {
     
     function initialize() {
 		System.println("initializing controller...");
-		paused = false;
-		cancelled = false;
 
 		if(Attention has :vibrate){
 			self.flipVibrator = [ new WatchUi.Attention.VibeProfile(75, 2500) ];
@@ -102,8 +98,16 @@ class Controller {
 	}
     
     function dispose() {
-    	myTimer.stop();
+    	self.myTimer.stop();
     	
+    	if(null != self.session) {
+			self.session.stop();
+		}
+		
+		self.disableGPS();
+		// I couldn't find any documentation about the SimpleCallbackEvent. I wonder where I got this from.
+		timerChanged.reset();
+		flipChanged.reset();
     }
     
     function getStatus(i) {
@@ -123,6 +127,11 @@ class Controller {
 	function initializeGPS() {
 		System.println("Initializing GPS sensing.......");
 	    Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :onPosition ) );
+	}
+	
+	function disableGPS() {
+		System.println("Stopping GPS sensing.......");
+		Position.enableLocationEvents( Position.LOCATION_DISABLE, method( :onPosition ) );
 	}
 	
 	function printGPS() {
@@ -179,7 +188,7 @@ class Controller {
 	}
 	
 	
-    // ******* THIS WILL BE GONE EVENTUALLY ********/
+
     function flipMeat(i) {
     
     	if(Attention has :vibrate) {
@@ -190,57 +199,7 @@ class Controller {
 		self.session.addLap();    	
     }
 
-    
-    // Goes back to the user selection of time for a new flip
-    function resetTimer(i, seconds) {
-    	System.println("resetTimer for");
-    	System.println(seconds);
-    	elapsedSeconds[i] = 0;
-    	totalSeconds[i] = seconds;
-    	targetSeconds[i] = seconds;
-    }
 
-    // initializes System Timer
-    function initializeSystemTimer(i, seconds) {
-    	self.setStatus(i, COOKING);
-        self.myTimer.stop();
-        
-     	resetTimer(i, seconds);
-    	
-    	self.myTimer.start(method(:timerCallback), 1000, true);
-    	self.timerChanged.emit([self.elapsedSeconds[i], self.totalSeconds[i]]);
-    }
-        
-    function initializeFlip(i) {
-    	totalFlips[i] = 0;
-    	self.flipChanged.emit(totalFlips[i]);
-    }
-    
-	function initializeTimer(i, seconds) {
-		initializeSystemTimer(i, seconds);
-		//initializeFlip();
-	}
-	
-	function timerStop(i) {
-		self.myTimer.stop();
-	}
-	
-	function timerResume(i) {
-	    self.myTimer.start(method(:timerCallback), 1000, true);
-	}
-	
-	function timerRestart(i) {
-	    self.initializeSystemTimer(i, targetSeconds[i]);
-	}
-    
-    function isPaused() {
-    	return self.paused;
-    }
-    
-    function isCancelled() {
-    	return self.cancelled;
-    }
-    /************** UNTIL HERE ***********/
     
     
     function timerCallback() {
@@ -318,4 +277,5 @@ class Controller {
 		System.println("Steak selection");
 		System.println(self.steak_selection);
 	}
+	
 }
