@@ -17,7 +17,7 @@ class BarbecueApp extends Application.AppBase {
 
     // onStop() is called when your application is exiting
     function onStop(state) {
-    	self.controller.dispose();
+    	self.controller.shutdown();
     }
 
     // Return the initial view of your application here
