@@ -26,7 +26,7 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
     	var timeout = 1;
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		
-    	System.println("Selected timer menu item: " + id.toString());
+    	//System.println("Selected timer menu item: " + id.toString());
 
 		if(id == :timerMenuStop) {
 			
