@@ -26,7 +26,20 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
     	var timeout = 1;
 		var selectedSteak = app.controller.steak_selection;
 		
-    	System.println("Selected timer menu item: " + id.toString());
+		
+		/* BUG in FR235 whenever the item is set to stop the item does not have a toString and causes the app to crash */
+		/*
+		try {
+			System.println("Selected timer menu item: " + id.toString());
+		}
+		catch( ex ) {
+			System.println("Selected timer menu item does not have a toString method");
+		}
+		finally {
+			System.println("Trying to continue");
+		}
+		*/
+		
 
 		if(id == :timerMenuStop) {
 			app.controller.steak_timeout[selectedSteak] = 0;
