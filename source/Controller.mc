@@ -75,7 +75,16 @@ class Controller {
 	}
     
     function dispose() {
-    
+    	self.myTimer.stop();
+    	
+    	if(null != self.session) {
+			self.session.stop();
+		}
+		
+		self.disableGPS();
+		// I couldn't find any documentation about the SimpleCallbackEvent. I wonder where I got this from.
+		timerChanged.reset();
+		flipChanged.reset();
     }
     
     function getSteaks() {
@@ -95,6 +104,11 @@ class Controller {
 	function initializeGPS() {
 		System.println("Initializing GPS sensing.......");
 	    Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :onPosition ) );
+	}
+	
+	function disableGPS() {
+		System.println("Stopping GPS sensing.......");
+		Position.enableLocationEvents( Position.LOCATION_DISABLE, method( :onPosition ) );
 	}
 	
 	function printGPS() {
@@ -151,7 +165,7 @@ class Controller {
 	}
 	
 	
-    // ******* THIS WILL BE GONE EVENTUALLY ********/
+
     function flipMeat(i) {
     
     	if(Attention has :vibrate) {
@@ -162,12 +176,6 @@ class Controller {
 		self.session.addLap();    	
     }
 
-    
-    // Goes back to the user selection of time for a new flip
-    function resetTimer(i, seconds) {
-    	System.println("resetTimer for");
-    	System.println(seconds);
-    }
 
     function initializeFlip(i) {
     	totalFlips[i] = 0;
