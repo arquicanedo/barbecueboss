@@ -15,6 +15,10 @@ class SteakListDrawable extends Toybox.WatchUi.Drawable {
 	hidden var _itemColor;
 	hidden var _selectorX;
 	hidden var _steaks;
+	hidden var _selectorText;
+	hidden var _selectorFont;
+	//hidden var _flipFont;
+	hidden var _flipText;
 	
 	function initialize(params) {
 		WatchUi.Drawable.initialize(params);
@@ -29,6 +33,10 @@ class SteakListDrawable extends Toybox.WatchUi.Drawable {
 		_itemColor = params.get(:itemColor);
 		_targetOriginX = params.get(:targetOriginX);
 		_flipOriginX = params.get(:flipOriginX);
+		_selectorFont = null == params.get(:selectorFont) ? _font : WatchUi.loadResource(params.get(:selectorFont));
+		_selectorText = null == params.get(:selectorText) ? ">" : params.get(:selectorText);
+		_flipText = null == params.get(:flipText) ? ">" : params.get(:flipText);
+		//_selectorFont = null == params.get(:selectorFont) ? _font : WatchUi.loadResource(params.get(:selectorFont));
 	}
 
 	function setSteaks(steaks) {
@@ -60,7 +68,7 @@ class SteakListDrawable extends Toybox.WatchUi.Drawable {
 			var offset = _listY + (i * _listItemOffsetY);
 			if(_steaks[i].getSelected()) {
 				dc.setColor(_selectorColor, Graphics.COLOR_BLACK);
-				dc.drawText(_selectorX, offset, _font, ">", _justification);
+				dc.drawText(_selectorX, offset + 2, _selectorFont, _selectorText, _justification);
 			}
  		
 			dc.setColor(decideColor(_steaks[i]), Graphics.COLOR_BLACK);

@@ -60,4 +60,38 @@
     <!-- CharacterFactory -->
     <string id="characterPickerOk">OK</string>
     <string id="maxSteaks">6</string>
+    
+    
+    <!-- icon font glyph-1 constants -->
+    <string id="glyph_1_gear">0</string>
+    <string id="glyph_1_flip">1</string>
+    <string id="glyph_1_menu">2</string>
+    <string id="glyph_1_play">3</string>
+    
+    <!-- icon font glyph-2 constants -->
+
+    <string id="glyph_2_ok_check">0</string>
+    <string id="glyph_2_play">1</string>
+    <string id="glyph_2_down">2</string>
+    <string id="glyph_2_up">3</string>
+    <string id="glyph_2_left">4</string>
+    <string id="glyph_2_right">5</string>
+    <string id="glyph_2_error">6</string>
+    <string id="glyph_2_cancel">7</string>
+    <string id="glyph_2_wrench">8</string>
+    <string id="glyph_2_vertical_arrows">9</string>
+    <string id="glyph_2_horizontal_arrows">:</string>
+    
+    
+    <!-- icon font glyph-3 constants -->
+    
+    <string id="glyph_3_horizontal_dots">0</string>
+    <string id="glyph_3_vertical_dots">1</string>
+    <string id="glyph_3_map_pin">2</string>
+    <string id="glyph_3_flame">3</string>
+    <string id="glyph_3_checkmark">4</string>
+    <string id="glyph_3_rewind">5</string>
+    <string id="glyph_3_toggle_on">6</string>
+    <string id="glyph_3_toggle_off">7</string>
+    
 </strings>

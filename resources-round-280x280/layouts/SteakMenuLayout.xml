@@ -12,6 +12,13 @@
 		<param name="font">Graphics.FONT_XTINY</param>
 		<param name="itemColor">Graphics.COLOR_WHITE</param>
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
+		<!-- <param name="selectorFont">Fonts.FONT_GLYPH2_SMALL</param>
+		<param name="selectorText">@Strings.glyph_2_right</param> -->
+		<!-- <param name="flipFont">Fonts.FONT_GLYPH1_SMALL</param>
+		<param name="flipText">@Strings.glyph_1_flip</param> -->
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="230" x="center"/>
+	<label id="timerIcon" x="250" y="67" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
+	<label id="upIcon" x="5" y="center" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_up"/>
+	<label id="downIcon" x="20" y="200" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_down"/>
 </layout>
