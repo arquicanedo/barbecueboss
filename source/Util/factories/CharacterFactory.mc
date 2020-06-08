@@ -1,7 +1,7 @@
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
-class CharacterFactory extends WatchUi.PickerFactory {
+/*class CharacterFactory extends WatchUi.PickerFactory {
     hidden var mCharacterSet;
     hidden var mAddOk;
     const DONE = -1;
@@ -40,4 +40,4 @@ class CharacterFactory extends WatchUi.PickerFactory {
     function isDone(value) {
         return mAddOk and (value == DONE);
     }
-}
+}*/

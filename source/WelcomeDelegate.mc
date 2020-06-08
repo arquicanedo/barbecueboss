@@ -9,25 +9,15 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onMenu() {
-        WatchUi.pushView(new Rez.Menus.MainMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
+    	Toybox.WatchUi.pushView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
         return true;
     }
     
    	function onSelect() {
 		System.println("barbecue_appDelegate.onSelect Menu behavior triggered");
 		
-		/*if(Toybox.WatchUi has :Menu2) {
-			Toybox.WatchUi.pushView( Rez.Menus.MainMenu2(), new Menu2InputDelegate(), Toybox.WatchUi.SLIDE_UP );
-			Toybox.System.println("Changed to MainMenu()");
-			//Toybox.WatchUi.requestUpdate();
-		}
-		else*/ {
-			Toybox.WatchUi.pushView( new Rez.Menus.MainMenu(), new MenuDelegate(), Toybox.WatchUi.SLIDE_UP );
-			Toybox.System.println("Changed to MainMenu()");
-			//Toybox.WatchUi.requestUpdate();
-		}
-		
-		//WatchUi.pushView(new Rez.Menus.MainMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
+		Toybox.WatchUi.pushView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
+		Toybox.System.println("Changed to MainMenu()");
 		return true;
 	}
 	
@@ -40,16 +30,8 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
    	*/
    	
    	function onBack() {
-
 		var app = Application.getApp();
-		
-    	if(app.controller.getStatus() == Controller.SAVING) {
-			self.promptSaveSession();	
-		}
-		else {
-			WatchUi.popView(WatchUi.SLIDE_DOWN);
-		}
-
+		self.promptSaveSession();
    		return true;
    	}
     
@@ -62,6 +44,7 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 		//the delegate and in this case we're going to provide the onSaveConfirm defined below
 		resp.callbackMethod = self.method(:onSaveConfirm);
 		
+		// XXX: Is there a way to select "accept" by default? Now it is "reject" by default.
 		WatchUi.pushView(conf, resp, WatchUi.SLIDE_IMMEDIATE);
 	}
 	
@@ -80,10 +63,7 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     		app.controller.recordingDiscard();
     	}
     	
-    	app.controller.dispose();
+    	//app.controller.shutdown();
     	WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
-
-    
-
 }

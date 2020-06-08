@@ -5,11 +5,10 @@ using Toybox.System;
 
 class BarbecueApp extends Application.AppBase {
 
-	public var controller;
+	public static var controller = new Controller();
 	
     function initialize() {
         AppBase.initialize();
-        controller = new Controller();
     }
 
     // onStart() is called on application start up

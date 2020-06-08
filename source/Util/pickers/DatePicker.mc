@@ -2,7 +2,7 @@ using Toybox.Application;
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
-class DatePicker extends WatchUi.Picker {
+/*class DatePicker extends WatchUi.Picker {
 
     function initialize() {
         var months = [Rez.Strings.month01, Rez.Strings.month02, Rez.Strings.month03,
@@ -38,4 +38,4 @@ class DatePickerDelegate extends WatchUi.PickerDelegate {
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
     }
 
-}
+}*/

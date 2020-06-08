@@ -1,7 +1,7 @@
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
-class PickerChooser extends WatchUi.Picker {
+/*class PickerChooser extends WatchUi.Picker {
 
     function initialize() {
         var title = new WatchUi.Text({:text=>Rez.Strings.pickerChooserTitle, :locX =>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_BOTTOM, :color=>Graphics.COLOR_WHITE});
@@ -30,7 +30,7 @@ class PickerChooserDelegate extends WatchUi.PickerDelegate {
         if(values[0] == Rez.Strings.pickerChooserColor) {
             WatchUi.pushView(new ColorPicker(), new ColorPickerDelegate(), WatchUi.SLIDE_IMMEDIATE);
         }
-        else if(values[0] == Rez.Strings.pickerChooserDate) {
+        elseif(values[0] == Rez.Strings.pickerChooserDate) {
             WatchUi.pushView(new DatePicker(), new DatePickerDelegate(), WatchUi.SLIDE_IMMEDIATE);
         }
         else if(values[0] == Rez.Strings.pickerChooserString) {
@@ -45,4 +45,4 @@ class PickerChooserDelegate extends WatchUi.PickerDelegate {
         }
     }
 
-}
+}*/

@@ -1,0 +1,23 @@
+<layout id="SteakMenuLayout">
+    <label id="MainTitle" x="center" y="top" text="Grill" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_LARGE" />
+    
+    <label id="Steak1" x="35" y="45" text="Steak 1" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    <label id="Steak2" x="35" y="60" text="Steak 2" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    <label id="Steak3" x="35" y="75" text="Steak 3" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    <label id="Steak4" x="35" y="90" text="Steak 4" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    
+    <label id="SteakSelector1" x="20" y="45" text=">" color="Graphics.COLOR_ORANGE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    <label id="SteakSelector2" x="20" y="60" text="" color="Graphics.COLOR_ORANGE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    <label id="SteakSelector3" x="20" y="75" text="" color="Graphics.COLOR_ORANGE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    <label id="SteakSelector4" x="20" y="90" text="" color="Graphics.COLOR_ORANGE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    
+    <label id="SteakStatus1" x="center" y="45" text="Start" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_TINY" />
+    <label id="SteakStatus2" x="center" y="60" text="Start" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_TINY" />
+    <label id="SteakStatus3" x="center" y="75" text="Start" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_TINY" />
+    <label id="SteakStatus4" x="center" y="90" text="Start" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_TINY" />
+    
+    <label id="SteakTimer1" x="130" y="44" text="00:00" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    <label id="SteakTimer2" x="130" y="60" text="00:00" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    <label id="SteakTimer3" x="130" y="75" text="00:00" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+    <label id="SteakTimer4" x="130" y="90" text="00:00" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_TINY" />
+</layout>
