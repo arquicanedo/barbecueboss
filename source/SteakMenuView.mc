@@ -7,6 +7,27 @@ using Toybox.Application;
 class SteakMenuView extends WatchUi.View {
 
 	hidden var app;
+	    	// XXX: This is dirty. I don't know how to concatenate strings in Monkey-c. I'd like to do this in a loop.
+    hidden var selector_drawable1;
+    hidden var selector_drawable2;
+    hidden var selector_drawable3;
+    hidden var selector_drawable4;
+    
+   	hidden var timer_drawable1; 
+	hidden var timer_drawable2; 
+	hidden var timer_drawable3; 
+	hidden var timer_drawable4;
+	
+	hidden var steak_drawable1; 
+  	hidden var steak_drawable2; 
+    hidden var steak_drawable3; 
+    hidden var steak_drawable4;  
+    
+    hidden var steak1; 
+   	hidden var steak2; 
+    hidden var steak3; 
+   	hidden var steak4;   
+	
 	
     function initialize() {
         self.app = Application.getApp();
@@ -39,19 +60,6 @@ class SteakMenuView extends WatchUi.View {
     function updateSelector() {
         var selection = app.controller.steak_selection;
     	
-    	// XXX: This is dirty. I don't know how to concatenate strings in Monkey-c. I'd like to do this in a loop.
-    	var selector_drawable1;
-    	var selector_drawable2;
-    	var selector_drawable3;
-    	var selector_drawable4;
-    	    	    	    	
-    	// XXX: Is there a better way to "hide" the drawables? 
-    	// For reference see this discussion https://forums.garmin.com/developer/connect-iq/f/discussion/3506/how-to-hide-a-drawable
-		selector_drawable1 = View.findDrawableById("SteakSelector1"); 
-		selector_drawable2 = View.findDrawableById("SteakSelector2"); 
-		selector_drawable3 = View.findDrawableById("SteakSelector3"); 
-		selector_drawable4 = View.findDrawableById("SteakSelector4");
-    	
     	// Hide everything
     	selector_drawable1.setText("");
     	selector_drawable2.setText("");
@@ -68,10 +76,6 @@ class SteakMenuView extends WatchUi.View {
     }
     
     function updateSteakLabels() {
-    	var steak1 = View.findDrawableById("Steak1"); 
-    	var steak2 = View.findDrawableById("Steak2"); 
-       	var steak3 = View.findDrawableById("Steak3"); 
-    	var steak4 = View.findDrawableById("Steak4"); 
     	steak1.setColor(decideColor(0));
     	steak2.setColor(decideColor(1));
     	steak3.setColor(decideColor(2));
@@ -82,12 +86,7 @@ class SteakMenuView extends WatchUi.View {
     	var status1 = app.controller.getStatus(0);
     	var status2 = app.controller.getStatus(1);
      	var status3 = app.controller.getStatus(2);
-    	var status4 = app.controller.getStatus(3);
-    	
-    	var steak_drawable1 = View.findDrawableById("SteakStatus1"); 
-    	var steak_drawable2 = View.findDrawableById("SteakStatus2"); 
-    	var steak_drawable3 = View.findDrawableById("SteakStatus3"); 
-    	var steak_drawable4 = View.findDrawableById("SteakStatus4");     	
+    	var status4 = app.controller.getStatus(3);    	
     	
     	var status = new [app.controller.total_steaks];
     	
@@ -141,10 +140,7 @@ class SteakMenuView extends WatchUi.View {
     			my_timers[i] = myMinutes;
 			}
 	    }	
-	    var timer_drawable1 = View.findDrawableById("SteakTimer1"); 
-	    var timer_drawable2 = View.findDrawableById("SteakTimer2"); 
-	    var timer_drawable3 = View.findDrawableById("SteakTimer3"); 
-	    var timer_drawable4 = View.findDrawableById("SteakTimer4");
+
 	    
 	    timer_drawable1.setText(my_timers[0]);
 	    timer_drawable2.setText(my_timers[1]);
@@ -165,6 +161,29 @@ class SteakMenuView extends WatchUi.View {
     function onShow() {
     	//register for timer changed "events"
 		app.controller.timerChanged.on(self.method(:onTimerChanged));
+		
+		
+    	// XXX: Is there a better way to "hide" the drawables? 
+    	// For reference see this discussion https://forums.garmin.com/developer/connect-iq/f/discussion/3506/how-to-hide-a-drawable
+		selector_drawable1 = View.findDrawableById("SteakSelector1"); 
+		selector_drawable2 = View.findDrawableById("SteakSelector2"); 
+		selector_drawable3 = View.findDrawableById("SteakSelector3"); 
+		selector_drawable4 = View.findDrawableById("SteakSelector4");
+		
+		timer_drawable1 = View.findDrawableById("SteakTimer1"); 
+	    timer_drawable2 = View.findDrawableById("SteakTimer2"); 
+	    timer_drawable3 = View.findDrawableById("SteakTimer3"); 
+	    timer_drawable4 = View.findDrawableById("SteakTimer4");
+	    
+	    steak_drawable1 = View.findDrawableById("SteakStatus1"); 
+    	steak_drawable2 = View.findDrawableById("SteakStatus2"); 
+    	steak_drawable3 = View.findDrawableById("SteakStatus3"); 
+    	steak_drawable4 = View.findDrawableById("SteakStatus4"); 
+    	
+    	steak1 = View.findDrawableById("Steak1"); 
+    	steak2 = View.findDrawableById("Steak2"); 
+       	steak3 = View.findDrawableById("Steak3"); 
+    	steak4 = View.findDrawableById("Steak4");    
     }
     
     //handle timer changed event
