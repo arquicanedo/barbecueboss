@@ -66,4 +66,10 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     	//app.controller.shutdown();
     	WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
+    
+    // Settings
+	function onPreviousPage() {
+		Toybox.WatchUi.pushView(new SettingsView(), new SettingsDelegate(), WatchUi.SLIDE_UP);
+		return true;
+    }
 }

@@ -94,4 +94,10 @@
     <string id="glyph_3_toggle_on">6</string>
     <string id="glyph_3_toggle_off">7</string>
     
+    
+        
+    <!-- settings constants  -->
+    
+    <string id="settings_title">Settings</string>
+    
 </strings>

@@ -3,17 +3,15 @@ using Toybox.Timer;
 using Toybox.System;
 
 
-class WelcomeView extends WatchUi.View {
-	
-	hidden var timer;
-	
+class SettingsView extends WatchUi.View {
+
     function initialize() {
         View.initialize();
     }
 
     // Load your resources here
     function onLayout(dc) {
-	    View.setLayout(Rez.Layouts.WelcomeLayout(dc));
+	    View.setLayout(Rez.Layouts.SettingsLayout(dc));
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -23,11 +21,6 @@ class WelcomeView extends WatchUi.View {
     	
     }
     
-    function onTimer() {
-    	View.findDrawableById("menuIcon").setText("");
-    	View.findDrawableById("playIcon").setText("");
-    	WatchUi.requestUpdate();
-    }
 
     // Update the view
     function onUpdate(dc) {
@@ -41,9 +34,4 @@ class WelcomeView extends WatchUi.View {
     function onHide() {
     }
     
-	function selectTime(minutes) {
-		System.print("User selected");
-		System.println(minutes);
-	}
-	
 }
