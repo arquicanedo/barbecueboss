@@ -60,8 +60,8 @@ class Controller {
 		System.println("initializing controller...");
 
 		if(Attention has :vibrate){
-			self.flipVibrator = [ new WatchUi.Attention.VibeProfile(75, 1500) ];
-			self.startSteakVibrator = [ new WatchUi.Attention.VibeProfile(50, 300) ];
+			self.flipVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
+			self.startSteakVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
 		} 
 		
 		self.initializeGPS();
