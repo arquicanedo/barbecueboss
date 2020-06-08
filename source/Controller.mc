@@ -4,6 +4,8 @@ using Toybox.System;
 using Toybox.Timer;
 using Toybox.Position;
 using Toybox.ActivityRecording;
+//using Toybox.Application.Storage;
+
 
 class Controller {
 
@@ -32,14 +34,12 @@ class Controller {
 	public var total_steaks;
 	hidden var steaks;
 	
+	
 	public enum {
 			INIT,
 	    	COOKING, 
-	    	USER_FLIPPING,
-	    	//AUTO_FLIPPING,
-	    	SAVING,
-	    	DISCARDING,
-	    	EXIT
+	    	SAVING
+	    	//EXIT
 	}
     
     function initialize() {
@@ -68,6 +68,7 @@ class Controller {
 				self.steaks[i].setSelected(true);
 			}
 		}
+		
 			
 		// Activity Recording. TODO: Investigate what custom data types we can come up with for grilling.
 		// For now every "flip" is a lap.
@@ -247,6 +248,10 @@ class Controller {
 				if(Attention has :vibrate) {
 					Attention.vibrate(self.startSteakVibrator);
 				}
+				
+				// Last set steak
+				// Storage.setValue("lastSteakLabel", self.steaks[i].getLabel());
+				
 			}
 			else {
 				self.steaks[i].setStatus(INIT);
