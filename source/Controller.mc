@@ -34,6 +34,9 @@ class Controller {
 	public var total_steaks;
 	hidden var steaks;
 	
+	// Data Store
+	hidden var storage = new DataStore();
+	
 	
 	public enum {
 			INIT,
@@ -249,8 +252,15 @@ class Controller {
 					Attention.vibrate(self.startSteakVibrator);
 				}
 				
-				// Last set steak
-				// Storage.setValue("lastSteakLabel", self.steaks[i].getLabel());
+				// Persist last set steak
+				self.storage.setValue("lastSteakLabel", self.steaks[i].getLabel());
+				self.storage.setValue("lastSteakTimeout", self.steaks[i].getTimeout());
+				
+				/*
+				var old_label = self.storage.getValue("lastSteakLabel");
+				var old_timer = self.storage.getValue("lastSteakTimeout");
+				System.println("Data stored values: " + old_label + " " + old_timer);
+				*/
 				
 			}
 			else {
