@@ -2,16 +2,16 @@
 	<drawable id="steakList" class="SteakListDrawable">
 		<param name="titleX">"center"</param>
 		<param name="titleY">"top"</param>
-		<param name="itemOriginX">30</param>
-		<param name="itemOriginY">32</param>
-		<param name="flipOriginX">95</param>
-		<param name="targetOriginX">147</param>
-		<param name="selectorOriginX">20</param>
-		<param name="listItemOffsetY">23</param>
+		<param name="itemOriginX">10</param>
+		<param name="itemOriginY">10</param>
+		<param name="flipOriginX">65</param>
+		<param name="targetOriginX">105</param>
+		<param name="selectorOriginX">1</param>
+		<param name="listItemOffsetY">20</param>
 		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
 		<param name="font">Graphics.FONT_SMALL</param>
 		<param name="itemColor">Graphics.COLOR_WHITE</param>
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
 	</drawable>
-	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="185" x="center"/>
+	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="175" x="center"/>
 </layout>

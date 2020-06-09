@@ -14,4 +14,8 @@
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="280" x="center"/>
+	<label id="timerIcon" x="235" y="72" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
+	<label id="upIcon" x="0" y="185" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_up"/>
+	<label id="downIcon" x="0" y="270" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_down"/>
+
 </layout>
