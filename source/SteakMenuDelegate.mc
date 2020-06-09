@@ -24,7 +24,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     
    	function onSelect() {
 		System.println("SteakMenuDelegate.onSelect pressed");
-		WatchUi.pushView(new Rez.Menus.MainMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
+		//WatchUi.pushView(new Rez.Menus.MainMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
+		WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
 		return true;
 	}
 	

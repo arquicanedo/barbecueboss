@@ -50,6 +50,12 @@ class MenuDelegate extends WatchUi.MenuInputDelegate {
 	    else if(id == :timerMenu5) {
 			timeout = 5;
 	    } 
+	    else if(id == :timerMenuLast) {
+	    	var lastTimeout = app.controller.storageGetValue("lastSteakTimeout");
+			selectedSteak.setTimeout(lastTimeout);
+			app.controller.decideSelection();
+			return;
+	    }
 	    else if(id == :timerMenuCustom) {
 	    	timeout = -1;
 	    }

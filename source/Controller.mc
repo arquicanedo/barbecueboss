@@ -234,12 +234,11 @@ class Controller {
 		return 0;
 	}
 	
+	
 	function decideSelection() {
 		var i = self.getSelectedSteak();
 		var timeout = self.steaks[i].getTimeout();
-		System.println("Deciding Selection on steak");
-		System.println(i);
-		System.println(timeout);
+		System.println("Deciding Selection on steak " + i + " for " + timeout + " seconds");
 		
 		if (self.steaks[i].getStatus() == INIT) {
 		
@@ -253,8 +252,8 @@ class Controller {
 				}
 				
 				// Persist last set steak
-				self.storage.setValue("lastSteakLabel", self.steaks[i].getLabel());
-				self.storage.setValue("lastSteakTimeout", self.steaks[i].getTimeout());
+				self.storageSetValue("lastSteakLabel", self.steaks[i].getLabel());
+				self.storageSetValue("lastSteakTimeout", self.steaks[i].getTimeout());
 				
 				/*
 				var old_label = self.storage.getValue("lastSteakLabel");
@@ -313,4 +312,14 @@ class Controller {
 		//this can be overridden per family/device in the string resource for that device
     	return WatchUi.loadResource(Rez.Strings.maxSteaks).toNumber();    	
     }
+    
+    function storageSetValue(key, value) {
+    	self.storage.setValue(key, value);
+    }
+    
+    function storageGetValue(key) {
+    	return self.storage.getValue(key);
+    }
+    
+    
 }
