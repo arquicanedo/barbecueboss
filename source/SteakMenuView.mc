@@ -15,18 +15,27 @@ class SteakMenuView extends WatchUi.View {
 
     // Load your resources here
     function onLayout(dc) {
-	    
 	 	View.setLayout(Rez.Layouts.SteakMenuLayout(dc));
-	 	
-	 	var steakList = View.findDrawableById("steakList");
-	 	steakList.setMaxSteaks(app.controller.getTotalSteaks());
-	 	steakList.setSteaks(app.controller.getSteaks());
     }
+
+	function getSteakItems(steakList, steaks) {
+		var items = new[steaks.size()];
+		
+		for(var i = 0; i < steaks.size(); i++) {
+			items[i] = new SteakListItem(steaks[i], steakList.getParams());  
+		}
+	
+		return items;	
+	}
 
     // Called when this View is brought to the foreground. Restore
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
+    
+    	var steakList = View.findDrawableById("steakList");
+	 	steakList.setMaxItems(app.controller.getTotalSteaks());
+	 	steakList.setItems(self.getSteakItems(steakList, app.controller.getSteaks()));
     	//register for timer changed "events"
 		app.controller.timerChanged.on(self.method(:onTimerChanged));
     }

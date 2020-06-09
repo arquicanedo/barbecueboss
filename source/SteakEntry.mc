@@ -84,5 +84,6 @@ class SteakEntry {
 				(_targetSeconds % 60).format("%02d")
 			]
 		);
-	}	
+	}
+	
 }

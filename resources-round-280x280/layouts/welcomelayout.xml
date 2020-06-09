@@ -4,5 +4,5 @@
         filename="../../resources/images/steakfire.png" x="center" y="center" id="id_bbq">
     </bitmap>
     <label id="menuIcon" x="5" y="135" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_menu"/>
-    <label id="playIcon" x="240" y="60" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_play"/>
+    <label id="playIcon" x="250" y="66" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_play"/>
 </layout>
