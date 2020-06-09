@@ -24,9 +24,22 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     
    	function onSelect() {
 		System.println("SteakMenuDelegate.onSelect pressed");
-		//WatchUi.pushView(new Rez.Menus.MainMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
-		WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
+		
+		// First step is to select a custom name.
+		var sp = new StringPicker();
+		var stringPickerDelegate = new StringPickerCallbackDelegate(sp);
+		stringPickerDelegate.callbackMethod = method(:onStringPickerSelected);
+		WatchUi.pushView(sp, stringPickerDelegate, WatchUi.SLIDE_UP);
+		
+		// v 1.0.0 used to prompt directly to the timer selection.
+		//WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
 		return true;
+	}
+	
+	
+	
+	function onStringPickerSelected(values) {
+		System.println(values);		
 	}
 	
 	// Detect Menu button input
@@ -87,4 +100,30 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     	}
     }
     
+}
+
+
+class StringPickerCallbackDelegate extends StringPickerDelegate {
+
+	public var callbackMethod;
+	
+	public function initialize(sp){
+		StringPickerDelegate.initialize(sp);
+	}
+	
+	public function onAccept(values) {
+		// This causes a flashing on the simulator. I'm not sure where to pop the current and push the next view. 
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+		self.callbackMethod.invoke(values);
+		WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
+	}
+	
+	public function onCancel() {
+		StringPickerDelegate.onCancel();
+	}
+	
+	public function onBack() {
+		// I'm a bit confused, is this how the switch is made?
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+	}
 }

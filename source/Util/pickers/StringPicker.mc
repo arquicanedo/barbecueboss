@@ -2,7 +2,7 @@ using Toybox.Application;
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
-/*class StringPicker extends WatchUi.Picker {
+class StringPicker extends WatchUi.Picker {
     const mCharacterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     hidden var mTitleText;
     hidden var mFactory;
@@ -94,4 +94,3 @@ class StringPickerDelegate extends WatchUi.PickerDelegate {
     }
 
 }
-*/

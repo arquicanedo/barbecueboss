@@ -40,7 +40,7 @@
     <string id="timeSeparator">:</string>
     
     <!-- String Picker -->
-    <!-- <string id="stringPickerTitle">Pick a string</string> -->
+    <string id="stringPickerTitle">Name?</string>
     
     <!-- Date Picker -->
     <!-- <string id="datePickerTitle">Pick a date</string>
