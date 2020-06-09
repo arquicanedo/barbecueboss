@@ -13,5 +13,5 @@
 		<param name="itemColor">Graphics.COLOR_WHITE</param>
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
 	</drawable>
-	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="215" x="center"/>
+	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="195" x="center"/>
 </layout>

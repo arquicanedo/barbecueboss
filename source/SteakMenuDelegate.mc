@@ -46,6 +46,15 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     function onKey(keyEvent) {
         System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
         
+        /* switch(keyEvent.getKey()) {
+        	case WatchUi.KEY_ENTER:
+        		self.onNextPage();
+        		break;
+        	case WatchUi.KEY_ESC:
+        		self.onPreviousPage();
+        		break;
+        } */
+        
         return true;
     }
     
