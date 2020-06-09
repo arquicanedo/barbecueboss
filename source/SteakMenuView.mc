@@ -22,6 +22,9 @@ class SteakMenuView extends WatchUi.View {
 		var items = new[steaks.size()];
 		
 		for(var i = 0; i < steaks.size(); i++) {
+			//it's not really possible to setup parameters for sub-items in a drawable in the XML
+			//so instead we pass all params to the list, and then when we create the list items we just fetch that set
+			//of params and use it
 			items[i] = new SteakListItem(steaks[i], steakList.getParams());  
 		}
 	
@@ -36,6 +39,7 @@ class SteakMenuView extends WatchUi.View {
     	var steakList = View.findDrawableById("steakList");
 	 	steakList.setMaxItems(app.controller.getTotalSteaks());
 	 	steakList.setItems(self.getSteakItems(steakList, app.controller.getSteaks()));
+	 	
     	//register for timer changed "events"
 		app.controller.timerChanged.on(self.method(:onTimerChanged));
     }

@@ -20,7 +20,9 @@ class Controller {
 	public var myTimer;
 	
 	//the FIT activity session being used
-	hidden var session;
+	hidden var session = null;
+	hidden var gpsEnabled = true;
+	hidden var activityEnabled = true;
 	
 	//vibration profiles set below conditionally if the device supports them
 	hidden var flipVibrator;
@@ -53,6 +55,8 @@ class Controller {
 			self.startSteakVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
 		} 
 		
+		self.initializeDefaultSettings();
+		
 		self.initializeGPS();
 		self.initializeActivityRecording();
 		
@@ -78,6 +82,25 @@ class Controller {
 		self.recordingStart();		
 	}
     
+    function initializeDefaultSettings() {
+    	var val = self.storageGetValue("gpsEnabled");
+    	
+    	if(null == val) {
+    		self.storageSetValue("gpsEnabled", self.gpsEnabled);
+    	}
+    	else {
+    		self.gpsEnabled= val;
+    	}
+    	
+    	val = self.storageGetValue("activityEnabled");
+    	if(null == val) {
+    		self.storageSetValue("activityEnabled", self.activityEnabled);
+    	}
+    	else {
+    		self.activityEnabled = val;
+    	}
+    }
+    
     function dispose() {
     	self.myTimer.stop();
     	
@@ -89,6 +112,10 @@ class Controller {
 		// I couldn't find any documentation about the SimpleCallbackEvent. I wonder where I got this from.
 		timerChanged.reset();
 		flipChanged.reset();
+    }
+    
+    function getActivityEnabled() {
+    	return self.activityEnabled;
     }
     
     function getSteaks() {
@@ -106,8 +133,14 @@ class Controller {
 	}
     
 	function initializeGPS() {
-		System.println("Initializing GPS sensing.......");
-	    Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :onPosition ) );
+		
+		if(self.gpsEnabled) {
+			System.println("Initializing GPS sensing.......");
+	    	Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :onPosition ) );
+	    }
+	    else {
+	    	System.println("GPS disabled by app settings.");
+	    }
 	}
 	
 	function disableGPS() {
@@ -126,7 +159,12 @@ class Controller {
 	// https://forums.garmin.com/developer/connect-iq/f/q-a/171125/state-of-session-after-save/922655#922655
 	// https://developer.garmin.com/connect-iq/api-docs/
 	function initializeActivityRecording() {
-		self.createSession();
+		if(self.activityEnabled) {
+			self.createSession();
+		}
+		else {
+			System.println("Activity recording disabled by app settings.");
+		}
 	}
 	
 	function createSession() {
@@ -177,7 +215,10 @@ class Controller {
     	}
     	
     	self.steaks[i].setTotalFlips(self.steaks[i].getTotalFlips() + 1);
-		self.session.addLap();    	
+    	
+    	if(null != self.session) {
+			self.session.addLap();
+		}    	
     }
 
 
@@ -198,7 +239,7 @@ class Controller {
     
     function timerCallback() {
 		System.println("timerCallback");
-        self.printGPS();        
+        //self.printGPS();        
         
         // Manage the timers
         for (var i = 0; i < self.total_steaks; i+=1) {

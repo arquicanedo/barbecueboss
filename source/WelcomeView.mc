@@ -44,6 +44,5 @@ class WelcomeView extends WatchUi.View {
 	function selectTime(minutes) {
 		System.print("User selected");
 		System.println(minutes);
-	}
-	
+	}	
 }

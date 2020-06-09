@@ -24,14 +24,13 @@ class TimerDelegate extends WatchUi.BehaviorDelegate {
    	function onSelect() {
 		System.println("barbecue_timerDelegate.onSelect Menu behavior triggered");
 		app.controller.decideSelection();
-		
 		Toybox.WatchUi.requestUpdate();
 		return true;
 	}
 	
 	// Detect Menu button input
     function onKey(keyEvent) {
-        System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
+        //System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
         return true;
     }
     

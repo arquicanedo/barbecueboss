@@ -31,7 +31,13 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
    	
    	function onBack() {
 		var app = Application.getApp();
-		self.promptSaveSession();
+		
+		if(app.controller.getActivityEnabled()) {
+			self.promptSaveSession();
+		} else {
+			WatchUi.popView(WatchUi.SLIDE_DOWN);
+		}
+		
    		return true;
    	}
     
@@ -63,7 +69,6 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     		app.controller.recordingDiscard();
     	}
     	
-    	//app.controller.shutdown();
     	WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
     
