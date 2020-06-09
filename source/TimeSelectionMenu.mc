@@ -3,8 +3,8 @@ using Toybox;
 class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 
 	hidden var app;
-	hidden var default_timeouts = ["2", "3", "4"];
-	hidden var default_timeouts_secs = ["120", "180", "240"];
+	hidden var default_timeouts = ["2", "3", "5"];
+	hidden var default_timeouts_secs = ["120", "180", "300"];
 	hidden var default_symbols = [:timerMenu2, :timerMenu3, :timerMenu4];
 	
 	function seconds2minutes(seconds) {
