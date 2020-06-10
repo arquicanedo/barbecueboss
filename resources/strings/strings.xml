@@ -98,6 +98,8 @@
         
     <!-- settings constants  -->
     
-    <string id="settings_title">Settings</string>
+    <string id="settings_title">Settings</string>   
+	<string id="settings_gps">GPS</string>
+	<string id="settings_activity">Activity Recording</string>
     
 </strings>

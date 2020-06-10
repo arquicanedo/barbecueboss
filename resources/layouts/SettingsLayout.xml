@@ -1,3 +1,14 @@
 <layout id="SettingsLayout">
     <label x="center" y="top" text="@Strings.settings_title" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    
+    <label id="GPS_selector" x="20" y="50" text=">" color="Graphics.COLOR_ORANGE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SMALL"/>
+    <label id="Activity_selector" x="20" y="65" text=">" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SMALL"/>
+    
+    <label id="GPS_text" x="50" y="50" text="@Strings.settings_gps" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SMALL"/>
+    <label id="GPS_icon" x="30" y="50" font="@Fonts.FONT_GLYPH3_SMALL" text="@Strings.glyph_3_toggle_on" justification="Graphics.TEXT_JUSTIFY_LEFT"/>
+    
+    <label id="Activity_text" x="50" y="65" text="@Strings.settings_activity" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_SMALL"/>
+    <label id="Activity_icon" x="30" y="65" font="@Fonts.FONT_GLYPH3_SMALL" text="@Strings.glyph_3_toggle_off" justification="Graphics.TEXT_JUSTIFY_LEFT"/>
+
+	<bitmap id="logo" filename="../images/launcher_icon.png" y="150" x="center"/>
 </layout>
