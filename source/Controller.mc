@@ -44,7 +44,6 @@ class Controller {
 			INIT,
 	    	COOKING, 
 	    	SAVING
-	    	//EXIT
 	}
     
     function initialize() {

@@ -3,13 +3,13 @@
 		<param name="titleX">"center"</param>
 		<param name="titleY">"top"</param>
 		<param name="itemOriginX">40</param>
-		<param name="itemOriginY">45</param>
+		<param name="itemOriginY">40</param>
 		<param name="flipOriginX">120</param>
 		<param name="targetOriginX">180</param>
 		<param name="selectorOriginX">30</param>
-		<param name="listItemOffsetY">20</param>
+		<param name="listItemOffsetY">28</param>
 		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
-		<param name="font">Graphics.FONT_XTINY</param>
+		<param name="font">Graphics.FONT_TINY</param>
 		<param name="itemColor">Graphics.COLOR_WHITE</param>
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
 	</drawable>

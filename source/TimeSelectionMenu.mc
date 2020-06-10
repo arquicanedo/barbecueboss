@@ -45,9 +45,7 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 				}
 			}			
 			
-			self.addItem(Rez.Strings.menu_label_custom, :timerMenuCustom);		
+			self.addItem(Rez.Strings.menu_label_custom, :timerMenuCustom);
 		}
-		
-		
 	}
 }
