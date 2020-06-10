@@ -90,6 +90,7 @@ class StringPickerDelegate extends WatchUi.PickerDelegate {
                 Application.getApp().setProperty("string", mPicker.getTitle());
             }
             WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+            WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_IMMEDIATE);
         }
     }
 

@@ -121,10 +121,13 @@ class StringPickerCallbackDelegate extends StringPickerDelegate {
 	}
 	
 	public function onAccept(values) {
+		/*
 		// This causes a flashing on the simulator. I'm not sure where to pop the current and push the next view. 
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 		self.callbackMethod.invoke(values);
 		WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
+		*/
+		StringPickerDelegate.onAccept(values);
 	}
 	
 	public function onCancel() {
