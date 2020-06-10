@@ -33,6 +33,10 @@ class SteakEntry {
 		return _label;
 	}
 	
+	function setLabel(label) {
+		_label = label;
+	}
+	
 	function setSelected(isSelected){
 		_isSelected = isSelected;
 	}

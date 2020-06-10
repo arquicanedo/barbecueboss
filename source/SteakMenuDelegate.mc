@@ -38,25 +38,17 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	
 	
 	
-	function onStringPickerSelected(values) {
-		System.println(values);	
+	function onStringPickerSelected(customSteakName) {
+		//System.println("StringPicker selected string = " + steakName);	
+		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
+		selectedSteak.setLabel(customSteakName);
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_IMMEDIATE);	
 	}
 	
 	// Detect Menu button input
     function onKey(keyEvent) {
-        System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
-        
-        /* switch(keyEvent.getKey()) {
-        	case WatchUi.KEY_ENTER:
-        		self.onNextPage();
-        		break;
-        	case WatchUi.KEY_ESC:
-        		self.onPreviousPage();
-        		break;
-        } */
-        
+        System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7        
         return true;
     }
     
@@ -125,10 +117,14 @@ class StringPickerCallbackDelegate extends StringPickerDelegate {
 	public function onAccept(values) {
 		var name_set = StringPickerDelegate.onAccept(values);
 		if (name_set == true) {
-			self.callbackMethod.invoke(values);
+			self.callbackMethod.invoke(self.getSteakName());
 		}
 
 	}
+	
+	function getSteakName() {
+    	return mPicker.getTitle();
+    }
 	
 	public function onCancel() {
 		StringPickerDelegate.onCancel();

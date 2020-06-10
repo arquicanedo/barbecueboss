@@ -34,5 +34,4 @@ class StringPickerDelegate extends WatchUi.PickerDelegate {
             return true;
         }
     }
-
 }
