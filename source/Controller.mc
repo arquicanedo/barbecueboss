@@ -41,6 +41,21 @@ class Controller {
 	
 	
 	public enum {
+		BEEF,
+		CHICKEN,
+		PORK,
+		VEGGIES
+	}
+	
+	hidden var foodCounter = {
+		BEEF => 0,
+		CHICKEN => 0,
+		PORK => 0,
+		VEGGIES => 0
+	};
+	
+	
+	public enum {
 			INIT,
 	    	COOKING, 
 	    	SAVING
@@ -359,6 +374,13 @@ class Controller {
     
     function storageGetValue(key) {
     	return self.storage.getValue(key);
+    }
+    
+    
+    function requestFood(foodType) {
+    	var count = foodCounter.get(foodType);
+    	foodCounter.put(foodType, count+1);
+    	return self.foodCounter.get(foodType);
     }
     
     

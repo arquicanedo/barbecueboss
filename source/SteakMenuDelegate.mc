@@ -39,9 +39,19 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	
 	
 	function onStringPickerSelected(customSteakName) {
-		//System.println("StringPicker selected string = " + steakName);	
+		// Custom steak name change
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
+		var typeOfSteak = app.controller.BEEF; // This will come from the IconSelector
+		
+		// Assign a steak number only for new steaks. 
+		if (selectedSteak.getFoodTypeCount() == 0) {
+			selectedSteak.setFoodType(typeOfSteak);	
+			selectedSteak.setFoodTypeCount(app.controller.requestFood(typeOfSteak));
+		}
 		selectedSteak.setLabel(customSteakName);
+		
+		
+		// Switch views for the timer selection
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_IMMEDIATE);	
 	}
