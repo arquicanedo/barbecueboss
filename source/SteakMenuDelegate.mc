@@ -39,7 +39,9 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	
 	
 	function onStringPickerSelected(values) {
-		System.println(values);		
+		System.println(values);	
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_IMMEDIATE);	
 	}
 	
 	// Detect Menu button input
@@ -121,13 +123,11 @@ class StringPickerCallbackDelegate extends StringPickerDelegate {
 	}
 	
 	public function onAccept(values) {
-		/*
-		// This causes a flashing on the simulator. I'm not sure where to pop the current and push the next view. 
-		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-		self.callbackMethod.invoke(values);
-		WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
-		*/
-		StringPickerDelegate.onAccept(values);
+		var name_set = StringPickerDelegate.onAccept(values);
+		if (name_set == true) {
+			self.callbackMethod.invoke(values);
+		}
+
 	}
 	
 	public function onCancel() {

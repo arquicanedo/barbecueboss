@@ -81,6 +81,7 @@ class StringPickerDelegate extends WatchUi.PickerDelegate {
     function onAccept(values) {
         if(!mPicker.isDone(values[0])) {
             mPicker.addCharacter(values[0]);
+            return false;
         }
         else {
             if(mPicker.getTitle().length() == 0) {
@@ -89,8 +90,7 @@ class StringPickerDelegate extends WatchUi.PickerDelegate {
             else {
                 Application.getApp().setProperty("string", mPicker.getTitle());
             }
-            WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-            WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_IMMEDIATE);
+            return true;
         }
     }
 
