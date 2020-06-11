@@ -41,28 +41,28 @@ class SteakListItem extends WatchUi.Drawable {
 	function getMeatImage(meatType) {
 		switch(meatType) {
 			case SteakEntry.BURGER:
-				return WatchUi.loadResource(Rez.Drawables.BurgerIconSmall);
+				return WatchUi.loadResource(Rez.Drawables.BurgerIconMedium);
 				//return "0";
 			case SteakEntry.BAKE:
-				return WatchUi.loadResource(Rez.Drawables.BakeIconSmall);
+				return WatchUi.loadResource(Rez.Drawables.BakeIconMedium);
 				//return "1";
 			case SteakEntry.CHICKEN:
-				return WatchUi.loadResource(Rez.Drawable.ChickenIconSmall);
+				return WatchUi.loadResource(Rez.Drawables.ChickenIconMedium);
 				//return "2";
 			case SteakEntry.CORN:
-				return WatchUi.loadResource(Rez.Drawables.CornIconSmall);
+				return WatchUi.loadResource(Rez.Drawables.CornIconMedium);
 				//return "3";
 			case SteakEntry.FISH:
-				return WatchUi.loadResource(Rez.Drawables.FishIconSmall);
+				return WatchUi.loadResource(Rez.Drawables.FishIconMedium);
 				//return "4";
 			case SteakEntry.BEEF:
-				return WatchUi.loadResource(Rez.Drawables.BeefIconSmall);
+				return WatchUi.loadResource(Rez.Drawables.BeefIconMedium);
 				//return "5";
 			case SteakEntry.PORK:
-				return WatchUi.loadResource(Rez.Drawables.PorkIconSmall);
+				return WatchUi.loadResource(Rez.Drawables.PorkIconMedium);
 				//return "6";
 			case SteakEntry.LAMB:
-				return WatchUi.loadResource(Rez.Drawables.LambIconSmall);
+				return WatchUi.loadResource(Rez.Drawables.LambIconMedium);
 				//return "7";
 			
 			default:
