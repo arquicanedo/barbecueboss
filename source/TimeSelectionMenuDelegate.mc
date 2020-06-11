@@ -3,7 +3,7 @@ using Toybox.System;
 using Toybox.Timer;
 
 
-class MenuDelegate extends WatchUi.MenuInputDelegate {
+class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 
 	hidden var app;
 

@@ -53,7 +53,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		
 		// Switch views for the timer selection
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-        WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_IMMEDIATE);	
+        WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_IMMEDIATE);	
 	}
 	
 	// Detect Menu button input
