@@ -25,6 +25,8 @@ class SteakListItem extends WatchUi.Drawable {
 		_targetOriginX = params.get(:targetOriginX);
 		_itemColor = params.get(:itemColor);
 		
+		//if this is the first SteakListItem to be created we need to go ahead and initialize the dictionary
+		//that maps a food type enum -> bitmap
 		if(null == _meatMap) {
 			_meatMap = {};
 		}
@@ -33,11 +35,15 @@ class SteakListItem extends WatchUi.Drawable {
 			_meatFont = WatchUi.loadResource(Rez.Fonts.FONT_MEATFONT_MEDIUM);
 		}*/
 			
+		//if we haven't yet loaded the bitmap for this food type, load it and store it in the map/cache
 		if(null == _meatMap.get(steak.getFoodType())) {
 			_meatMap.put(steak.getFoodType(), self.getMeatImage(steak.getFoodType()));
 		}
 	}
 	
+	/*
+		this method takes a food type enum and loads/returns the appropriate bitmap from the resources
+	*/
 	function getMeatImage(meatType) {
 		switch(meatType) {
 			case SteakEntry.BURGER:
@@ -67,23 +73,29 @@ class SteakListItem extends WatchUi.Drawable {
 			
 			default:
 				System.println("Unknown meat type when fetching icon, returning beef.");
-				return WatchUi.loadResource(Rez.Drawables.BeefIconSmall);
+				return WatchUi.loadResource(Rez.Drawables.BeefIconMedium);
 				
 		}
-		
 	}
 	
 	function getSelected() {
 		return _steak.getSelected();
 	}
 	
+	/*
+		draws the list entry on the screen. The list itself just tells the entries where to position themselves, and the entries draw themselves on the screen
+		in this case we'll draw some text for flip/timer but draw a bitmap for the food type
+		we use the _meatMap dictionary to fetch the appropriate cached image so we don't have to do the heavy lifting of loading a resource while we're
+		trying to draw on the screen so it executes quickly
+	*/
 	function draw(dc, x, y) {
 		Drawable.draw(dc);
 	
 		dc.setColor(self.decideColor(), Graphics.COLOR_BLACK);
 		//dc.drawText(x, y, _meatFont, "5", Graphics.TEXT_JUSTIFY_LEFT);
-		var icon = _meatMap.get(_steak.getFoodType());
-		dc.drawBitmap(x, y, icon);
+		
+		//fetch the icon to use from the static bitmap cache and draw it
+		dc.drawBitmap(x, y, _meatMap.get(_steak.getFoodType()));
 		dc.drawText(_flipOriginX, y, _font, _steak.getFlipString(), Graphics.TEXT_JUSTIFY_LEFT);
 		dc.drawText(_targetOriginX, y, _font, _steak.getTargetString(), Graphics.TEXT_JUSTIFY_LEFT); 
 	}
