@@ -2,6 +2,17 @@ using Toybox;
 
 class SteakEntry {
 
+	enum {
+		BURGER = 0,
+		BAKE = 1,
+		CHICKEN = 2,
+		CORN = 3,
+		FISH = 4,
+		BEEF = 5,
+		PORK = 6,
+		LAMB = 7	
+	}
+
 	hidden var _isSelected = false;
 	hidden var _status = Controller.INIT;
 	hidden var _timeout = 0;
@@ -11,7 +22,7 @@ class SteakEntry {
 	hidden var _totalFlips = 0;
 	hidden var _label;
 	hidden var _initialized = false;
-	hidden var _foodType = false;	// What type of food is this steak
+	hidden var _foodType = SteakEntry.BEEF;	// What type of food is this steak
 	hidden var _foodTypeCount = 0;	// What steak number of the same type is on the grill
 	
 	function initialize(label) {
@@ -43,7 +54,7 @@ class SteakEntry {
 		return _foodTypeCount;
 	}
 	
-	function getFoodtype() {
+	function getFoodType() {
 		return _foodType;
 	}
 	
