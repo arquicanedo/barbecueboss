@@ -17,8 +17,8 @@
     <bitmap id="CornIconMedium" filename="../../img/icons/corn/corn-18x24.png"/>
     <bitmap id="CornIconSmall" filename="../../img/icons/corn/corn-12x16.png"/>
     
-    <bitmap id="BeefIconLarge" filename="../../img/icons/meat/meat-32x27.png"/>
-    <bitmap id="BeefIconMedium" filename="../../img/icons/meat/meat-24x20.png"/>
+    <!-- <bitmap id="BeefIconLarge" filename="../../img/icons/meat/meat-32x27.png"/>
+    <bitmap id="BeefIconMedium" filename="../../img/icons/meat/meat-24x20.png"/> -->
     <bitmap id="BeefIconSmall" filename="../../img/icons/meat/meat-16x14.png"/>
 
 	<bitmap id="FishIconLarge" filename="../../img/icons/fish/fish-32x32.png"/>
