@@ -40,18 +40,21 @@ class Controller {
 	hidden var storage = new DataStore();
 	
 	
-	public enum {
+/*	public enum {
 		BEEF,
 		CHICKEN,
 		PORK,
 		VEGGIES
-	}
+	}*/
 	
 	hidden var foodCounter = {
-		BEEF => 0,
-		CHICKEN => 0,
-		PORK => 0,
-		VEGGIES => 0
+		SteakEntry.BEEF => 0,
+		SteakEntry.CHICKEN => 0,
+		SteakEntry.PORK => 0,
+		SteakEntry.CORN => 0,
+		SteakEntry.LAMB => 0,
+		SteakEntry.BURGER => 0,
+		SteakEntry.BAKE => 0
 	};
 	
 	
