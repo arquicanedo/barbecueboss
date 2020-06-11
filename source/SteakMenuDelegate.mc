@@ -24,18 +24,41 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     
    	function onSelect() {
 		System.println("SteakMenuDelegate.onSelect pressed");
+
+		var foodIcons = [
+	    	Rez.Drawables.BurgerIconLarge,
+	    	Rez.Drawables.BakeIconLarge,
+	    	Rez.Drawables.ChickenIconLarge,
+	    	Rez.Drawables.CornIconLarge,
+	    	Rez.Drawables.FishIconLarge,
+	    	Rez.Drawables.BeefIconLarge,
+	    	Rez.Drawables.PorkIconLarge,
+	    	Rez.Drawables.LambIconLarge
+	    ];
+	    
+		var bp = new BitmapPicker(foodIcons);
+		var bpd = new BitmapPickerCallbackDelegate(bp);
+		bpd.callbackMethod = method(:onBitmapPickerSelected);
+		WatchUi.pushView(bp, bpd, WatchUi.SLIDE_UP);
 		
+		/*
 		// First step is to select a custom name.
 		var sp = new StringPicker();
 		var stringPickerDelegate = new StringPickerCallbackDelegate(sp);
 		stringPickerDelegate.callbackMethod = method(:onStringPickerSelected);
 		WatchUi.pushView(sp, stringPickerDelegate, WatchUi.SLIDE_UP);
+		*/
 		
 		// v 1.0.0 used to prompt directly to the timer selection.
 		//WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
 		return true;
 	}
 	
+	function onBitmapPickerSelected(selection) {
+		System.println("******************************************************************");
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+
+	}
 	
 	
 	function onStringPickerSelected(customSteakName) {
@@ -144,4 +167,57 @@ class StringPickerCallbackDelegate extends StringPickerDelegate {
 		// I'm a bit confused, is this how the switch is made?
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}
+}
+
+
+class BitmapPickerCallbackDelegate extends BitmapPickerDelegate {
+
+	public var callbackMethod;
+	
+	public function initialize(sp){
+		BitmapPickerDelegate.initialize(sp);
+	}
+	
+	public function onAccept(values) {
+		self.callbackMethod.invoke(values);
+	}
+	
+	
+	public function onCancel() {
+		BitmapPickerDelegate.onCancel();
+	}
+	
+	public function onBack() {
+		// I'm a bit confused, is this how the switch is made?
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+	}
+}
+
+
+class BitmapPickerDelegate extends WatchUi.PickerDelegate {
+    hidden var mPicker;
+
+    function initialize(picker) {
+        PickerDelegate.initialize();
+        mPicker = picker;
+    }
+
+    function onCancel() {
+        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+    }
+
+    function onAccept(values) {
+        if(!mPicker.isDone(values[0])) {
+            return false;
+        }
+        else {
+            if(mPicker.getTitle().length() == 0) {
+                Application.getApp().deleteProperty("string");
+            }
+            else {
+                Application.getApp().setProperty("string", mPicker.getTitle());
+            }
+            return true;
+        }
+    }
 }
