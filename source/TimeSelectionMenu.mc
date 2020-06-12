@@ -24,28 +24,22 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 		
 		var lastTimeout = app.controller.storageGetValue("lastSteakTimeout");
 		
-		if (lastTimeout == null) {
+		// The Stop button should be visible only when the steak is running.
+		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
+		if (selectedSteak.getStatus() != Controller.INIT) {
 			self.addItem(Rez.Strings.menu_label_stop, :timerMenuStop);
-			for (var i = 0; i<default_timeouts.size(); i+=1) {
+		}
+		var found = default_timeouts_secs.indexOf(lastTimeout.toString());
+		System.println("************************ comparing " + lastTimeout + " " + default_timeouts_secs + " = " + found);
+		var min = self.seconds2minutes(lastTimeout);
+		
+		self.addItem(Lang.format("$1$:$2$ (last)", [min[0], min[1]]), :timerMenuLast);
+		for (var i = 0; i<default_timeouts.size(); i+=1) {
+			if (i != found) {
 				self.addItem(default_timeouts[i], default_symbols[i]);
 			}
-			self.addItem(Rez.Strings.menu_label_custom, :timerMenuCustom);
-		}
-		else {
-
-			self.addItem(Rez.Strings.menu_label_stop, :timerMenuStop);
-			var found = default_timeouts_secs.indexOf(lastTimeout.toString());
-			System.println("************************ comparing " + lastTimeout + " " + default_timeouts_secs + " = " + found);
-			var min = self.seconds2minutes(lastTimeout);
-			
-			self.addItem(Lang.format("$1$:$2$ (last)", [min[0], min[1]]), :timerMenuLast);
-			for (var i = 0; i<default_timeouts.size(); i+=1) {
-				if (i != found) {
-					self.addItem(default_timeouts[i], default_symbols[i]);
-				}
-			}			
-			
-			self.addItem(Rez.Strings.menu_label_custom, :timerMenuCustom);
-		}
+		}			
+		
+		self.addItem(Rez.Strings.menu_label_custom, :timerMenuCustom);		
 	}
 }

@@ -39,13 +39,10 @@ class Controller {
 	// Data Store
 	hidden var storage = new DataStore();
 	
+	// This is a hack. I don't know how to do it properly because the BitMapFactory returns the bitmap but I need the index
+	public var lastSelectedFoodType = null;			
 	
-/*	public enum {
-		BEEF,
-		CHICKEN,
-		PORK,
-		VEGGIES
-	}*/
+	
 	
 	hidden var foodCounter = {
 		SteakEntry.BEEF => 0,
