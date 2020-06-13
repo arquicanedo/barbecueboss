@@ -5,8 +5,13 @@ using Toybox.System;
 
 class SettingsView extends WatchUi.View {
 
+	hidden var _app;
+	hidden var _font;
+	
     function initialize() {
         View.initialize();
+    
+    	_app = Application.getApp();
     }
 
     // Load your resources here
@@ -18,7 +23,14 @@ class SettingsView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
-    	
+    	var list = findDrawableById("settingsList");
+        var settings = new [2];
+        var font = list.getParams().get(:font);
+        settings[0] = new SettingsListItem("GPS Enabled", font, method(:getGpsStatus), method(:setGpsStatus));
+        settings[0].setSelected(true);
+        
+        settings[1] = new SettingsListItem("Activity Enabled", font, method(:getActivityEnabled), method(:setActivityEnabled));
+        list.setItems(settings);
     }
     
 
@@ -34,4 +46,19 @@ class SettingsView extends WatchUi.View {
     function onHide() {
     }
     
+    function setGpsStatus(enabled) {
+    	_app.controller.setGpsEnabled(enabled);
+    }
+    
+    function getGpsStatus() {
+    	return _app.controller.getGpsEnabled(); 
+    }
+    
+    function getActivityEnabled() {
+    	return _app.controller.getActivityEnabled();
+    }
+    
+    function setActivityEnabled(enabled) {
+    	_app.controller.setActivityEnabled(enabled);
+    }
 }

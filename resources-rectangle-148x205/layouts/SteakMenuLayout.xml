@@ -1,5 +1,5 @@
 <layout id="SteakMenuLayout">
-	<drawable id="steakList" class="SteakListDrawable">
+	<drawable id="steakList" class="ListDrawable">
 		<param name="titleX">"center"</param>
 		<param name="titleY">"top"</param>
 		<param name="itemOriginX">10</param>

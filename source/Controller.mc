@@ -129,8 +129,20 @@ class Controller {
 		flipChanged.reset();
     }
     
+    function setActivityEnabled(enabled) {
+    	self.activityEnabled = enabled;
+    }
+    
     function getActivityEnabled() {
     	return self.activityEnabled;
+    }
+    
+    function getGpsEnabled() {
+    	return self.gpsEnabled;
+    }
+    
+    function setGpsEnabled(enabled) {
+    	self.gpsEnabled = enabled;
     }
     
     function getSteaks() {
