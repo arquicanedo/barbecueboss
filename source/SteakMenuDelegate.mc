@@ -19,8 +19,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	    	Rez.Drawables.CornIconLarge,
 	    	Rez.Drawables.FishIconLarge,
 	    	Rez.Drawables.BeefIconLarge,
-	    	Rez.Drawables.PorkIconLarge,
-	    	Rez.Drawables.LambIconLarge
+	    	/* Rez.Drawables.PorkIconLarge,
+	    	Rez.Drawables.LambIconLarge */
 	];
 	
     function initialize() {
@@ -67,9 +67,9 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		selectedSteak.setFoodType(typeOfSteak);
 		selectedSteak.setFoodTypeCount(app.controller.requestFood(typeOfSteak));
 
-		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+		WatchUi.popView(WatchUi.SLIDE_DOWN);
         
-        WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_IMMEDIATE);		
+        WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);		
 		
 	}
 	
@@ -89,7 +89,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		
 		// Switch views for the timer selection
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-        WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_IMMEDIATE);	
+        WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);	
 	}
 	
 	// Detect Menu button input
@@ -202,7 +202,7 @@ class BitmapPickerCallbackDelegate extends BitmapPickerDelegate {
 	
 	public function onBack() {
 		// I'm a bit confused, is this how the switch is made?
-		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+		WatchUi.popView(WatchUi.SLIDE_DOWN);
 	}
 }
 
@@ -216,7 +216,7 @@ class BitmapPickerDelegate extends WatchUi.PickerDelegate {
     }
 
     function onCancel() {
-        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
 
     function onAccept(values) {

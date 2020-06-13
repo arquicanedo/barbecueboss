@@ -1,37 +1,37 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="../images/launcher_icon.png" />
     
-    <bitmap id="BurgerIconLarge" filename="../../img/icons/burger/burger-32x30.png"/>
-    <bitmap id="BurgerIconMedium" filename="../../img/icons/burger/burger-24x23.png"/>
-    <bitmap id="BurgerIconSmall" filename="../../img/icons/burger/burger-16x15.png"/>
+    <bitmap id="BurgerIconLarge" filename="../../img/icons/burger/032-hamburger-32x32.png"/>
+    <bitmap id="BurgerIconMedium" filename="../../img/icons/burger/032-hamburger-24x24.png"/>
+    <bitmap id="BurgerIconSmall" filename="../../img/icons/burger/032-hamburger-16x16.png"/>
     
-    <bitmap id="BakeIconLarge" filename="../../img/icons/cake/cake-32x32.png"/>
-    <bitmap id="BakeIconMedium" filename="../../img/icons/cake/cake-24x24.png"/>
-    <bitmap id="BakeIconSmall" filename="../../img/icons/cake/cake-16x16.png"/>
+    <bitmap id="BakeIconLarge" filename="../../img/icons/cake/025-chef-hat-32x32.png"/>
+    <bitmap id="BakeIconMedium" filename="../../img/icons/cake/025-chef-hat-24x24.png"/>
+    <bitmap id="BakeIconSmall" filename="../../img/icons/cake/025-chef-hat-16x16.png"/>
     
-    <bitmap id="ChickenIconLarge" filename="../../img/icons/chicken-leg/chicken-leg-32x32.png"/>
-    <bitmap id="ChickenIconMedium" filename="../../img/icons/chicken-leg/chicken-leg-24x24.png"/>
-    <bitmap id="ChickenIconSmall" filename="../../img/icons/chicken-leg/chicken-leg-16x16.png"/>
+    <bitmap id="ChickenIconLarge" filename="../../img/icons/chicken-leg/037-chicken-leg-32x32.png"/>
+    <bitmap id="ChickenIconMedium" filename="../../img/icons/chicken-leg/037-chicken-leg-24x24.png"/>
+    <bitmap id="ChickenIconSmall" filename="../../img/icons/chicken-leg/037-chicken-leg-16x16.png"/>
     
-    <bitmap id="CornIconLarge" filename="../../img/icons/corn/corn-32x42.png"/>
-    <bitmap id="CornIconMedium" filename="../../img/icons/corn/corn-24x32.png"/>
-    <bitmap id="CornIconSmall" filename="../../img/icons/corn/corn-16x21.png"/>
+    <bitmap id="CornIconLarge" filename="../../img/icons/corn/018-broccoli-32x32.png"/>
+    <bitmap id="CornIconMedium" filename="../../img/icons/corn/018-broccoli-24x24.png"/>
+    <bitmap id="CornIconSmall" filename="../../img/icons/corn/018-broccoli-16x16.png"/>
     
-    <bitmap id="BeefIconLarge" filename="../../img/icons/meat/meat-32x27.png"/>
-    <bitmap id="BeefIconMedium" filename="../../img/icons/meat/meat-24x20.png"/>
-    <bitmap id="BeefIconSmall" filename="../../img/icons/meat/meat-16x14.png"/>
+    <bitmap id="BeefIconLarge" filename="../../img/icons/meat/038-meat-32x32.png"/>
+    <bitmap id="BeefIconMedium" filename="../../img/icons/meat/038-meat-24x24.png"/>
+    <bitmap id="BeefIconSmall" filename="../../img/icons/meat/038-meat-16x16.png"/>
 
-	<bitmap id="FishIconLarge" filename="../../img/icons/fish/fish-32x32.png"/>
-    <bitmap id="FishIconMedium" filename="../../img/icons/fish/fish-24x24.png"/>
-    <bitmap id="FishIconSmall" filename="../../img/icons/fish/fish-16x16.png"/>
+	<bitmap id="FishIconLarge" filename="../../img/icons/fish/017-shrimp-32x32.png"/>
+    <bitmap id="FishIconMedium" filename="../../img/icons/fish/017-shrimp-24x24.png"/>
+    <bitmap id="FishIconSmall" filename="../../img/icons/fish/017-shrimp-16x16.png"/>
     
-    <bitmap id="PorkIconLarge" filename="../../img/icons/pig/pig-32x23.png"/>
+    <!-- <bitmap id="PorkIconLarge" filename="../../img/icons/pig/pig-32x23.png"/>
     <bitmap id="PorkIconMedium" filename="../../img/icons/pig/pig-24x18.png"/>
     <bitmap id="PorkIconSmall" filename="../../img/icons/pig/pig-16x12.png"/>
     
     <bitmap id="LambIconLarge" filename="../../img/icons/sheep/sheep-32x30.png"/>
     <bitmap id="LambIconMedium" filename="../../img/icons/sheep/sheep-24x22.png"/>
-    <bitmap id="LambIconSmall" filename="../../img/icons/sheep/sheep-16x15.png"/>
+    <bitmap id="LambIconSmall" filename="../../img/icons/sheep/sheep-16x15.png"/> -->
     
     <drawable-list id="arrow" foreground="Graphics.COLOR_WHITE">
         <shape type="polygon" points="[[118, 120],[148, 120], [133, 140]]" color="Graphics.COLOR_WHITE"/>

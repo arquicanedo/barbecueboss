@@ -9,8 +9,8 @@ class SteakEntry {
 		CORN = 3,
 		FISH = 4,
 		BEEF = 5,
-		PORK = 6,
-		LAMB = 7	
+		/*PORK = 6,
+		LAMB = 7 */	
 	}
 
 	hidden var _isSelected = false;

@@ -14,7 +14,7 @@ class SteakListItem extends WatchUi.Drawable {
 	hidden var _targetOriginX;
 	hidden var _steak;
 	hidden var _itemColor;
-	
+	hidden var _iconOffsetY;
 	
 	function initialize(steak, params) {
 		Drawable.initialize(params);
@@ -24,16 +24,13 @@ class SteakListItem extends WatchUi.Drawable {
 		_flipOriginX = params.get(:flipOriginX);
 		_targetOriginX = params.get(:targetOriginX);
 		_itemColor = params.get(:itemColor);
+		_iconOffsetY = params.get(:iconOffsetY);
 		
 		//if this is the first SteakListItem to be created we need to go ahead and initialize the dictionary
 		//that maps a food type enum -> bitmap
 		if(null == _meatMap) {
 			_meatMap = {};
 		}
-	
-		/*if(null == _meatFont) {
-			_meatFont = WatchUi.loadResource(Rez.Fonts.FONT_MEATFONT_MEDIUM);
-		}*/
 			
 		//if we haven't yet loaded the bitmap for this food type, load it and store it in the map/cache
 		if(null == _meatMap.get(steak.getFoodType())) {
@@ -47,33 +44,33 @@ class SteakListItem extends WatchUi.Drawable {
 	function getMeatImage(meatType) {
 		switch(meatType) {
 			case SteakEntry.BURGER:
-				return WatchUi.loadResource(Rez.Drawables.BurgerIconMedium);
+				return WatchUi.loadResource(Rez.Drawables.BurgerIconSmall);
 				//return "0";
 			case SteakEntry.BAKE:
-				return WatchUi.loadResource(Rez.Drawables.BakeIconMedium);
+				return WatchUi.loadResource(Rez.Drawables.BakeIconSmall);
 				//return "1";
 			case SteakEntry.CHICKEN:
-				return WatchUi.loadResource(Rez.Drawables.ChickenIconMedium);
+				return WatchUi.loadResource(Rez.Drawables.ChickenIconSmall);
 				//return "2";
 			case SteakEntry.CORN:
-				return WatchUi.loadResource(Rez.Drawables.CornIconMedium);
+				return WatchUi.loadResource(Rez.Drawables.CornIconSmall);
 				//return "3";
 			case SteakEntry.FISH:
-				return WatchUi.loadResource(Rez.Drawables.FishIconMedium);
+				return WatchUi.loadResource(Rez.Drawables.FishIconSmall);
 				//return "4";
 			case SteakEntry.BEEF:
-				return WatchUi.loadResource(Rez.Drawables.BeefIconMedium);
+				return WatchUi.loadResource(Rez.Drawables.BeefIconSmall);
 				//return "5";
-			case SteakEntry.PORK:
-				return WatchUi.loadResource(Rez.Drawables.PorkIconMedium);
+/*			case SteakEntry.PORK:
+				return WatchUi.loadResource(Rez.Drawables.PorkIconSmall);
 				//return "6";
 			case SteakEntry.LAMB:
-				return WatchUi.loadResource(Rez.Drawables.LambIconMedium);
-				//return "7";
+				return WatchUi.loadResource(Rez.Drawables.LambIconSmall);
+				//return "7"; */
 			
 			default:
 				System.println("Unknown meat type when fetching icon, returning beef.");
-				return WatchUi.loadResource(Rez.Drawables.BeefIconMedium);
+				return WatchUi.loadResource(Rez.Drawables.BeefIconSmall);
 				
 		}
 	}
@@ -95,7 +92,7 @@ class SteakListItem extends WatchUi.Drawable {
 		//dc.drawText(x, y, _meatFont, "5", Graphics.TEXT_JUSTIFY_LEFT);
 		
 		//fetch the icon to use from the static bitmap cache and draw it
-		dc.drawBitmap(x, y, _meatMap.get(_steak.getFoodType()));
+		dc.drawBitmap(x, y + _iconOffsetY, _meatMap.get(_steak.getFoodType()));
 		dc.drawText(_flipOriginX, y, _font, _steak.getFlipString(), Graphics.TEXT_JUSTIFY_LEFT);
 		dc.drawText(_targetOriginX, y, _font, _steak.getTargetString(), Graphics.TEXT_JUSTIFY_LEFT); 
 	}

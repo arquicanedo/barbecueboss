@@ -47,11 +47,12 @@ class Controller {
 	hidden var foodCounter = {
 		SteakEntry.BEEF => 0,
 		SteakEntry.CHICKEN => 0,
-		SteakEntry.PORK => 0,
+		//SteakEntry.PORK => 0,
 		SteakEntry.CORN => 0,
-		SteakEntry.LAMB => 0,
+		//SteakEntry.LAMB => 0,
 		SteakEntry.BURGER => 0,
-		SteakEntry.BAKE => 0
+		SteakEntry.BAKE => 0,
+		SteakEntry.FISH => 0
 	};
 	
 	
