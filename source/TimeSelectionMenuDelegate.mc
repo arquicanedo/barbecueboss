@@ -29,9 +29,11 @@ class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
     	//System.println("Selected timer menu item: " + id.toString());
 
 		if(id == :timerMenuStop) {
-			
+			// Reset steakEntry
 			selectedSteak.setTimeout(0);
 			selectedSteak.setStatus(Controller.INIT);	
+			selectedSteak.setFoodType(SteakEntry.BEEF);
+			selectedSteak.setFoodTypeCount(0);
 			return;
 		}
 		
