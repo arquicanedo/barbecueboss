@@ -30,9 +30,14 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 		if (selectedSteak.getStatus() != Controller.INIT) {
 			self.addItem(Rez.Strings.menu_label_stop, :timerMenuStop);
 		}
-		var found = default_timeouts_secs.indexOf(lastTimeout.toString());
+		
+		if (lastTimeout == null) {
+			lastTimeout = default_timeouts_secs[0];	
+		}
+		var found = default_timeouts_secs.indexOf(lastTimeout.toString());	
+		
 		System.println("************************ comparing " + lastTimeout + " " + default_timeouts_secs + " = " + found);
-		var min = self.seconds2minutes(lastTimeout);
+		var min = self.seconds2minutes(lastTimeout.toNumber());
 		
 		self.addItem(Lang.format("$1$:$2$ (last)", [min[0], min[1]]), :timerMenuLast);
 		for (var i = 0; i<default_timeouts.size(); i+=1) {

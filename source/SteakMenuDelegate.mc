@@ -25,38 +25,36 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
    	function onSelect() {
 		System.println("SteakMenuDelegate.onSelect pressed");
 
-		// We need a way to reuse these food types
-		/* I tried this but doesn't work. Monkey-C is weird. foodIcons[selection] returns null */
-		//moved this var from being a class member to here to reduce general memory useage - this array
-		//will only be created when something is selected for editing so its memory footprint only applies when
-		//the user is changing items in the list
-		var foodIcons = [
-			    	Rez.Drawables.BurgerIconExtraLarge,
-			    	Rez.Drawables.BakeIconExtraLarge,
-			    	Rez.Drawables.ChickenIconExtraLarge,
-			    	Rez.Drawables.CornIconExtraLarge,
-			    	Rez.Drawables.FishIconExtraLarge,
-			    	Rez.Drawables.BeefIconExtraLarge,
-			    	Rez.Drawables.DrinkIconExtraLarge
-			    	/* Rez.Drawables.PorkIconLarge,
-			    	Rez.Drawables.LambIconLarge */
-			];
 
-		var bp = new BitmapPicker(foodIcons);
-		var bpd = new BitmapPickerCallbackDelegate(bp);
-		bpd.callbackMethod = method(:onBitmapPickerSelected);
-		WatchUi.pushView(bp, bpd, WatchUi.SLIDE_UP);
+		// The Food Type menu should be visible only when the timer is not initialized.
+		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
+		if (selectedSteak.getStatus() != Controller.INIT) {
+			WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);	
+		}
+		else {
+			// We need a way to reuse these food types
+			/* I tried this but doesn't work. Monkey-C is weird. foodIcons[selection] returns null */
+			//moved this var from being a class member to here to reduce general memory useage - this array
+			//will only be created when something is selected for editing so its memory footprint only applies when
+			//the user is changing items in the list
+			var foodIcons = [
+				    	Rez.Drawables.BurgerIconExtraLarge,
+				    	Rez.Drawables.BakeIconExtraLarge,
+				    	Rez.Drawables.ChickenIconExtraLarge,
+				    	Rez.Drawables.CornIconExtraLarge,
+				    	Rez.Drawables.FishIconExtraLarge,
+				    	Rez.Drawables.BeefIconExtraLarge,
+				    	Rez.Drawables.DrinkIconExtraLarge
+				    	/* Rez.Drawables.PorkIconLarge,
+				    	Rez.Drawables.LambIconLarge */
+				];
+	
+			var bp = new BitmapPicker(foodIcons);
+			var bpd = new BitmapPickerCallbackDelegate(bp);
+			bpd.callbackMethod = method(:onBitmapPickerSelected);
+			WatchUi.pushView(bp, bpd, WatchUi.SLIDE_UP);
+		}
 		
-		/*
-		// First step is to select a custom name.
-		var sp = new StringPicker();
-		var stringPickerDelegate = new StringPickerCallbackDelegate(sp);
-		stringPickerDelegate.callbackMethod = method(:onStringPickerSelected);
-		WatchUi.pushView(sp, stringPickerDelegate, WatchUi.SLIDE_UP);
-		*/
-		
-		// v 1.0.0 used to prompt directly to the timer selection.
-		//WatchUi.pushView(new TimeSelectionMenu(), new MenuDelegate(), WatchUi.SLIDE_UP);
 		return true;
 	}
 	
