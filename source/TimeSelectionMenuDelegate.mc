@@ -33,7 +33,6 @@ class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 			selectedSteak.setTimeout(0);
 			selectedSteak.setStatus(Controller.INIT);	
 			selectedSteak.setFoodType(SteakEntry.BEEF);
-			selectedSteak.setFoodTypeCount(0);
 			return;
 		}
 		

@@ -22,7 +22,6 @@ class SteakEntry {
 	hidden var _label;
 	hidden var _initialized = false;
 	hidden var _foodType = SteakEntry.BEEF;	// What type of food is this steak
-	hidden var _foodTypeCount = 0;	// What steak number of the same type is on the grill
 	
 	function initialize(label) {
 		_label = label;	
@@ -41,17 +40,6 @@ class SteakEntry {
 		_status = status;
 	}
 	
-	function getFoodtypeCount() {
-		return _foodTypeCount;
-	}
-	
-	function setFoodTypeCount(foodTypeCount) {
-		_foodTypeCount = foodTypeCount;
-	}
-	
-	function getFoodTypeCount() {
-		return _foodTypeCount;
-	}
 	
 	function getFoodType() {
 		return _foodType;
@@ -62,12 +50,7 @@ class SteakEntry {
 	}
 	
 	function getLabel() {
-		if (_foodTypeCount == 0) {
-			return _label;
-		}
-		else {
-			return _label + _foodTypeCount;
-		}
+		return _label;
 	}
 	
 	function setLabel(label) {
