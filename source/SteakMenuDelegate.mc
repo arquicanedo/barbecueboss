@@ -10,19 +10,6 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	hidden var app;
 	hidden var deviceSettings;
 	
-	// We need a way to reuse these food types
-	/* I tried this but doesn't work. Monkey-C is weird. foodIcons[selection] returns null */
-	hidden var foodIcons = [
-	    	Rez.Drawables.BurgerIconLarge,
-	    	Rez.Drawables.BakeIconLarge,
-	    	Rez.Drawables.ChickenIconLarge,
-	    	Rez.Drawables.CornIconLarge,
-	    	Rez.Drawables.FishIconLarge,
-	    	Rez.Drawables.BeefIconLarge,
-	    	/* Rez.Drawables.PorkIconLarge,
-	    	Rez.Drawables.LambIconLarge */
-	];
-	
     function initialize() {
         app = Application.getApp();
         BehaviorDelegate.initialize();
@@ -38,7 +25,24 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
    	function onSelect() {
 		System.println("SteakMenuDelegate.onSelect pressed");
 
-		var bp = new BitmapPicker(self.foodIcons);
+		// We need a way to reuse these food types
+		/* I tried this but doesn't work. Monkey-C is weird. foodIcons[selection] returns null */
+		//moved this var from being a class member to here to reduce general memory useage - this array
+		//will only be created when something is selected for editing so its memory footprint only applies when
+		//the user is changing items in the list
+		var foodIcons = [
+			    	Rez.Drawables.BurgerIconExtraLarge,
+			    	Rez.Drawables.BakeIconExtraLarge,
+			    	Rez.Drawables.ChickenIconExtraLarge,
+			    	Rez.Drawables.CornIconExtraLarge,
+			    	Rez.Drawables.FishIconExtraLarge,
+			    	Rez.Drawables.BeefIconExtraLarge,
+			    	Rez.Drawables.DrinkIconExtraLarge
+			    	/* Rez.Drawables.PorkIconLarge,
+			    	Rez.Drawables.LambIconLarge */
+			];
+
+		var bp = new BitmapPicker(foodIcons);
 		var bpd = new BitmapPickerCallbackDelegate(bp);
 		bpd.callbackMethod = method(:onBitmapPickerSelected);
 		WatchUi.pushView(bp, bpd, WatchUi.SLIDE_UP);
@@ -60,7 +64,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		// Hack. I can't get the item but only the bitmap.
 		var typeOfSteak = app.controller.lastSelectedFoodType;
 
-		System.println("******************************************************************" + foodIcons + " " + selection + " " + typeOfSteak);
+		//System.println("******************************************************************" + foodIcons + " " + selection + " " + typeOfSteak);
 		
 		// Change steak properties to update it on the SteakMenu
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];

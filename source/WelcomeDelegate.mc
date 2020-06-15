@@ -74,7 +74,8 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     
     // Settings
 	function onPreviousPage() {
-		Toybox.WatchUi.pushView(new SettingsView(), new SettingsDelegate(), WatchUi.SLIDE_UP);
+		var view = new SettingsView();
+		Toybox.WatchUi.pushView(view, new SettingsDelegate(view), WatchUi.SLIDE_UP);
 		return true;
     }
 }

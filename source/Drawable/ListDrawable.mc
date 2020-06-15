@@ -28,6 +28,17 @@ class ListDrawable extends Toybox.WatchUi.Drawable {
 		_selectorText = null == params.get(:selectorText) ? ">" : params.get(:selectorText);
 	}
 
+	function getSelectedItem() {
+	
+		for(var i = 0; i < _items.size(); i++) {
+			if(_items[i].getSelected()){
+				return _items[i];
+			}
+		}
+		
+		return null;
+	}
+	
 	function getParams() {
 		return _params;
 	}

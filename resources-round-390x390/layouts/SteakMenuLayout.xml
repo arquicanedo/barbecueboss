@@ -7,11 +7,13 @@
 		<param name="flipOriginX">175</param>
 		<param name="targetOriginX">275</param>
 		<param name="selectorOriginX">40</param>
-		<param name="listItemOffsetY">30</param>
+		<param name="listItemOffsetY">35</param>
 		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
-		<param name="font">Graphics.FONT_XTINY</param>
+		<param name="font">Graphics.FONT_TINY</param>
 		<param name="itemColor">Graphics.COLOR_WHITE</param>
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
+		<param name="iconOffsetY">5</param>
+		<param name="iconSize">SteakListItem.LARGE</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="340" x="center"/>
 </layout>

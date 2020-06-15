@@ -90,14 +90,14 @@
     
     <!-- icon font glyph-3 constants -->
     
-    <string id="glyph_3_horizontal_dots">0</string>
+    <!-- <string id="glyph_3_horizontal_dots">0</string>
     <string id="glyph_3_vertical_dots">1</string>
     <string id="glyph_3_map_pin">2</string>
     <string id="glyph_3_flame">3</string>
     <string id="glyph_3_checkmark">4</string>
     <string id="glyph_3_rewind">5</string>
     <string id="glyph_3_toggle_on">6</string>
-    <string id="glyph_3_toggle_off">7</string>
+    <string id="glyph_3_toggle_off">7</string> -->
     
     
         

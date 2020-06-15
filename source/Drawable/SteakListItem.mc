@@ -7,7 +7,9 @@ class SteakListItem extends WatchUi.Drawable {
 	public enum {
 		SMALL = 0,
 		MEDIUM = 1,
-		LARGE = 2
+		LARGE = 2,
+		EXTRA_LARGE = 3,
+		HUGE = 4
 	}
 	
 	//all instances of the list item will have the same shared dictionary of meat type -> icon to save memory
@@ -32,8 +34,8 @@ class SteakListItem extends WatchUi.Drawable {
 		_flipOriginX = params.get(:flipOriginX);
 		_targetOriginX = params.get(:targetOriginX);
 		_itemColor = params.get(:itemColor);
-		_iconOffsetY = params.get(:iconOffsetY);
-		_iconSize = params.get(:iconSize);
+		_iconOffsetY = null == params.get(:iconOffsetY) ? 10 : params.get(:iconOffsetY);
+		_iconSize = null == params.get(:iconSize) ? SteakListItem.MEDIUM : params.get(:iconSize);
 		
 		if(null == _iconWidth || null == _flipIcon) {
 			switch(_iconSize) {
@@ -111,13 +113,12 @@ class SteakListItem extends WatchUi.Drawable {
 							WatchUi.loadResource(Rez.Drawables.BeefIconMedium) :
 						WatchUi.loadResource(Rez.Drawables.BeefIconLarge);
 
-/*			case SteakEntry.PORK:
-				return WatchUi.loadResource(Rez.Drawables.PorkIconSmall);
-
-			case SteakEntry.LAMB:
-				return WatchUi.loadResource(Rez.Drawables.LambIconSmall);
-*/
-			
+			case SteakEntry.DRINK:
+				return _iconSize == SteakListItem.SMALL ?
+							WatchUi.loadResource(Rez.Drawables.DrinkIconSmall) :
+						_iconSize == SteakListItem.MEDIUM ?
+							WatchUi.loadResource(Rez.Drawables.DrinkIconMedium) :
+						WatchUi.loadResource(Rez.Drawables.DrinkIconLarge);
 			default:
 				System.println("Unknown meat type when fetching icon, returning beef.");
 				return WatchUi.loadResource(Rez.Drawables.BeefIconSmall);
@@ -146,6 +147,7 @@ class SteakListItem extends WatchUi.Drawable {
 		dc.drawText(x + _iconWidth + 5, y, _font, _steak.getFoodTypeCount().toString(), Graphics.TEXT_JUSTIFY_LEFT); 
 		
 		dc.drawBitmap(_flipOriginX, y + _iconOffsetY, _flipIcon);
+		//dc.drawText(_flipOriginX, y, _font, "Flip", Graphics.TEXT_JUSTIFY_LEFT);
 		dc.drawText(_flipOriginX + _iconWidth + 5, y, _font, _steak.getTotalFlips().toString(), Graphics.TEXT_JUSTIFY_LEFT);
 		
 		dc.drawText(_targetOriginX, y, _font, _steak.getTargetString(), Graphics.TEXT_JUSTIFY_LEFT); 

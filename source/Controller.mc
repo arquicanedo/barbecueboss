@@ -43,16 +43,14 @@ class Controller {
 	public var lastSelectedFoodType = null;			
 	
 	
-	
 	hidden var foodCounter = {
 		SteakEntry.BEEF => 0,
 		SteakEntry.CHICKEN => 0,
-		//SteakEntry.PORK => 0,
 		SteakEntry.CORN => 0,
-		//SteakEntry.LAMB => 0,
 		SteakEntry.BURGER => 0,
 		SteakEntry.BAKE => 0,
-		SteakEntry.FISH => 0
+		SteakEntry.FISH => 0,
+		SteakEntry.DRINK => 0
 	};
 	
 	
@@ -104,7 +102,7 @@ class Controller {
     		self.storageSetValue("gpsEnabled", self.gpsEnabled);
     	}
     	else {
-    		self.gpsEnabled= val;
+    		self.gpsEnabled = val;
     	}
     	
     	val = self.storageGetValue("activityEnabled");
@@ -143,6 +141,13 @@ class Controller {
     
     function setGpsEnabled(enabled) {
     	self.gpsEnabled = enabled;
+    	
+    	if(!enabled) {
+    		self.disableGPS();
+    	} 
+    	else {
+    		self.initializeGPS();
+    	}
     }
     
     function getSteaks() {
@@ -378,7 +383,7 @@ class Controller {
 	function calculateMaxSteaks() {
     	
 		//this can be overridden per family/device in the string resource for that device
-    	return WatchUi.loadResource(Rez.Strings.maxSteaks).toNumber();    	
+    	return WatchUi.loadResource(Rez.Strings.maxSteaks).toNumber();
     }
     
     function storageSetValue(key, value) {
