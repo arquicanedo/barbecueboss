@@ -13,7 +13,7 @@ class SettingsListItem extends WatchUi.Drawable {
 	hidden var _statusSetter;
 	hidden var _status = false;
 	hidden var _font;
-	hidden var _selected = false;
+	hidden var _selected = false;	// This relates to the user selection
 
 	
 	function initialize(text, textFont, getter, setter) {
@@ -54,7 +54,7 @@ class SettingsListItem extends WatchUi.Drawable {
 	function draw(dc, x, y) {
 		Drawable.draw(dc);
 		dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-		dc.drawText(x + 5, y, _font, "testing", Graphics.TEXT_JUSTIFY_LEFT);
+		dc.drawText(x + 5, y, _font, _text, Graphics.TEXT_JUSTIFY_LEFT);
 		
 		var img = _status ? _onImage : _offImage;
 		var width = dc.getWidth();

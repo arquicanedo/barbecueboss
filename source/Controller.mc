@@ -36,6 +36,10 @@ class Controller {
 	public var total_steaks;
 	hidden var steaks;
 	
+	// Settings menu
+	public var total_settings;
+	hidden var settings;
+	
 	// Data Store
 	hidden var storage = new DataStore();
 	
@@ -128,7 +132,15 @@ class Controller {
     }
     
     function setActivityEnabled(enabled) {
-    	self.activityEnabled = enabled;
+        self.activityEnabled = enabled;
+    	self.storageSetValue("activityEnabled", enabled);
+    	if(!enabled) {
+    		// The other option is to recordingDiscard but that may be abrupt for the exit conditions.
+    		self.recordingStop();
+    	}
+    	else {
+    		self.initializeActivityRecording();
+    	}
     }
     
     function getActivityEnabled() {
@@ -141,7 +153,7 @@ class Controller {
     
     function setGpsEnabled(enabled) {
     	self.gpsEnabled = enabled;
-    	
+    	self.storageSetValue("gpsEnabled", self.gpsEnabled);
     	if(!enabled) {
     		self.disableGPS();
     	} 
@@ -192,6 +204,7 @@ class Controller {
 	// https://developer.garmin.com/connect-iq/api-docs/
 	function initializeActivityRecording() {
 		if(self.activityEnabled) {
+			System.println("Activity recording enabled by app settings.");
 			self.createSession();
 		}
 		else {
@@ -224,7 +237,7 @@ class Controller {
 	
 	function recordingSave() {
 		if (self.session != null && self.session.isRecording()) {
-			System.println("ActivityRecording session saved !!!!!!!!!!!!!!!!!");
+			System.println("ActivityRecording session saved");
 			self.session.save();
 			session = null;
 		}
@@ -361,27 +374,55 @@ class Controller {
 	
 	function nextSteak() {
 		var i = self.getSelectedSteak();
-		
 		steaks[i].setSelected(false);
 		steaks[(i + 1) % self.total_steaks].setSelected(true);
 	}
 	
 	function previousSteak() {
 		var i = self.getSelectedSteak();
-		
 		steaks[i].setSelected(false);
-		
 		var prevSteak = ((i - 1) % self.total_steaks);
-		
 		if(prevSteak < 0) {
 			prevSteak = self.total_steaks - 1;
 		}
-		
 		steaks[prevSteak].setSelected(true);
 	}
 	
+	
+	function getSelectedSetting() {
+		for(var i = 0; i < self.total_settings; i++) {
+			if(self.settings[i].getSelected()) {
+				return i;
+			}
+		}
+		
+		return 0;
+	}
+	
+	function setSettings(settings, total_settings) {
+		self.total_settings = total_settings;
+		self.settings = settings;
+	}
+	
+	function nextSetting() {
+		var i = self.getSelectedSetting();
+		settings[i].setSelected(false);
+		settings[(i + 1) % self.total_settings].setSelected(true);
+	}
+	
+	function previousSetting() {
+		var i = self.getSelectedSetting();
+		settings[i].setSelected(false);
+		var prevSetting = ((i - 1) % self.total_settings);
+		if(prevSetting < 0) {
+			prevSetting = self.total_settings - 1;
+		}
+		settings[prevSetting].setSelected(true);
+	}
+	
+	
+	
 	function calculateMaxSteaks() {
-    	
 		//this can be overridden per family/device in the string resource for that device
     	return WatchUi.loadResource(Rez.Strings.maxSteaks).toNumber();
     }
@@ -392,16 +433,6 @@ class Controller {
     
     function storageGetValue(key) {
     	return self.storage.getValue(key);
-    }
-    
-    
-    function requestFood(foodType) {
-    	/*
-    	var count = foodCounter.get(foodType);
-    	foodCounter.put(foodType, count+1);
-    	return self.foodCounter.get(foodType);
-    	*/
-    	return 0;
     }
     
     

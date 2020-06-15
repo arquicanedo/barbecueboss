@@ -26,10 +26,13 @@ class SettingsView extends WatchUi.View {
     	var list = findDrawableById("settingsList");
         var settings = new [2];
         var font = list.getParams().get(:font);
+
+		_app.controller.setSettings(settings, settings.size());
         settings[0] = new SettingsListItem("GPS Enabled", font, method(:getGpsStatus), method(:setGpsStatus));
         settings[0].setSelected(true);
         
         settings[1] = new SettingsListItem("Activity Enabled", font, method(:getActivityEnabled), method(:setActivityEnabled));
+        
         list.setItems(settings);
     }
     
