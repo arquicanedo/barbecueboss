@@ -5,7 +5,7 @@ using Toybox.WatchUi;
 class BitmapPicker extends WatchUi.Picker {
     hidden var mFactory;
 
-    function initialize(bitmaps) {
+    function initialize(bitmaps, pre_selected_item) {
     	System.println("Bitmaps initialized: " + bitmaps);
         mFactory = new BitmapFactory(bitmaps, {:addOk=>false});
 
@@ -21,7 +21,7 @@ class BitmapPicker extends WatchUi.Picker {
         	}
         );
 
-        Picker.initialize({:title => title, :pattern=>[mFactory]});
+        Picker.initialize({:title => title, :pattern=>[mFactory], :defaults=>[pre_selected_item]});
     }
 
     function onUpdate(dc) {

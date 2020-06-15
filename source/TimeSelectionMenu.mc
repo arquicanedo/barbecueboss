@@ -42,7 +42,7 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 		self.addItem(Lang.format("$1$:$2$ (last)", [min[0], min[1]]), :timerMenuLast);
 		for (var i = 0; i<default_timeouts.size(); i+=1) {
 			if (i != found) {
-				self.addItem(default_timeouts[i], default_symbols[i]);
+				self.addItem(Lang.format("$1$:$2$", [default_timeouts[i], "00"]), default_symbols[i]);
 			}
 		}			
 		

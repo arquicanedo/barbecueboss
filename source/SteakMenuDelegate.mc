@@ -49,7 +49,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 				    	Rez.Drawables.LambIconLarge */
 				];
 	
-			var bp = new BitmapPicker(foodIcons);
+			var typeOfSteak = app.controller.lastSelectedFoodType;
+			var bp = new BitmapPicker(foodIcons, typeOfSteak);
 			var bpd = new BitmapPickerCallbackDelegate(bp);
 			bpd.callbackMethod = method(:onBitmapPickerSelected);
 			WatchUi.pushView(bp, bpd, WatchUi.SLIDE_UP);
