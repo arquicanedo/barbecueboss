@@ -396,9 +396,12 @@ class Controller {
     
     
     function requestFood(foodType) {
+    	/*
     	var count = foodCounter.get(foodType);
     	foodCounter.put(foodType, count+1);
     	return self.foodCounter.get(foodType);
+    	*/
+    	return 0;
     }
     
     
