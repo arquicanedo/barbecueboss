@@ -140,7 +140,6 @@ class SteakListItem extends WatchUi.Drawable {
 		Drawable.draw(dc);
 	
 		dc.setColor(self.decideColor(), Graphics.COLOR_BLACK);
-		//dc.drawText(x, y, _meatFont, "5", Graphics.TEXT_JUSTIFY_LEFT);
 		
 		//fetch the icon to use from the static bitmap cache and draw it
 		dc.drawBitmap(x, y + _iconOffsetY, _meatMap.get(_steak.getFoodType()));

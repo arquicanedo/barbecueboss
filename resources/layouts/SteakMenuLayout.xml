@@ -4,8 +4,8 @@
 		<param name="titleY">"top"</param>
 		<param name="itemOriginX">30</param>
 		<param name="itemOriginY">20</param>
-		<param name="flipOriginX">90</param>
-		<param name="targetOriginX">150</param>
+		<param name="flipOriginX">150</param>
+		<param name="targetOriginX">90</param>
 		<param name="selectorOriginX">20</param>
 		<param name="listItemOffsetY">20</param>
 		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
