@@ -1,5 +1,6 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="../images/launcher_icon.png" />
+    <bitmap id="WelcomeLogoImage" filename="../images/steakfire.png"/>
     
     <bitmap id="FlipIconSmall" filename="../../img/icons/actions/flip-16x16.png"/>
     <bitmap id="FlipIconMedium" filename="../../img/icons/actions/flip-24x24.png"/>
