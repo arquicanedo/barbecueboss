@@ -1,0 +1,5 @@
+using Toybox;
+
+class Util {
+
+}

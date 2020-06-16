@@ -1,12 +1,18 @@
 # Barbecue Boss ConnectIQ App for Garmin Watches.
 Barbecue like a boss. An opensource app (https://github.com/arquicanedo/barbecueboss) for barbecue enthusiasts. In the initial version, it provides a searing timer (user-configurable for 1, 2, ..., 5 minutes) and flip confirmation to keep track of your steaks and veggies on the grill. It creates a "barbecue" activity and associates the GPS location to it whenever available. 
 
+This project is licensed under the Apache 2.0 License. See LICENSE and AUTHORS for more information.
+
 This version only supports circular watches. Future release includes:
 - "smoking" timer in addition to the "searing" timer
 - multiple timers to track various steaks simultaneously
 
 Other:
-- Icon made by Pixel perfect from www.flaticon.com
+- App/Launcher Icon made by Pixel perfect from www.flaticon.com
+
+- Meat type icons by:
+Food Pixel Art Icons - Freepik https://www.flaticon.com/authors/freepik/
+
 
 ## What's New
 This update (0.1.0) is brought to you by @nilsbenson (https://github.com/nilsbenson):
@@ -34,6 +40,3 @@ Download from the Garmin app store: https://apps.garmin.com/en-US/apps/bfbcb162-
 - https://forums.garmin.com/developer/connect-iq/f/discussion
 - https://github.com/garmin/connectiq-apps
 
-
-## State Machine
-![state machine](./img/statemachine.png)
