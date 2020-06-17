@@ -3,15 +3,15 @@ using Toybox.System;
 
 class SettingsDelegate extends WatchUi.BehaviorDelegate {
 
-	hidden var _settingsView;
-	hidden var deviceSettings;
+	hidden var _settingsList;
+	hidden var _deviceSettings;
 	hidden var _app;
 	
     function initialize(settingsView) {
         BehaviorDelegate.initialize();
                 
-       	self.deviceSettings = System.getDeviceSettings();
-        _settingsView = settingsView;
+       	_deviceSettings = System.getDeviceSettings();
+        _settingsList = settingsView.findDrawableById("settingsList");
     	_app = Application.getApp();
     }
 
@@ -21,7 +21,7 @@ class SettingsDelegate extends WatchUi.BehaviorDelegate {
     
     function onSelect() {
 		//get the selected item
-		var item = _settingsView.findDrawableById("settingsList").getSelectedItem();
+		var item = _settingsList.getSelectedItem();
 		//update the value
 		item.setStatus(!item.getStatus());
 		//call the setter
@@ -30,6 +30,8 @@ class SettingsDelegate extends WatchUi.BehaviorDelegate {
 	}	
 
    	function onBack() {
+   		_settingsList = null;
+   		_deviceSettings = null;
    		WatchUi.popView(WatchUi.SLIDE_DOWN);
    		return true;
    	}
@@ -38,7 +40,7 @@ class SettingsDelegate extends WatchUi.BehaviorDelegate {
    	function onNextPage() {
     	//round face watch devices with touch screens don't send swipe events, they use key events
     	//these keypresses are reversed from the kind of scroll/selection we are doing
-    	if(self.deviceSettings.isTouchScreen && self.deviceSettings.screenShape != System.SCREEN_SHAPE_RECTANGLE) {
+    	if(_deviceSettings.isTouchScreen && _deviceSettings.screenShape != System.SCREEN_SHAPE_RECTANGLE) {
     		_app.controller.previousSetting();
     	}
     	else {
@@ -52,7 +54,7 @@ class SettingsDelegate extends WatchUi.BehaviorDelegate {
     function onPreviousPage() {
     	//round face watch devices with touch screens don't send swipe events, they use key events
     	//these keypresses are reversed from the kind of scroll/selection we are doing
-    	if(self.deviceSettings.isTouchScreen && self.deviceSettings.screenShape != System.SCREEN_SHAPE_RECTANGLE) {
+    	if(_deviceSettings.isTouchScreen && _deviceSettings.screenShape != System.SCREEN_SHAPE_RECTANGLE) {
     		_app.controller.nextSetting();
     	}
     	else {

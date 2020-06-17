@@ -47,6 +47,10 @@ class ListDrawable extends Toybox.WatchUi.Drawable {
 		_items = items;
 	}
 	
+	function getItems() {
+		return _items;
+	}
+	
 	function getMaxItems() {
 		return _maxItems;
 	}

@@ -6,7 +6,6 @@ using Toybox.System;
 class SettingsView extends WatchUi.View {
 
 	hidden var _app;
-	hidden var _font;
 	
     function initialize() {
         View.initialize();
@@ -47,6 +46,20 @@ class SettingsView extends WatchUi.View {
     // state of this View here. This includes freeing resources from
     // memory.
     function onHide() {
+    	dispose();
+    }
+    
+    function dispose() {
+    	var list = findDrawableById("settingsList");
+    	var items = list.getItems();
+    	
+    	if(null != items) {
+    		for(var i = 0; i < items.size(); i++) {
+    			items[i].dispose();
+    		}	
+    	}
+    	
+    	list.setItems(null);
     }
     
     function setGpsStatus(enabled) {

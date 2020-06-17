@@ -44,7 +44,9 @@ class WelcomeView extends WatchUi.View {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
         
-        dc.drawBitmap(self.logoX, self.logoY, self.logoImage);
+        if(null != self.logoImage) {
+        	dc.drawBitmap(self.logoX, self.logoY, self.logoImage);
+        }
     }
 
     // Called when this View is removed from the screen. Save the

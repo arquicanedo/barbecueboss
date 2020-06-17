@@ -41,6 +41,16 @@ class SettingsListItem extends WatchUi.Drawable {
 		
 		_status = _statusGetter.invoke();
 	}
+	
+	function dispose() {
+		_onImage = null;
+		_offImage = null;
+		_offsetCenterY = null;
+		_text = null;
+		_statusGetter = null;
+		_statusSetter = null;
+		_font = null;
+	}
 
 	function getStatus() {
 		return _status;
