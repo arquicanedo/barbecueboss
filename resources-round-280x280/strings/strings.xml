@@ -1,3 +1,7 @@
 <strings>
 	<string id="maxSteaks">6</string>
+	
+	<!-- BitmapPicker icon size to use for this particular device-->
+    <string id="bitmap_picker_icon_size">EXTRA_LARGE</string>
+	
 </strings>

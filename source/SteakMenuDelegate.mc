@@ -37,18 +37,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 			//moved this var from being a class member to here to reduce general memory useage - this array
 			//will only be created when something is selected for editing so its memory footprint only applies when
 			//the user is changing items in the list
-			var foodIcons = [
-				    	Rez.Drawables.BurgerIconExtraLarge,
-				    	Rez.Drawables.BakeIconExtraLarge,
-				    	Rez.Drawables.ChickenIconExtraLarge,
-				    	Rez.Drawables.CornIconExtraLarge,
-				    	Rez.Drawables.FishIconExtraLarge,
-				    	Rez.Drawables.BeefIconExtraLarge,
-				    	Rez.Drawables.DrinkIconExtraLarge
-				    	/* Rez.Drawables.PorkIconLarge,
-				    	Rez.Drawables.LambIconLarge */
-				];
-	
+			var foodIcons = self.getFoodIconsForDevice();	
 			var typeOfSteak = app.controller.lastSelectedFoodType;
 			var bp = new BitmapPicker(foodIcons, typeOfSteak);
 			var bpd = new BitmapPickerCallbackDelegate(bp);
@@ -57,6 +46,75 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		}
 		
 		return true;
+	}
+	
+	
+	function getFoodIconsForDevice() {
+		var size = WatchUi.loadResource(Rez.Strings.bitmap_picker_icon_size);
+		
+		switch(size) {
+			case "SMALL":
+				return [
+					Rez.Drawables.BurgerIconSmall,
+					Rez.Drawables.BakeIconSmall,
+					Rez.Drawables.ChickenIconSmall,
+					Rez.Drawables.CornIconSmall,
+					Rez.Drawables.FishIconSmall,
+					Rez.Drawables.BeefIconSmall,
+					Rez.Drawables.DrinkIconSmall
+					];
+			
+				break;
+				
+			case "MEDIUM":
+				return [
+					Rez.Drawables.BurgerIconMedium,
+					Rez.Drawables.BakeIconMedium,
+					Rez.Drawables.ChickenIconMedium,
+					Rez.Drawables.CornIconMedium,
+					Rez.Drawables.FishIconMedium,
+					Rez.Drawables.BeefIconMedium,
+					Rez.Drawables.DrinkIconMedium
+					];
+			
+				break;
+				
+			case "LARGE":
+				return [
+						Rez.Drawables.BurgerIconLarge,
+						Rez.Drawables.BakeIconLarge,
+						Rez.Drawables.ChickenIconLarge,
+						Rez.Drawables.CornIconLarge,
+						Rez.Drawables.FishIconLarge,
+						Rez.Drawables.BeefIconLarge,
+						Rez.Drawables.DrinkIconLarge
+						];
+			
+				break;
+			
+			case "EXTRA_LARGE":
+				return [
+						Rez.Drawables.BurgerIconExtraLarge,
+						Rez.Drawables.BakeIconExtraLarge,
+						Rez.Drawables.ChickenIconExtraLarge,
+						Rez.Drawables.CornIconExtraLarge,
+						Rez.Drawables.FishIconExtraLarge,
+						Rez.Drawables.BeefIconExtraLarge,
+						Rez.Drawables.DrinkIconExtraLarge
+					   ];			
+				break;		
+		}
+		
+		return [
+				Rez.Drawables.BurgerIconLarge,
+				Rez.Drawables.BakeIconLarge,
+				Rez.Drawables.ChickenIconLarge,
+				Rez.Drawables.CornIconLarge,
+				Rez.Drawables.FishIconLarge,
+				Rez.Drawables.BeefIconLarge,
+				Rez.Drawables.DrinkIconLarge
+				];
+		
 	}
 	
 	function onBitmapPickerSelected(selection) {
@@ -74,7 +132,6 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
         WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);		
 		
 	}
-	
 	
 	function onStringPickerSelected(customSteakName) {
 		// Custom steak name change
@@ -94,7 +151,6 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
     
-
     function onNextPage() {
     
     	//round face watch devices with touch screens don't send swipe events, they use key events
@@ -144,7 +200,6 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     		app.controller.previousSteak();
     	}
     }
-    
 }
 
 
