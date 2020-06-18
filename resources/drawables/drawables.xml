@@ -56,6 +56,11 @@
     <bitmap id="SwitchOnIconMedium" filename="../../img/icons/settings/toggle-on-24x24.png"/>
     <bitmap id="SwitchOnIconLarge" filename="../../img/icons/settings/toggle-on-32x32.png"/>
     
+    <bitmap id="FlameIconSmall" filename="../../img/icons/status/glyphicons-halflings-221-fire-16x16-white.png"/>
+    <bitmap id="FlameIconMedium" filename="../../img/icons/status/glyphicons-halflings-221-fire-24x24-white.png"/>
+    <bitmap id="FlameIconLarge" filename="../../img/icons/status/glyphicons-halflings-221-fire-32x32-white.png"/>
+    <bitmap id="FlameIconExtraLarge" filename="../../img/icons/status/glyphicons-halflings-221-fire-64x64-white.png"/>
+    
     <drawable-list id="arrow" foreground="Graphics.COLOR_WHITE">
         <shape type="polygon" points="[[118, 120],[148, 120], [133, 140]]" color="Graphics.COLOR_WHITE"/>
     </drawable-list>
