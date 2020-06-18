@@ -90,21 +90,3 @@ class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}
 }
-
-class DurationPickerCallbackDelegate extends DurationPickerDelegate {
-
-	public var callbackMethod;
-	
-	public function initialize(){
-		DurationPickerDelegate.initialize();
-	}
-	
-	public function onAccept(values) {
-		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-		self.callbackMethod.invoke(values);
-	}
-	
-	public function onCancel() {
-		DurationPickerDelegate.onCancel();
-	}
-}

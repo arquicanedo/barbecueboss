@@ -73,7 +73,7 @@ class DurationPicker extends WatchUi.Picker {
         	}
         );
 
-        var defaults = splitStoredTime(factories.size());
+        /*var defaults = splitStoredTime(factories.size());
         if(defaults != null) {
         
             defaults[0] = factories[0].getIndex(defaults[0].toNumber());
@@ -82,9 +82,15 @@ class DurationPicker extends WatchUi.Picker {
             if(defaults.size() == FACTORY_COUNT_12_HOUR) {
                 defaults[3] = factories[3].getIndex(defaults[3]);
             }
-        }
+        }*/
 
-        Picker.initialize({:title=>title, :pattern=>factories, :defaults=>defaults});
+        Picker.initialize(
+        	{
+        		:title=>title, 
+        		:pattern=>factories 
+        		/*, :defaults=>defaults*/ 
+        	}
+        );
     }
 
     function onUpdate(dc) {
@@ -122,8 +128,10 @@ class DurationPicker extends WatchUi.Picker {
     }
 }
 
-class DurationPickerDelegate extends WatchUi.PickerDelegate {
+class DurationPickerCallbackDelegate extends WatchUi.PickerDelegate {
 
+	public var callbackMethod;
+	
     function initialize() {
         PickerDelegate.initialize();
     }
@@ -133,12 +141,8 @@ class DurationPickerDelegate extends WatchUi.PickerDelegate {
     }
 
     function onAccept(values) {
-        var time = values[0] + WatchUi.loadResource(Rez.Strings.timeSeparator) + values[2].format(DURATION_MINUTE_FORMAT);
-        //time += " " + WatchUi.loadResource(values[3]);
-        
-        //Application.getApp().setProperty("time", time);
-
-        //WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-    }
-
+        //var time = values[0] + WatchUi.loadResource(Rez.Strings.timeSeparator) + values[2].format(DURATION_MINUTE_FORMAT);
+        self.callbackMethod.invoke(values);
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
+	}
 }
