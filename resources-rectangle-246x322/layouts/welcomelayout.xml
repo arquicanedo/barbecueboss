@@ -1,3 +1,7 @@
 <layout id="WelcomeLayout">
     <label x="center" y="210" text="@Strings.prompt" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    
+    <label id="menuIcon" x="2" y="180" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_menu"/>
+    <label id="playIcon" x="230" y="65" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_play"/>
+    
 </layout>

@@ -5,15 +5,15 @@
 		<param name="itemOriginX">25</param>
 		<param name="itemOriginY">10</param>
 		<param name="flipOriginX">160</param>
-		<param name="targetOriginX">110</param>
+		<param name="targetOriginX">90</param>
 		<param name="selectorOriginX">10</param>
-		<param name="listItemOffsetY">20</param>
+		<param name="listItemOffsetY">25</param>
 		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
-		<param name="font">Graphics.FONT_SMALL</param>
+		<param name="font">Graphics.FONT_MEDIUM</param>
 		<param name="itemColor">Graphics.COLOR_WHITE</param>
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
-		<param name="iconOffsetY">3</param>
-		<param name="iconSize">SteakListItem.SMALL</param>
+		<param name="iconOffsetY">1</param>
+		<param name="iconSize">SteakListItem.MEDIUM</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="280" x="center"/>
 	<label id="timerIcon" x="235" y="72" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
