@@ -34,9 +34,10 @@ class SettingsListItem extends WatchUi.Drawable {
 			//figure out how many px on the vertical to nudge the toggle icon to center against the row text
 			_offsetCenterY = (Graphics.getFontHeight(_font) - _onImage.getHeight());
 			
-			if(_offsetCenterY < 0) {
+/*			if(_offsetCenterY < 0) {
 				_offsetCenterY *= -1;
 			}
+*/
 		}
 		
 		_status = _statusGetter.invoke();

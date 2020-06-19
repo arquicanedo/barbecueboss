@@ -26,12 +26,16 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 	}
 	
 	// Detect Menu button input
-	/*
+	
     function onKey(keyEvent) {
         System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
+        
+        if(keyEvent.getKey() == WatchUi.KEY_ENTER) {
+        	self.onMenu();
+        }
+        
         return true;
     }
-   	*/
    	
    	function onBack() {
 		var app = Application.getApp();
