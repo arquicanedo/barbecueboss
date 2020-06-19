@@ -9,7 +9,11 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onMenu() {
-    	Toybox.WatchUi.pushView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
+    	var view = new SettingsView();
+    	var delegate = new SettingsDelegate();
+    	view.layoutLoaded.on(delegate.method(:onSettingsLayoutLoaded));
+    	
+		Toybox.WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
         return true;
     }
     

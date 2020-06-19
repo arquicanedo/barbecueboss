@@ -39,6 +39,16 @@ class ListDrawable extends Toybox.WatchUi.Drawable {
 		return null;
 	}
 	
+	function getSelectedIndex() {
+		for(var i = 0; i < _items.size(); i++) {
+			if(_items[i].getSelected()){
+				return i;
+			}
+		}
+		
+		return -1;
+	}
+	
 	function getParams() {
 		return _params;
 	}

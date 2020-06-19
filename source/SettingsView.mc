@@ -6,6 +6,7 @@ using Toybox.System;
 class SettingsView extends WatchUi.View {
 
 	hidden var _app;
+	public var layoutLoaded = new SimpleCallbackEvent("layoutLoaded");
 	
     function initialize() {
         View.initialize();
@@ -16,6 +17,7 @@ class SettingsView extends WatchUi.View {
     // Load your resources here
     function onLayout(dc) {
 	    View.setLayout(Rez.Layouts.SettingsLayout(dc));
+	    layoutLoaded.emit(findDrawableById("settingsList"));
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -60,6 +62,7 @@ class SettingsView extends WatchUi.View {
     	}
     	
     	list.setItems(null);
+    	self.layoutLoaded.reset();
     }
     
     function setGpsStatus(enabled) {

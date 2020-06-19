@@ -7,14 +7,16 @@ class SettingsDelegate extends WatchUi.BehaviorDelegate {
 	hidden var _deviceSettings;
 	hidden var _app;
 	
-    function initialize(settingsView) {
+    function initialize() {
         BehaviorDelegate.initialize();
-                
        	_deviceSettings = System.getDeviceSettings();
-        _settingsList = settingsView.findDrawableById("settingsList");
     	_app = Application.getApp();
     }
 
+	function onSettingsLayoutLoaded(sender, settingsList) {
+		_settingsList = settingsList;
+	}
+	
     function onMenu() {
         return true;
     }
@@ -65,5 +67,40 @@ class SettingsDelegate extends WatchUi.BehaviorDelegate {
 		return true;
     }
    	
-   	
+   	function onSwipe(swipeEvent){
+    
+    	var dir = swipeEvent.getDirection();
+    	
+    	if(dir == WatchUi.SWIPE_DOWN) {
+    		var selected = _settingsList.getSelectedIndex();
+    		
+    		if(-1 != selected) {
+    			var items = _settingsList.getItems();
+    			
+    			items[selected].setSelected(false);
+    			items[(selected + 1) % items.size()].setSelected(true);
+    		}
+    	} 
+    	else if(dir == WatchUi.SWIPE_UP) {
+    		var selected = _settingsList.getSelectedIndex();
+    		
+    		if(-1 != selected) {
+    			var items = _settingsList.getItems();
+    			
+    			items[selected].setSelected(false);
+    			
+    			var newSelection = (selected - 1) % items.size();
+    			
+    			if(newSelection < 0) {
+    				items[items.size() - 1].setSelected(true);
+    			}
+    			else {
+    				items[newSelection].setSelected(true);	
+    			}
+    		
+    		}
+    	}
+    	
+    	WatchUi.requestUpdate();
+    }
 }
