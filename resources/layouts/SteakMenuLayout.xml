@@ -16,7 +16,7 @@
 		<param name="iconSize">SteakListItem.SMALL</param>
 		<param name="gpsX">40</param>
 		<param name="gpsY">150</param>
-		<param name="activityX">50</param>
+		<param name="activityX">60</param>
 		<param name="activityY">150</param>
 	</drawable>
 	<bitmap id="logo" filename="../images/launcher_icon.png" y="150" x="center"/>

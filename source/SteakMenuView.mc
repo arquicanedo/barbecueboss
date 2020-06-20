@@ -13,7 +13,7 @@ class SteakMenuView extends WatchUi.View {
     function initialize() {
         View.initialize();
         self.app = Application.getApp();
-        self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconMedium);
+        self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
         self._activityIcon = WatchUi.loadResource(Rez.Drawables.ActivityIconSmall);
     }
 
