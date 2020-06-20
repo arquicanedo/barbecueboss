@@ -436,4 +436,22 @@ class Controller {
     }
     
     
+    function getTimeOfDay() {
+		var myTime = System.getClockTime(); // ClockTime object
+		System.println(
+		    myTime.hour.format("%02d") + ":" +
+		    myTime.min.format("%02d") + ":" +
+		    myTime.sec.format("%02d")
+		);
+		return myTime;
+    }
+    
+    function saveSmokeTimer() {
+    	var currentTime = self.getTimeOfDay();
+    	var timeArray = [currentTime.hour, currentTime.min, currentTime.sec];
+    	self.storage.setValue("smokerTimer", timeArray);
+    		
+    }
+    
+    
 }

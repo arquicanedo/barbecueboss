@@ -6,6 +6,28 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     function initialize() {
         System.println("barbecue_appDelegate.initialize()");
         BehaviorDelegate.initialize();
+        
+		var app = Application.getApp();
+		app.controller.getTimeOfDay();
+		var myTime = app.controller.storageGetValue("smokerTimer");
+		var currentTime = app.controller.getTimeOfDay();
+		
+		if (myTime != null) {
+			System.println("Datastore time = " + 
+			    myTime[0].format("%02d") + ":" +
+			    myTime[1].format("%02d") + ":" +
+			    myTime[2].format("%02d")
+			);
+		}
+		System.println("Current time = " + 
+		    currentTime.hour.format("%02d") + ":" +
+		    currentTime.min.format("%02d") + ":" +
+		    currentTime.sec.format("%02d")
+		);
+		var diff = (currentTime.hour - myTime[0])*60*60 + (currentTime.min - myTime[1])*60 + (currentTime.sec - myTime[2]);
+		System.println("App has been sleeping for " + 
+			//currentTime.hour - myTime[0] + ":" + currentTime.min - myTime[1] + ":" + currentTime.sec - myTime[2] + "(" +
+			diff + " seconds");
     }
 
     function onMenu() {
@@ -45,6 +67,9 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 		} else {
 			WatchUi.popView(WatchUi.SLIDE_DOWN);
 		}
+		
+		// Persist the smoking timer
+		app.controller.saveSmokeTimer();
 		
    		return true;
    	}
