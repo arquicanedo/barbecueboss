@@ -7,7 +7,9 @@ using Toybox.Application;
 class SteakMenuView extends WatchUi.View {
 
 	hidden var app;
-	
+	hidden var _gpsIcon;
+	hidden var _activityIcon; 
+		
     function initialize() {
         View.initialize();
         self.app = Application.getApp();
@@ -16,6 +18,19 @@ class SteakMenuView extends WatchUi.View {
     // Load your resources here
     function onLayout(dc) {
 	 	View.setLayout(Rez.Layouts.SteakMenuLayout(dc));
+	 	
+	 	
+	 	if (app.controller.getGpsEnabled() == true) {
+		 	self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
+		 	// This is SUPER ANNOYING, why is this not drawing?
+		 	dc.drawBitmap(50, 150, self._gpsIcon);
+		}
+		if (app.controller.getActivityEnabled() == true) {
+		 	self._activityIcon = WatchUi.loadResource(Rez.Drawables.ActivityIconSmall);
+		 	// This is SUPER ANNOYING, why is this not drawing?
+		 	dc.drawBitmap(60, 150, self._activityIcon);
+
+		}
     }
 
 	function getSteakItems(steakList, steaks) {
@@ -39,6 +54,9 @@ class SteakMenuView extends WatchUi.View {
     	var steakList = View.findDrawableById("steakList");
 	 	steakList.setMaxItems(app.controller.getTotalSteaks());
 	 	steakList.setItems(self.getSteakItems(steakList, app.controller.getSteaks()));
+
+
+		// Configuration related
 	 	
     	//register for timer changed "events"
 		app.controller.timerChanged.on(self.method(:onTimerChanged));
@@ -50,7 +68,7 @@ class SteakMenuView extends WatchUi.View {
     }
     
     // Update the view
-    function onUpdate(dc) {
+    function onUpdate(dc) {    
 		View.onUpdate(dc);
     }
 
