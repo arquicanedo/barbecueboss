@@ -66,10 +66,10 @@
     <bitmap id="GpsIconLarge" filename="../../img/icons/gps/gps-32x32.png"/>
     <bitmap id="GpsIconExtraLarge" filename="../../img/icons/gps/gps-64x64.png"/>
     
-    <bitmap id="ActivityIconSmall" filename="../../img/icons/activity/slipper-16x16.png"/>
-    <bitmap id="ActivityIconMedium" filename="../../img/icons/activity/slipper-24x24.png"/>
-    <bitmap id="ActivityIconLarge" filename="../../img/icons/activity/slipper-32x32.png"/>
-    <bitmap id="ActivityIconExtraLarge" filename="../../img/icons/activity/slipper-64x64.png"/>    
+    <bitmap id="ActivityIconSmall" filename="../../img/icons/activity/fast-16x16.png"/>
+    <bitmap id="ActivityIconMedium" filename="../../img/icons/activity/fast-24x24.png"/>
+    <bitmap id="ActivityIconLarge" filename="../../img/icons/activity/fast-32x32.png"/>
+    <bitmap id="ActivityIconExtraLarge" filename="../../img/icons/activity/fast-64x64.png"/>    
     
     <drawable-list id="arrow" foreground="Graphics.COLOR_WHITE">
         <shape type="polygon" points="[[118, 120],[148, 120], [133, 140]]" color="Graphics.COLOR_WHITE"/>

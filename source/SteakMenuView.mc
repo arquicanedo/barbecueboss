@@ -13,7 +13,7 @@ class SteakMenuView extends WatchUi.View {
     function initialize() {
         View.initialize();
         self.app = Application.getApp();
-        self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
+        self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconMedium);
         self._activityIcon = WatchUi.loadResource(Rez.Drawables.ActivityIconSmall);
     }
 
@@ -58,15 +58,24 @@ class SteakMenuView extends WatchUi.View {
     
     // Update the view
     function onUpdate(dc) {
+    	View.onUpdate(dc);
+    	self.drawSettingsIcons(dc);
+    }
+    
+    function drawSettingsIcons(dc) {
+    	var list = View.findDrawableById("steakList");
 	 	if (app.controller.getGpsEnabled() == true) {
-		 	dc.drawBitmap(50, 150, self._gpsIcon);
-		 	System.println("****************************************** GPS ************");
+		 	var gpsX = list.getParams().get(:gpsX);
+		 	var gpsY = list.getParams().get(:gpsY);
+		 	dc.drawBitmap(gpsX, gpsY, self._gpsIcon);
+		 	//System.println("****************************************** GPS ************");
 		}
 		if (app.controller.getActivityEnabled() == true) {
-		 	dc.drawBitmap(60, 150, self._activityIcon);
-		 	System.println("****************************************** Activity ************");
-		}    
-		View.onUpdate(dc);
+			var activityX = list.getParams().get(:activityX);
+			var activityY = list.getParams().get(:activityY);
+		 	dc.drawBitmap(activityX, activityY, self._activityIcon);
+		 	//System.println("****************************************** Activity ************");
+		} 
     }
 
     // Called when this View is removed from the screen. Save the
