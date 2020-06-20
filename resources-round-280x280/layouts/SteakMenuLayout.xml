@@ -12,8 +12,6 @@
 		<param name="font">Graphics.FONT_TINY</param>
 		<param name="itemColor">Graphics.COLOR_WHITE</param>
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
-		<!-- <param name="selectorFont">Fonts.FONT_GLYPH2_SMALL</param>
-		<param name="selectorText">@Strings.glyph_2_right</param> -->
 		<param name="iconOffsetY">5</param>
 		<param name="iconSize">SteakListItem.MEDIUM</param>
 		<param name="gpsX">70</param>

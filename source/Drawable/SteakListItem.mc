@@ -49,7 +49,7 @@ class SteakListItem extends WatchUi.Drawable {
 				case SteakListItem.MEDIUM:
 					_iconWidth = 24;
 					_flipIcon = WatchUi.loadResource(Rez.Drawables.FlipIconMedium);
-					_flameIcon = WatchUi.loadResource(Rez.Drawables.FlipIconLarge);
+					_flameIcon = WatchUi.loadResource(Rez.Drawables.FlameIconLarge);
 					break;
 				case SteakListItem.LARGE:
 					_iconWidth = 32;
