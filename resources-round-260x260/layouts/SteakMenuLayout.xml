@@ -4,8 +4,8 @@
 		<param name="titleY">"top"</param>
 		<param name="itemOriginX">40</param>
 		<param name="itemOriginY">40</param>
-		<param name="flipOriginX">180</param>
-		<param name="targetOriginX">120</param>
+		<param name="flipOriginX">160</param>
+		<param name="targetOriginX">100</param>
 		<param name="selectorOriginX">30</param>
 		<param name="listItemOffsetY">28</param>
 		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
@@ -20,4 +20,7 @@
 		<param name="activityY">220</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="220" x="center"/>
+	<label id="timerIcon" x="230" y="60" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
+	<label id="upIcon" x="5" y="center" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_up"/>
+	<label id="downIcon" x="18" y="180" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_down"/>
 </layout>

@@ -20,7 +20,7 @@
 		<param name="activityY">200</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="200" x="center"/>
-	<label id="timerIcon" x="250" y="67" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
+	<label id="timerIcon" x="210" y="55" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
 	<label id="upIcon" x="5" y="center" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_up"/>
 	<label id="downIcon" x="18" y="170" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_down"/>
 </layout>
