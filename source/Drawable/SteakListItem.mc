@@ -17,6 +17,7 @@ class SteakListItem extends WatchUi.Drawable {
 	hidden static var _iconSize;
 	hidden static var _iconWidth;
 	hidden static var _flipIcon;
+	hidden static var _flameIcon;
 	
 	hidden var _font;
 	hidden var _flipOriginX;
@@ -24,6 +25,7 @@ class SteakListItem extends WatchUi.Drawable {
 	hidden var _steak;
 	hidden var _itemColor;
 	hidden var _iconOffsetY;
+	hidden var _flameOffsetY;
 	
 	
 	function initialize(steak, params) {
@@ -37,19 +39,22 @@ class SteakListItem extends WatchUi.Drawable {
 		_iconOffsetY = null == params.get(:iconOffsetY) ? 10 : params.get(:iconOffsetY);
 		_iconSize = null == params.get(:iconSize) ? SteakListItem.MEDIUM : params.get(:iconSize);
 		
-		if(null == _iconWidth || null == _flipIcon) {
+		if(null == _iconWidth || null == _flipIcon || null == _flameIcon) {
 			switch(_iconSize) {
 				case SteakListItem.SMALL:
 					_iconWidth = 16;
 					_flipIcon = WatchUi.loadResource(Rez.Drawables.FlipIconSmall);
+					_flameIcon = WatchUi.loadResource(Rez.Drawables.FlameIconSmall);
 					break;
 				case SteakListItem.MEDIUM:
 					_iconWidth = 24;
 					_flipIcon = WatchUi.loadResource(Rez.Drawables.FlipIconMedium);
+					_flameIcon = WatchUi.loadResource(Rez.Drawables.FlipIconLarge);
 					break;
 				case SteakListItem.LARGE:
 					_iconWidth = 32;
 					_flipIcon = WatchUi.loadResource(Rez.Drawables.FlipIconLarge);
+					_flameIcon = WatchUi.loadResource(Rez.Drawables.FlameIconLarge);
 					break;
 			}
 		}
@@ -146,6 +151,12 @@ class SteakListItem extends WatchUi.Drawable {
 		
 		dc.drawBitmap(_flipOriginX, y + _iconOffsetY, _flipIcon);
 		//dc.drawText(_flipOriginX, y, _font, "Flip", Graphics.TEXT_JUSTIFY_LEFT);
+		
+		// Flame if we're getting close to a flip.
+		if (_steak.getStatus() == Controller.COOKING && _steak.getTargetSeconds() <= 20) {
+    		dc.drawBitmap(_targetOriginX - _iconWidth - 2, y + _iconOffsetY, _flameIcon);
+    	}
+		
 		dc.drawText(_flipOriginX + _iconWidth + 5, y, _font, _steak.getTotalFlips().toString(), Graphics.TEXT_JUSTIFY_LEFT);
 		
 		dc.drawText(_targetOriginX, y, _font, _steak.getTargetString(), Graphics.TEXT_JUSTIFY_LEFT); 
@@ -171,5 +182,6 @@ class SteakListItem extends WatchUi.Drawable {
     		}
     	}
     }
+
 	
 }
