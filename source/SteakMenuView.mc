@@ -13,24 +13,13 @@ class SteakMenuView extends WatchUi.View {
     function initialize() {
         View.initialize();
         self.app = Application.getApp();
+        self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
+        self._activityIcon = WatchUi.loadResource(Rez.Drawables.ActivityIconSmall);
     }
 
     // Load your resources here
     function onLayout(dc) {
 	 	View.setLayout(Rez.Layouts.SteakMenuLayout(dc));
-	 	
-	 	
-	 	if (app.controller.getGpsEnabled() == true) {
-		 	self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
-		 	// This is SUPER ANNOYING, why is this not drawing?
-		 	dc.drawBitmap(50, 150, self._gpsIcon);
-		}
-		if (app.controller.getActivityEnabled() == true) {
-		 	self._activityIcon = WatchUi.loadResource(Rez.Drawables.ActivityIconSmall);
-		 	// This is SUPER ANNOYING, why is this not drawing?
-		 	dc.drawBitmap(60, 150, self._activityIcon);
-
-		}
     }
 
 	function getSteakItems(steakList, steaks) {
@@ -68,7 +57,15 @@ class SteakMenuView extends WatchUi.View {
     }
     
     // Update the view
-    function onUpdate(dc) {    
+    function onUpdate(dc) {
+	 	if (app.controller.getGpsEnabled() == true) {
+		 	dc.drawBitmap(50, 150, self._gpsIcon);
+		 	System.println("****************************************** GPS ************");
+		}
+		if (app.controller.getActivityEnabled() == true) {
+		 	dc.drawBitmap(60, 150, self._activityIcon);
+		 	System.println("****************************************** Activity ************");
+		}    
 		View.onUpdate(dc);
     }
 
