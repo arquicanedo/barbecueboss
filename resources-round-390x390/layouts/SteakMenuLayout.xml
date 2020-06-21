@@ -14,6 +14,10 @@
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
 		<param name="iconOffsetY">5</param>
 		<param name="iconSize">SteakListItem.LARGE</param>
+		<param name="gpsX">120</param>
+		<param name="gpsY">340</param>
+		<param name="activityX">140</param>
+		<param name="activityY">340</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="340" x="center"/>
 </layout>
