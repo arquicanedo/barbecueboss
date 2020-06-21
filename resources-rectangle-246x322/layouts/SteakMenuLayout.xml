@@ -14,10 +14,13 @@
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
 		<param name="iconOffsetY">1</param>
 		<param name="iconSize">SteakListItem.MEDIUM</param>
+		<param name="gpsX">50</param>
+		<param name="gpsY">280</param>
+		<param name="activityX">70</param>
+		<param name="activityY">280</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="280" x="center"/>
 	<label id="timerIcon" x="235" y="72" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
 	<label id="upIcon" x="0" y="185" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_up"/>
 	<label id="downIcon" x="0" y="270" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_down"/>
-
 </layout>
