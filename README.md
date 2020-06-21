@@ -39,4 +39,5 @@ Download from the Garmin app store: https://apps.garmin.com/en-US/apps/bfbcb162-
 - https://developer.garmin.com/downloads/connect-iq/monkey-c/doc/Toybox.html
 - https://forums.garmin.com/developer/connect-iq/f/discussion
 - https://github.com/garmin/connectiq-apps
+- https://developer.garmin.com/connect-iq/compatible-devices/
 
