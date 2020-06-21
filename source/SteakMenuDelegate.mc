@@ -8,13 +8,16 @@ using Toybox.Application;
 class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 
 	hidden var app;
-	hidden var deviceSettings;
-	
+	hidden var isTouchScreen = false;
+	hidden var screenShape = System.SCREEN_SHAPE_SEMI_ROUND;
+
     function initialize() {
         app = Application.getApp();
         BehaviorDelegate.initialize();
         
-        self.deviceSettings = System.getDeviceSettings();
+        var deviceSettings = System.getDeviceSettings();
+        self.isTouchScreen = deviceSettings.isTouchScreen;
+        self.screenShape = deviceSettings.screenShape;
     }
 
     function onMenu() {
@@ -156,7 +159,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     	//round face watch devices with touch screens don't send swipe events, they use key events
     	//these keypresses are reversed from the kind of scroll/selection we are doing
     	
-    	if(self.deviceSettings.isTouchScreen && self.deviceSettings.screenShape != System.SCREEN_SHAPE_RECTANGLE) {
+    	if(self.isTouchScreen && self.screenShape != System.SCREEN_SHAPE_RECTANGLE) {
     		app.controller.previousSteak();
     	}
     	else {
@@ -172,7 +175,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     	//round face watch devices with touch screens don't send swipe events, they use key events
     	//these keypresses are reversed from the kind of scroll/selection we are doing
     
-    	if(self.deviceSettings.isTouchScreen && self.deviceSettings.screenShape != System.SCREEN_SHAPE_RECTANGLE) {
+    	if(self.isTouchScreen && self.screenShape != System.SCREEN_SHAPE_RECTANGLE) {
     		app.controller.nextSteak();
     	}
     	else {
@@ -274,14 +277,7 @@ class BitmapPickerDelegate extends WatchUi.PickerDelegate {
         if(!mPicker.isDone(values[0])) {
             return false;
         }
-        else {
-            if(mPicker.getTitle().length() == 0) {
-                Application.getApp().deleteProperty("string");
-            }
-            else {
-                Application.getApp().setProperty("string", mPicker.getTitle());
-            }
-            return true;
-        }
+        
+        return true;
     }
 }

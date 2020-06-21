@@ -9,12 +9,14 @@ class SteakMenuView extends WatchUi.View {
 	hidden var app;
 	hidden var _gpsIcon;
 	hidden var _activityIcon; 
-		
+	hidden var _gpsX;
+	hidden var _gpsY;
+	hidden var _activityX;
+	hidden var _activityY;
+	
     function initialize() {
         View.initialize();
-        self.app = Application.getApp();
-        self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
-        self._activityIcon = WatchUi.loadResource(Rez.Drawables.ActivityIconSmall);
+        self.app = Application.getApp();        
     }
 
     // Load your resources here
@@ -44,6 +46,29 @@ class SteakMenuView extends WatchUi.View {
 	 	steakList.setMaxItems(app.controller.getTotalSteaks());
 	 	steakList.setItems(self.getSteakItems(steakList, app.controller.getSteaks()));
 
+		var list = View.findDrawableById("steakList");
+		
+        if(self.app.controller.getGpsEnabled()) {
+        	self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
+        	self._gpsX = list.getParams().get(:gpsX);
+        	self._gpsY = list.getParams().get(:gpsY);
+        }
+        else {
+        	self._gpsIcon = null;
+        	self._gpsX = null;
+        	self._gpsY = null;
+        }
+        
+        if(self.app.controller.getActivityEnabled()) {
+        	self._activityIcon = WatchUi.loadResource(Rez.Drawables.ActivityIconSmall);
+        	self._activityX = list.getParams().get(:activityX);
+        	self._activityY = list.getParams().get(:activityY);
+        }
+        else {
+        	self._activityIcon = null;
+        	self._activityX = null;
+        	self._activityY = null;
+        }
 
 		// Configuration related
 	 	
@@ -63,17 +88,12 @@ class SteakMenuView extends WatchUi.View {
     }
     
     function drawSettingsIcons(dc) {
-    	var list = View.findDrawableById("steakList");
-	 	if (app.controller.getGpsEnabled() == true) {
-		 	var gpsX = list.getParams().get(:gpsX);
-		 	var gpsY = list.getParams().get(:gpsY);
-		 	dc.drawBitmap(gpsX, gpsY, self._gpsIcon);
+	 	if (null != self._gpsIcon) {
+		 	dc.drawBitmap(_gpsX, _gpsY, self._gpsIcon);
 		 	//System.println("****************************************** GPS ************");
 		}
-		if (app.controller.getActivityEnabled() == true) {
-			var activityX = list.getParams().get(:activityX);
-			var activityY = list.getParams().get(:activityY);
-		 	dc.drawBitmap(activityX, activityY, self._activityIcon);
+		if (null != self._activityIcon) {
+		 	dc.drawBitmap(_activityX, _activityY, self._activityIcon);
 		 	//System.println("****************************************** Activity ************");
 		} 
     }
