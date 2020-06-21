@@ -14,9 +14,9 @@
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
 		<param name="iconOffsetY">3</param>
 		<param name="iconSize">SteakListItem.MEDIUM</param>
-		<param name="gpsX">40</param>
+		<param name="gpsX">60</param>
 		<param name="gpsY">200</param>
-		<param name="activityX">60</param>
+		<param name="activityX">80</param>
 		<param name="activityY">200</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="200" x="center"/>
