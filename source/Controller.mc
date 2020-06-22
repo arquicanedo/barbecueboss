@@ -2,6 +2,7 @@ using Toybox.Application;
 using Toybox.WatchUi;
 using Toybox.System;
 using Toybox.Timer;
+using Toybox.Time;
 using Toybox.Position;
 using Toybox.ActivityRecording;
 //using Toybox.Application.Storage;
@@ -437,19 +438,25 @@ class Controller {
     
     
     function getTimeOfDay() {
-		var myTime = System.getClockTime(); // ClockTime object
-		System.println(
+		//var myTime = System.getClockTime(); // ClockTime object
+		var myTime = new Time.Moment(Time.now().value());
+		/*System.println(
 		    myTime.hour.format("%02d") + ":" +
 		    myTime.min.format("%02d") + ":" +
 		    myTime.sec.format("%02d")
-		);
-		return myTime;
+		);*/
+		return myTime.value().toNumber();
     }
     
     function saveSmokeTimer() {
+    	/*
     	var currentTime = self.getTimeOfDay();
     	var timeArray = [currentTime.hour, currentTime.min, currentTime.sec];
     	self.storage.setValue("smokerTimer", timeArray);
+    	*/
+    	
+    	var currentTime = new Time.Moment(Time.now().value());
+    	self.storage.setValue("smokerTime", currentTime.value().toNumber());
     		
     }
     

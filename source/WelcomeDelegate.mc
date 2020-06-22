@@ -1,5 +1,6 @@
 using Toybox.WatchUi;
 using Toybox.System;
+using Toybox.Time;
 
 class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 
@@ -9,17 +10,15 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
         
 		var app = Application.getApp();
 		app.controller.getTimeOfDay();
-		var myTime = app.controller.storageGetValue("smokerTimer");
+		var myTime = app.controller.storageGetValue("smokerTime");
 		var currentTime = app.controller.getTimeOfDay();
 		
 
-		System.println("Current time = " + 
-		    currentTime.hour.format("%02d") + ":" +
-		    currentTime.min.format("%02d") + ":" +
-		    currentTime.sec.format("%02d")
-		);
+		System.println("Current time = " + currentTime);
+
 		
 		if (myTime != null) {
+			/*
 			System.println("Datastore time = " + 
 			    myTime[0].format("%02d") + ":" +
 			    myTime[1].format("%02d") + ":" +
@@ -29,6 +28,12 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 			System.println("App has been sleeping for " + 
 			//currentTime.hour - myTime[0] + ":" + currentTime.min - myTime[1] + ":" + currentTime.sec - myTime[2] + "(" +
 				diff + " seconds");
+			*/
+			var diff = currentTime - myTime;
+
+			System.println("Saved time = " + myTime);
+			System.println("UNIX time diff = " + diff);
+			
 		}
 
     }

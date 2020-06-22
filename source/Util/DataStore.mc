@@ -12,8 +12,9 @@ class DataStore {
 	}
 	
 	function getValue(key) {
-		System.println("DataStore fetching " + key);
-		return self.app.getProperty(key);
+		var value = self.app.getProperty(key);
+		System.println("DataStore fetching " + key + " " + value);
+		return value;
 	}
 	
 	function setValue(key, value) {
