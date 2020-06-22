@@ -136,7 +136,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		
 	}
 	
-	function onStringPickerSelected(customSteakName) {
+/*	function onStringPickerSelected(customSteakName) {
 		// Custom steak name change
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		var typeOfSteak = SteakEntry.BEEF; // This will come from the IconSelector
@@ -146,7 +146,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		// Switch views for the timer selection
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);	
-	}
+	}*/
 	
 	// Detect Menu button input
     function onKey(keyEvent) {
@@ -206,7 +206,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 }
 
 
-class StringPickerCallbackDelegate extends StringPickerDelegate {
+/* class StringPickerCallbackDelegate extends StringPickerDelegate {
 
 	public var callbackMethod;
 	
@@ -234,7 +234,7 @@ class StringPickerCallbackDelegate extends StringPickerDelegate {
 		// I'm a bit confused, is this how the switch is made?
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}
-}
+} */
 
 
 class BitmapPickerCallbackDelegate extends BitmapPickerDelegate {

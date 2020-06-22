@@ -31,15 +31,20 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 			self.addItem(Rez.Strings.menu_label_stop, :timerMenuStop);
 		}
 		
+		var found = -1;
 		if (lastTimeout == null) {
-			lastTimeout = default_timeouts_secs[0];	
+			lastTimeout = default_timeouts_secs[0];
+			found = default_timeouts_secs.indexOf(lastTimeout.toString());	
+		} 
+		else {
+			System.println("************************ comparing " + lastTimeout + " " + default_timeouts_secs + " = " + found);
+			var min = self.seconds2minutes(lastTimeout.toNumber());
+		
+			self.addItem(Lang.format("$1$:$2$ (last)", [min[0], min[1]]), :timerMenuLast);
+			found = default_timeouts_secs.indexOf(lastTimeout.toString());
 		}
-		var found = default_timeouts_secs.indexOf(lastTimeout.toString());	
 		
-		System.println("************************ comparing " + lastTimeout + " " + default_timeouts_secs + " = " + found);
-		var min = self.seconds2minutes(lastTimeout.toNumber());
 		
-		self.addItem(Lang.format("$1$:$2$ (last)", [min[0], min[1]]), :timerMenuLast);
 		for (var i = 0; i<default_timeouts.size(); i+=1) {
 			if (i != found) {
 				self.addItem(Lang.format("$1$:$2$", [default_timeouts[i], "00"]), default_symbols[i]);
