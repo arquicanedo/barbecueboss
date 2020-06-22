@@ -32,24 +32,34 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 		}
 		
 		var found = -1;
+		
 		if (lastTimeout == null) {
-			lastTimeout = default_timeouts_secs[0];
-			found = default_timeouts_secs.indexOf(lastTimeout.toString());	
+			// Add all defaults
+			//lastTimeout = default_timeouts_secs[0];
+			//found = default_timeouts_secs.indexOf(lastTimeout.toString());
+			for (var i = 0; i<default_timeouts.size(); i+=1) {
+				self.addItem(Lang.format("$1$:$2$", [default_timeouts[i], "00"]), default_symbols[i]);
+			}				
 		} 
 		else {
-			System.println("************************ comparing " + lastTimeout + " " + default_timeouts_secs + " = " + found);
+			// Add (last) timeout plus all the defaults avoiding duplicates
+			//System.println("************************ comparing " + lastTimeout + " " + default_timeouts_secs + " = " + found);
 			var min = self.seconds2minutes(lastTimeout.toNumber());
 		
 			self.addItem(Lang.format("$1$:$2$ (last)", [min[0], min[1]]), :timerMenuLast);
+
+			// Avoid duplicates
 			found = default_timeouts_secs.indexOf(lastTimeout.toString());
+			for (var i = 0; i<default_timeouts.size(); i+=1) {
+				if (i != found) {
+					self.addItem(Lang.format("$1$:$2$", [default_timeouts[i], "00"]), default_symbols[i]);
+				}
+			}	
+			
 		}
 		
 		
-		for (var i = 0; i<default_timeouts.size(); i+=1) {
-			if (i != found) {
-				self.addItem(Lang.format("$1$:$2$", [default_timeouts[i], "00"]), default_symbols[i]);
-			}
-		}			
+		
 		
 		self.addItem(Rez.Strings.menu_label_custom, :timerMenuCustom);		
 	}
