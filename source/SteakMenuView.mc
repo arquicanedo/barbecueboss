@@ -13,10 +13,11 @@ class SteakMenuView extends WatchUi.View {
 	hidden var _gpsY;
 	hidden var _activityX;
 	hidden var _activityY;
+	hidden var _timeLabel;
 	
     function initialize() {
         View.initialize();
-        self.app = Application.getApp();        
+        self.app = Application.getApp();
     }
 
     // Load your resources here
@@ -46,8 +47,9 @@ class SteakMenuView extends WatchUi.View {
 	 	steakList.setMaxItems(app.controller.getTotalSteaks());
 	 	steakList.setItems(self.getSteakItems(steakList, app.controller.getSteaks()));
 
-		var list = View.findDrawableById("steakList");
+		self._timeLabel = View.findDrawableById("timeLabel");
 		
+		var list = View.findDrawableById("steakList");
         if(self.app.controller.getGpsEnabled()) {
         	self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
         	self._gpsX = list.getParams().get(:gpsX);
@@ -85,6 +87,21 @@ class SteakMenuView extends WatchUi.View {
     function onUpdate(dc) {
     	View.onUpdate(dc);
     	self.drawSettingsIcons(dc);
+    	self.drawTime(dc);
+    }
+    
+    function drawTime(dc) {
+    	if(null != self._timeLabel) {
+    	
+    		//get the time, format as a string
+    		var time = System.getClockTime();
+    		var timeStr = Lang.format("$1$:$2$", [time.hour.format("%02d"), time.min.format("%02d")]);
+    		
+    		//update the label text and center it's location based on the screen width and the width of the new time string
+    		self._timeLabel.setText(timeStr);
+    		self._timeLabel.setJustification(Graphics.TEXT_JUSTIFY_CENTER);
+    		//self._timeLabel.setLocation((dc.getWidth() / 2) - (dc.getTextWidthInPixels(timeStr, self._timeLabel. self._timeLabel.locY);
+    	}
     }
     
     function drawSettingsIcons(dc) {
