@@ -9,32 +9,20 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
         BehaviorDelegate.initialize();
         
 		var app = Application.getApp();
+		
+		// Commenting for the release. Will be used in low-n-slow
+		/*
 		app.controller.getTimeOfDay();
 		var myTime = app.controller.storageGetValue("smokerTime");
 		var currentTime = app.controller.getTimeOfDay();
-		
-
+	
 		System.println("Current time = " + currentTime);
-
-		
 		if (myTime != null) {
-			/*
-			System.println("Datastore time = " + 
-			    myTime[0].format("%02d") + ":" +
-			    myTime[1].format("%02d") + ":" +
-			    myTime[2].format("%02d")
-			);
-			var diff = (currentTime.hour - myTime[0])*60*60 + (currentTime.min - myTime[1])*60 + (currentTime.sec - myTime[2]);
-			System.println("App has been sleeping for " + 
-			//currentTime.hour - myTime[0] + ":" + currentTime.min - myTime[1] + ":" + currentTime.sec - myTime[2] + "(" +
-				diff + " seconds");
-			*/
 			var diff = currentTime - myTime;
-
 			System.println("Saved time = " + myTime);
 			System.println("UNIX time diff = " + diff);
-			
 		}
+		*/
 
     }
 
@@ -76,8 +64,9 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 			WatchUi.popView(WatchUi.SLIDE_DOWN);
 		}
 		
+		// Commenting for the release. Will be used in low-n-slow
 		// Persist the smoking timer
-		app.controller.saveSmokeTimer();
+		//app.controller.saveSmokeTimer();
 		
    		return true;
    	}
