@@ -17,8 +17,8 @@
 		<param name="gpsX">30</param>
 		<param name="gpsY">115</param>
 		<param name="activityX">50</param>
-		<param name="activityY">115</param>
-		
+		<param name="activityY">115</param>		
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="115" x="center"/>
+	<label id="timeLabel" x="150" y="115" font="Graphics.FONT_TINY" text="time" color="Graphics.COLOR_WHITE" />
 </layout>

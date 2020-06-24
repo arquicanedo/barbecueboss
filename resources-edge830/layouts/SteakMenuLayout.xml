@@ -21,6 +21,7 @@
 	</drawable>
 	
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="250" x="center"/>
+	<label id="timeLabel" x="180" y="247" font="Graphics.FONT_TINY" text="time" color="Graphics.COLOR_WHITE" />
 	<!--<label id="timerIcon" x="235" y="72" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
 	<label id="upIcon" x="0" y="185" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_up"/>
 	<label id="downIcon" x="0" y="270" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_down"/> -->
