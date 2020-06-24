@@ -20,4 +20,5 @@
 		<param name="activityY">340</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="340" x="center"/>
+	<label id="timeLabel" x="260" y="332" font="Graphics.FONT_XTINY" text="time" color="Graphics.COLOR_WHITE" />
 </layout>
