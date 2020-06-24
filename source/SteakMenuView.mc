@@ -28,11 +28,17 @@ class SteakMenuView extends WatchUi.View {
 	function getSteakItems(steakList, steaks) {
 		var items = new[steaks.size()];
 		
+		var params = steakList.getParams();
+		
+		if(params.hasKey(:identifier)) {
+			params.remove(:identifier);
+		}
+		
 		for(var i = 0; i < steaks.size(); i++) {
 			//it's not really possible to setup parameters for sub-items in a drawable in the XML
 			//so instead we pass all params to the list, and then when we create the list items we just fetch that set
 			//of params and use it
-			items[i] = new SteakListItem(steaks[i], steakList.getParams());  
+			items[i] = new SteakListItem(steaks[i], params);  
 		}
 	
 		return items;	
