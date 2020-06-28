@@ -15,7 +15,7 @@ Food Pixel Art Icons - Freepik https://www.flaticon.com/authors/freepik/
 
 ## What's New
 
-0.2.0 -
+1.1.0 -
  - brought to you by warmer temperatures and more outdoor cooking
  - added icons everywhere to denote food types, show what buttons do what actions
  - added the ability to track and re-use the last selected timeout
@@ -25,7 +25,7 @@ Food Pixel Art Icons - Freepik https://www.flaticon.com/authors/freepik/
  - lots of layout tweaks for various devices
  - added a flame icon in addition to color-changing text as a timer approaches its deadline
 
-0.1.0 - 
+1.0.0 - 
 - brought to you by @nilsbenson (https://github.com/nilsbenson):
 - adds vibration and sound when flip timer ends
 - adds a "custom" timer duration
