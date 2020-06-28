@@ -2,7 +2,7 @@ using Toybox.Application;
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
-/*class StringPicker extends WatchUi.Picker {
+class StringPicker extends WatchUi.Picker {
     const mCharacterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     hidden var mTitleText;
     hidden var mFactory;
@@ -60,38 +60,3 @@ using Toybox.WatchUi;
         return mFactory.isDone(value);
     }
 }
-
-class StringPickerDelegate extends WatchUi.PickerDelegate {
-    hidden var mPicker;
-
-    function initialize(picker) {
-        PickerDelegate.initialize();
-        mPicker = picker;
-    }
-
-    function onCancel() {
-        if(0 == mPicker.getTitleLength()) {
-            WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-        }
-        else {
-            mPicker.removeCharacter();
-        }
-    }
-
-    function onAccept(values) {
-        if(!mPicker.isDone(values[0])) {
-            mPicker.addCharacter(values[0]);
-        }
-        else {
-            if(mPicker.getTitle().length() == 0) {
-                Application.getApp().deleteProperty("string");
-            }
-            else {
-                Application.getApp().setProperty("string", mPicker.getTitle());
-            }
-            WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-        }
-    }
-
-}
-*/

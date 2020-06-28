@@ -1,15 +1,37 @@
 using Toybox.WatchUi;
 using Toybox.System;
+using Toybox.Time;
 
 class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 
     function initialize() {
         System.println("barbecue_appDelegate.initialize()");
         BehaviorDelegate.initialize();
+        
+		var app = Application.getApp();
+		
+		// Commenting for the release. Will be used in low-n-slow
+		/*
+		app.controller.getTimeOfDay();
+		var myTime = app.controller.storageGetValue("smokerTime");
+		var currentTime = app.controller.getTimeOfDay();
+	
+		System.println("Current time = " + currentTime);
+		if (myTime != null) {
+			var diff = currentTime - myTime;
+			System.println("Saved time = " + myTime);
+			System.println("UNIX time diff = " + diff);
+		}
+		*/
+
     }
 
     function onMenu() {
-    	Toybox.WatchUi.pushView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
+    	var view = new SettingsView();
+    	var delegate = new SettingsDelegate();
+    	view.layoutLoaded.on(delegate.method(:onSettingsLayoutLoaded));
+    	
+		Toybox.WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
         return true;
     }
     
@@ -22,16 +44,30 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 	}
 	
 	// Detect Menu button input
-	/*
+	
     function onKey(keyEvent) {
         System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
+        
+        if(keyEvent.getKey() == WatchUi.KEY_ENTER) {
+        	self.onMenu();
+        }
+        
         return true;
     }
-   	*/
    	
    	function onBack() {
 		var app = Application.getApp();
-		self.promptSaveSession();
+		
+		if(app.controller.getActivityEnabled()) {
+			self.promptSaveSession();
+		} else {
+			WatchUi.popView(WatchUi.SLIDE_DOWN);
+		}
+		
+		// Commenting for the release. Will be used in low-n-slow
+		// Persist the smoking timer
+		//app.controller.saveSmokeTimer();
+		
    		return true;
    	}
     
@@ -63,7 +99,12 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     		app.controller.recordingDiscard();
     	}
     	
-    	//app.controller.shutdown();
     	WatchUi.popView(WatchUi.SLIDE_DOWN);
+    }
+    
+    // Settings
+	function onPreviousPage() {
+		self.onMenu();
+		return true;
     }
 }

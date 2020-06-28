@@ -1,0 +1,5 @@
+<resources>
+	<font id="FONT_GLYPH1_SMALL" filename="../fonts/glyph-1-16x16.fnt" antialias="true" filter="0123"/>
+	<font id="FONT_GLYPH2_SMALL" filename="../fonts/glyph-2-16x16.fnt" antialias="true" filter="0123456789:"/>
+	<!-- <font id="FONT_GLYPH3_SMALL" filename="../fonts/glyph-3-16x16.fnt" antialias="true" filter="01234567"/> -->
+</resources>

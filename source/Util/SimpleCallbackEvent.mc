@@ -43,7 +43,7 @@ public class SimpleCallbackEvent {
 	}
 
 	public function emit(value) {
-		System.println("emitting event " + self.eventName);
+		//System.println("emitting event " + self.eventName);
 		
 		if(null != self.callbackMethod) {
 			self.callbackMethod.invoke(self, value);

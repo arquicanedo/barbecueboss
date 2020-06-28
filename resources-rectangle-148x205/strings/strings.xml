@@ -1,0 +1,10 @@
+<strings>
+	<string id="maxSteaks">8</string>
+	
+	<!-- BitmapPicker icon size to use for this particular device-->
+    <string id="bitmap_picker_icon_size">MEDIUM</string>
+	
+	<string id="settings_gps">GPS</string>
+	<string id="settings_activity">Activity</string>
+    
+</strings>

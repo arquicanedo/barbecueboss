@@ -2,8 +2,11 @@ using Toybox.Application;
 using Toybox.WatchUi;
 using Toybox.System;
 using Toybox.Timer;
+using Toybox.Time;
 using Toybox.Position;
 using Toybox.ActivityRecording;
+//using Toybox.Application.Storage;
+
 
 class Controller {
 
@@ -17,19 +20,10 @@ class Controller {
 	// Looks like there is support for only *three* timers https://forums.garmin.com/developer/connect-iq/f/discussion/165057/too-many-timers-error
 	public var myTimer;
 	
-	//the total number of seconds running, and the number of seconds elapsed since start
-    public var elapsedSeconds;
-	public var totalSeconds;
-	
-	//the flip timer value
-	public var targetSeconds;
-		
-	
-	//current cooking / machine state
-	hidden var status;
-	
 	//the FIT activity session being used
-	hidden var session;
+	hidden var session = null;
+	hidden var gpsEnabled = true;
+	hidden var activityEnabled = true;
 	
 	//vibration profiles set below conditionally if the device supports them
 	hidden var flipVibrator;
@@ -39,21 +33,36 @@ class Controller {
 	public var timerChanged = new SimpleCallbackEvent("timerChanged");
 	public var flipChanged = new SimpleCallbackEvent("flipChanged");
 	
-	
 	// Steak menu related
-	public var steak_selection;
-	public var steak_status;
 	public var total_steaks;
-	public var steak_timeout;
+	hidden var steaks;
+	
+	// Settings menu
+	public var total_settings;
+	hidden var settings;
+	
+	// Data Store
+	hidden var storage = new DataStore();
+	
+	// This is a hack. I don't know how to do it properly because the BitMapFactory returns the bitmap but I need the index
+	public var lastSelectedFoodType = null;			
+	
+	
+	hidden var foodCounter = {
+		SteakEntry.BEEF => 0,
+		SteakEntry.CHICKEN => 0,
+		SteakEntry.CORN => 0,
+		SteakEntry.BURGER => 0,
+		SteakEntry.BAKE => 0,
+		SteakEntry.FISH => 0,
+		SteakEntry.DRINK => 0
+	};
+	
 	
 	public enum {
 			INIT,
 	    	COOKING, 
-	    	USER_FLIPPING,
-	    	//AUTO_FLIPPING,
-	    	SAVING,
-	    	DISCARDING,
-	    	EXIT
+	    	SAVING
 	}
     
     function initialize() {
@@ -64,38 +73,51 @@ class Controller {
 			self.startSteakVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
 		} 
 		
+		self.initializeDefaultSettings();
+		
 		self.initializeGPS();
 		self.initializeActivityRecording();
 		
-		self.total_steaks = 4;
-		self.steak_selection = 0;
-		self.steak_status = new [self.total_steaks];
-		self.status = new [self.total_steaks];
-		self.elapsedSeconds = new [self.total_steaks];
-		self.totalSeconds = new [self.total_steaks];
-		self.targetSeconds = new [self.total_steaks];
-		self.totalFlips = new [self.total_steaks];
-		self.steak_timeout = new [self.total_steaks];
-
+		self.total_steaks = self.calculateMaxSteaks();
+		self.steaks = new [self.total_steaks];
 		
 		// Timer always running. 
 		self.myTimer = new Timer.Timer();
 		self.myTimer.start(method(:timerCallback), 1000, true);
 		
+	
+		for(var i = 0; i < self.total_steaks; i++) {
+			self.steaks[i] = new SteakEntry(Lang.format("Steak $1$", [i + 1]));
 		
-		for (var i=0; i<self.total_steaks; i+=1) {
-			self.steak_status[i] = false;
-			self.totalFlips[i] = 0;
-			self.setStatus(i, INIT);
-			self.totalSeconds[i] = 0;
-			self.targetSeconds[i] = 0;
+			if(i == 0) {
+				self.steaks[i].setSelected(true);
+			}
 		}
 		
+			
 		// Activity Recording. TODO: Investigate what custom data types we can come up with for grilling.
 		// For now every "flip" is a lap.
-		self.recordingStart();
-		
+		self.recordingStart();		
 	}
+    
+    function initializeDefaultSettings() {
+    	var val = self.storageGetValue("gpsEnabled");
+    	
+    	if(null == val) {
+    		self.storageSetValue("gpsEnabled", self.gpsEnabled);
+    	}
+    	else {
+    		self.gpsEnabled = val;
+    	}
+    	
+    	val = self.storageGetValue("activityEnabled");
+    	if(null == val) {
+    		self.storageSetValue("activityEnabled", self.activityEnabled);
+    	}
+    	else {
+    		self.activityEnabled = val;
+    	}
+    }
     
     function dispose() {
     	self.myTimer.stop();
@@ -110,14 +132,45 @@ class Controller {
 		flipChanged.reset();
     }
     
-    function getStatus(i) {
-    	return self.status[i];
+    function setActivityEnabled(enabled) {
+        self.activityEnabled = enabled;
+    	self.storageSetValue("activityEnabled", enabled);
+    	if(!enabled) {
+    		// The other option is to recordingDiscard but that may be abrupt for the exit conditions.
+    		self.recordingStop();
+    	}
+    	else {
+    		self.initializeActivityRecording();
+    	}
     }
     
-    function setStatus(i, status_target) {
-    	self.status[i] = status_target;
+    function getActivityEnabled() {
+    	return self.activityEnabled;
     }
     
+    function getGpsEnabled() {
+    	return self.gpsEnabled;
+    }
+    
+    function setGpsEnabled(enabled) {
+    	self.gpsEnabled = enabled;
+    	self.storageSetValue("gpsEnabled", self.gpsEnabled);
+    	if(!enabled) {
+    		self.disableGPS();
+    	} 
+    	else {
+    		self.initializeGPS();
+    	}
+    }
+    
+    function getSteaks() {
+    	return self.steaks;
+    }
+    
+    function getTotalSteaks() {
+    	return self.total_steaks;
+    }
+	
     // https://forums.garmin.com/developer/connect-iq/f/discussion/6626/position-accuracy-is-always-position-quality_last_known/44227#44227	
     function onPosition(info) {
     	System.println("GPS Acc: " + info.accuracy);
@@ -125,8 +178,14 @@ class Controller {
 	}
     
 	function initializeGPS() {
-		System.println("Initializing GPS sensing.......");
-	    Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :onPosition ) );
+		
+		if(self.gpsEnabled) {
+			System.println("Initializing GPS sensing.......");
+	    	Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :onPosition ) );
+	    }
+	    else {
+	    	System.println("GPS disabled by app settings.");
+	    }
 	}
 	
 	function disableGPS() {
@@ -145,7 +204,13 @@ class Controller {
 	// https://forums.garmin.com/developer/connect-iq/f/q-a/171125/state-of-session-after-save/922655#922655
 	// https://developer.garmin.com/connect-iq/api-docs/
 	function initializeActivityRecording() {
-		self.createSession();
+		if(self.activityEnabled) {
+			System.println("Activity recording enabled by app settings.");
+			self.createSession();
+		}
+		else {
+			System.println("Activity recording disabled by app settings.");
+		}
 	}
 	
 	function createSession() {
@@ -173,7 +238,7 @@ class Controller {
 	
 	function recordingSave() {
 		if (self.session != null && self.session.isRecording()) {
-			System.println("ActivityRecording session saved !!!!!!!!!!!!!!!!!");
+			System.println("ActivityRecording session saved");
 			self.session.save();
 			session = null;
 		}
@@ -195,87 +260,205 @@ class Controller {
     		Attention.vibrate(self.flipVibrator);
     	}
     	
-    	self.totalFlips[i]++;
-		self.session.addLap();    	
+    	self.steaks[i].setTotalFlips(self.steaks[i].getTotalFlips() + 1);
+    	
+    	if(null != self.session) {
+			self.session.addLap();
+		}    	
     }
 
 
+    function initializeFlip(i) {
+    	totalFlips[i] = 0;
+    	self.flipChanged.emit(totalFlips[i]);
+    }
     
+	function timerStop(i) {
+		self.myTimer.stop();
+	}
+	
+	function timerResume(i) {
+	    self.myTimer.start(method(:timerCallback), 1000, true);
+	}
+	    
+    /************** UNTIL HERE ***********/
     
     function timerCallback() {
 		System.println("timerCallback");
-        self.printGPS();        
-
-        
-        System.println("Steak target seconds");
-        System.println(self.targetSeconds);
+        //self.printGPS();        
         
         // Manage the timers
-        for (var i = 0; i<self.total_steaks; i+=1) {
+        for (var i = 0; i < self.total_steaks; i+=1) {
 			// Decrease cooking steak timers
-        	if (self.getStatus(i) == COOKING) {
-        		self.targetSeconds[i] -= 1;
-				// Reset timers if expired
-				if (self.targetSeconds[i] < 0) {
-					self.targetSeconds[i] = self.steak_timeout[i];
-					self.flipMeat(i);
+        	if (self.steaks[i].getStatus() == COOKING) {
+        		
+        		if(self.steaks[i].getInitialized()) {
+        		
+	        		var targetSeconds = self.steaks[i].getTargetSeconds() - 1;
+	        		
+					// Reset timers if expired
+					if (targetSeconds < 0) {
+						self.steaks[i].setTargetSeconds(self.steaks[i].getTimeout());
+						self.flipMeat(i);
+					} 
+					else {
+						self.steaks[i].setTargetSeconds(targetSeconds);
+					}
 				}
         	}
         }
-        self.timerChanged.emit([self.elapsedSeconds, self.totalSeconds]);
+        
+        self.timerChanged.emit([]);
+	}
+	
+	function getSelectedSteak() {
+		for(var i = 0; i < self.total_steaks; i++) {
+			if(self.steaks[i].getSelected()) {
+				return i;
+			}
+		}
+		
+		return 0;
 	}
 	
 	
 	function decideSelection() {
-		var i = self.steak_selection;
-		var timeout = self.steak_timeout[i];
-		System.println("Deciding Selection on steak");
-		System.println(i);
-		System.println(timeout);
-		if (self.getStatus(i) == INIT) {
+		var i = self.getSelectedSteak();
+		var timeout = self.steaks[i].getTimeout();
+		System.println("Deciding Selection on steak " + i + " for " + timeout + " seconds");
+		
+		if (self.steaks[i].getStatus() == INIT) {
+		
 			if (timeout > 0) {
-				self.setStatus(i, COOKING);
+				self.steaks[i].setTimeout(timeout);
+				self.steaks[i].setStatus(COOKING);
 				System.println("Status set to COOKING");
-				self.targetSeconds[i] = timeout;
 				
 				if(Attention has :vibrate) {
 					Attention.vibrate(self.startSteakVibrator);
 				}
+				
+				// Persist last set steak
+				self.storageSetValue("lastSteakLabel", self.steaks[i].getLabel());
+				self.storageSetValue("lastSteakTimeout", self.steaks[i].getTimeout());
+				
+				/*
+				var old_label = self.storage.getValue("lastSteakLabel");
+				var old_timer = self.storage.getValue("lastSteakTimeout");
+				System.println("Data stored values: " + old_label + " " + old_timer);
+				*/
+				
 			}
 			else {
-				self.setStatus(i, INIT);
+				self.steaks[i].setStatus(INIT);
 				System.println("The user picked 0 minutes 0 seconds. Not legal");
 			}
 					
 		}
-		else if (self.getStatus(i) == COOKING) {
-			self.targetSeconds[i] = timeout;
-			self.flipMeat(i);
+		else if (self.steaks[i].getStatus() == COOKING) {
+		
+			//if we are just now transitioning to cooking we don't want to count a flip yet.
+			var initialized = self.steaks[i].getInitialized(); 
+			self.steaks[i].setTimeout(timeout);
+			
+			if(initialized) {
+				self.flipMeat(i);
+			}
 		}
 	}
 
-	
 	function decideCancellation() {
-		var i = self.steak_selection;
+		var i = self.getSelectedSteak();
 		System.println("Deciding Cancellation on steak");
 		System.println(i);
-
 	}
 	
-	
 	function nextSteak() {
-		self.steak_selection = (self.steak_selection + 1 ) % self.total_steaks;
-		System.println("Steak selection");
-		System.println(self.steak_selection);
+		var i = self.getSelectedSteak();
+		steaks[i].setSelected(false);
+		steaks[(i + 1) % self.total_steaks].setSelected(true);
 	}
 	
 	function previousSteak() {
-		self.steak_selection = (self.steak_selection - 1 ) % self.total_steaks;
-		if (self.steak_selection < 0) {
-			self.steak_selection = self.total_steaks - 1;
+		var i = self.getSelectedSteak();
+		steaks[i].setSelected(false);
+		var prevSteak = ((i - 1) % self.total_steaks);
+		if(prevSteak < 0) {
+			prevSteak = self.total_steaks - 1;
 		}
-		System.println("Steak selection");
-		System.println(self.steak_selection);
+		steaks[prevSteak].setSelected(true);
 	}
 	
+	
+	function getSelectedSetting() {
+		for(var i = 0; i < self.total_settings; i++) {
+			if(self.settings[i].getSelected()) {
+				return i;
+			}
+		}
+		
+		return 0;
+	}
+	
+	function setSettings(settings, total_settings) {
+		self.total_settings = total_settings;
+		self.settings = settings;
+	}
+	
+	function nextSetting() {
+		var i = self.getSelectedSetting();
+		settings[i].setSelected(false);
+		settings[(i + 1) % self.total_settings].setSelected(true);
+	}
+	
+	function previousSetting() {
+		var i = self.getSelectedSetting();
+		settings[i].setSelected(false);
+		var prevSetting = ((i - 1) % self.total_settings);
+		if(prevSetting < 0) {
+			prevSetting = self.total_settings - 1;
+		}
+		settings[prevSetting].setSelected(true);
+	}
+	
+	
+	
+	function calculateMaxSteaks() {
+		//this can be overridden per family/device in the string resource for that device
+    	return WatchUi.loadResource(Rez.Strings.maxSteaks).toNumber();
+    }
+    
+    function storageSetValue(key, value) {
+    	self.storage.setValue(key, value);
+    }
+    
+    function storageGetValue(key) {
+    	return self.storage.getValue(key);
+    }
+    
+    
+    function getTimeOfDay() {
+		//var myTime = System.getClockTime(); // ClockTime object
+		var myTime = new Time.Moment(Time.now().value());
+		/*System.println(
+		    myTime.hour.format("%02d") + ":" +
+		    myTime.min.format("%02d") + ":" +
+		    myTime.sec.format("%02d")
+		);*/
+		return myTime.value().toNumber();
+    }
+    
+    function saveSmokeTimer() {
+    	/*
+    	var currentTime = self.getTimeOfDay();
+    	var timeArray = [currentTime.hour, currentTime.min, currentTime.sec];
+    	self.storage.setValue("smokerTimer", timeArray);
+    	*/
+    	
+    	var currentTime = new Time.Moment(Time.now().value());
+    	self.storage.setValue("smokerTime", currentTime.value().toNumber());
+    		
+    }
+    
+    
 }
