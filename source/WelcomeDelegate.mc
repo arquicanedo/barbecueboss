@@ -4,11 +4,13 @@ using Toybox.Time;
 
 class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 
+	hidden var app;
+	
     function initialize() {
         System.println("barbecue_appDelegate.initialize()");
         BehaviorDelegate.initialize();
         
-		var app = Application.getApp();
+		app = Application.getApp();
 		
 		// Commenting for the release. Will be used in low-n-slow
 		/*
@@ -27,11 +29,42 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onMenu() {
-    	var view = new SettingsView();
-    	var delegate = new SettingsDelegate();
-    	view.layoutLoaded.on(delegate.method(:onSettingsLayoutLoaded));
     	
-		Toybox.WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
+    	if(Toybox.WatchUi has :Menu2) {
+    		var useGps = new SettingsToggleMenuItem( WatchUi.loadResource(Rez.Strings.settings_gps), 
+    														null, 
+    														"useGps", 
+    														app.controller.getGpsEnabled(), 
+    														{ 
+    															:getter => app.controller.method(:getGpsEnabled), 
+    															:setter => app.controller.method(:setGpsEnabled)
+    														});
+    														
+    		var useActivity = new SettingsToggleMenuItem( WatchUi.loadResource(Rez.Strings.settings_activity), 
+														  null, 
+														  "useActivity", 
+														  app.controller.getActivityEnabled(), 
+														  {
+														  	:getter => app.controller.method(:getActivityEnabled),
+														  	:setter => app.controller.method(:setActivityEnabled)
+														  });
+
+    		var menu2 = new WatchUi.Menu2({:title=> WatchUi.loadResource(Rez.Strings.settings_title)});
+    		
+    		menu2.addItem(useGps);
+    		menu2.addItem(useActivity);
+    		
+    		WatchUi.pushView(menu2, new SettingsMenu2Delegate([useGps, useActivity]), WatchUi.SLIDE_UP);
+    		
+    	}
+    	else {
+    		var view = new SettingsView();
+    		var delegate = new SettingsDelegate();
+    		view.layoutLoaded.on(delegate.method(:onSettingsLayoutLoaded));
+    	
+			Toybox.WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
+		}
+		
         return true;
     }
     

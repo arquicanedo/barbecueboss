@@ -55,9 +55,4 @@ class WelcomeView extends WatchUi.View {
     function onHide() {
     	self.logoImage = null;
     }
-    
-	function selectTime(minutes) {
-		System.print("User selected");
-		System.println(minutes);
-	}	
 }
