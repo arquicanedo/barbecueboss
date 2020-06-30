@@ -21,13 +21,12 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onMenu() {
-		System.println("SteakMenuDelegate.onMenu pressed");
+		//System.println("SteakMenuDelegate.onMenu pressed");
         return true;
     }
     
    	function onSelect() {
-		System.println("SteakMenuDelegate.onSelect pressed");
-
+		//System.println("SteakMenuDelegate.onSelect pressed");
 
 		// The Food Type menu should be visible only when the timer is not initialized.
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];

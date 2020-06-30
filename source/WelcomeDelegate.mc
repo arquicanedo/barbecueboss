@@ -7,7 +7,6 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 	hidden var app;
 	
     function initialize() {
-        System.println("barbecue_appDelegate.initialize()");
         BehaviorDelegate.initialize();
         
 		app = Application.getApp();
@@ -25,7 +24,6 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 			System.println("UNIX time diff = " + diff);
 		}
 		*/
-
     }
 
     function onMenu() {
@@ -69,10 +67,10 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     }
     
    	function onSelect() {
-		System.println("barbecue_appDelegate.onSelect Menu behavior triggered");
+		//System.println("barbecue_appDelegate.onSelect Menu behavior triggered");
 		
 		Toybox.WatchUi.pushView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
-		Toybox.System.println("Changed to MainMenu()");
+		//Toybox.System.println("Changed to MainMenu()");
 		return true;
 	}
 	
