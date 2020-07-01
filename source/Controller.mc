@@ -45,7 +45,7 @@ class Controller {
 	hidden var storage = new DataStore();
 	
 	// This is a hack. I don't know how to do it properly because the BitMapFactory returns the bitmap but I need the index
-	public var lastSelectedFoodType = null;			
+	public var lastSelectedFoodType = null;
 	
 	
 	hidden var foodCounter = {
@@ -284,7 +284,7 @@ class Controller {
     /************** UNTIL HERE ***********/
     
     function timerCallback() {
-		System.println("timerCallback");
+		//System.println("timerCallback");
         //self.printGPS();        
         
         // Manage the timers

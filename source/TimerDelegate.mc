@@ -10,19 +10,19 @@ class TimerDelegate extends WatchUi.BehaviorDelegate {
 	hidden var app;
 	
     function initialize() {
-        System.println("barbecue_timerDelegate.initialize()");
+        //System.println("barbecue_timerDelegate.initialize()");
         app = Application.getApp();
         BehaviorDelegate.initialize();
         app.controller.recordingStart();
     }
 
     function onMenu() {
-		System.println("timerDelegate.onMenu pressed");
+		//System.println("timerDelegate.onMenu pressed");
         return true;
     }
     
    	function onSelect() {
-		System.println("barbecue_timerDelegate.onSelect Menu behavior triggered");
+		//System.println("barbecue_timerDelegate.onSelect Menu behavior triggered");
 		app.controller.decideSelection();
 		Toybox.WatchUi.requestUpdate();
 		return true;
@@ -36,7 +36,7 @@ class TimerDelegate extends WatchUi.BehaviorDelegate {
     
     // Detect Back button input
     function onBack() {
-    	System.println("Back button input received");
+    	//System.println("Back button input received");
     	app.controller.decideCancellation();
     	
     	if(app.controller.getStatus() == Controller.SAVING) {
