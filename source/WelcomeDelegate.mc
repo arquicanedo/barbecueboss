@@ -57,8 +57,8 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
    	
    	function onBack() {
 		var app = Application.getApp();
-		
-		if(app.controller.getActivityEnabled()) {
+		// Save menu prompted if activity is enabled and there is at least one steak that has been initialized
+		if(app.controller.getActivityEnabled() && app.controller.steaksInitialized()) {
 			self.promptSaveSession();
 		} else {
 			WatchUi.popView(WatchUi.SLIDE_DOWN);

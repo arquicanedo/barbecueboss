@@ -460,5 +460,14 @@ class Controller {
     		
     }
     
+    function steaksInitialized() {
+    	for(var i = 0; i < self.total_steaks; i++) {
+    		if (self.steaks[i].getInitialized() == true) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
     
 }
