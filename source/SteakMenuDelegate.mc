@@ -40,7 +40,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 			//will only be created when something is selected for editing so its memory footprint only applies when
 			//the user is changing items in the list
 			var foodIcons = self.getFoodIconsForDevice();	
-			var typeOfSteak = app.controller.lastSelectedFoodType;
+			var typeOfSteak = app.controller.getLastFoodType(app.controller.getSelectedSteak());
 			var bp = new BitmapPicker(foodIcons, typeOfSteak);
 			var bpd = new BitmapPickerCallbackDelegate(bp);
 			bpd.callbackMethod = method(:onBitmapPickerSelected);
@@ -128,6 +128,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		// Change steak properties to update it on the SteakMenu
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		selectedSteak.setFoodType(typeOfSteak);
+		app.controller.setLastFoodType(app.controller.getSelectedSteak(), typeOfSteak);
 
 		WatchUi.popView(WatchUi.SLIDE_DOWN);
         

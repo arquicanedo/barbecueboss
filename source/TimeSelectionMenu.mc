@@ -23,10 +23,10 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 		
 		self.setTitle(WatchUi.loadResource(Rez.Strings.menu_timer_title));
 		self.app = Application.getApp();
-		var lastTimeout = app.controller.storageGetValue("lastSteakTimeout");
 		
 		// The Stop button should be visible only when the steak is running.
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
+		var lastTimeout = app.controller.getLastTimeout(app.controller.getSelectedSteak());
 		if (selectedSteak.getStatus() != Controller.INIT) {
 			self.addItem(Rez.Strings.menu_label_stop, :timerMenuStop);
 		}
@@ -34,16 +34,12 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 		var found = -1;
 		
 		if (lastTimeout == null) {
-			// Add all defaults
-			//lastTimeout = default_timeouts_secs[0];
-			//found = default_timeouts_secs.indexOf(lastTimeout.toString());
 			for (var i = 0; i<default_timeouts.size(); i+=1) {
 				self.addItem(Lang.format("$1$:$2$", [default_timeouts[i], "00"]), default_symbols[i]);
 			}				
 		} 
 		else {
 			// Add (last) timeout plus all the defaults avoiding duplicates
-			//System.println("************************ comparing " + lastTimeout + " " + default_timeouts_secs + " = " + found);
 			var min = self.seconds2minutes(lastTimeout.toNumber());
 		
 			self.addItem(Lang.format("$1$:$2$ (last)", [min[0], min[1]]), :timerMenuLast);

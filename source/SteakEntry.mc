@@ -21,10 +21,13 @@ class SteakEntry {
 	hidden var _totalFlips = 0;
 	hidden var _label;
 	hidden var _initialized = false;
-	hidden var _foodType = SteakEntry.BEEF;	// What type of food is this steak
+	hidden var _foodType = SteakEntry.BEEF;	
 	
-	function initialize(label) {
+	function initialize(label, foodType) {
 		_label = label;	
+		if (foodType != null) {
+			_foodType = foodType;
+		}
 	}
 	
 	function getInitialized() {
@@ -36,7 +39,6 @@ class SteakEntry {
 	}
 	
 	function setStatus(status) {
-		//System.println("setStatus");
 		_status = status;
 	}
 	

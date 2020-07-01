@@ -87,7 +87,7 @@ class Controller {
 		
 	
 		for(var i = 0; i < self.total_steaks; i++) {
-			self.steaks[i] = new SteakEntry(Lang.format("Steak $1$", [i + 1]));
+			self.steaks[i] = new SteakEntry(Lang.format("Steak $1$", [i + 1]), self.getLastFoodType(i));
 		
 			if(i == 0) {
 				self.steaks[i].setSelected(true);
@@ -339,14 +339,8 @@ class Controller {
 				}
 				
 				// Persist last set steak
-				self.storageSetValue("lastSteakLabel", self.steaks[i].getLabel());
-				self.storageSetValue("lastSteakTimeout", self.steaks[i].getTimeout());
-				
-				/*
-				var old_label = self.storage.getValue("lastSteakLabel");
-				var old_timer = self.storage.getValue("lastSteakTimeout");
-				System.println("Data stored values: " + old_label + " " + old_timer);
-				*/
+				//self.storageSetValue("lastSteakLabel", self.steaks[i].getLabel());
+				self.setLastTimeout(i, self.steaks[i].getTimeout());
 				
 			}
 			else {
@@ -359,6 +353,7 @@ class Controller {
 		
 			//if we are just now transitioning to cooking we don't want to count a flip yet.
 			var initialized = self.steaks[i].getInitialized(); 
+			self.setLastTimeout(i, self.steaks[i].getTimeout());
 			self.steaks[i].setTimeout(timeout);
 			
 			if(initialized) {
@@ -435,6 +430,27 @@ class Controller {
     function storageGetValue(key) {
     	return self.storage.getValue(key);
     }
+    
+    function getLastFoodType(i) {
+    	var key = "FoodType" + i;
+    	return self.storageGetValue(key);
+    }
+    
+    function setLastFoodType(i, foodType) {
+    	var key = "FoodType" + i;
+    	self.storageSetValue(key, foodType);
+    }
+    
+    function getLastTimeout(i) {
+    	var key = "Timeout" + i;
+    	return self.storageGetValue(key);
+    }
+    
+    function setLastTimeout(i, timeout) {
+    	var key = "Timeout" + i;
+    	self.storageSetValue(key, timeout);
+    }
+    
     
     
     function getTimeOfDay() {
