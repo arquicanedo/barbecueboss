@@ -14,9 +14,12 @@ class SteakMenuView extends WatchUi.View {
 	hidden var _activityX;
 	hidden var _activityY;
 	hidden var _timeLabel;
+	hidden var _timeProgressBar;
 	
     function initialize() {
         View.initialize();
+        self._timeProgressBar = new TimeProgressBar(Graphics.COLOR_LT_GRAY, 100, 6, 8, 5);
+        self._timeProgressBar.progress(0.75);
         self.app = Application.getApp();
     }
 
@@ -94,6 +97,12 @@ class SteakMenuView extends WatchUi.View {
     	View.onUpdate(dc);
     	self.drawSettingsIcons(dc);
     	self.drawTime(dc);
+    	self.drawTimeProgressBar(dc);
+    }
+    
+    
+    function drawTimeProgressBar(dc) {
+    	self._timeProgressBar.draw(dc);
     }
     
     function drawTime(dc) {
