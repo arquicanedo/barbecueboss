@@ -124,6 +124,13 @@ class SteakListItem extends WatchUi.Drawable {
 						_iconSize == SteakListItem.MEDIUM ?
 							WatchUi.loadResource(Rez.Drawables.DrinkIconMedium) :
 						WatchUi.loadResource(Rez.Drawables.DrinkIconLarge);
+						
+			case SteakEntry.SMOKE:
+				return _iconSize == SteakListItem.SMALL ?
+							WatchUi.loadResource(Rez.Drawables.SmokeIconSmall) :
+						_iconSize == SteakListItem.MEDIUM ?
+							WatchUi.loadResource(Rez.Drawables.SmokeIconMedium) :
+						WatchUi.loadResource(Rez.Drawables.SmokeIconLarge);			
 			default:
 				System.println("Unknown meat type when fetching icon, returning beef.");
 				return WatchUi.loadResource(Rez.Drawables.BeefIconSmall);

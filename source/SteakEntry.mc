@@ -9,7 +9,8 @@ class SteakEntry {
 		CORN = 3,
 		FISH = 4,
 		BEEF = 5,
-		DRINK = 6	
+		DRINK = 6,
+		SMOKE = 7	
 	}
 
 	hidden var _isSelected = false;
