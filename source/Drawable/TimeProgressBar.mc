@@ -35,5 +35,9 @@ class TimeProgressBar extends WatchUi.Drawable {
     function progress(percent) {
     	self.mPercentCompleted = percent;
     }
+    
+    function reset() {
+    	self.mPercentCompleted = 0;
+    }
 
 }
