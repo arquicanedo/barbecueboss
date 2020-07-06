@@ -63,7 +63,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 					Rez.Drawables.CornIconSmall,
 					Rez.Drawables.FishIconSmall,
 					Rez.Drawables.BeefIconSmall,
-					Rez.Drawables.DrinkIconSmall
+					Rez.Drawables.DrinkIconSmall,
+					Rez.Drawables.SmokeIconSmall
 					];
 			
 				break;
@@ -76,7 +77,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 					Rez.Drawables.CornIconMedium,
 					Rez.Drawables.FishIconMedium,
 					Rez.Drawables.BeefIconMedium,
-					Rez.Drawables.DrinkIconMedium
+					Rez.Drawables.DrinkIconMedium,
+					Rez.Drawables.SmokeIconMedium
 					];
 			
 				break;
@@ -89,7 +91,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 						Rez.Drawables.CornIconLarge,
 						Rez.Drawables.FishIconLarge,
 						Rez.Drawables.BeefIconLarge,
-						Rez.Drawables.DrinkIconLarge
+						Rez.Drawables.DrinkIconLarge,
+						Rez.Drawables.SmokeIconLarge
 						];
 			
 				break;
@@ -102,7 +105,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 						Rez.Drawables.CornIconExtraLarge,
 						Rez.Drawables.FishIconExtraLarge,
 						Rez.Drawables.BeefIconExtraLarge,
-						Rez.Drawables.DrinkIconExtraLarge
+						Rez.Drawables.DrinkIconExtraLarge,
+						Rez.Drawables.SmokeIconExtraLarge
 					   ];			
 				break;		
 		}
@@ -114,7 +118,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 				Rez.Drawables.CornIconLarge,
 				Rez.Drawables.FishIconLarge,
 				Rez.Drawables.BeefIconLarge,
-				Rez.Drawables.DrinkIconLarge
+				Rez.Drawables.DrinkIconLarge,
+				Rez.Drawables.SmokeIconLarge
 				];
 		
 	}
