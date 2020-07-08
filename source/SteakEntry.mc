@@ -16,9 +16,7 @@ class SteakEntry {
 	hidden var _isSelected = false;
 	hidden var _status = Controller.INIT;
 	hidden var _timeout = 0;
-	hidden var _elapsedSeconds = 0;
-	hidden var _totalSeconds = 0;
-	hidden var _targetSeconds = 0;
+	hidden var _targetSeconds = 0;	
 	hidden var _totalFlips = 0;
 	hidden var _label;
 	hidden var _initialized = false;

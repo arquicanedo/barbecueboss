@@ -19,7 +19,7 @@ class SteakMenuView extends WatchUi.View {
     function initialize() {
         View.initialize();
         self._timeProgressBar = new TimeProgressBar(Graphics.COLOR_LT_GRAY, 100, 6, 8, 5);
-        self._timeProgressBar.progress(0.75);
+        //self._timeProgressBar.progress(0.75);
         self.app = Application.getApp();
     }
 
@@ -100,9 +100,13 @@ class SteakMenuView extends WatchUi.View {
     	self.drawTimeProgressBar(dc);
     }
     
-    
+    // Draws the progress for the selected steak
     function drawTimeProgressBar(dc) {
-    	self._timeProgressBar.draw(dc);
+    	var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
+    	if (selectedSteak.getStatus() == app.controller.COOKING) {
+	    	self._timeProgressBar.progress(1 - (selectedSteak.getTargetSeconds().toFloat()/selectedSteak.getTimeout().toFloat()));
+	    	self._timeProgressBar.draw(dc);
+    	}
     }
     
     function drawTime(dc) {
