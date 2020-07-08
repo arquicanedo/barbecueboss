@@ -23,5 +23,5 @@
 	<label id="timerIcon" x="230" y="60" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
 	<label id="upIcon" x="5" y="center" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_up"/>
 	<label id="downIcon" x="18" y="180" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_down"/>
-	<label id="timeLabel" x="180" y="217" font="Graphics.FONT_XTINY" text="time" color="Graphics.COLOR_WHITE" />
+	<label id="timeLabel" x="180" y="217" font="Graphics.FONT_XTINY" text="" color="Graphics.COLOR_WHITE" />
 </layout>
