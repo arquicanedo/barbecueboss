@@ -160,11 +160,12 @@ class SteakListItem extends WatchUi.Drawable {
 		//dc.drawText(_flipOriginX, y, _font, "Flip", Graphics.TEXT_JUSTIFY_LEFT);
 		
 		// Flame if we're getting close to a flip.
-		if (_steak.getStatus() == Controller.COOKING && _steak.getTargetSeconds() <= 20) {
+		if (_steak.getStatus() == Controller.COOKING && _steak.getLap() <= 20) {
     		dc.drawBitmap(_targetOriginX - _iconWidth - 2, y + _iconOffsetY, _flameIcon);
     	}
 		
-		dc.drawText(_flipOriginX + _iconWidth + 5, y, _font, _steak.getTotalFlips().toString(), Graphics.TEXT_JUSTIFY_LEFT);
+		//dc.drawText(_flipOriginX + _iconWidth + 5, y, _font, _steak.getTotalFlips().toString(), Graphics.TEXT_JUSTIFY_LEFT);
+		dc.drawText(_flipOriginX + _iconWidth + 5, y, _font, _steak.getCurrentFlip().toString(), Graphics.TEXT_JUSTIFY_LEFT);
 		
 		dc.drawText(_targetOriginX, y, _font, _steak.getTargetString(), Graphics.TEXT_JUSTIFY_LEFT); 
 	}
@@ -172,7 +173,8 @@ class SteakListItem extends WatchUi.Drawable {
 	function decideColor() {
 		var status = _steak.getStatus();
 		var initialized = _steak.getInitialized();
-		var targetSeconds = _steak.getTargetSeconds();
+		//var targetSeconds = _steak.getTargetSeconds();
+		var targetSeconds = _steak.getLap();
 		
 		if (status == Controller.INIT) {
 			return _itemColor;

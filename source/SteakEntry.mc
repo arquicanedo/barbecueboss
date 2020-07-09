@@ -1,4 +1,5 @@
 using Toybox;
+using Toybox.Time;
 
 class SteakEntry {
 
@@ -18,9 +19,11 @@ class SteakEntry {
 	hidden var _timeout = 0;
 	hidden var _targetSeconds = 0;	
 	hidden var _totalFlips = 0;
+	hidden var _currentFlip = 0;
 	hidden var _label;
 	hidden var _initialized = false;
 	hidden var _foodType = SteakEntry.BEEF;	
+	hidden var _eta = null;
 	
 	function initialize(label, foodType) {
 		_label = label;	
@@ -39,6 +42,16 @@ class SteakEntry {
 	
 	function setStatus(status) {
 		_status = status;
+	}
+	
+	function getETA() {
+		return _eta;
+	}
+	
+	function setETA() {
+		var now = new Time.Moment(Time.now().value());
+		var duration = new Time.Duration(self.getTimeout());
+		_eta = now.add(duration);
 	}
 	
 	
@@ -92,23 +105,36 @@ class SteakEntry {
 		return _totalFlips;
 	}
 	
-	function getFlipString() {
-		return Lang.format("Flip $1$", [_totalFlips]);
+	function getCurrentFlip() {
+		if (_status == Controller.COOKING) {
+			var now = new Time.Moment(Time.now().value());
+			var eta = _eta;
+			var diff = eta.subtract(now);
+			var secondsPerFlip = _timeout / _totalFlips;
+			System.println(Lang.format("now $1$ eta $2$ diff $3$ secsPerFlip $4$", [now.value(), eta.value(), diff.value(), secondsPerFlip]));
+			return _totalFlips - (diff.value() / secondsPerFlip);
+		}
+		else {
+			return 0;
+		}
+	}
+
+	// Lap is the time left within a flip
+	function getLap() {
+		if (_status == Controller.COOKING) {
+			var offset = (_timeout / _totalFlips) * self.getCurrentFlip();
+			var lap = _targetSeconds - (_timeout - offset);
+			return lap;
+		}
+		else {
+			return 0;
+		}
 	}
 	
 	function getTargetString() {
-		return Lang.format("$1$:$2$", [ (_targetSeconds / 60).format("%02d"), (_targetSeconds % 60).format("%02d") ]);
+		var lap = self.getLap();
+		return Lang.format("$1$:$2$", [ (lap / 60).format("%02d"), (lap % 60).format("%02d") ]);
 	}
 	
-	function getOverview() {
-		return Lang.format(" $1$   Flip $2$   $3$:$4$", 
-			[ 
-				_label, 
-				_totalFlips, 
-				(_targetSeconds / 60).format("%02d"), 
-				(_targetSeconds % 60).format("%02d")
-			]
-		);
-	}
 	
 }

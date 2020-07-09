@@ -32,6 +32,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		if (selectedSteak.getStatus() != Controller.INIT) {
 			WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);	
+			//WatchUi.pushView(new TotalTimeMenu(), new TotalTimeMenuDelegate(), WatchUi.SLIDE_UP);	
 		}
 		else {
 			// We need a way to reuse these food types
@@ -137,21 +138,10 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 
 		WatchUi.popView(WatchUi.SLIDE_DOWN);
         
-        WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);		
-		
+        //WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);		
+		WatchUi.pushView(new TotalTimeMenu(), new TotalTimeMenuDelegate(), WatchUi.SLIDE_UP);	
 	}
 	
-/*	function onStringPickerSelected(customSteakName) {
-		// Custom steak name change
-		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
-		var typeOfSteak = SteakEntry.BEEF; // This will come from the IconSelector
-		
-		selectedSteak.setLabel(customSteakName);
-				
-		// Switch views for the timer selection
-		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-        WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);	
-	}*/
 	
 	// Detect Menu button input
     function onKey(keyEvent) {
