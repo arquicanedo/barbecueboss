@@ -1,5 +1,7 @@
 using Toybox;
 using Toybox.Time;
+using Toybox.Time.Gregorian;
+
 
 class SteakEntry {
 
@@ -136,5 +138,21 @@ class SteakEntry {
 		return Lang.format("$1$:$2$", [ (lap / 60).format("%02d"), (lap % 60).format("%02d") ]);
 	}
 	
+	function getETAString() {
+		if (_status == Controller.COOKING) {
+			var today = Gregorian.info(_eta, Time.FORMAT_MEDIUM);
+			var dateString = Lang.format(
+			    "$1$:$2$",
+			    [
+			        today.hour,
+			        today.min,
+			    ]
+			);
+			return dateString;
+		}
+		else {
+			return "Start";
+		}
+	}
 	
 }

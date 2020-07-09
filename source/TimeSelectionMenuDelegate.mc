@@ -34,7 +34,7 @@ class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 			return;
 		}
 		else if (id == :timerMenuFlip) {
-			app.controller.decideSelection();
+			//selectedSteak.setTotalFlips(selectedSteak.getTotalFlips()-1);
 		}
 	}
 }

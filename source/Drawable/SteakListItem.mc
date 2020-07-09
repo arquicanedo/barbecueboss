@@ -168,6 +168,7 @@ class SteakListItem extends WatchUi.Drawable {
 		dc.drawText(_flipOriginX + _iconWidth + 5, y, _font, _steak.getCurrentFlip().toString(), Graphics.TEXT_JUSTIFY_LEFT);
 		
 		dc.drawText(_targetOriginX, y, _font, _steak.getTargetString(), Graphics.TEXT_JUSTIFY_LEFT); 
+		dc.drawText(_targetOriginX-40, y, _font, _steak.getETAString(), Graphics.TEXT_JUSTIFY_LEFT);
 	}
 	
 	function decideColor() {
