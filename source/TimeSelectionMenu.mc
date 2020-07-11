@@ -14,9 +14,9 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 		
 		// The Stop button should be visible only when the steak is running.
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
-		var lastTimeout = app.controller.getLastTimeout(app.controller.getSelectedSteak());
 		if (selectedSteak.getStatus() != Controller.INIT) {
-			//self.addItem("Flip", :timerMenuFlip);
+			// Order matters. I think flip may be more common if you are using a total time
+			self.addItem("Flip", :timerMenuFlip);
 			self.addItem(Rez.Strings.menu_label_stop, :timerMenuStop);
 		}
 	}

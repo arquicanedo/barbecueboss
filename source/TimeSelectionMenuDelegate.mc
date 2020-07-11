@@ -27,12 +27,14 @@ class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 		
 
 		if(id == :timerMenuStop) {
-			// Reset steakEntry
 			selectedSteak.reset();
 			return;
 		}
-		else if (id == :timerMenuFlip) {
-			//selectedSteak.setTotalFlips(selectedSteak.getTotalFlips()-1);
+		// Flip and set timeout to the elapsed time when the flip occurred
+		if (id == :timerMenuFlip) {
+			selectedSteak.setCurrentFlip(selectedSteak.getCurrentFlip()+1);
+			System.println(Lang.format("The setTimeout = $1$ and the elapsedTimeout = $2$", [selectedSteak.getTimePerFlip(), selectedSteak.getTimeout()])); 
+			selectedSteak.setTimePerFlip(selectedSteak.getTimeout());
 		}
 	}
 }
