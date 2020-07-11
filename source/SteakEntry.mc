@@ -15,6 +15,12 @@ class SteakEntry {
 		DRINK = 6,
 		SMOKE = 7	
 	}
+	
+	enum {
+		SEARING = 0,
+		TOTAL_TIME = 1,
+		SMOKING = 2
+	}
 
 
 	hidden var _isSelected = false;
@@ -28,13 +34,14 @@ class SteakEntry {
 	hidden var _foodType = SteakEntry.BEEF;	
 	hidden var _eta = null;
 	hidden var _etaStart = null;
-	
+	hidden var _cookingMode = null;
 
 	function reset() {
 		_status = Controller.INIT;
 		_timeout = 0;
 		_currentFlip = 0;
 		_timeout = 0;
+		_cookingMode = null;
 	}
 
 	
@@ -115,6 +122,14 @@ class SteakEntry {
 	
 	function setTotalTime(totalTime) {
 		_totalTime = totalTime;
+	}
+	
+	function getCookingMode() {
+		return _cookingMode;
+	}
+	
+	function setCookingMode(cookingMode) {
+		_cookingMode = cookingMode;
 	}
 	
 	
