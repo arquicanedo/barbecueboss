@@ -22,39 +22,41 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
     function onSelect(item) {
     
     	var id = item;
-    	var timeout = 1;
+    	var totalTime = 0;
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		
 
 		if(id == :timerMenuStop) {
 			// Reset steakEntry
-			selectedSteak.setTimeout(0);
+			selectedSteak.setTotalTime(0);
 			selectedSteak.setStatus(Controller.INIT);	
-			//selectedSteak.setFoodType(SteakEntry.BEEF);
 			return;
 		}
-		
+				
+        if(id == :totalTimeMenu1) {
+			totalTime = 1;
+	    }
         if(id == :totalTimeMenu8) {
-			timeout = 8;
+			totalTime = 8;
 	    }
 	    else if(id == :totalTimeMenu10) {
-			timeout = 10;
+			totalTime = 10;
 	    }
 	    else if(id == :totalTimeMenu12) {
-			timeout = 12;
+			totalTime = 12;
 	    }
 	    else if(id == :timerMenuCustom) {
-	    	timeout = -1;
+	    	totalTime = -1;
 	    }
 
 		//custom timeout, show the picker
-		if(timeout == -1) {
+		if(totalTime == -1) {
 			var pickerDelegate = new DurationPickerCallbackDelegate();
 			pickerDelegate.callbackMethod = method(:onPickerSelected);
 			WatchUi.pushView(new DurationPicker(), pickerDelegate, WatchUi.SLIDE_UP);
 		}
 		else {
-			selectedSteak.setTimeout(timeout * 60);
+			selectedSteak.setTotalTime(totalTime * 60);
 			WatchUi.popView(WatchUi.SLIDE_DOWN);
 			WatchUi.pushView(new FlipMenu(), new FlipMenuDelegate(), WatchUi.SLIDE_UP);
 		}
@@ -63,14 +65,12 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 		
     }
     
-	
 	function onPickerSelected(values){
 		System.println(values);		
-		var timeout = ((values[0] * 60) + values[2]);
+		var totalTime = ((values[0] * 60) + values[2]);
 		var steak_i = app.controller.getSelectedSteak();
 		var steaks = app.controller.getSteaks(); 
-		steaks[steak_i].setTimeout(timeout);
-		app.controller.setLastTimeout(steak_i, steaks[steak_i].getTimeout());
+		steaks[steak_i].setTotalTime(totalTime);
 		app.controller.decideSelection();
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}

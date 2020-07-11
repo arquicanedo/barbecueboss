@@ -260,7 +260,7 @@ class Controller {
     		Attention.vibrate(self.flipVibrator);
     	}
     	
-    	self.steaks[i].setTotalFlips(self.steaks[i].getTotalFlips() + 1);
+    	self.steaks[i].setCurrentFlip(self.steaks[i].getCurrentFlip() + 1);
     	
     	if(null != self.session) {
 			self.session.addLap();
@@ -278,36 +278,30 @@ class Controller {
 	        
 	// Manage the timers
     function timerCallback() {
-        for (var i = 0; i < self.total_steaks; i+=1) {
-        	if (self.steaks[i].getStatus() == COOKING) {
-        		if(self.steaks[i].getInitialized()) {
-        			var now = new Time.Moment(Time.now().value());
-        			var eta = self.steaks[i].getETA();
-        			var timeDiff = eta.subtract(now);
-        			self.steaks[i].setTargetSeconds(timeDiff.value());
-        		}
-        	}
-        	/*
+        for (var i = 0; i < self.total_steaks; i+=1) {        	
 			// Decrease cooking steak timers
         	if (self.steaks[i].getStatus() == COOKING) {
-        		
+        	
+        	    // Kill timer if we've exceeded the ETA
+				var now = new Time.Moment(Time.now().value());
+				if (now.greaterThan(self.steaks[i].getETA())) {
+					steaks[i].reset();
+					return;
+				}
+	        	
         		if(self.steaks[i].getInitialized()) {
-        		
-	        		var targetSeconds = self.steaks[i].getTargetSeconds() - 1;
-	        		
-					// Reset timers if expired
-					if (targetSeconds < 0) {
-						self.steaks[i].setTargetSeconds(self.steaks[i].getTimeout());
+	        		var newTimeout = self.steaks[i].getTimeout() - 1;
+					// Reset flip timeout if expired
+					if (newTimeout < 0) {
+						self.steaks[i].setTimeout(self.steaks[i].getTimePerFlip());
 						self.flipMeat(i);
 					} 
 					else {
-						self.steaks[i].setTargetSeconds(targetSeconds);
+						self.steaks[i].setTimeout(newTimeout);
 					}
 				}
         	}
-        	*/
         }
-        
         self.timerChanged.emit([]);
 	}
 	
@@ -321,17 +315,18 @@ class Controller {
 		return 0;
 	}
 	
+
+	
 	
 	function decideSelection() {
 		var i = self.getSelectedSteak();
 		var timeout = self.steaks[i].getTimeout();
-		var flips = self.steaks[i].getTotalFlips();
-		System.println(Lang.format("Deciding Selection on steak $1$ for $2$ sec and $3$ flips", [i, timeout, flips]));
+		var secsPerFlip = self.steaks[i].getTimeout();
+		System.println(Lang.format("Deciding Selection on steak $1$ for $2$ sec and $3$ seconds per flip", [i, timeout, secsPerFlip]));
 		
 		if (self.steaks[i].getStatus() == INIT) {
 		
 			if (timeout > 0) {
-				self.steaks[i].setTimeout(timeout);
 				self.steaks[i].setStatus(COOKING);
 				self.steaks[i].setETA();
 				
@@ -342,8 +337,7 @@ class Controller {
 				}
 				
 				// Persist last set steak
-				self.setLastTimeout(i, self.steaks[i].getTimeout());
-				self.setLastTotalFlips(i, flips);
+				self.setLastTimeout(i, timeout);
 				
 			}
 			else {
@@ -353,11 +347,9 @@ class Controller {
 					
 		}
 		else if (self.steaks[i].getStatus() == COOKING) {
-		
 			//if we are just now transitioning to cooking we don't want to count a flip yet.
 			var initialized = self.steaks[i].getInitialized(); 
-			self.setLastTimeout(i, self.steaks[i].getTimeout());
-			self.setLastTotalFlips(i, flips);
+			self.setLastTimeout(i, timeout);
 			self.steaks[i].setTimeout(timeout);
 			
 			if(initialized) {
@@ -455,10 +447,7 @@ class Controller {
     	self.storageSetValue(key, timeout);
     }
     
-    function setLastTotalFlips(i, flips) {
-    	var key = "TotalFlips" + i;
-    	self.storageSetValue(key, flips);
-    }
+
     
     
     

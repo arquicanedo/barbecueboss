@@ -3,8 +3,8 @@ using Toybox;
 class FlipMenu extends Toybox.WatchUi.Menu {
 
 	hidden var app;
-	hidden var default_flips = ["2", "4", "8"];
-	hidden var default_symbols = [:flipMenu2, :flipMenu4, :flipMenu8];
+	hidden var default_flips = ["2", "4", "6", "8"];
+	hidden var default_symbols = [:flipMenu2, :flipMenu4, :flipMenu6, :flipMenu8];
 	
 
 	function initialize() {

@@ -28,9 +28,7 @@ class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 
 		if(id == :timerMenuStop) {
 			// Reset steakEntry
-			selectedSteak.setTimeout(0);
-			selectedSteak.setStatus(Controller.INIT);	
-			//selectedSteak.setFoodType(SteakEntry.BEEF);
+			selectedSteak.reset();
 			return;
 		}
 		else if (id == :timerMenuFlip) {
