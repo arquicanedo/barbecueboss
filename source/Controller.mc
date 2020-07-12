@@ -282,11 +282,13 @@ class Controller {
 			// Decrease cooking steak timers
         	if (self.steaks[i].getStatus() == COOKING) {
         	
-        	    // Kill timer if we've exceeded the ETA
-				var now = new Time.Moment(Time.now().value());
-				if (now.greaterThan(self.steaks[i].getETA())) {
-					steaks[i].reset();
-					return;
+        	    // Kill timer if we've exceeded the ETA when cooking in TOTAL_TIME mode
+        	    if (steaks[i].getCookingMode() == SteakEntry.TOTAL_TIME) {
+					var now = new Time.Moment(Time.now().value());
+					if (now.greaterThan(self.steaks[i].getETA())) {
+						steaks[i].reset();
+						return;
+					}
 				}
 	        	
         		if(self.steaks[i].getInitialized()) {
@@ -328,8 +330,11 @@ class Controller {
 		
 			if (timeout > 0) {
 				self.steaks[i].setStatus(COOKING);
-				self.steaks[i].setETA();
 				
+				if (self.steaks[i].getCookingMode() == SteakEntry.TOTAL_TIME) {
+					self.steaks[i].setETA();
+				}
+							
 				System.println("Status set to COOKING");
 				
 				if(Attention has :vibrate) {

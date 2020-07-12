@@ -76,10 +76,19 @@ class SteakEntry {
 	}
 	
 	function getProgress() {
-		var now = new Time.Moment(Time.now().value());
-		var totalSeconds = _eta.subtract(_etaStart);
-		var elapsedSeconds = now.subtract(_etaStart);
-		return elapsedSeconds.value().toFloat() / totalSeconds.value().toFloat();
+		var mode = self.getCookingMode();
+		if (mode == self.TOTAL_TIME) {
+			var now = new Time.Moment(Time.now().value());
+			var totalSeconds = _eta.subtract(_etaStart);
+			var elapsedSeconds = now.subtract(_etaStart);
+			return elapsedSeconds.value().toFloat() / totalSeconds.value().toFloat();
+		}
+		else if (mode == self.SEARING) {
+			return 1 - (self.getTimeout().toFloat() / self.getTimePerFlip().toFloat());
+		}
+		else {
+			return 0;
+		}
 	}
 	
 	function getFoodType() {
@@ -154,6 +163,11 @@ class SteakEntry {
 	}
 	
 	function getETAString() {
+	
+		if (self.getCookingMode() == SEARING) {
+			return "";
+		}
+		
 		if (_status == Controller.COOKING) {
 			var today = Gregorian.info(_eta, Time.FORMAT_MEDIUM);
 			var dateString = Lang.format(
@@ -166,7 +180,7 @@ class SteakEntry {
 			return dateString;
 		}
 		else {
-			return "00:00";
+			return "";
 		}
 	}
 	

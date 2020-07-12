@@ -139,7 +139,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		WatchUi.popView(WatchUi.SLIDE_DOWN);
         
         //WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);		
-		WatchUi.pushView(new TotalTimeMenu(), new TotalTimeMenuDelegate(), WatchUi.SLIDE_UP);	
+		//WatchUi.pushView(new TotalTimeMenu(), new TotalTimeMenuDelegate(), WatchUi.SLIDE_UP);	
+		WatchUi.pushView(new CookingMenu(), new CookingMenuDelegate(), WatchUi.SLIDE_UP);	
 	}
 	
 	

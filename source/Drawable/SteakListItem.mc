@@ -151,14 +151,17 @@ class SteakListItem extends WatchUi.Drawable {
 	function draw(dc, x, y) {
 		Drawable.draw(dc);
 		
-		// Color affects only the running timer and flip
-		dc.setColor(self.decideColor(), Graphics.COLOR_BLACK);
+
 	
 		// Food type - fetch the icon to use from the static bitmap cache and draw it
 		dc.drawBitmap(x, y + _iconOffsetY, _meatMap.get(_steak.getFoodType()));
 		
 		// ETA
-		dc.drawText(_targetOriginX-40, y, _font, _steak.getETAString(), Graphics.TEXT_JUSTIFY_LEFT);
+		//dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+		//dc.drawText(_targetOriginX, 0, _font, _steak.getETAString(), Graphics.TEXT_JUSTIFY_LEFT);
+		
+		// Color affects only the running timer and flip
+		dc.setColor(self.decideColor(), Graphics.COLOR_BLACK);
 		
 		// Flip Icon		
 		dc.drawBitmap(_flipOriginX, y + _iconOffsetY, _flipIcon);

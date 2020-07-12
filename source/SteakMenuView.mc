@@ -18,8 +18,9 @@ class SteakMenuView extends WatchUi.View {
 	
     function initialize() {
         View.initialize();
-        self._timeProgressBar = new TimeProgressBar(Graphics.COLOR_LT_GRAY, 100, 6, 8, 5);
-        //self._timeProgressBar.progress(0.75);
+        
+        // XXX: This position needs to be specific to the watch
+        self._timeProgressBar = new TimeProgressBar(Graphics.COLOR_BLUE, 100, 6, 8, 5);
         self.app = Application.getApp();
     }
 
@@ -98,6 +99,7 @@ class SteakMenuView extends WatchUi.View {
     	self.drawSettingsIcons(dc);
     	self.drawTime(dc);
     	self.drawTimeProgressBar(dc);
+    	self.drawETA(dc);
     }
     
     // Draws the progress for the selected steak
@@ -106,6 +108,18 @@ class SteakMenuView extends WatchUi.View {
     	if (selectedSteak.getStatus() == app.controller.COOKING) {
 	    	self._timeProgressBar.progress(selectedSteak.getProgress());
 	    	self._timeProgressBar.draw(dc);
+    	}
+    }
+    
+    // Draws the ETA selected steak if using TOTAL_TIME
+    function drawETA(dc) {
+    	var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
+    	if (selectedSteak.getCookingMode() == selectedSteak.TOTAL_TIME) {
+	    	if (selectedSteak.getStatus() == app.controller.COOKING) {
+	    		dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+	    		// XXX: This position needs to be specific to the watch
+		    	dc.drawText(90, 0, Graphics.FONT_XTINY, selectedSteak.getETAString(), Graphics.TEXT_JUSTIFY_LEFT);
+	    	}
     	}
     }
     
