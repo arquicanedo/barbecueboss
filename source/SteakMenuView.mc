@@ -14,13 +14,14 @@ class SteakMenuView extends WatchUi.View {
 	hidden var _activityX;
 	hidden var _activityY;
 	hidden var _timeLabel;
-	hidden var _timeProgressBar;
+	hidden var _progressBarY;
+	hidden var _font;
+	hidden var _etaX;
+	hidden var _etaY;
+
 	
     function initialize() {
         View.initialize();
-        
-        // XXX: This position needs to be specific to the watch
-        self._timeProgressBar = new TimeProgressBar(Graphics.COLOR_BLUE, 100, 6, 8, 5);
         self.app = Application.getApp();
     }
 
@@ -53,13 +54,12 @@ class SteakMenuView extends WatchUi.View {
     // loading resources into memory.
     function onShow() {
     
-    	var steakList = View.findDrawableById("steakList");
-	 	steakList.setMaxItems(app.controller.getTotalSteaks());
-	 	steakList.setItems(self.getSteakItems(steakList, app.controller.getSteaks()));
+    	var list = View.findDrawableById("steakList");
+	 	list.setMaxItems(app.controller.getTotalSteaks());
+	 	list.setItems(self.getSteakItems(list, app.controller.getSteaks()));
 
 		self._timeLabel = View.findDrawableById("timeLabel");
 		
-		var list = View.findDrawableById("steakList");
         if(self.app.controller.getGpsEnabled()) {
         	self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
         	self._gpsX = list.getParams().get(:gpsX);
@@ -81,6 +81,13 @@ class SteakMenuView extends WatchUi.View {
         	self._activityX = null;
         	self._activityY = null;
         }
+        
+        self._progressBarY = null == list.getParams().get(:progressBarY) ? 8 : list.getParams().get(:progressBarY);
+        self._font = null == list.getParams().get(:font) ? Graphics.FONT_TINY : list.getParams().get(:font);
+        
+		// etaX == targetOriginX for alignment
+        self._etaX = null == list.getParams().get(:targetOriginX) ? 90 : list.getParams().get(:targetOriginX);
+		self._etaY = null == list.getParams().get(:etaY) ? 0 : list.getParams().get(:etaY);
 
 		// Configuration related
 	 	
@@ -104,10 +111,11 @@ class SteakMenuView extends WatchUi.View {
     
     // Draws the progress for the selected steak
     function drawTimeProgressBar(dc) {
+    	var timeProgressBar = new TimeProgressBar(Graphics.COLOR_BLUE, 100, 6, _progressBarY, 5);
     	var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
     	if (selectedSteak.getStatus() == app.controller.COOKING) {
-	    	self._timeProgressBar.progress(selectedSteak.getProgress());
-	    	self._timeProgressBar.draw(dc);
+	    	timeProgressBar.progress(selectedSteak.getProgress());
+	    	timeProgressBar.draw(dc);
     	}
     }
     
@@ -116,9 +124,9 @@ class SteakMenuView extends WatchUi.View {
     	var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
     	if (selectedSteak.getCookingMode() == selectedSteak.TOTAL_TIME) {
 	    	if (selectedSteak.getStatus() == app.controller.COOKING) {
+	    		var list = View.findDrawableById("steakList");    	
 	    		dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-	    		// XXX: This position needs to be specific to the watch
-		    	dc.drawText(90, 0, Graphics.FONT_XTINY, selectedSteak.getETAString(), Graphics.TEXT_JUSTIFY_LEFT);
+		    	dc.drawText(self._etaX, self._etaY, self._font, selectedSteak.getETAString(), Graphics.TEXT_JUSTIFY_LEFT);
 	    	}
     	}
     }

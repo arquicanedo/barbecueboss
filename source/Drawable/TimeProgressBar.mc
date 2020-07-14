@@ -24,7 +24,6 @@ class TimeProgressBar extends WatchUi.Drawable {
     function draw(dc) {
         var centerX = dc.getWidth() / 2;
         var x = (centerX - (mWidth/2)).toNumber();
-        var y = 10;
 
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_DK_GRAY);
         dc.drawRoundedRectangle(x, mYCoord, self.mWidth, self.mHeight, mRadius);

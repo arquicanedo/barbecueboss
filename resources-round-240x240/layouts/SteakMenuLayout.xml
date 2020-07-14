@@ -18,6 +18,8 @@
 		<param name="gpsY">200</param>
 		<param name="activityX">80</param>
 		<param name="activityY">200</param>
+		<param name="progressBarY">12</param>
+		<param name="etaY">0</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="200" x="center"/>
 	<label id="timerIcon" x="210" y="55" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
