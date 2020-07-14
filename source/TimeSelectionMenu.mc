@@ -9,7 +9,7 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 	function initialize() {
 		Toybox.WatchUi.Menu.initialize();
 		
-		self.setTitle("Steak Timer");
+		self.setTitle("Action?");
 		self.app = Application.getApp();
 		
 		// The Stop button should be visible only when the steak is running.

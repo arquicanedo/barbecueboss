@@ -12,7 +12,7 @@ class TotalTimeMenu extends Toybox.WatchUi.Menu {
 		Toybox.WatchUi.Menu.initialize();
 		self.app = Application.getApp();
 		
-		self.setTitle("Total time?");
+		self.setTitle("Duration?");
 
 		// Quickmenu for total time
 		var lastTotalTime = app.controller.getLastTotalTime(app.controller.getSelectedSteak());
