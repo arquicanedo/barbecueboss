@@ -13,12 +13,12 @@ class SteakListItem extends WatchUi.Drawable {
 	}
 	
 	//all instances of the list item will have the same shared dictionary of meat type -> icon to save memory
-	hidden static var _meatMap;
+	static var MeatMap;
 	hidden static var _iconSize;
 	hidden static var _iconWidth;
 	hidden static var _flipIcon;
 	hidden static var _flameIcon;
-	
+
 	hidden var _font;
 	hidden var _flipOriginX;
 	hidden var _targetOriginX;
@@ -26,7 +26,8 @@ class SteakListItem extends WatchUi.Drawable {
 	hidden var _itemColor;
 	hidden var _iconOffsetY;
 	hidden var _flameOffsetY;
-	
+	hidden var _hasFlip = true;
+	hidden var _hasFlame = true;
 	
 	function initialize(steak, params) {
 		Drawable.initialize(params);
@@ -39,36 +40,78 @@ class SteakListItem extends WatchUi.Drawable {
 		_iconOffsetY = null == params.get(:iconOffsetY) ? 10 : params.get(:iconOffsetY);
 		_iconSize = null == params.get(:iconSize) ? SteakListItem.MEDIUM : params.get(:iconSize);
 		
+		var hasFlip = params.get(:hasFlip);
+		var hasFlame = params.get(:hasFlame);
+	
+		if(null != hasFlip) {
+			_hasFlip = hasFlip;
+		}	
+		
+		if(null != hasFlame) {
+			_hasFlame = hasFlame;
+		}
+		
 		if(null == _iconWidth || null == _flipIcon || null == _flameIcon) {
+			
+			var flipResource = null;
+			var flameResource = null;
+			
 			switch(_iconSize) {
+				
 				case SteakListItem.SMALL:
 					_iconWidth = 16;
-					_flipIcon = WatchUi.loadResource(Rez.Drawables.FlipIconSmall);
-					_flameIcon = WatchUi.loadResource(Rez.Drawables.FlameIconSmall);
+					flipResource = Rez.Drawables.FlipIconSmall;
+					flameResource = Rez.Drawables.FlameIconSmall;
 					break;
+					
 				case SteakListItem.MEDIUM:
 					_iconWidth = 24;
-					_flipIcon = WatchUi.loadResource(Rez.Drawables.FlipIconMedium);
-					_flameIcon = WatchUi.loadResource(Rez.Drawables.FlameIconLarge);
+					flipResource = Rez.Drawables.FlipIconMedium;
+					flameResource = Rez.Drawables.FlameIconLarge;
 					break;
+					
 				case SteakListItem.LARGE:
 					_iconWidth = 32;
-					_flipIcon = WatchUi.loadResource(Rez.Drawables.FlipIconLarge);
-					_flameIcon = WatchUi.loadResource(Rez.Drawables.FlameIconLarge);
+					flipResource = Rez.Drawables.FlipIconLarge;
+					flameResource = Rez.Drawables.FlameIconLarge;
 					break;
+					
+				case SteakListItem.EXTRA_LARGE:
+					_iconWidth = 64;
+					flipResource = Rez.Drawables.FlipIconLarge;
+					flameResource = Rez.Drawables.FlameIconLarge;
+					break;
+			}
+			
+			if(null == _flipIcon && _hasFlip) {
+				_flipIcon = WatchUi.loadResource(flipResource);
+			}
+			
+			if(null == _flameIcon && _hasFlame) {
+				_flameIcon = WatchUi.loadResource(flameResource);
 			}
 		}
 		
 		//if this is the first SteakListItem to be created we need to go ahead and initialize the dictionary
 		//that maps a food type enum -> bitmap
-		if(null == _meatMap) {
-			_meatMap = {};
+		if(null == MeatMap) {
+			MeatMap = {};
 		}
 			
 		//if we haven't yet loaded the bitmap for this food type, load it and store it in the map/cache
-		if(null == _meatMap.get(steak.getFoodType())) {
-			_meatMap.put(steak.getFoodType(), self.getMeatImage(steak.getFoodType()));
+		if(null == MeatMap.get(steak.getFoodType())) {
+			MeatMap.put(steak.getFoodType(), self.getMeatImage(steak.getFoodType()));
 		}
+	}
+	
+	function dispose() {
+		_font = null;
+		_flipOriginX = null;
+		_targetOriginX = null;
+		_steak = null;
+		_itemColor = null;
+		_iconOffsetY = null;
+		_flameOffsetY = null;
 	}
 	
 	/*
@@ -130,7 +173,9 @@ class SteakListItem extends WatchUi.Drawable {
 							WatchUi.loadResource(Rez.Drawables.SmokeIconSmall) :
 						_iconSize == SteakListItem.MEDIUM ?
 							WatchUi.loadResource(Rez.Drawables.SmokeIconMedium) :
-						WatchUi.loadResource(Rez.Drawables.SmokeIconLarge);			
+						_iconSize == SteakListItem.LARGE ? 
+							WatchUi.loadResource(Rez.Drawables.SmokeIconLarge) :
+						WatchUi.loadResource(Rez.Drawables.SmokeIconExtraLarge);
 			default:
 				System.println("Unknown meat type when fetching icon, returning beef.");
 				return WatchUi.loadResource(Rez.Drawables.BeefIconSmall);
@@ -142,6 +187,10 @@ class SteakListItem extends WatchUi.Drawable {
 		return _steak.getSelected();
 	}
 	
+	function getSteak() {
+		return _steak;
+	}
+	
 	/*
 		draws the list entry on the screen. The list itself just tells the entries where to position themselves, and the entries draw themselves on the screen
 		in this case we'll draw some text for flip/timer but draw a bitmap for the food type
@@ -151,10 +200,8 @@ class SteakListItem extends WatchUi.Drawable {
 	function draw(dc, x, y) {
 		Drawable.draw(dc);
 		
-
-	
 		// Food type - fetch the icon to use from the static bitmap cache and draw it
-		dc.drawBitmap(x, y + _iconOffsetY, _meatMap.get(_steak.getFoodType()));
+		dc.drawBitmap(x, y + _iconOffsetY, MeatMap.get(_steak.getFoodType()));
 		
 		// ETA
 		//dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
@@ -163,20 +210,22 @@ class SteakListItem extends WatchUi.Drawable {
 		// Color affects only the running timer and flip
 		dc.setColor(self.decideColor(), Graphics.COLOR_BLACK);
 		
-		// Flip Icon		
-		dc.drawBitmap(_flipOriginX, y + _iconOffsetY, _flipIcon);
-		// Flip counter
-		dc.drawText(_flipOriginX + _iconWidth + 5, y, _font, _steak.getCurrentFlip().toString(), Graphics.TEXT_JUSTIFY_LEFT);
+		if(_hasFlip) {
+			// Flip Icon		
+			dc.drawBitmap(_flipOriginX, y + _iconOffsetY, _flipIcon);
+			// Flip counter
+			dc.drawText(_flipOriginX + _iconWidth + 5, y, _font, _steak.getCurrentFlip().toString(), Graphics.TEXT_JUSTIFY_LEFT);
+		}
 		
-		
-		// Flame if we're getting close to a flip.
-		if (_steak.getStatus() == Controller.COOKING && _steak.getTimeout() <= 20) {
-    		dc.drawBitmap(_targetOriginX - _iconWidth - 2, y + _iconOffsetY, _flameIcon);
-    	}
+		if(_hasFlame) {
+			// Flame if we're getting close to a flip.
+			if (_steak.getStatus() == Controller.COOKING && _steak.getTimeout() <= 20) {
+	    		dc.drawBitmap(_targetOriginX - _iconWidth - 2, y + _iconOffsetY, _flameIcon);
+	    	}
+	    }
+
     	// Timeout
 		dc.drawText(_targetOriginX, y, _font, _steak.getTimeoutString(), Graphics.TEXT_JUSTIFY_LEFT); 
-		
-
 	}
 	
 	function decideColor() {
@@ -200,6 +249,4 @@ class SteakListItem extends WatchUi.Drawable {
     		}
     	}
     }
-
-	
 }

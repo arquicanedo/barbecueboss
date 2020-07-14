@@ -14,4 +14,41 @@
 	<natures>
 		<nature>connectiq.projectNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>source/lib/ciq-tenergy-solis/TenergySolisEntry.mc</name>
+			<type>1</type>
+			<locationURI>PROJECT_LOC/ext/tenergy/lib/ciq-tenergy-solis-barrel/TenergySolisEntry.mc</locationURI>
+		</link>
+		<link>
+			<name>source/lib/ciq-tenergy-solis/TenergySolisScanViewDelegate.mc</name>
+			<type>1</type>
+			<locationURI>PROJECT_LOC/ext/tenergy/lib/ciq-tenergy-solis-barrel/TenergySolisScanViewDelegate.mc</locationURI>
+		</link>
+		<link>
+			<name>source/lib/ciq-tenergy-solis/core</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>source/lib/ciq-tenergy-solis/util</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>source/lib/ciq-tenergy-solis/core/BluetoothDelegate.mc</name>
+			<type>1</type>
+			<locationURI>PROJECT_LOC/ext/tenergy/lib/ciq-tenergy-solis-barrel/core/BluetoothDelegate.mc</locationURI>
+		</link>
+		<link>
+			<name>source/lib/ciq-tenergy-solis/core/BluetoothDevice.mc</name>
+			<type>1</type>
+			<locationURI>PROJECT_LOC/ext/tenergy/lib/ciq-tenergy-solis-barrel/core/BluetoothDevice.mc</locationURI>
+		</link>
+		<link>
+			<name>source/lib/ciq-tenergy-solis/util/SimpleCallbackEvent.mc</name>
+			<type>1</type>
+			<locationURI>PROJECT_LOC/ext/tenergy/lib/ciq-tenergy-solis-barrel/util/SimpleCallbackEvent.mc</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

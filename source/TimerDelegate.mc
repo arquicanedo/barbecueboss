@@ -1,10 +1,11 @@
-using Toybox.WatchUi;
-using Toybox.System;
-using Toybox.Application;
+//using Toybox.WatchUi;
+//using Toybox.System;
+//using Toybox.Application;
 
 
 // https://forums.garmin.com/developer/connect-iq/f/discussion/535/appropriate-way-to-handling-exiting-onback-in-an-app/2371#2371
 
+/*
 class TimerDelegate extends WatchUi.BehaviorDelegate {
 
 	hidden var app;
@@ -49,3 +50,4 @@ class TimerDelegate extends WatchUi.BehaviorDelegate {
     	return true;
     }
 }
+*/

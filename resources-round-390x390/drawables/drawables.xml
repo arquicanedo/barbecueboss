@@ -1,0 +1,5 @@
+<drawables>
+    <drawable-list id="venuSettingsScroll">
+    	<shape type="polygon" x="187" y="374" points="[[179, 374], [187, 390], [187, 390], [179, 374]]" color="Graphics.COLOR_WHITE" />
+    </drawable-list>
+</drawables>

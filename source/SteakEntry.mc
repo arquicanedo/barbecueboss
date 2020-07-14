@@ -115,7 +115,6 @@ class SteakEntry {
 		return _isSelected;
 	}
 
-	
 	function setTimeout(seconds) {
 		_timeout = seconds;
 		_initialized = true;
@@ -164,24 +163,17 @@ class SteakEntry {
 	
 	function getETAString() {
 	
-		if (self.getCookingMode() == SEARING) {
+		if (self.getCookingMode() != COOKING) {
 			return "";
 		}
 		
-		if (_status == Controller.COOKING) {
-			var today = Gregorian.info(_eta, Time.FORMAT_MEDIUM);
-			var dateString = Lang.format(
-			    "$1$:$2$",
-			    [
-			        today.hour.format("%02d"),
-			        today.min.format("%02d"),
-			    ]
-			);
-			return dateString;
-		}
-		else {
-			return "";
-		}
+		var today = Gregorian.info(_eta, Time.FORMAT_MEDIUM);
+		return Lang.format(
+		    "$1$:$2$",
+		    [
+		        today.hour.format("%02d"),
+		        today.min.format("%02d"),
+		    ]
+		);
 	}
-	
 }

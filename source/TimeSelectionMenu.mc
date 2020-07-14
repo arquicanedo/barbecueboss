@@ -3,14 +3,11 @@ using Toybox;
 
 class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 
-	hidden var app;
-
-
 	function initialize() {
 		Toybox.WatchUi.Menu.initialize();
 		
 		self.setTitle("Action?");
-		self.app = Application.getApp();
+		var app = Application.getApp();
 		
 		// The Stop button should be visible only when the steak is running.
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];

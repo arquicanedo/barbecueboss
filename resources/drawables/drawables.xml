@@ -64,23 +64,19 @@
     <bitmap id="GpsIconSmall" filename="../../img/icons/gps/gps-16x16.png"/>
     <bitmap id="GpsIconMedium" filename="../../img/icons/gps/gps-24x24.png"/>
     <bitmap id="GpsIconLarge" filename="../../img/icons/gps/gps-32x32.png"/>
-    <bitmap id="GpsIconExtraLarge" filename="../../img/icons/gps/gps-64x64.png"/>
+    <!--<bitmap id="GpsIconExtraLarge" filename="../../img/icons/gps/gps-64x64.png"/>-->
     
     <bitmap id="ActivityIconSmall" filename="../../img/icons/activity/fast-16x16.png"/>
     <bitmap id="ActivityIconMedium" filename="../../img/icons/activity/fast-24x24.png"/>
     <bitmap id="ActivityIconLarge" filename="../../img/icons/activity/fast-32x32.png"/>
-    <bitmap id="ActivityIconExtraLarge" filename="../../img/icons/activity/fast-64x64.png"/>
+    <!--<bitmap id="ActivityIconExtraLarge" filename="../../img/icons/activity/fast-64x64.png"/>-->
     
     <bitmap id="SmokeIconSmall" filename="../../img/icons/smoke/smoke-16x16.png"/>
     <bitmap id="SmokeIconMedium" filename="../../img/icons/smoke/smoke-24x24.png"/>
     <bitmap id="SmokeIconLarge" filename="../../img/icons/smoke/smoke-32x32.png"/>
-    <bitmap id="SmokeIconExtraLarge" filename="../../img/icons/smoke/smoke-64x64.png"/>       
+    <bitmap id="SmokeIconExtraLarge" filename="../../img/icons/smoke/smoke-64x64.png"/>
     
     <drawable-list id="arrow" foreground="Graphics.COLOR_WHITE">
         <shape type="polygon" points="[[118, 120],[148, 120], [133, 140]]" color="Graphics.COLOR_WHITE"/>
-    </drawable-list>
-    
-    <drawable-list id="venuSettingsScroll">
-    	<shape type="polygon" x="187" y="374" points="[[179, 374], [187, 390], [187, 390], [179, 374]]" color="Graphics.COLOR_WHITE" />
     </drawable-list>
 </drawables>

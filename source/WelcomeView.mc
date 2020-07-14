@@ -30,11 +30,12 @@ class WelcomeView extends WatchUi.View {
     	//doing it like this (load the image onShow(), release the image onHide()) means we only use that 10k when the user is viewing the welcome screen
     	//we could also create multiple sized images for use on smaller/lower memory devices and would save even more
     	if(null == self.logoImage){
+    		var settings = System.getDeviceSettings();
+    		
     		self.logoImage = WatchUi.loadResource(Rez.Drawables.WelcomeLogoImage);
     		
-	    	var deviceSettings = System.getDeviceSettings();
-			self.logoX = (deviceSettings.screenWidth - self.logoImage.getWidth()) / 2;
-			self.logoY = (deviceSettings.screenHeight - self.logoImage.getHeight()) / 2;
+			self.logoX = (settings.screenWidth - self.logoImage.getWidth()) / 2;
+			self.logoY = (settings.screenHeight - self.logoImage.getHeight()) / 2;
     	}
     	
     }

@@ -57,6 +57,20 @@ class ListDrawable extends Toybox.WatchUi.Drawable {
 		_items = items;
 	}
 	
+	function resetItems() {
+		if(null == _items) {
+			return;
+		}
+		
+		for(var i = 0; i < _items.size(); i++) {
+			if(_items[i] has :dispose) {
+				_items[i].dispose();
+			}
+		}
+		
+		_items = null;
+	}
+	
 	function getItems() {
 		return _items;
 	}

@@ -12,7 +12,13 @@ class Controller {
 
 
 	hidden var app;
-
+	hidden var bluetoothController;
+	
+	(:btle)hidden static var MEAT_PROBE_ENABLED_KEY = "meatProbeEnabled";
+	(:btle)hidden static var MEAT_PROBE_UNIT_KEY = "meatProbeUnit";
+	hidden static var GPS_ENABLED_KEY = "gpsEnabled";
+	hidden static var ACTIVITY_ENABLED_KEY = "activityEnabled";
+	
 	//total number of flips performed
 	public var totalFlips;
 	
@@ -22,8 +28,6 @@ class Controller {
 	
 	//the FIT activity session being used
 	hidden var session = null;
-	hidden var gpsEnabled = true;
-	hidden var activityEnabled = true;
 	
 	//vibration profiles set below conditionally if the device supports them
 	hidden var flipVibrator;
@@ -42,11 +46,12 @@ class Controller {
 	hidden var settings;
 	
 	// Data Store
-	hidden var storage = new DataStore();
+	public var storage = new DataStore();
+	
+	hidden var _smoking = false;
 	
 	// This is a hack. I don't know how to do it properly because the BitMapFactory returns the bitmap but I need the index
 	public var lastSelectedFoodType = null;
-	
 	
 	hidden var foodCounter = {
 		SteakEntry.BEEF => 0,
@@ -93,29 +98,119 @@ class Controller {
 				self.steaks[i].setSelected(true);
 			}
 		}
-		
-			
+
 		// Activity Recording. TODO: Investigate what custom data types we can come up with for grilling.
 		// For now every "flip" is a lap.
-		self.recordingStart();		
+		self.recordingStart();
+		
+		//check the global namespace for the TenergySolis module - if this was built with Tenergy support then
+		//this should be available, and we should go ahead and setup the bluetooth delegate
+		//until we start scanning or connect to a device this won't do anything or consume extra battery
+		if(self has :initializeBluetooth) {
+			self.initializeBluetooth();
+		}
+		
+		//self.configureSmoker();
 	}
     
+    (:btle)
+    function initializeBluetooth() {
+    	self.bluetoothController = new BluetoothController();
+    }
+    
+    (:btle)
+    function getBluetoothController() {
+    	return self.bluetoothController;
+    }
+    
+    (:btle)
+    function getMeatProbeUnit() {
+    	return self.storage.getValue(MEAT_PROBE_UNIT_KEY);
+    }
+    
+    (:btle)
+    function getMeatProbeEnabled() {
+    	return self.storage.getValue(MEAT_PROBE_ENABLED_KEY);
+    }
+    
+    (:btle)
+    function setMeatProbeUnit(unit) {
+    	self.storage.setValue(MEAT_PROBE_UNIT_KEY, unit);
+    }
+    
+    (:btle)
+    function setMeatProbeEnabled(enabled) {
+    	self.storage.setValue(MEAT_PROBE_ENABLED_KEY, enabled);
+    	
+    	if(!enabled) {
+    		self.bluetoothController.dispose();
+    	}
+    	else {
+    		self.bluetoothController.initialize();
+    	}
+    }
+    
+    (:smoke)
+    function configureSmoker() {
+    
+		//app.controller.getTimeOfDay();
+		/*var myTime = app.controller.storage.getValue("smokerTime");
+		var currentTime = app.controller.getTimeOfDay();
+		
+		System.println("Current time = " + currentTime);
+		if (myTime != null) {
+			var diff = currentTime - myTime;
+			System.println("Saved time = " + myTime);
+			System.println("UNIX time diff = " + diff);
+		}*/
+    }
+    
+    function startSmoker(dueTime) {
+    	self.storage.setValue("smokerTime", dueTime.value());
+    }
+    
     function initializeDefaultSettings() {
-    	var val = self.storageGetValue("gpsEnabled");
+    	var val = self.storage.getValue(GPS_ENABLED_KEY);
     	
     	if(null == val) {
-    		self.storageSetValue("gpsEnabled", self.gpsEnabled);
-    	}
-    	else {
-    		self.gpsEnabled = val;
+    		self.storage.setValue(GPS_ENABLED_KEY, true);
     	}
     	
-    	val = self.storageGetValue("activityEnabled");
+    	val = self.storage.getValue(ACTIVITY_ENABLED_KEY);
     	if(null == val) {
-    		self.storageSetValue("activityEnabled", self.activityEnabled);
+    		self.storage.setValue(ACTIVITY_ENABLED_KEY, true);
     	}
-    	else {
-    		self.activityEnabled = val;
+    	
+    	//has the build for the current device included things marked at (:btle) ? if so, initialize bluetooth
+    	if($ has :BluetoothController) {
+    		self.initializeBtleDefaultSettings();
+	    }
+	    
+	    if(self has :configureSmoker) {
+	    	self.initializeSmokerSettings();
+	    }
+    }
+    
+    (:smoke)
+    function initializeSmokerSettings() {
+    	
+    	var val = self.storage.getValue("smokerTime");
+    	
+    	if(null == val) {
+    		self.storage.setValue("smokerTime", 0);
+    	}
+    }
+    
+    (:btle)
+    function initializeBtleDefaultSettings() {
+    	var val = self.storage.getValue(MEAT_PROBE_ENABLED_KEY);
+    	if(null == val) {
+    		self.storage.setValue(MEAT_PROBE_ENABLED_KEY, false);
+    	}
+    	
+    	val = self.storage.getValue(MEAT_PROBE_UNIT_KEY);
+    	if(null == val) {
+    		self.storage.setValue(MEAT_PROBE_UNIT_KEY, TenergySolis.BluetoothDevice.TEMP_DEG_C);
     	}
     }
     
@@ -130,11 +225,12 @@ class Controller {
 		// I couldn't find any documentation about the SimpleCallbackEvent. I wonder where I got this from.
 		timerChanged.reset();
 		flipChanged.reset();
+		
+		//saveSmokeTimer();
     }
     
     function setActivityEnabled(enabled) {
-        self.activityEnabled = enabled;
-    	self.storageSetValue("activityEnabled", enabled);
+    	self.storage.setValue(ACTIVITY_ENABLED_KEY, enabled);
     	if(!enabled) {
     		// The other option is to recordingDiscard but that may be abrupt for the exit conditions.
     		self.recordingStop();
@@ -145,16 +241,15 @@ class Controller {
     }
     
     function getActivityEnabled() {
-    	return self.activityEnabled;
+    	return self.storage.getValue(ACTIVITY_ENABLED_KEY);
     }
     
     function getGpsEnabled() {
-    	return self.gpsEnabled;
+    	return self.storage.getValue(GPS_ENABLED_KEY);
     }
     
     function setGpsEnabled(enabled) {
-    	self.gpsEnabled = enabled;
-    	self.storageSetValue("gpsEnabled", self.gpsEnabled);
+    	self.storage.setValue(GPS_ENABLED_KEY, enabled);
     	if(!enabled) {
     		self.disableGPS();
     	} 
@@ -173,13 +268,13 @@ class Controller {
 	
     // https://forums.garmin.com/developer/connect-iq/f/discussion/6626/position-accuracy-is-always-position-quality_last_known/44227#44227	
     function onPosition(info) {
-    	System.println("GPS Acc: " + info.accuracy);
-	    System.println("GPS Position " + info.position.toGeoString( Position.GEO_DEG ) );
+    	//System.println("GPS Acc: " + info.accuracy);
+	    //System.println("GPS Position " + info.position.toGeoString( Position.GEO_DEG ) );
 	}
     
 	function initializeGPS() {
 		
-		if(self.gpsEnabled) {
+		if(self.getGpsEnabled()) {
 			System.println("Initializing GPS sensing.......");
 	    	Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :onPosition ) );
 	    }
@@ -204,13 +299,13 @@ class Controller {
 	// https://forums.garmin.com/developer/connect-iq/f/q-a/171125/state-of-session-after-save/922655#922655
 	// https://developer.garmin.com/connect-iq/api-docs/
 	function initializeActivityRecording() {
-		if(self.activityEnabled) {
+		if(self.getActivityEnabled()) {
 			System.println("Activity recording enabled by app settings.");
 			self.createSession();
 		}
-		else {
+		/*else {
 			System.println("Activity recording disabled by app settings.");
-		}
+		}*/
 	}
 	
 	function createSession() {
@@ -251,8 +346,6 @@ class Controller {
 			session = null;
 		}	
 	}
-	
-	
 
     function flipMeat(i) {
     
@@ -264,7 +357,7 @@ class Controller {
     	
     	if(null != self.session) {
 			self.session.addLap();
-		}    	
+		}
     }
     
 	function timerStop(i) {
@@ -317,9 +410,6 @@ class Controller {
 		return 0;
 	}
 	
-
-	
-	
 	function decideSelection() {
 		var i = self.getSelectedSteak();
 		var timeout = self.steaks[i].getTimeout();
@@ -365,8 +455,8 @@ class Controller {
 
 	function decideCancellation() {
 		var i = self.getSelectedSteak();
-		System.println("Deciding Cancellation on steak");
-		System.println(i);
+		//System.println("Deciding Cancellation on steak");
+		//System.println(i);
 	}
 	
 	function nextSteak() {
@@ -416,72 +506,56 @@ class Controller {
 		}
 		settings[prevSetting].setSelected(true);
 	}
-	
-	
-	
+
 	function calculateMaxSteaks() {
 		//this can be overridden per family/device in the string resource for that device
     	return WatchUi.loadResource(Rez.Strings.maxSteaks).toNumber();
     }
     
-    function storageSetValue(key, value) {
-    	self.storage.setValue(key, value);
-    }
-    
-    function storageGetValue(key) {
-    	return self.storage.getValue(key);
-    }
-    
     function getLastFoodType(i) {
     	var key = "FoodType" + i;
-    	return self.storageGetValue(key);
+    	return self.storage.getValue(key);
     }
     
     function setLastFoodType(i, foodType) {
     	var key = "FoodType" + i;
-    	self.storageSetValue(key, foodType);
+    	self.storage.setValue(key, foodType);
     }
     
     function getLastTimeout(i) {
     	var key = "Timeout" + i;
-    	return self.storageGetValue(key);
+    	return self.storage.getValue(key);
     }
     
     function setLastTimeout(i, timeout) {
     	var key = "Timeout" + i;
-    	self.storageSetValue(key, timeout);
+    	self.storage.setValue(key, timeout);
     }
     
     function getLastTotalTime(i) {
     	var key = "TotalTime" + i;
-    	return self.storageGetValue(key);
+    	return self.storage.getValue(key);
     }
     
     function setLastTotalTime(i, time) {
     	var key = "TotalTime" + i;
-    	self.storageSetValue(key, time);
+    	self.storage.getValue(key, time);
     }
 
     function getLastFlips(i) {
     	var key = "Flips" + i;
-    	return self.storageGetValue(key);
+    	return self.storage.getValue(key);
     }
     
     function setLastFlips(i, flips) {
     	var key = "Flips" + i;
-    	self.storageSetValue(key, flips);
+    	self.storage.getValue(key, flips);
     }
     
     
     
     function getTimeOfDay() {
-		//var myTime = System.getClockTime(); // ClockTime object
 		var myTime = new Time.Moment(Time.now().value());
-		/*System.println(
-		    myTime.hour.format("%02d") + ":" +
-		    myTime.min.format("%02d") + ":" +
-		    myTime.sec.format("%02d")
-		);*/
 		return myTime.value().toNumber();
     }
     

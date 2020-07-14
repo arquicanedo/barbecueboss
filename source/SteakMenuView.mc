@@ -6,7 +6,7 @@ using Toybox.Application;
 
 class SteakMenuView extends WatchUi.View {
 
-	hidden var app;
+	hidden var _app;
 	hidden var _gpsIcon;
 	hidden var _activityIcon; 
 	hidden var _gpsX;
@@ -18,13 +18,31 @@ class SteakMenuView extends WatchUi.View {
 	hidden var _font;
 	hidden var _etaX;
 	hidden var _etaY;
-
+	hidden var _timeProgressBar;
 	
     function initialize() {
         View.initialize();
-        self.app = Application.getApp();
+        
+        _app = Application.getApp();	
     }
 
+	function dispose() {
+		//_app = null;
+		_gpsIcon = null;
+		_activityIcon = null;
+		_gpsX = null;
+		_gpsY = null;
+		_activityX = null;
+		_activityY = null;
+		_timeLabel = null;
+		_timeProgressBar = null;
+		
+		var steakList = View.findDrawableById("steakList");
+		steakList.resetItems();
+	
+		_app.controller.timerChanged.reset();
+	}
+	
     // Load your resources here
     function onLayout(dc) {
 	 	View.setLayout(Rez.Layouts.SteakMenuLayout(dc));
@@ -55,15 +73,18 @@ class SteakMenuView extends WatchUi.View {
     function onShow() {
     
     	var list = View.findDrawableById("steakList");
-	 	list.setMaxItems(app.controller.getTotalSteaks());
-	 	list.setItems(self.getSteakItems(list, app.controller.getSteaks()));
+	 	list.setMaxItems(_app.controller.getTotalSteaks());
+	 	list.setItems(self.getSteakItems(list, _app.controller.getSteaks()));
 
 		self._timeLabel = View.findDrawableById("timeLabel");
 		
-        if(self.app.controller.getGpsEnabled()) {
-        	self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
-        	self._gpsX = list.getParams().get(:gpsX);
-        	self._gpsY = list.getParams().get(:gpsY);
+        if(_app.controller.getGpsEnabled()) {
+        
+        	if(null == _gpsIcon) {
+	        	self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
+	        	self._gpsX = list.getParams().get(:gpsX);
+	        	self._gpsY = list.getParams().get(:gpsY);
+	        }
         }
         else {
         	self._gpsIcon = null;
@@ -71,10 +92,13 @@ class SteakMenuView extends WatchUi.View {
         	self._gpsY = null;
         }
         
-        if(self.app.controller.getActivityEnabled()) {
-        	self._activityIcon = WatchUi.loadResource(Rez.Drawables.ActivityIconSmall);
-        	self._activityX = list.getParams().get(:activityX);
-        	self._activityY = list.getParams().get(:activityY);
+        if(_app.controller.getActivityEnabled()) {
+        
+        	if(null == self._activityIcon) {
+	        	self._activityIcon = WatchUi.loadResource(Rez.Drawables.ActivityIconSmall);
+	        	self._activityX = list.getParams().get(:activityX);
+	        	self._activityY = list.getParams().get(:activityY);
+	        }
         }
         else {
         	self._activityIcon = null;
@@ -92,7 +116,7 @@ class SteakMenuView extends WatchUi.View {
 		// Configuration related
 	 	
     	//register for timer changed "events"
-		app.controller.timerChanged.on(self.method(:onTimerChanged));
+		_app.controller.timerChanged.on(self.method(:onTimerChanged));
     }
     
     //handle timer changed event
@@ -103,27 +127,28 @@ class SteakMenuView extends WatchUi.View {
     // Update the view
     function onUpdate(dc) {
     	View.onUpdate(dc);
+    	
+    	var selectedSteak = (_app.controller.getSteaks())[_app.controller.getSelectedSteak()];
+    	
     	self.drawSettingsIcons(dc);
     	self.drawTime(dc);
-    	self.drawTimeProgressBar(dc);
-    	self.drawETA(dc);
+    	self.drawTimeProgressBar(dc, selectedSteak);
+    	self.drawETA(dc, selectedSteak);
     }
     
     // Draws the progress for the selected steak
-    function drawTimeProgressBar(dc) {
+    function drawTimeProgressBar(dc, selectedSteak) {
     	var timeProgressBar = new TimeProgressBar(Graphics.COLOR_BLUE, 100, 6, _progressBarY, 5);
-    	var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
-    	if (selectedSteak.getStatus() == app.controller.COOKING) {
+    	if (selectedSteak.getStatus() == _app.controller.COOKING) {
 	    	timeProgressBar.progress(selectedSteak.getProgress());
 	    	timeProgressBar.draw(dc);
     	}
     }
     
     // Draws the ETA selected steak if using TOTAL_TIME
-    function drawETA(dc) {
-    	var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
+    function drawETA(dc, selectedSteak) {
     	if (selectedSteak.getCookingMode() == selectedSteak.TOTAL_TIME) {
-	    	if (selectedSteak.getStatus() == app.controller.COOKING) {
+	    	if (selectedSteak.getStatus() == _app.controller.COOKING) {
 	    		var list = View.findDrawableById("steakList");    	
 	    		dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 		    	dc.drawText(self._etaX, self._etaY, self._font, selectedSteak.getETAString(), Graphics.TEXT_JUSTIFY_LEFT);
@@ -161,6 +186,6 @@ class SteakMenuView extends WatchUi.View {
     // memory.
     function onHide() {
     	//if the view isn't being displayed, there's no point in handling the timer callbacks and wasting memory
-    	app.controller.timerChanged.reset();
+    	dispose();
     }
 }

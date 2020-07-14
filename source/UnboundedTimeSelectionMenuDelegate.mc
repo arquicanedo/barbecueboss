@@ -86,7 +86,7 @@ class UnboundedTimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 	
 	function onPickerSelected(values){
 		//System.println(values);
-		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];				
+		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		var timeout = ((values[0] * 60) + values[2]);
 		selectedSteak.setTimePerFlip(timeout);
 		selectedSteak.setTimeout(selectedSteak.getTimePerFlip());

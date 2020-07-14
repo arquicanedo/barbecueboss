@@ -73,6 +73,7 @@
             <iq:product id="vivoactive_hr"/>
         </iq:products>
         <iq:permissions>
+            <iq:uses-permission id="BluetoothLowEnergy"/>
             <iq:uses-permission id="Fit"/>
             <iq:uses-permission id="Positioning"/>
             <iq:uses-permission id="SensorLogging"/>
@@ -80,6 +81,5 @@
         <iq:languages>
             <iq:language>eng</iq:language>
         </iq:languages>
-        <iq:barrels/>
     </iq:application>
 </iq:manifest>

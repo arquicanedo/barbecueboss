@@ -90,14 +90,14 @@
     
     <!-- icon font glyph-3 constants -->
     
-    <!-- <string id="glyph_3_horizontal_dots">0</string>
+    <string id="glyph_3_horizontal_dots">0</string>
     <string id="glyph_3_vertical_dots">1</string>
     <string id="glyph_3_map_pin">2</string>
     <string id="glyph_3_flame">3</string>
     <string id="glyph_3_checkmark">4</string>
     <string id="glyph_3_rewind">5</string>
     <string id="glyph_3_toggle_on">6</string>
-    <string id="glyph_3_toggle_off">7</string> -->
+    <string id="glyph_3_toggle_off">7</string>
     
     
         
@@ -109,4 +109,12 @@
     
     <!-- BitmapPicker icon size to use for this particular device-->
     <string id="bitmap_picker_icon_size">LARGE</string>
+    
+    <string id="tenergy_scan_menu_title">Scanning</string>
+    
+    <!-- smoke related -->
+    <string id="smoke_menu_title">Smoke Settings</string>
+    <string id="smoke_menu_water_check_text">Water Check</string>
+    <string id="smoke_menu_smoke_check_text">Smoke Check</string>
+    <string id="smoke_menu_temp_check_text">Temp. Check</string>
 </strings>

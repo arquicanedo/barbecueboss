@@ -146,7 +146,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	
 	// Detect Menu button input
     function onKey(keyEvent) {
-        System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7        
+        //System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7        
         return true;
     }
     
@@ -184,7 +184,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     
     // Detect Back button input
     function onBack() {
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
+    	WatchUi.switchToView(new WelcomeView(), new WelcomeDelegate(), WatchUi.SLIDE_RIGHT);
+        //WatchUi.popView(WatchUi.SLIDE_DOWN);
 		return true;
     }
 
@@ -244,7 +245,6 @@ class BitmapPickerCallbackDelegate extends BitmapPickerDelegate {
 	public function onAccept(values) {
 		self.callbackMethod.invoke(values);
 	}
-	
 	
 	public function onCancel() {
 		BitmapPickerDelegate.onCancel();

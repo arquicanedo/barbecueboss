@@ -25,7 +25,5 @@ class TotalTimeMenu extends Toybox.WatchUi.Menu {
 			self.addItem(Lang.format("$1$ $2$", [default_timeouts[i], "min"]), default_symbols[i]);
 		}
 		self.addItem(Rez.Strings.menu_label_custom, :totalTimeMenuCustom);
-		
-
 	}
 }

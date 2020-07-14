@@ -10,66 +10,56 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
         BehaviorDelegate.initialize();
         
 		app = Application.getApp();
-		
-		// Commenting for the release. Will be used in low-n-slow
-		/*
-		app.controller.getTimeOfDay();
-		var myTime = app.controller.storageGetValue("smokerTime");
-		var currentTime = app.controller.getTimeOfDay();
-	
-		System.println("Current time = " + currentTime);
-		if (myTime != null) {
-			var diff = currentTime - myTime;
-			System.println("Saved time = " + myTime);
-			System.println("UNIX time diff = " + diff);
-		}
-		*/
     }
 
     function onMenu() {
-    	
-    	if(Toybox.WatchUi has :Menu2) {
-    		var useGps = new SettingsToggleMenuItem( WatchUi.loadResource(Rez.Strings.settings_gps), 
-    														null, 
-    														"useGps", 
-    														app.controller.getGpsEnabled(), 
-    														{ 
-    															:getter => app.controller.method(:getGpsEnabled), 
-    															:setter => app.controller.method(:setGpsEnabled)
-    														});
-    														
-    		var useActivity = new SettingsToggleMenuItem( WatchUi.loadResource(Rez.Strings.settings_activity), 
-														  null, 
-														  "useActivity", 
-														  app.controller.getActivityEnabled(), 
-														  {
-														  	:getter => app.controller.method(:getActivityEnabled),
-														  	:setter => app.controller.method(:setActivityEnabled)
-														  });
 
-    		var menu2 = new WatchUi.Menu2({:title=> WatchUi.loadResource(Rez.Strings.settings_title)});
-    		
-    		menu2.addItem(useGps);
-    		menu2.addItem(useActivity);
-    		
-    		WatchUi.pushView(menu2, new SettingsMenu2Delegate([useGps, useActivity]), WatchUi.SLIDE_UP);
-    		
+    	if(self has :initMenu2) {
+    		initMenu2();
     	}
     	else {
     		var view = new SettingsView();
     		var delegate = new SettingsDelegate();
     		view.layoutLoaded.on(delegate.method(:onSettingsLayoutLoaded));
-    	
 			Toybox.WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
 		}
 		
         return true;
     }
     
+    (:ciq3)
+    function initMenu2() {
+		var useGps = new SettingsToggleMenuItem( WatchUi.loadResource(Rez.Strings.settings_gps), 
+														null, 
+														"useGps", 
+														app.controller.getGpsEnabled(), 
+														{ 
+															:getter => app.controller.method(:getGpsEnabled), 
+															:setter => app.controller.method(:setGpsEnabled)
+														});
+														
+		var useActivity = new SettingsToggleMenuItem( WatchUi.loadResource(Rez.Strings.settings_activity), 
+													  null, 
+													  "useActivity", 
+													  app.controller.getActivityEnabled(), 
+													  {
+													  	:getter => app.controller.method(:getActivityEnabled),
+													  	:setter => app.controller.method(:setActivityEnabled)
+													  });
+
+		var menu2 = new WatchUi.Menu2({:title=> WatchUi.loadResource(Rez.Strings.settings_title)});
+		
+		menu2.addItem(useGps);
+		menu2.addItem(useActivity);
+		
+		WatchUi.pushView(menu2, new SettingsMenu2Delegate([useGps, useActivity]), WatchUi.SLIDE_UP);    
+    }
+    
    	function onSelect() {
 		//System.println("barbecue_appDelegate.onSelect Menu behavior triggered");
 		
-		Toybox.WatchUi.pushView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
+		//Toybox.WatchUi.pushView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
+		Toybox.WatchUi.switchToView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
 		//Toybox.System.println("Changed to MainMenu()");
 		return true;
 	}
@@ -77,7 +67,7 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 	// Detect Menu button input
 	
     function onKey(keyEvent) {
-        System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
+        //System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
         
         if(keyEvent.getKey() == WatchUi.KEY_ENTER) {
         	self.onMenu();
@@ -137,5 +127,9 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 	function onPreviousPage() {
 		self.onMenu();
 		return true;
+    }
+    
+    function onNextPage() {
+    	WatchUi.switchToView(new SmokeView(), new SmokeViewDelegate(), WatchUi.SLIDE_UP);
     }
 }

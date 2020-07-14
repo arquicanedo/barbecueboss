@@ -1,0 +1,3 @@
+[submodule "ext/tenergy"]
+	path = ext/tenergy
+	url = https://github.com/nilsbenson/ciq-tenergy-solis-btle.git
