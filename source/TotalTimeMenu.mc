@@ -12,9 +12,14 @@ class TotalTimeMenu extends Toybox.WatchUi.Menu {
 		Toybox.WatchUi.Menu.initialize();
 		self.app = Application.getApp();
 		
-		self.setTitle("Total cook time?");
+		self.setTitle("Total time?");
 
-
+		// Quickmenu for total time
+		var lastTotalTime = app.controller.getLastTotalTime(app.controller.getSelectedSteak());
+		var lastFlips = app.controller.getLastFlips(app.controller.getSelectedSteak());
+		if (lastTotalTime != null && lastFlips != null) {
+			self.addItem(Lang.format("$1$:$2$ min $3$ flips", [(lastTotalTime / 60).format("%02d"), (lastTotalTime % 60).format("%02d"), lastFlips]), :totalTimeMenuLast);
+		}
 		
 		for (var i = 0; i<default_timeouts.size(); i+=1) {
 			self.addItem(Lang.format("$1$ $2$", [default_timeouts[i], "min"]), default_symbols[i]);

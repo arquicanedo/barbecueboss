@@ -45,6 +45,7 @@ class FlipMenuDelegate extends WatchUi.MenuInputDelegate {
 		selectedSteak.setTimeout(selectedSteak.getTimePerFlip());
 		selectedSteak.setCurrentFlip(1);
 		selectedSteak.setCookingMode(selectedSteak.TOTAL_TIME);
+		app.controller.setLastFlips(app.controller.getSelectedSteak(), flips);
 		
 		app.controller.decideSelection();
     }

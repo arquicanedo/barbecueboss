@@ -452,7 +452,25 @@ class Controller {
     	self.storageSetValue(key, timeout);
     }
     
+    function getLastTotalTime(i) {
+    	var key = "TotalTime" + i;
+    	return self.storageGetValue(key);
+    }
+    
+    function setLastTotalTime(i, time) {
+    	var key = "TotalTime" + i;
+    	self.storageSetValue(key, time);
+    }
 
+    function getLastFlips(i) {
+    	var key = "Flips" + i;
+    	return self.storageGetValue(key);
+    }
+    
+    function setLastFlips(i, flips) {
+    	var key = "Flips" + i;
+    	self.storageSetValue(key, flips);
+    }
     
     
     

@@ -25,11 +25,17 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
     	var totalTime = 0;
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		
-
-		if(id == :timerMenuStop) {
-			// Reset steakEntry
-			selectedSteak.setTotalTime(0);
-			selectedSteak.setStatus(Controller.INIT);	
+		
+		// Quickmenu
+		if(id == :totalTimeMenuLast) {
+			var lastTotalTime = app.controller.getLastTotalTime(app.controller.getSelectedSteak());
+			var lastFlips = app.controller.getLastFlips(app.controller.getSelectedSteak());
+			selectedSteak.setTotalTime(lastTotalTime);
+			selectedSteak.setTimePerFlip(selectedSteak.getTotalTime() / lastFlips);
+			selectedSteak.setTimeout(selectedSteak.getTimePerFlip());
+			selectedSteak.setCurrentFlip(1);
+			selectedSteak.setCookingMode(selectedSteak.TOTAL_TIME);
+			app.controller.decideSelection();
 			return;
 		}
 				
@@ -45,7 +51,7 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 	    else if(id == :totalTimeMenu12) {
 			totalTime = 12;
 	    }
-	    else if(id == :timerMenuCustom) {
+	    else if(id == :totalTimeMenuCustom) {
 	    	totalTime = -1;
 	    }
 
@@ -53,10 +59,15 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 		if(totalTime == -1) {
 			var pickerDelegate = new DurationPickerCallbackDelegate();
 			pickerDelegate.callbackMethod = method(:onPickerSelected);
+
+			// This is a weird behavior. I could not find a valid combination with popView, pushView. This seems to be the way to do it.
+			WatchUi.switchToView(new FlipMenu(), new FlipMenuDelegate(), WatchUi.SLIDE_UP);
 			WatchUi.pushView(new DurationPicker(), pickerDelegate, WatchUi.SLIDE_UP);
+
 		}
 		else {
 			selectedSteak.setTotalTime(totalTime * 60);
+			app.controller.setLastTotalTime(app.controller.getSelectedSteak(), totalTime*60);
 			WatchUi.popView(WatchUi.SLIDE_DOWN);
 			WatchUi.pushView(new FlipMenu(), new FlipMenuDelegate(), WatchUi.SLIDE_UP);
 		}
@@ -66,13 +77,14 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
     }
     
 	function onPickerSelected(values){
-		System.println(values);		
+		//System.println(values);
+		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];		
 		var totalTime = ((values[0] * 60) + values[2]);
-		var steak_i = app.controller.getSelectedSteak();
-		var steaks = app.controller.getSteaks(); 
-		steaks[steak_i].setTotalTime(totalTime);
-		app.controller.decideSelection();
-		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+
+		selectedSteak.setTotalTime(totalTime);
+		app.controller.setLastTotalTime(app.controller.getSelectedSteak(), totalTime); 
+			
+		//WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}
 	
 
