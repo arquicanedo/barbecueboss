@@ -539,7 +539,7 @@ class Controller {
     
     function setLastTotalTime(i, time) {
     	var key = "TotalTime" + i;
-    	self.storage.getValue(key, time);
+    	self.storage.setValue(key, time);
     }
 
     function getLastFlips(i) {
@@ -549,7 +549,7 @@ class Controller {
     
     function setLastFlips(i, flips) {
     	var key = "Flips" + i;
-    	self.storage.getValue(key, flips);
+    	self.storage.setValue(key, flips);
     }
     
     

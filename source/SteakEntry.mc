@@ -163,7 +163,7 @@ class SteakEntry {
 	
 	function getETAString() {
 	
-		if (self.getCookingMode() != COOKING) {
+		if (self.getCookingMode() != Controller.COOKING) {
 			return "";
 		}
 		
