@@ -95,7 +95,7 @@ class ListDrawable extends Toybox.WatchUi.Drawable {
 	function decideColor(steak) {
 		var status = steak.getStatus();
 		var initialized = steak.getInitialized();
-		var targetSeconds = steak.getTargetSeconds();
+		var targetSeconds = steak.getTimeout();
 		
 		if (status == Controller.INIT) {
 			return _itemColor;

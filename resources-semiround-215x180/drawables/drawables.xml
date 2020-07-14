@@ -1,0 +1,86 @@
+<drawables>
+    <bitmap id="LauncherIcon" filename="../../resources/images/launcher_icon.png" />
+    <bitmap id="WelcomeLogoImage" filename="../../resources/images/steakfire-43x43.png"/>
+    
+    <bitmap id="FlipIconSmall" filename="../../img/icons/actions/flip-16x16.png"/>
+    <bitmap id="FlipIconMedium" filename="../../img/icons/actions/flip-24x24.png"/>
+    <bitmap id="FlipIconLarge" filename="../../img/icons/actions/flip-32x32.png"/>
+    
+    <!-- <bitmap id="BurgerIconHuge" filename="../../img/icons/burger/032-hamburger-128x128.png"/> -->
+    <bitmap id="BurgerIconExtraLarge" filename="../../img/icons/burger/032-hamburger-64x64.png"/>
+    <bitmap id="BurgerIconLarge" filename="../../img/icons/burger/032-hamburger-32x32.png"/>
+    <bitmap id="BurgerIconMedium" filename="../../img/icons/burger/032-hamburger-24x24.png"/>
+    <bitmap id="BurgerIconSmall" filename="../../img/icons/burger/032-hamburger-16x16.png"/>
+    
+    <!-- <bitmap id="BakeIconHuge" filename="../../img/icons/cake/025-chef-hat-128x128.png"/> -->
+    <bitmap id="BakeIconExtraLarge" filename="../../img/icons/cake/025-chef-hat-64x64.png"/>
+    <bitmap id="BakeIconLarge" filename="../../img/icons/cake/025-chef-hat-32x32.png"/>
+    <bitmap id="BakeIconMedium" filename="../../img/icons/cake/025-chef-hat-24x24.png"/>
+    <bitmap id="BakeIconSmall" filename="../../img/icons/cake/025-chef-hat-16x16.png"/>
+    
+    <!-- <bitmap id="ChickenIconHuge" filename="../../img/icons/chicken-leg/037-chicken-leg-128x128.png"/> -->
+    <bitmap id="ChickenIconExtraLarge" filename="../../img/icons/chicken-leg/037-chicken-leg-64x64.png"/>
+    <bitmap id="ChickenIconLarge" filename="../../img/icons/chicken-leg/037-chicken-leg-32x32.png"/>
+    <bitmap id="ChickenIconMedium" filename="../../img/icons/chicken-leg/037-chicken-leg-24x24.png"/>
+    <bitmap id="ChickenIconSmall" filename="../../img/icons/chicken-leg/037-chicken-leg-16x16.png"/>
+    
+    <!-- <bitmap id="CornIconHuge" filename="../../img/icons/corn/018-broccoli-128x128.png"/> -->
+    <bitmap id="CornIconExtraLarge" filename="../../img/icons/corn/018-broccoli-64x64.png"/>
+    <bitmap id="CornIconLarge" filename="../../img/icons/corn/018-broccoli-32x32.png"/>
+    <bitmap id="CornIconMedium" filename="../../img/icons/corn/018-broccoli-24x24.png"/>
+    <bitmap id="CornIconSmall" filename="../../img/icons/corn/018-broccoli-16x16.png"/>
+    
+    <!-- <bitmap id="BeefIconHuge" filename="../../img/icons/meat/038-meat-128x128.png"/> -->
+    <bitmap id="BeefIconExtraLarge" filename="../../img/icons/meat/038-meat-64x64.png"/>
+    <bitmap id="BeefIconLarge" filename="../../img/icons/meat/038-meat-32x32.png"/>
+    <bitmap id="BeefIconMedium" filename="../../img/icons/meat/038-meat-24x24.png"/>
+    <bitmap id="BeefIconSmall" filename="../../img/icons/meat/038-meat-16x16.png"/>
+
+	<!-- <bitmap id="FishIconHuge" filename="../../img/icons/fish/017-shrimp-128x128.png"/> -->
+	<bitmap id="FishIconExtraLarge" filename="../../img/icons/fish/017-shrimp-64x64.png"/>
+	<bitmap id="FishIconLarge" filename="../../img/icons/fish/017-shrimp-32x32.png"/>
+    <bitmap id="FishIconMedium" filename="../../img/icons/fish/017-shrimp-24x24.png"/>
+    <bitmap id="FishIconSmall" filename="../../img/icons/fish/017-shrimp-16x16.png"/>
+    
+    <!-- <bitmap id="DrinkIconHuge" filename="../../img/icons/drink/046-coffee-cup-128x128.png"/> -->
+	<bitmap id="DrinkIconExtraLarge" filename="../../img/icons/drink/046-coffee-cup-64x64.png"/>
+	<bitmap id="DrinkIconLarge" filename="../../img/icons/drink/046-coffee-cup-32x32.png"/>
+    <bitmap id="DrinkIconMedium" filename="../../img/icons/drink/046-coffee-cup-24x24.png"/>
+    <bitmap id="DrinkIconSmall" filename="../../img/icons/drink/046-coffee-cup-16x16.png"/>
+    
+    <bitmap id="SwitchOffIconSmall" filename="../../img/icons/settings/toggle-off-16x16.png"/>
+    <bitmap id="SwitchOffIconMedium" filename="../../img/icons/settings/toggle-off-24x24.png"/>
+    <bitmap id="SwitchOffIconLarge" filename="../../img/icons/settings/toggle-off-32x32.png"/>
+    
+    <bitmap id="SwitchOnIconSmall" filename="../../img/icons/settings/toggle-on-16x16.png"/>
+    <bitmap id="SwitchOnIconMedium" filename="../../img/icons/settings/toggle-on-24x24.png"/>
+    <bitmap id="SwitchOnIconLarge" filename="../../img/icons/settings/toggle-on-32x32.png"/>
+    
+    <bitmap id="FlameIconSmall" filename="../../img/icons/status/glyphicons-halflings-221-fire-16x16-white.png"/>
+    <bitmap id="FlameIconMedium" filename="../../img/icons/status/glyphicons-halflings-221-fire-24x24-white.png"/>
+    <bitmap id="FlameIconLarge" filename="../../img/icons/status/glyphicons-halflings-221-fire-32x32-white.png"/>
+    <bitmap id="FlameIconExtraLarge" filename="../../img/icons/status/glyphicons-halflings-221-fire-64x64-white.png"/>
+    
+    <bitmap id="GpsIconSmall" filename="../../img/icons/gps/gps-16x16.png"/>
+    <bitmap id="GpsIconMedium" filename="../../img/icons/gps/gps-24x24.png"/>
+    <bitmap id="GpsIconLarge" filename="../../img/icons/gps/gps-32x32.png"/>
+    <bitmap id="GpsIconExtraLarge" filename="../../img/icons/gps/gps-64x64.png"/>
+    
+    <bitmap id="ActivityIconSmall" filename="../../img/icons/activity/fast-16x16.png"/>
+    <bitmap id="ActivityIconMedium" filename="../../img/icons/activity/fast-24x24.png"/>
+    <bitmap id="ActivityIconLarge" filename="../../img/icons/activity/fast-32x32.png"/>
+    <bitmap id="ActivityIconExtraLarge" filename="../../img/icons/activity/fast-64x64.png"/>
+    
+    <bitmap id="SmokeIconSmall" filename="../../img/icons/smoke/smoke-16x16.png"/>
+    <bitmap id="SmokeIconMedium" filename="../../img/icons/smoke/smoke-24x24.png"/>
+    <bitmap id="SmokeIconLarge" filename="../../img/icons/smoke/smoke-32x32.png"/>
+    <bitmap id="SmokeIconExtraLarge" filename="../../img/icons/smoke/smoke-64x64.png"/>       
+    
+    <drawable-list id="arrow" foreground="Graphics.COLOR_WHITE">
+        <shape type="polygon" points="[[118, 120],[148, 120], [133, 140]]" color="Graphics.COLOR_WHITE"/>
+    </drawable-list>
+    
+    <drawable-list id="venuSettingsScroll">
+    	<shape type="polygon" x="187" y="374" points="[[179, 374], [187, 390], [187, 390], [179, 374]]" color="Graphics.COLOR_WHITE" />
+    </drawable-list>
+</drawables>

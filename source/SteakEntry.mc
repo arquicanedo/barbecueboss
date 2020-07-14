@@ -1,4 +1,7 @@
 using Toybox;
+using Toybox.Time;
+using Toybox.Time.Gregorian;
+
 
 class SteakEntry {
 
@@ -12,15 +15,35 @@ class SteakEntry {
 		DRINK = 6,
 		SMOKE = 7	
 	}
+	
+	enum {
+		SEARING = 0,
+		TOTAL_TIME = 1,
+		SMOKING = 2
+	}
+
 
 	hidden var _isSelected = false;
 	hidden var _status = Controller.INIT;
 	hidden var _timeout = 0;
-	hidden var _targetSeconds = 0;	
-	hidden var _totalFlips = 0;
+	hidden var _totalTime = 0;	
+	hidden var _currentFlip = 0;
+	hidden var _timePerFlip = 0;
 	hidden var _label;
 	hidden var _initialized = false;
 	hidden var _foodType = SteakEntry.BEEF;	
+	hidden var _eta = null;
+	hidden var _etaStart = null;
+	hidden var _cookingMode = null;
+
+	function reset() {
+		_status = Controller.INIT;
+		_timeout = 0;
+		_currentFlip = 0;
+		_timeout = 0;
+		_cookingMode = null;
+	}
+
 	
 	function initialize(label, foodType) {
 		_label = label;	
@@ -41,6 +64,32 @@ class SteakEntry {
 		_status = status;
 	}
 	
+	function getETA() {
+		return _eta;
+	}
+	
+	function setETA() {
+		var now = new Time.Moment(Time.now().value());
+		var duration = new Time.Duration(self.getTotalTime());
+		_eta = now.add(duration);
+		_etaStart = now; 
+	}
+	
+	function getProgress() {
+		var mode = self.getCookingMode();
+		if (mode == self.TOTAL_TIME) {
+			var now = new Time.Moment(Time.now().value());
+			var totalSeconds = _eta.subtract(_etaStart);
+			var elapsedSeconds = now.subtract(_etaStart);
+			return elapsedSeconds.value().toFloat() / totalSeconds.value().toFloat();
+		}
+		else if (mode == self.SEARING) {
+			return 1 - (self.getTimeout().toFloat() / self.getTimePerFlip().toFloat());
+		}
+		else {
+			return 0;
+		}
+	}
 	
 	function getFoodType() {
 		return _foodType;
@@ -66,17 +115,9 @@ class SteakEntry {
 		return _isSelected;
 	}
 
-	function setTargetSeconds(seconds) {
-		_targetSeconds = seconds;
-	}
-	
-	function getTargetSeconds() {
-		return _targetSeconds;
-	}
 	
 	function setTimeout(seconds) {
 		_timeout = seconds;
-		_targetSeconds = seconds;
 		_initialized = true;
 	}
 	
@@ -84,31 +125,63 @@ class SteakEntry {
 		return _timeout;
 	}
 	
-	function setTotalFlips(flips) {
-		_totalFlips = flips;
+	function getTotalTime() {
+		return _totalTime;
 	}
 	
-	function getTotalFlips() {
-		return _totalFlips;
+	function setTotalTime(totalTime) {
+		_totalTime = totalTime;
 	}
 	
-	function getFlipString() {
-		return Lang.format("Flip $1$", [_totalFlips]);
+	function getCookingMode() {
+		return _cookingMode;
 	}
 	
-	function getTargetString() {
-		return Lang.format("$1$:$2$", [ (_targetSeconds / 60).format("%02d"), (_targetSeconds % 60).format("%02d") ]);
+	function setCookingMode(cookingMode) {
+		_cookingMode = cookingMode;
 	}
 	
-	function getOverview() {
-		return Lang.format(" $1$   Flip $2$   $3$:$4$", 
-			[ 
-				_label, 
-				_totalFlips, 
-				(_targetSeconds / 60).format("%02d"), 
-				(_targetSeconds % 60).format("%02d")
-			]
-		);
+	
+	function setCurrentFlip(currentFlip) {
+		_currentFlip = currentFlip;
+	}
+	
+	function getCurrentFlip() {
+		return _currentFlip;
+	}
+	
+	function getTimePerFlip() {
+		return _timePerFlip;
+	}
+	
+	function setTimePerFlip(timePerFlip) {
+		_timePerFlip = timePerFlip;
+	}
+	
+	function getTimeoutString() {
+		return Lang.format("$1$:$2$", [ (self.getTimeout() / 60).format("%02d"), (self.getTimeout() % 60).format("%02d") ]);
+	}
+	
+	function getETAString() {
+	
+		if (self.getCookingMode() == SEARING) {
+			return "";
+		}
+		
+		if (_status == Controller.COOKING) {
+			var today = Gregorian.info(_eta, Time.FORMAT_MEDIUM);
+			var dateString = Lang.format(
+			    "$1$:$2$",
+			    [
+			        today.hour.format("%02d"),
+			        today.min.format("%02d"),
+			    ]
+			);
+			return dateString;
+		}
+		else {
+			return "";
+		}
 	}
 	
 }

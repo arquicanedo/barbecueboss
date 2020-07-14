@@ -4,8 +4,8 @@
 		<param name="titleY">"top"</param>
 		<param name="itemOriginX">40</param>
 		<param name="itemOriginY">30</param>
-		<param name="flipOriginX">160</param>
-		<param name="targetOriginX">90</param>
+		<param name="flipOriginX">170</param>
+		<param name="targetOriginX">95</param>
 		<param name="selectorOriginX">30</param>
 		<param name="listItemOffsetY">25</param>
 		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
@@ -18,10 +18,12 @@
 		<param name="gpsY">200</param>
 		<param name="activityX">80</param>
 		<param name="activityY">200</param>
+		<param name="progressBarY">12</param>
+		<param name="etaY">0</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="200" x="center"/>
-	<label id="timerIcon" x="210" y="55" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
-	<label id="upIcon" x="5" y="center" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_up"/>
-	<label id="downIcon" x="18" y="170" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_down"/>
+	<label id="timerIcon" x="215" y="60" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_gear"/>
+	<label id="upIcon" x="0" y="center" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_up"/>
+	<label id="downIcon" x="15" y="170" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_down"/>
 	<label id="timeLabel" x="167" y="195" font="Graphics.FONT_SYSTEM_XTINY" text="" color="Graphics.COLOR_WHITE" />
 </layout>

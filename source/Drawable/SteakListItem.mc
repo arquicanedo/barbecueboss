@@ -150,29 +150,40 @@ class SteakListItem extends WatchUi.Drawable {
 	*/
 	function draw(dc, x, y) {
 		Drawable.draw(dc);
-	
-		dc.setColor(self.decideColor(), Graphics.COLOR_BLACK);
 		
-		//fetch the icon to use from the static bitmap cache and draw it
+
+	
+		// Food type - fetch the icon to use from the static bitmap cache and draw it
 		dc.drawBitmap(x, y + _iconOffsetY, _meatMap.get(_steak.getFoodType()));
 		
+		// ETA
+		//dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+		//dc.drawText(_targetOriginX, 0, _font, _steak.getETAString(), Graphics.TEXT_JUSTIFY_LEFT);
+		
+		// Color affects only the running timer and flip
+		dc.setColor(self.decideColor(), Graphics.COLOR_BLACK);
+		
+		// Flip Icon		
 		dc.drawBitmap(_flipOriginX, y + _iconOffsetY, _flipIcon);
-		//dc.drawText(_flipOriginX, y, _font, "Flip", Graphics.TEXT_JUSTIFY_LEFT);
+		// Flip counter
+		dc.drawText(_flipOriginX + _iconWidth + 5, y, _font, _steak.getCurrentFlip().toString(), Graphics.TEXT_JUSTIFY_LEFT);
+		
 		
 		// Flame if we're getting close to a flip.
-		if (_steak.getStatus() == Controller.COOKING && _steak.getTargetSeconds() <= 20) {
+		if (_steak.getStatus() == Controller.COOKING && _steak.getTimeout() <= 20) {
     		dc.drawBitmap(_targetOriginX - _iconWidth - 2, y + _iconOffsetY, _flameIcon);
     	}
+    	// Timeout
+		dc.drawText(_targetOriginX, y, _font, _steak.getTimeoutString(), Graphics.TEXT_JUSTIFY_LEFT); 
 		
-		dc.drawText(_flipOriginX + _iconWidth + 5, y, _font, _steak.getTotalFlips().toString(), Graphics.TEXT_JUSTIFY_LEFT);
-		
-		dc.drawText(_targetOriginX, y, _font, _steak.getTargetString(), Graphics.TEXT_JUSTIFY_LEFT); 
+
 	}
 	
 	function decideColor() {
 		var status = _steak.getStatus();
 		var initialized = _steak.getInitialized();
-		var targetSeconds = _steak.getTargetSeconds();
+		//var targetSeconds = _steak.getTargetSeconds();
+		var targetSeconds = _steak.getTimeout();
 		
 		if (status == Controller.INIT) {
 			return _itemColor;

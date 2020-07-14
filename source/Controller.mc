@@ -260,17 +260,11 @@ class Controller {
     		Attention.vibrate(self.flipVibrator);
     	}
     	
-    	self.steaks[i].setTotalFlips(self.steaks[i].getTotalFlips() + 1);
+    	self.steaks[i].setCurrentFlip(self.steaks[i].getCurrentFlip() + 1);
     	
     	if(null != self.session) {
 			self.session.addLap();
 		}    	
-    }
-
-
-    function initializeFlip(i) {
-    	totalFlips[i] = 0;
-    	self.flipChanged.emit(totalFlips[i]);
     }
     
 	function timerStop(i) {
@@ -280,34 +274,36 @@ class Controller {
 	function timerResume(i) {
 	    self.myTimer.start(method(:timerCallback), 1000, true);
 	}
-	    
-    /************** UNTIL HERE ***********/
-    
+	        
+	        
+	// Manage the timers
     function timerCallback() {
-		//System.println("timerCallback");
-        //self.printGPS();        
-        
-        // Manage the timers
-        for (var i = 0; i < self.total_steaks; i+=1) {
+        for (var i = 0; i < self.total_steaks; i+=1) {        	
 			// Decrease cooking steak timers
         	if (self.steaks[i].getStatus() == COOKING) {
-        		
+        	
+        	    // Kill timer if we've exceeded the ETA when cooking in TOTAL_TIME mode
+        	    if (steaks[i].getCookingMode() == SteakEntry.TOTAL_TIME) {
+					var now = new Time.Moment(Time.now().value());
+					if (now.greaterThan(self.steaks[i].getETA())) {
+						steaks[i].reset();
+						return;
+					}
+				}
+	        	
         		if(self.steaks[i].getInitialized()) {
-        		
-	        		var targetSeconds = self.steaks[i].getTargetSeconds() - 1;
-	        		
-					// Reset timers if expired
-					if (targetSeconds < 0) {
-						self.steaks[i].setTargetSeconds(self.steaks[i].getTimeout());
+	        		var newTimeout = self.steaks[i].getTimeout() - 1;
+					// Reset flip timeout if expired
+					if (newTimeout < 0) {
+						self.steaks[i].setTimeout(self.steaks[i].getTimePerFlip());
 						self.flipMeat(i);
 					} 
 					else {
-						self.steaks[i].setTargetSeconds(targetSeconds);
+						self.steaks[i].setTimeout(newTimeout);
 					}
 				}
         	}
         }
-        
         self.timerChanged.emit([]);
 	}
 	
@@ -321,17 +317,24 @@ class Controller {
 		return 0;
 	}
 	
+
+	
 	
 	function decideSelection() {
 		var i = self.getSelectedSteak();
 		var timeout = self.steaks[i].getTimeout();
-		System.println("Deciding Selection on steak " + i + " for " + timeout + " seconds");
+		var secsPerFlip = self.steaks[i].getTimeout();
+		System.println(Lang.format("Deciding Selection on steak $1$ for $2$ sec and $3$ seconds per flip", [i, timeout, secsPerFlip]));
 		
 		if (self.steaks[i].getStatus() == INIT) {
 		
 			if (timeout > 0) {
-				self.steaks[i].setTimeout(timeout);
 				self.steaks[i].setStatus(COOKING);
+				
+				if (self.steaks[i].getCookingMode() == SteakEntry.TOTAL_TIME) {
+					self.steaks[i].setETA();
+				}
+							
 				System.println("Status set to COOKING");
 				
 				if(Attention has :vibrate) {
@@ -339,8 +342,7 @@ class Controller {
 				}
 				
 				// Persist last set steak
-				//self.storageSetValue("lastSteakLabel", self.steaks[i].getLabel());
-				self.setLastTimeout(i, self.steaks[i].getTimeout());
+				self.setLastTimeout(i, timeout);
 				
 			}
 			else {
@@ -350,10 +352,9 @@ class Controller {
 					
 		}
 		else if (self.steaks[i].getStatus() == COOKING) {
-		
 			//if we are just now transitioning to cooking we don't want to count a flip yet.
 			var initialized = self.steaks[i].getInitialized(); 
-			self.setLastTimeout(i, self.steaks[i].getTimeout());
+			self.setLastTimeout(i, timeout);
 			self.steaks[i].setTimeout(timeout);
 			
 			if(initialized) {
@@ -449,6 +450,26 @@ class Controller {
     function setLastTimeout(i, timeout) {
     	var key = "Timeout" + i;
     	self.storageSetValue(key, timeout);
+    }
+    
+    function getLastTotalTime(i) {
+    	var key = "TotalTime" + i;
+    	return self.storageGetValue(key);
+    }
+    
+    function setLastTotalTime(i, time) {
+    	var key = "TotalTime" + i;
+    	self.storageSetValue(key, time);
+    }
+
+    function getLastFlips(i) {
+    	var key = "Flips" + i;
+    	return self.storageGetValue(key);
+    }
+    
+    function setLastFlips(i, flips) {
+    	var key = "Flips" + i;
+    	self.storageSetValue(key, flips);
     }
     
     
