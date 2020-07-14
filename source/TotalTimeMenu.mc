@@ -3,9 +3,9 @@ using Toybox;
 class TotalTimeMenu extends Toybox.WatchUi.Menu {
 
 	hidden var app;
-	hidden var default_timeouts = ["1", "8", "10", "12"];
-	hidden var default_timeouts_secs = ["60", "480", "600", "720"];
-	hidden var default_symbols = [:totalTimeMenu1, :totalTimeMenu8, :totalTimeMenu10, :totalTimeMenu12];
+	hidden var default_timeouts = ["4", "8", "10", "12"];
+	hidden var default_timeouts_secs = ["240", "480", "600", "720"];
+	hidden var default_symbols = [:totalTimeMenu4, :totalTimeMenu8, :totalTimeMenu10, :totalTimeMenu12];
 	
 
 	function initialize() {

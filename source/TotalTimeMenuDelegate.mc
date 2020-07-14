@@ -39,8 +39,8 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 			return;
 		}
 				
-        if(id == :totalTimeMenu1) {
-			totalTime = 1;
+        if(id == :totalTimeMenu4) {
+			totalTime = 4;
 	    }
         if(id == :totalTimeMenu8) {
 			totalTime = 8;
