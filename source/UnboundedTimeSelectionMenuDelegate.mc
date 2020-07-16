@@ -67,7 +67,7 @@ class UnboundedTimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 		if(timeout == -1) {
 			var pickerDelegate = new DurationPickerCallbackDelegate();
 			pickerDelegate.callbackMethod = method(:onPickerSelected);
-			WatchUi.pushView(new DurationPicker(), pickerDelegate, WatchUi.SLIDE_UP);
+			WatchUi.pushView(new DurationPicker(DurationPicker.MMSS), pickerDelegate, WatchUi.SLIDE_UP);
 		}
 		else {
 			selectedSteak.setTimePerFlip(timeout * 60);

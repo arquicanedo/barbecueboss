@@ -62,7 +62,7 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 
 			// This is a weird behavior. I could not find a valid combination with popView, pushView. This seems to be the way to do it.
 			WatchUi.switchToView(new FlipMenu(), new FlipMenuDelegate(), WatchUi.SLIDE_UP);
-			WatchUi.pushView(new DurationPicker(), pickerDelegate, WatchUi.SLIDE_UP);
+			WatchUi.pushView(new DurationPicker(DurationPicker.MMSS), pickerDelegate, WatchUi.SLIDE_UP);
 
 		}
 		else {

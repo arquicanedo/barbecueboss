@@ -112,14 +112,14 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
     
     function onTimePicked(time) {
     	System.println(time);
-    	var dueTime = Time.now().add(new Time.Duration((time[0] * 60) + time[2]));
+    	var dueTime = Time.now().add(new Time.Duration((time[0] * (60*60)) + (time[2]*60)));
     	_app.controller.startSmoker(dueTime);
     }
     
     function onSelect() {
     	var dpd = new DurationPickerCallbackDelegate();
     	dpd.callbackMethod = method(:onTimePicked);
-    	WatchUi.pushView(new DurationPicker(), dpd, WatchUi.SLIDE_LEFT);
+    	WatchUi.pushView(new DurationPicker(DurationPicker.HHMM), dpd, WatchUi.SLIDE_LEFT);
     	return true;
     }
     

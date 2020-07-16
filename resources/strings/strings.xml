@@ -36,7 +36,8 @@
     <string id="morning">AM</string>
     <string id="afternoon">PM</string> -->
     
-    <string id="durationPickerTitle">Timer (mm:ss)</string>
+    <string id="durationPickerTitleMMSS">Timer (mm:ss)</string>
+    <string id="durationPickerTitleHHMM">Timer (hh:mm)</string>
     <string id="timeSeparator">:</string>
     
     <!-- String Picker -->

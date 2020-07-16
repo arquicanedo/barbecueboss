@@ -8,8 +8,14 @@ const DURATION_MINUTE_FORMAT = "%02d";
 class DurationPicker extends WatchUi.Picker {
 
 	hidden var fontSize = Graphics.FONT_MEDIUM;
+
+	enum {
+		MMSS = 0,
+		HHMM = 1,
+	}
+
 	
-    function initialize() {
+    function initialize(cookingMode) {
 
         var factories;
         var hourFactory;
@@ -39,16 +45,32 @@ class DurationPicker extends WatchUi.Picker {
 	        }
         }
         
-        var title = new WatchUi.Text(
-        	{
-        		:text=>Rez.Strings.durationPickerTitle, 
-        		:locX=>WatchUi.LAYOUT_HALIGN_CENTER, 
-        		:locY=>WatchUi.LAYOUT_VALIGN_BOTTOM, 
-        		:color=>Graphics.COLOR_WHITE, 
-        		:font => self.fontSize 
-        	}
-        );
 
+		var title = null;
+        if (cookingMode == MMSS) {
+			title = new WatchUi.Text(
+	        	{
+	        		:text=>Rez.Strings.durationPickerTitleMMSS, 
+	        		:locX=>WatchUi.LAYOUT_HALIGN_CENTER, 
+	        		:locY=>WatchUi.LAYOUT_VALIGN_BOTTOM, 
+	        		:color=>Graphics.COLOR_WHITE, 
+	        		:font => self.fontSize 
+	        	}
+	        );
+		}
+		else if (cookingMode == HHMM) {
+			title = new WatchUi.Text(
+	        	{
+	        		:text=>Rez.Strings.durationPickerTitleHHMM, 
+	        		:locX=>WatchUi.LAYOUT_HALIGN_CENTER, 
+	        		:locY=>WatchUi.LAYOUT_VALIGN_BOTTOM, 
+	        		:color=>Graphics.COLOR_WHITE, 
+	        		:font => self.fontSize 
+	        	}
+	        );	
+		}
+
+		
         factories = new [FACTORY_COUNT_24_HOUR];
         factories[0] = new NumberFactory(0, 59, 1, 
         	{ 
