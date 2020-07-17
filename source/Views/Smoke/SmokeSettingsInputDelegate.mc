@@ -7,7 +7,7 @@ class SmokeSettingsMenu2InputDelegate extends WatchUi.Menu2InputDelegate {
 
 	hidden var _app;
 	
-	function initialize() {
+	function initialize(menu2) {
 		Menu2InputDelegate.initialize();
 		
 		_app = Application.getApp();
@@ -40,8 +40,17 @@ class SmokeSettingsMenu2InputDelegate extends WatchUi.Menu2InputDelegate {
 		
 		if(id.equals("tempUnit")) {
 			item.toggle();
-		
 			WatchUi.requestUpdate();
+			return;
+		}
+		
+		if(id.equals("waterCheck")) {
+			var pickerDelegate = new DurationPickerCallbackDelegate();
+			pickerDelegate.callbackMethod = method(:onPickerSelected);
+			WatchUi.pushView(new DurationPicker(DurationPicker.HHMM), pickerDelegate, WatchUi.SLIDE_UP);
+			item.setSubLabel((_app.controller.getWaterCheckTime() / 60).toString() + " min.");
+			// XXX: I tried the menu2.updateItem(item, index) but does not update the sublabel with the selected value
+			return;
 		}
 	}
 	
@@ -75,6 +84,13 @@ class SmokeSettingsMenu2InputDelegate extends WatchUi.Menu2InputDelegate {
 	function onMeatProbeToggled(enabled) {
 		_app.controller.setMeatProbeEnabled(enabled);
 	}
+	
+	
+	function onPickerSelected(time){
+		var timeout = ((time[0] * 60 * 60) + (time[2] * 60));
+		_app.controller.setWaterCheckTime(timeout);
+	}
+	
 }
 
 (:ciq1)

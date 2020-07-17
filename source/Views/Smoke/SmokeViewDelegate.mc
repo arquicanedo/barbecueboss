@@ -28,7 +28,16 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
 
 	(:ciq3)
 	function createMenu2() {
-		var waterCheck = new WatchUi.MenuItem("Water Check", "60 mins.", "waterCheck", null);
+	
+		var waterCheckPreference = _app.controller.getWaterCheckTime();
+		var waterCheck = null;
+		if (null == waterCheckPreference) {	
+			waterCheck = new WatchUi.MenuItem("Water Check", "60 mins.", "waterCheck", null);
+		}
+		else {
+			waterCheck = new WatchUi.MenuItem("Water Check", (waterCheckPreference / 60).toString() + " min.", "waterCheck", null);
+		}
+		
 		var smokeCheck = new WatchUi.MenuItem("Smoke Check", "45 mins.", "smokeCheck", null);
 		var tempCheck = new WatchUi.MenuItem("Temp Check", "30 mins.", "tempCheck", null);
 

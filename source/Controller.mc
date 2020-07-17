@@ -18,6 +18,7 @@ class Controller {
 	(:btle)hidden static var MEAT_PROBE_UNIT_KEY = "meatProbeUnit";
 	hidden static var GPS_ENABLED_KEY = "gpsEnabled";
 	hidden static var ACTIVITY_ENABLED_KEY = "activityEnabled";
+	hidden static var WATER_CHECK_TIME = "waterCheck";
 	
 	//total number of flips performed
 	public var totalFlips;
@@ -136,6 +137,16 @@ class Controller {
     (:btle)
     function setMeatProbeUnit(unit) {
     	self.storage.setValue(MEAT_PROBE_UNIT_KEY, unit);
+    }
+    
+    (:btle)
+    function getWaterCheckTime() {
+    	return self.storage.getValue(WATER_CHECK_TIME);
+    }
+    
+    (:btle)
+    function setWaterCheckTime(time) {
+    	self.storage.setValue(WATER_CHECK_TIME, time);
     }
     
     (:btle)
