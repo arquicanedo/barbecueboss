@@ -7,7 +7,7 @@ class SmokeSettingsMenu2InputDelegate extends WatchUi.Menu2InputDelegate {
 
 	hidden var _app;
 	
-	function initialize(menu2) {
+	function initialize() {
 		Menu2InputDelegate.initialize();
 		
 		_app = Application.getApp();
