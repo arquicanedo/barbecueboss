@@ -18,7 +18,9 @@ class Controller {
 	(:btle)hidden static var MEAT_PROBE_UNIT_KEY = "meatProbeUnit";
 	hidden static var GPS_ENABLED_KEY = "gpsEnabled";
 	hidden static var ACTIVITY_ENABLED_KEY = "activityEnabled";
-	hidden static var WATER_CHECK_TIME = "waterCheck";
+	(:smoke)hidden static var WATER_CHECK_TIME = "waterCheck";
+	(:smoke)hidden static var SMOKE_CHECK_TIME = "smokeCheck";
+	(:smoke)hidden static var TEMP_CHECK_TIME = "tempCheck";
 	
 	//total number of flips performed
 	public var totalFlips;
@@ -37,6 +39,8 @@ class Controller {
 	//"events"
 	public var timerChanged = new SimpleCallbackEvent("timerChanged");
 	public var flipChanged = new SimpleCallbackEvent("flipChanged");
+	
+	(:btle)public var smokeSettingsChanged = new SimpleCallbackEvent("smokeSettingsChanged");
 	
 	// Steak menu related
 	public var total_steaks;
@@ -116,6 +120,7 @@ class Controller {
     
     (:btle)
     function initializeBluetooth() {
+    	TenergySolis.initialize();
     	self.bluetoothController = new BluetoothController();
     }
     
@@ -137,17 +142,42 @@ class Controller {
     (:btle)
     function setMeatProbeUnit(unit) {
     	self.storage.setValue(MEAT_PROBE_UNIT_KEY, unit);
+    	self.smokeSettingsChanged.emit(null);
     }
     
-    (:btle)
+    (:smoke)
     function getWaterCheckTime() {
     	return self.storage.getValue(WATER_CHECK_TIME);
     }
     
-    (:btle)
+    (:smoke)
     function setWaterCheckTime(time) {
     	self.storage.setValue(WATER_CHECK_TIME, time);
+    	self.smokeSettingsChanged.emit(null);
     }
+    
+    (:smoke)
+    function getTempCheckTime() {
+    	return self.storage.getValue(TEMP_CHECK_TIME);
+    }
+    
+    (:smoke)
+    function setTempCheckTime(time) {
+    	self.storage.setValue(TEMP_CHECK_TIME, time);
+    	self.smokeSettingsChanged.emit(null);
+    }
+    
+    (:smoke)
+    function getSmokeCheckTime() {
+    	return self.storage.getValue(SMOKE_CHECK_TIME);
+    }
+    
+    (:smoke)
+    function setSmokeCheckTime(time) {
+    	self.storage.setValue(SMOKE_CHECK_TIME, time);
+    	self.smokeSettingsChanged.emit(null);
+    }
+    
     
     (:btle)
     function setMeatProbeEnabled(enabled) {
@@ -159,6 +189,8 @@ class Controller {
     	else {
     		self.bluetoothController.initialize();
     	}
+    	
+    	self.smokeSettingsChanged.emit(null);
     }
     
     (:smoke)
@@ -209,6 +241,21 @@ class Controller {
     	
     	if(null == val) {
     		self.storage.setValue("smokerTime", 0);
+    	}
+    	
+    	val = self.storage.getValue(WATER_CHECK_TIME);
+    	if(null == val) {
+    		self.storage.setValue(WATER_CHECK_TIME, 60 * 60);
+    	} 
+    	
+    	val = self.storage.getValue(SMOKE_CHECK_TIME);
+    	if(null == val) {
+    		self.storage.setValue(SMOKE_CHECK_TIME, 45 * 60);
+    	}
+    	
+    	val = self.storage.getValue(TEMP_CHECK_TIME);
+    	if(null == val) {
+    		self.storage.setValue(TEMP_CHECK_TIME, 45 * 60);
     	}
     }
     

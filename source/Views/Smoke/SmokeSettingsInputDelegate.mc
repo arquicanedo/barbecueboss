@@ -46,10 +46,27 @@ class SmokeSettingsMenu2InputDelegate extends WatchUi.Menu2InputDelegate {
 		
 		if(id.equals("waterCheck")) {
 			var pickerDelegate = new DurationPickerCallbackDelegate();
-			pickerDelegate.callbackMethod = method(:onPickerSelected);
+			pickerDelegate.callbackMethod = method(:onWaterCheckPicked);
 			WatchUi.pushView(new DurationPicker(DurationPicker.HHMM), pickerDelegate, WatchUi.SLIDE_UP);
-			item.setSubLabel((_app.controller.getWaterCheckTime() / 60).toString() + " min.");
+			
 			// XXX: I tried the menu2.updateItem(item, index) but does not update the sublabel with the selected value
+			//fixed - added an event to the controller that notifies when any of the smoke settings change so we can update the menu text 
+			return;
+		}
+		
+		if(id.equals("smokeCheck")) {
+			var pickerDelegate = new DurationPickerCallbackDelegate();
+			pickerDelegate.callbackMethod = method(:onSmokeCheckPicked);
+			WatchUi.pushView(new DurationPicker(DurationPicker.HHMM), pickerDelegate, WatchUi.SLIDE_UP);
+			
+			return;
+		}
+		
+		if(id.equals("tempCheck")) {
+			var pickerDelegate = new DurationPickerCallbackDelegate();
+			pickerDelegate.callbackMethod = method(:onTempCheckPicked);
+			WatchUi.pushView(new DurationPicker(DurationPicker.HHMM), pickerDelegate, WatchUi.SLIDE_UP);
+			
 			return;
 		}
 	}
@@ -85,8 +102,17 @@ class SmokeSettingsMenu2InputDelegate extends WatchUi.Menu2InputDelegate {
 		_app.controller.setMeatProbeEnabled(enabled);
 	}
 	
+	function onTempCheckPicked(time) {
+		var timeout = ((time[0] * 60 * 60) + (time[2] * 60));
+		_app.controller.setTempCheckTime(timeout);
+	}
+	 
+	function onSmokeCheckPicked(time) {
+		var timeout = ((time[0] * 60 * 60) + (time[2] * 60));
+		_app.controller.setSmokeCheckTime(timeout);
+	}
 	
-	function onPickerSelected(time){
+	function onWaterCheckPicked(time){
 		var timeout = ((time[0] * 60 * 60) + (time[2] * 60));
 		_app.controller.setWaterCheckTime(timeout);
 	}

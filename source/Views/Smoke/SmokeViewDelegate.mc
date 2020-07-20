@@ -9,9 +9,16 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
 	(:btle)hidden var _probeUnitItem;
 	(:btle)hidden var _probeEnabledItem;
 	
+	hidden var _waterCheck;
+	hidden var _smokeCheck;
+	hidden var _tempCheck;
+	hidden var _menu;
+	
     function initialize() {
         BehaviorDelegate.initialize();
         _app = Application.getApp();
+        
+        _app.controller.smokeSettingsChanged.on(method(:onSmokeSettingsChanged));
     }
 
     function onMenu() {
@@ -26,32 +33,39 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
+	function onSmokeSettingsChanged(sender, value) {
+
+		if(self has :createMenu2) {
+			_waterCheck.setSubLabel((_app.controller.getWaterCheckTime() / 60).toString() + " min.");
+			_menu.updateItem(_waterCheck, 0);
+			
+			_smokeCheck.setSubLabel((_app.controller.getSmokeCheckTime() / 60).toString() + " min.");
+			_menu.updateItem(_smokeCheck, 1);
+			
+			_tempCheck.setSubLabel((_app.controller.getTempCheckTime() / 60).toString() + " min.");
+			_menu.updateItem(_tempCheck, 1);
+		}
+		
+	}
+
 	(:ciq3)
 	function createMenu2() {
-	
-		var waterCheckPreference = _app.controller.getWaterCheckTime();
-		var waterCheck = null;
-		if (null == waterCheckPreference) {	
-			waterCheck = new WatchUi.MenuItem("Water Check", "60 mins.", "waterCheck", null);
-		}
-		else {
-			waterCheck = new WatchUi.MenuItem("Water Check", (waterCheckPreference / 60).toString() + " min.", "waterCheck", null);
-		}
 		
-		var smokeCheck = new WatchUi.MenuItem("Smoke Check", "45 mins.", "smokeCheck", null);
-		var tempCheck = new WatchUi.MenuItem("Temp Check", "30 mins.", "tempCheck", null);
+		_waterCheck = new WatchUi.MenuItem("Water Check", (_app.controller.getWaterCheckTime() / 60).toString() + " min.", "waterCheck", null);
+		_smokeCheck = new WatchUi.MenuItem("Smoke Check", (_app.controller.getSmokeCheckTime() / 60).toString() + " min.", "smokeCheck", null);
+		_tempCheck = new WatchUi.MenuItem("Temp Check", (_app.controller.getTempCheckTime() / 60).toString() + " min.", "tempCheck", null);
 
-    	var menu2 = new WatchUi.Menu2({:title=> "Smoke Settings"});
+    	_menu = new WatchUi.Menu2({:title=> "Smoke Settings"});
     		
-    	menu2.addItem(waterCheck);
-    	menu2.addItem(smokeCheck);
-    	menu2.addItem(tempCheck);
+    	_menu.addItem(_waterCheck);
+    	_menu.addItem(_smokeCheck);
+    	_menu.addItem(_tempCheck);
 
 		if(self has :createBtleMenuItems) {
-			createBtleMenuItems(menu2);
+			createBtleMenuItems(_menu);
     	}
 		
-		WatchUi.pushView(menu2, new SmokeSettingsMenu2InputDelegate(), WatchUi.SLIDE_UP);
+		WatchUi.pushView(_menu, new SmokeSettingsMenu2InputDelegate(), WatchUi.SLIDE_UP);
 	}
 	
 	(:ciq1)
@@ -109,6 +123,7 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
    	}
    	
    	function onBack() {
+   		_app.controller.smokeSettingsChanged.reset();
 		WatchUi.switchToView(new WelcomeView(), new WelcomeDelegate(), WatchUi.SLIDE_DOWN);
    		return true;
    	}
