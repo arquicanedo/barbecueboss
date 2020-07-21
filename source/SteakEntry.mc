@@ -161,6 +161,13 @@ class SteakEntry {
 		return Lang.format("$1$:$2$", [ (self.getTimeout() / 60).format("%02d"), (self.getTimeout() % 60).format("%02d") ]);
 	}
 	
+	function getSmokeTimeoutString() {
+		var timeout = self.getTimeout();
+		var hours = Math.floor(timeout / 3600);
+		var minutes = Math.floor((timeout / 60) % 60);
+		return Lang.format("$1$:$2$", [ hours.format("%02d"), minutes.format("%02d") ]);
+	}
+	
 	function getETAString() {
 	
 		if (self.getCookingMode() != Controller.COOKING) {

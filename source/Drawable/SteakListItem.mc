@@ -28,6 +28,7 @@ class SteakListItem extends WatchUi.Drawable {
 	hidden var _flameOffsetY;
 	hidden var _hasFlip = true;
 	hidden var _hasFlame = true;
+	hidden var _isSmoking = false;
 	
 	function initialize(steak, params) {
 		Drawable.initialize(params);
@@ -39,9 +40,12 @@ class SteakListItem extends WatchUi.Drawable {
 		_itemColor = params.get(:itemColor);
 		_iconOffsetY = null == params.get(:iconOffsetY) ? 10 : params.get(:iconOffsetY);
 		_iconSize = null == params.get(:iconSize) ? SteakListItem.MEDIUM : params.get(:iconSize);
+		_isSmoking = null == params.get(:isSmoking) ? false : params.get(:isSmoking);
 		
 		var hasFlip = params.get(:hasFlip);
 		var hasFlame = params.get(:hasFlame);
+
+
 	
 		if(null != hasFlip) {
 			_hasFlip = hasFlip;
@@ -50,6 +54,7 @@ class SteakListItem extends WatchUi.Drawable {
 		if(null != hasFlame) {
 			_hasFlame = hasFlame;
 		}
+		
 		
 		if(null == _iconWidth || null == _flipIcon || null == _flameIcon) {
 			
@@ -225,7 +230,14 @@ class SteakListItem extends WatchUi.Drawable {
 	    }
 
     	// Timeout
-		dc.drawText(_targetOriginX, y, _font, _steak.getTimeoutString(), Graphics.TEXT_JUSTIFY_LEFT); 
+    	if(_isSmoking) {
+    		dc.drawText(_targetOriginX, y, _font, _steak.getSmokeTimeoutString(), Graphics.TEXT_JUSTIFY_LEFT); 
+    	}
+    	else {
+    		dc.drawText(_targetOriginX, y, _font, _steak.getTimeoutString(), Graphics.TEXT_JUSTIFY_LEFT); 
+    	}
+    	
+
 	}
 	
 	function decideColor() {

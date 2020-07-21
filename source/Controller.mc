@@ -21,6 +21,7 @@ class Controller {
 	(:smoke)hidden static var WATER_CHECK_TIME = "waterCheck";
 	(:smoke)hidden static var SMOKE_CHECK_TIME = "smokeCheck";
 	(:smoke)hidden static var TEMP_CHECK_TIME = "tempCheck";
+	(:smoke)hidden static var SMOKER_TIME = "smokerTime";
 	
 	//total number of flips performed
 	public var totalFlips;
@@ -617,16 +618,14 @@ class Controller {
 		return myTime.value().toNumber();
     }
     
-    function saveSmokeTimer() {
-    	/*
-    	var currentTime = self.getTimeOfDay();
-    	var timeArray = [currentTime.hour, currentTime.min, currentTime.sec];
-    	self.storage.setValue("smokerTimer", timeArray);
-    	*/
-    	
+    function saveSmokeTimer() {    	
     	var currentTime = new Time.Moment(Time.now().value());
-    	self.storage.setValue("smokerTime", currentTime.value().toNumber());
+    	self.storage.setValue(SMOKER_TIME, currentTime.value().toNumber());
     		
+    }
+    
+    function getSmokeTimer() {
+    	return self.storage.getValue(SMOKER_TIME);
     }
     
     function steaksInitialized() {

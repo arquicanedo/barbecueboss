@@ -39,7 +39,7 @@ class SmokeView extends WatchUi.View {
 	}
 	
 	function onSmokeTimerChanged(sender, value) {
-		_dueTime = Application.getApp().controller.storage.getValue("smokerTime");
+		_dueTime = Application.getApp().controller.getSmokeTimer();
 		WatchUi.requestUpdate();
 	}
 	
