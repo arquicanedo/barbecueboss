@@ -3,6 +3,7 @@ using Toybox.Timer;
 using Toybox.System;
 
 
+(:ciq1)
 class SettingsView extends WatchUi.View {
 
 	hidden var _app;

@@ -17,14 +17,19 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     	if(self has :initMenu2) {
     		initMenu2();
     	}
-    	else {
-    		var view = new SettingsView(self.app);
-    		var delegate = new SettingsDelegate(self.app);
-    		view.layoutLoaded.on(delegate.method(:onSettingsLayoutLoaded));
-			Toybox.WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
+    	else if(self has :initMenu) {
+    		initMenu();
 		}
 		
         return true;
+    }
+    
+    (:ciq1)
+    function initMenu() {
+    	var view = new SettingsView(self.app);
+    	var delegate = new SettingsDelegate(self.app);
+    	view.layoutLoaded.on(delegate.method(:onSettingsLayoutLoaded));
+		Toybox.WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
     }
     
     (:ciq3)

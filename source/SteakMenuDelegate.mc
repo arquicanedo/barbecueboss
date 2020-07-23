@@ -112,8 +112,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 				break;
 			
 			case "EXTRA_LARGE":
-				return [];
-				/*return Rez.Drawables has :BurgerIconExtraLarge ? [
+				return Rez.Drawables has :BurgerIconExtraLarge ? [
 						Rez.Drawables.BurgerIconExtraLarge,
 						Rez.Drawables.BakeIconExtraLarge,
 						Rez.Drawables.ChickenIconExtraLarge,
@@ -122,12 +121,12 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 						Rez.Drawables.BeefIconExtraLarge,
 						Rez.Drawables.DrinkIconExtraLarge,
 						Rez.Drawables.SmokeIconExtraLarge
-					   ] : [];*/			
+					   ] : [];
 				break;		
 		}
 		
 		return [];
-		/*return Rez.Drawables has :BurgerIconLarge ? [
+		return Rez.Drawables has :BurgerIconLarge ? [
 				Rez.Drawables.BurgerIconLarge,
 				Rez.Drawables.BakeIconLarge,
 				Rez.Drawables.ChickenIconLarge,
@@ -137,7 +136,6 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 				Rez.Drawables.DrinkIconLarge,
 				Rez.Drawables.SmokeIconLarge
 				] : [];
-		*/
 	}
 	
 	function onBitmapPickerSelected(selection) {
@@ -153,7 +151,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 
 		WatchUi.popView(WatchUi.SLIDE_DOWN);
         
-		WatchUi.pushView(createCookingMenu(), new CookingMenuDelegate(), WatchUi.SLIDE_UP);
+		WatchUi.pushView(createCookingMenu(), new CookingMenuDelegate(self.app), WatchUi.SLIDE_UP);
 	}
 	
 	function createCookingMenu() {

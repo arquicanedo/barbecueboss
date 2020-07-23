@@ -11,14 +11,14 @@ class DataStore {
 		return true;
 	}
 	
-	(:ciq1)
+	//(:ciq1)
 	function getValue(key) {
 		var value = self.app.getProperty(key);
 		//System.println("DataStore fetching " + key + " " + value);
 		return value;
 	}
 	
-	(:ciq1)
+	//(:ciq1)
 	function setValue(key, value) {
 		//System.println("DataStore storing " + key + " " + value);
 		self.app.setProperty(key, value);
