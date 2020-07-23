@@ -26,7 +26,7 @@ vivoactive.excludeAnnotations = btle;ciq3
 approachs60.excludeAnnotations = btle;ciq3
 
 edge_520.excludeAnnotations = btle;ciq3
-edgeexplore.excludeAnnotations = btle;ciq3
+edge_1000.excludeAnnotations = btle;ciq3
 
 fr735xt.excludeAnnotations = btle;ciq3
 
@@ -42,6 +42,9 @@ d2deltas.excludeAnnotations = btle
 
 descentmk1.excludeAnnotations = btle
 
+edge130.excludeAnnotations = btle
+edge130plus.excludeAnnotations = btle
+edge1030bontrager.excludeAnnotations = btle
 edge520plus.excludeAnnotations = btle
 
 fenix5.excludeAnnotations = btle
@@ -52,11 +55,22 @@ fenixchronos.excludeAnnotations = btle
 fr645.excludeAnnotations = btle
 fr935.excludeAnnotations = btle
 
+gpsmap66.excludeAnnotations = btle
+gpsmap86.excludeAnnotations = btle
+oregon7xx.excludeAnnotations = btle
+rino7xx.excludeAnnotations = btle;
+
 vivoactive3.excludeAnnotations = btle
 vivoactive3d.excludeAnnotations = btle
 
 
 #CIQ3 devices w/btle
+
+edge530.excludeAnnotations = ciq1
+edge830.excludeAnnotations = ciq1
+edge1030.excludeAnnotations = ciq1
+edge1030plus.excludeAnnotations = ciq1
+edgeexplore.excludeAnnotations = ciq1
 
 fenix5plus.excludeAnnotations = ciq1
 fenix5splus.excludeAnnotations = ciq1
