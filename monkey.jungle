@@ -58,7 +58,7 @@ fr935.excludeAnnotations = btle
 gpsmap66.excludeAnnotations = btle
 gpsmap86.excludeAnnotations = btle
 oregon7xx.excludeAnnotations = btle
-rino7xx.excludeAnnotations = btle;
+rino7xx.excludeAnnotations = btle
 
 vivoactive3.excludeAnnotations = btle
 vivoactive3d.excludeAnnotations = btle
