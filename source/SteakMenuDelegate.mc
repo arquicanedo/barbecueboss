@@ -204,7 +204,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     
     // Detect Back button input
     function onBack() {
-    	WatchUi.switchToView(new WelcomeView(), new WelcomeDelegate(), WatchUi.SLIDE_RIGHT);
+    	WatchUi.switchToView(new WelcomeView(), new WelcomeDelegate(self.app), WatchUi.SLIDE_RIGHT);
         //WatchUi.popView(WatchUi.SLIDE_DOWN);
 		return true;
     }

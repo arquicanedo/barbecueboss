@@ -3,6 +3,91 @@ project.manifest = manifest.xml
 #TenergySolis = [./ext/tenergy/lib/ciq-tenergy-solis-barrel/TenergySolis.jungle]
 #base.barrelPath = $(base.barrelPath);$(TenergySolis)
 base.sourcePath = source;ext/tenergy/lib/ciq-tenergy-solis-barrel
-vivoactive.excludeAnnotations = btle;ciq3
-fr235.excludeAnnotations = btle;ciq3
 
+#low-mem / CIQ1 devices
+
+epix.excludeAnnotations = btle;ciq3
+
+d2bravo.excludeAnnotations = btle;ciq3
+d2bravo_titanium.excludeAnnotations = btle;ciq3
+
+fenix3.excludeAnnotations = btle;ciq3
+fenix3_hr.excludeAnnotations = btle;ciq3
+
+fr230.excludeAnnotations = btle;ciq3
+fr235.excludeAnnotations = btle;ciq3
+fr630.excludeAnnotations = btle;ciq3
+fr920xt.excludeAnnotations = btle;ciq3
+
+vivoactive.excludeAnnotations = btle;ciq3
+
+#CIQ2 devices
+
+approachs60.excludeAnnotations = btle;ciq3
+
+edge_520.excludeAnnotations = btle;ciq3
+edgeexplore.excludeAnnotations = btle;ciq3
+
+fr735xt.excludeAnnotations = btle;ciq3
+
+vivoactive_hr.excludeAnnotations = btle;ciq3
+
+#CIQ3 devices w/o btle
+
+approachs62.excludeAnnotations = btle
+
+d2delta.excludeAnnotations = btle
+d2deltapx.excludeAnnotations = btle
+d2deltas.excludeAnnotations = btle
+
+descentmk1.excludeAnnotations = btle
+
+edge520plus.excludeAnnotations = btle
+
+fenix5.excludeAnnotations = btle
+fenix5s.excludeAnnotations = btle
+fenix5x.excludeAnnotations = btle
+fenixchronos.excludeAnnotations = btle
+
+fr645.excludeAnnotations = btle
+fr935.excludeAnnotations = btle
+
+vivoactive3.excludeAnnotations = btle
+vivoactive3d.excludeAnnotations = btle
+
+
+#CIQ3 devices w/btle
+
+fenix5plus.excludeAnnotations = ciq1
+fenix5splus.excludeAnnotations = ciq1
+fenix5xplus.excludeAnnotations = ciq1
+
+fenix6.excludeAnnotations = ciq1
+fenix6pro.excludeAnnotations = ciq1
+fenix6s.excludeAnnotations = ciq1
+fenix6xpro.excludeAnnotations = ciq1
+
+fr245.excludeAnnotations = ciq1
+fr645m.excludeAnnotations = ciq1
+fr945.excludeAnnotations = ciq1
+
+legacysagadarthvader.excludeAnnotations = ciq1
+legacysagarey.excludeAnnotations = ciq1
+legacyherocaptainmarvel.excludeAnnotations = ciq1
+
+marqadventurer.excludeAnnotations = ciq1
+marqathlete.excludeAnnotations = ciq1
+marqaviator.excludeAnnotations = ciq1
+marqcaptain.excludeAnnotations = ciq1
+marqcommander.excludeAnnotations = ciq1
+marqdriver.excludeAnnotations = ciq1
+marqexpedition.excludeAnnotations = ciq1
+marqgolfer.excludeAnnotations = ciq1
+
+venu.excludeAnnotations = ciq1
+venud.excludeAnnotations = ciq1
+
+vivoactive3m.excludeAnnotations = ciq1
+vivoactive3mlte.excludeAnnotations = ciq1
+vivoactive4.excludeAnnotations = ciq1
+vivoactive4s.excludeAnnotations = ciq1
