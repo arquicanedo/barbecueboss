@@ -5,19 +5,24 @@ using Toybox.Timer;
 using Toybox.Time;
 using Toybox.Position;
 using Toybox.ActivityRecording;
-//using Toybox.Application.Storage;
-
 
 class Controller {
-
 
 	hidden var app;
 	hidden var bluetoothController;
 	
+	//settings for all devices
+	hidden static var GPS_ENABLED_KEY = "gps";
+	hidden static var ACTIVITY_ENABLED_KEY = "activity";
+	hidden static var FOOD_TYPE_KEY = "type";
+	hidden static var FOOD_TIME_KEY = "time";
+	hidden static var TOTAL_TIME_KEY = "total";
+	
+	//settings for devices with bluetooth support
 	(:btle)hidden static var MEAT_PROBE_ENABLED_KEY = "meatProbeEnabled";
 	(:btle)hidden static var MEAT_PROBE_UNIT_KEY = "meatProbeUnit";
-	hidden static var GPS_ENABLED_KEY = "gpsEnabled";
-	hidden static var ACTIVITY_ENABLED_KEY = "activityEnabled";
+	
+	//settings for devices that support smoking operations
 	(:smoke)hidden static var WATER_CHECK_TIME = "waterCheck";
 	(:smoke)hidden static var SMOKE_CHECK_TIME = "smokeCheck";
 	(:smoke)hidden static var TEMP_CHECK_TIME = "tempCheck";
@@ -38,10 +43,10 @@ class Controller {
 	hidden var startSteakVibrator;
 	
 	//"events"
-	public var timerChanged = new SimpleCallbackEvent("timerChanged");
-	public var flipChanged = new SimpleCallbackEvent("flipChanged");
+	public var timerChanged = new SimpleCallbackEvent("timer");
+	public var flipChanged = new SimpleCallbackEvent("flip");
 	
-	(:btle)public var smokeSettingsChanged = new SimpleCallbackEvent("smokeSettingsChanged");
+	(:smoke)public var smokeSettingsChanged = new SimpleCallbackEvent("smoke");
 	
 	// Steak menu related
 	public var total_steaks;
@@ -52,7 +57,7 @@ class Controller {
 	hidden var settings;
 	
 	// Data Store
-	public var storage = new DataStore();
+	public var storage;
 	
 	hidden var _smoking = false;
 	
@@ -76,9 +81,12 @@ class Controller {
 	    	SAVING
 	}
     
-    function initialize() {
-		System.println("initializing controller...");
+    function initialize(app) {
+		//System.println("initializing controller...");
 
+		self.app = app;
+		self.storage = new DataStore(app);
+		
 		if(Attention has :vibrate){
 			self.flipVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
 			self.startSteakVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
@@ -95,10 +103,9 @@ class Controller {
 		// Timer always running. 
 		self.myTimer = new Timer.Timer();
 		self.myTimer.start(method(:timerCallback), 1000, true);
-		
-	
+
 		for(var i = 0; i < self.total_steaks; i++) {
-			self.steaks[i] = new SteakEntry(Lang.format("Steak $1$", [i + 1]), self.getLastFoodType(i));
+			self.steaks[i] = new SteakEntry(Lang.format("$1$", [i + 1]), self.getLastFoodType(i));
 		
 			if(i == 0) {
 				self.steaks[i].setSelected(true);
@@ -109,14 +116,10 @@ class Controller {
 		// For now every "flip" is a lap.
 		self.recordingStart();
 		
-		//check the global namespace for the TenergySolis module - if this was built with Tenergy support then
-		//this should be available, and we should go ahead and setup the bluetooth delegate
-		//until we start scanning or connect to a device this won't do anything or consume extra battery
+		//check for bluetooth support in the build, initialize if it exists
 		if(self has :initializeBluetooth) {
 			self.initializeBluetooth();
 		}
-		
-		//self.configureSmoker();
 	}
     
     (:btle)
@@ -178,8 +181,7 @@ class Controller {
     	self.storage.setValue(SMOKE_CHECK_TIME, time);
     	self.smokeSettingsChanged.emit(null);
     }
-    
-    
+
     (:btle)
     function setMeatProbeEnabled(enabled) {
     	self.storage.setValue(MEAT_PROBE_ENABLED_KEY, enabled);
@@ -193,24 +195,10 @@ class Controller {
     	
     	self.smokeSettingsChanged.emit(null);
     }
-    
+
     (:smoke)
-    function configureSmoker() {
-    
-		//app.controller.getTimeOfDay();
-		/*var myTime = app.controller.storage.getValue("smokerTime");
-		var currentTime = app.controller.getTimeOfDay();
-		
-		System.println("Current time = " + currentTime);
-		if (myTime != null) {
-			var diff = currentTime - myTime;
-			System.println("Saved time = " + myTime);
-			System.println("UNIX time diff = " + diff);
-		}*/
-    }
-    
     function startSmoker(dueTime) {
-    	self.storage.setValue("smokerTime", dueTime.value());
+    	self.storage.setValue(SMOKER_TIME, dueTime.value());
     }
     
     function initializeDefaultSettings() {
@@ -230,7 +218,7 @@ class Controller {
     		self.initializeBtleDefaultSettings();
 	    }
 	    
-	    if(self has :configureSmoker) {
+	    if(self has :initializeSmokerSettings) {
 	    	self.initializeSmokerSettings();
 	    }
     }
@@ -238,10 +226,10 @@ class Controller {
     (:smoke)
     function initializeSmokerSettings() {
     	
-    	var val = self.storage.getValue("smokerTime");
+    	var val = self.storage.getValue(SMOKER_TIME);
     	
     	if(null == val) {
-    		self.storage.setValue("smokerTime", 0);
+    		self.storage.setValue(SMOKER_TIME, 0);
     	}
     	
     	val = self.storage.getValue(WATER_CHECK_TIME);
@@ -284,8 +272,6 @@ class Controller {
 		// I couldn't find any documentation about the SimpleCallbackEvent. I wonder where I got this from.
 		timerChanged.reset();
 		flipChanged.reset();
-		
-		//saveSmokeTimer();
     }
     
     function setActivityEnabled(enabled) {
@@ -334,7 +320,7 @@ class Controller {
 	function initializeGPS() {
 		
 		if(self.getGpsEnabled()) {
-			System.println("Initializing GPS sensing.......");
+			//System.println("Initializing GPS sensing.......");
 	    	Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :onPosition ) );
 	    }
 	    else {
@@ -346,15 +332,7 @@ class Controller {
 		System.println("Stopping GPS sensing.......");
 		Position.enableLocationEvents( Position.LOCATION_DISABLE, method( :onPosition ) );
 	}
-	
-	function printGPS() {
-	    var gpsinfo = Position.getInfo();
-		System.println(Lang.format("GPS Acc: $1$ position: $2$", [
-			gpsinfo.accuracy, 
-			gpsinfo.position.toGeoString( Position.GEO_DM )
-		]));
-	}
-	
+		
 	// https://forums.garmin.com/developer/connect-iq/f/q-a/171125/state-of-session-after-save/922655#922655
 	// https://developer.garmin.com/connect-iq/api-docs/
 	function initializeActivityRecording() {
@@ -378,21 +356,21 @@ class Controller {
 	
 	function recordingStart() {
 		if (self.session != null) {
-			System.println("ActivityRecording session started");
+			System.println("Session started");
 			self.session.start();
 		}
 	}
 	
 	function recordingStop() {
 		if (self.session != null && self.session.isRecording()) {
-			System.println("ActivityRecording session stopped");
+			System.println("session stopped");
 			self.session.stop();
 		}
 	}
 	
 	function recordingSave() {
 		if (self.session != null && self.session.isRecording()) {
-			System.println("ActivityRecording session saved");
+			System.println("session saved");
 			self.session.save();
 			session = null;
 		}
@@ -400,7 +378,7 @@ class Controller {
 	
 	function recordingDiscard() {
 		if (self.session != null) {
-			System.println("ActivityRecording session discarded");
+			System.println("session discarded");
 			self.session.discard();
 			session = null;
 		}	
@@ -473,7 +451,7 @@ class Controller {
 		var i = self.getSelectedSteak();
 		var timeout = self.steaks[i].getTimeout();
 		var secsPerFlip = self.steaks[i].getTimeout();
-		System.println(Lang.format("Deciding Selection on steak $1$ for $2$ sec and $3$ seconds per flip", [i, timeout, secsPerFlip]));
+		//System.println(Lang.format("Deciding Selection on steak $1$ for $2$ sec and $3$ seconds per flip", [i, timeout, secsPerFlip]));
 		
 		if (self.steaks[i].getStatus() == INIT) {
 		
@@ -484,7 +462,7 @@ class Controller {
 					self.steaks[i].setETA();
 				}
 							
-				System.println("Status set to COOKING");
+				//System.println("Status set to COOKING");
 				
 				if(Attention has :vibrate) {
 					Attention.vibrate(self.startSteakVibrator);
@@ -496,7 +474,7 @@ class Controller {
 			}
 			else {
 				self.steaks[i].setStatus(INIT);
-				System.println("The user picked 0 minutes 0 seconds. Not legal");
+				//System.println("The user picked 0 minutes 0 seconds. Not legal");
 			}
 					
 		}
@@ -572,32 +550,32 @@ class Controller {
     }
     
     function getLastFoodType(i) {
-    	var key = "FoodType" + i;
+    	var key = FOOD_TYPE_KEY + i;
     	return self.storage.getValue(key);
     }
     
     function setLastFoodType(i, foodType) {
-    	var key = "FoodType" + i;
+    	var key = FOOD_TYPE_KEY + i;
     	self.storage.setValue(key, foodType);
     }
     
     function getLastTimeout(i) {
-    	var key = "Timeout" + i;
+    	var key = FOOD_TIME_KEY + i;
     	return self.storage.getValue(key);
     }
     
     function setLastTimeout(i, timeout) {
-    	var key = "Timeout" + i;
+    	var key = FOOD_TIME_KEY + i;
     	self.storage.setValue(key, timeout);
     }
     
     function getLastTotalTime(i) {
-    	var key = "TotalTime" + i;
+    	var key = TOTAL_TIME_KEY + i;
     	return self.storage.getValue(key);
     }
     
     function setLastTotalTime(i, time) {
-    	var key = "TotalTime" + i;
+    	var key = TOTAL_TIME_KEY + i;
     	self.storage.setValue(key, time);
     }
 
@@ -610,9 +588,7 @@ class Controller {
     	var key = "Flips" + i;
     	self.storage.setValue(key, flips);
     }
-    
-    
-    
+
     function getTimeOfDay() {
 		var myTime = new Time.Moment(Time.now().value());
 		return myTime.value().toNumber();

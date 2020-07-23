@@ -129,49 +129,49 @@ class SteakListItem extends WatchUi.Drawable {
 							WatchUi.loadResource(Rez.Drawables.BurgerIconSmall) : 
 						_iconSize == SteakListItem.MEDIUM ? 
 							WatchUi.loadResource(Rez.Drawables.BurgerIconMedium) : 
-						WatchUi.loadResource(Rez.Drawables.BurgerIconLarge);
+						Rez.Drawables has :BurgerIconLarge ? WatchUi.loadResource(Rez.Drawables.BurgerIconLarge) : null;
 				
 			case SteakEntry.BAKE:
 				return _iconSize == SteakListItem.SMALL ? 
 							WatchUi.loadResource(Rez.Drawables.BakeIconSmall) :
 						_iconSize == SteakListItem.MEDIUM ?
 							WatchUi.loadResource(Rez.Drawables.BakeIconMedium) :
-						WatchUi.loadResource(Rez.Drawables.BakeIconLarge);
+						Rez.Drawables has :BakeIconLarge ? WatchUi.loadResource(Rez.Drawables.BakeIconLarge) : null;
 
 			case SteakEntry.CHICKEN:
 				return _iconSize == SteakListItem.SMALL ? 
 							WatchUi.loadResource(Rez.Drawables.ChickenIconSmall) :
 						_iconSize == SteakListItem.MEDIUM ?
 							WatchUi.loadResource(Rez.Drawables.ChickenIconMedium) :
-						WatchUi.loadResource(Rez.Drawables.ChickenIconLarge);
+						Rez.Drawables has :ChickenIconLarge ? WatchUi.loadResource(Rez.Drawables.ChickenIconLarge) : null;
 
 			case SteakEntry.CORN:
 				return _iconSize == SteakListItem.SMALL ? 
 							WatchUi.loadResource(Rez.Drawables.CornIconSmall) :
 						_iconSize == SteakListItem.MEDIUM ?
 							WatchUi.loadResource(Rez.Drawables.CornIconMedium) :
-						WatchUi.loadResource(Rez.Drawables.CornIconLarge);
+						Rez.Drawables has :CornIconLarge ? WatchUi.loadResource(Rez.Drawables.CornIconLarge) : null;
 
 			case SteakEntry.FISH:
 				return _iconSize == SteakListItem.SMALL ?
 							WatchUi.loadResource(Rez.Drawables.FishIconSmall) :
 						_iconSize == SteakListItem.MEDIUM ?
 							WatchUi.loadResource(Rez.Drawables.FishIconMedium) :
-						WatchUi.loadResource(Rez.Drawables.FishIconLarge);
+						Rez.Drawables has :FishIconLarge? WatchUi.loadResource(Rez.Drawables.FishIconLarge) : null;
 
 			case SteakEntry.BEEF:
 				return _iconSize == SteakListItem.SMALL ?
 							WatchUi.loadResource(Rez.Drawables.BeefIconSmall) :
 						_iconSize == SteakListItem.MEDIUM ?
 							WatchUi.loadResource(Rez.Drawables.BeefIconMedium) :
-						WatchUi.loadResource(Rez.Drawables.BeefIconLarge);
+						Rez.Drawables has :BeefIconLarge ? WatchUi.loadResource(Rez.Drawables.BeefIconLarge) : null;
 
 			case SteakEntry.DRINK:
 				return _iconSize == SteakListItem.SMALL ?
 							WatchUi.loadResource(Rez.Drawables.DrinkIconSmall) :
 						_iconSize == SteakListItem.MEDIUM ?
 							WatchUi.loadResource(Rez.Drawables.DrinkIconMedium) :
-						WatchUi.loadResource(Rez.Drawables.DrinkIconLarge);
+						Rez.Drawables has :DrinkIconLarge ? WatchUi.loadResource(Rez.Drawables.DrinkIconLarge) : null;
 						
 			case SteakEntry.SMOKE:
 				return _iconSize == SteakListItem.SMALL ?
@@ -180,7 +180,7 @@ class SteakListItem extends WatchUi.Drawable {
 							WatchUi.loadResource(Rez.Drawables.SmokeIconMedium) :
 						_iconSize == SteakListItem.LARGE ? 
 							WatchUi.loadResource(Rez.Drawables.SmokeIconLarge) :
-						WatchUi.loadResource(Rez.Drawables.SmokeIconExtraLarge);
+						_iconSize == SteakListItem.EXTRA_LARGE ? WatchUi.loadResource(Rez.Drawables.SmokeIconExtraLarge) : null;
 			default:
 				System.println("Unknown meat type when fetching icon, returning beef.");
 				return WatchUi.loadResource(Rez.Drawables.BeefIconSmall);

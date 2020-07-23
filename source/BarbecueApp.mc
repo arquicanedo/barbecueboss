@@ -5,10 +5,12 @@ using Toybox.System;
 
 class BarbecueApp extends Application.AppBase {
 
-	public static var controller = new Controller();
+	public static var controller;
 	
     function initialize() {
         AppBase.initialize();
+        
+        self.controller = new Controller(self);
     }
 
     // onStart() is called on application start up
@@ -22,6 +24,6 @@ class BarbecueApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() {
-        return [ new WelcomeView(), new WelcomeDelegate() ];
+        return [ new WelcomeView(), new WelcomeDelegate(self) ];
     }
 }

@@ -1,6 +1,7 @@
 using Toybox;
 using Toybox.WatchUi;
 
+(:ciq3)
 class SettingsEnumToggleMenuItem extends WatchUi.MenuItem {
 
 	hidden var _enumValues;

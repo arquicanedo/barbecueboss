@@ -7,25 +7,17 @@ class SmokeSettingsMenu2InputDelegate extends WatchUi.Menu2InputDelegate {
 
 	hidden var _app;
 	
-	function initialize() {
+	function initialize(app) {
 		Menu2InputDelegate.initialize();
 		
-		_app = Application.getApp();
+		_app = app;
 	}
 	
 	function onSelect(item) {
-		
-		if(self has :handleSelect3) {
-			handleSelect3(item);
-		}
-		else {
-			handleSelect1(item);
-		}
-			
+		handleSelect3(item);
 		return true;
 	}
 	
-	(:ciq3)
 	function handleSelect3(item) {
 		System.println(item.getId());
 			
@@ -48,9 +40,7 @@ class SmokeSettingsMenu2InputDelegate extends WatchUi.Menu2InputDelegate {
 			var pickerDelegate = new DurationPickerCallbackDelegate();
 			pickerDelegate.callbackMethod = method(:onWaterCheckPicked);
 			WatchUi.pushView(new DurationPicker(DurationPicker.HHMM), pickerDelegate, WatchUi.SLIDE_UP);
-			
-			// XXX: I tried the menu2.updateItem(item, index) but does not update the sublabel with the selected value
-			//fixed - added an event to the controller that notifies when any of the smoke settings change so we can update the menu text 
+
 			return;
 		}
 		
@@ -71,9 +61,6 @@ class SmokeSettingsMenu2InputDelegate extends WatchUi.Menu2InputDelegate {
 		}
 	}
 	
-	function handleSelect1(item) {
-		System.println(item.getId());
-	}
 	
 	(:btle)
 	function showMeatProbeConfig() {
@@ -133,6 +120,47 @@ class SmokeSettingsInputDelegate extends WatchUi.MenuInputDelegate {
 	function onMenuItem(item) {
 		System.println(item);
 
-		return true;
+		
+		if(item == :waterCheck) {
+		
+			var pickerDelegate = new DurationPickerCallbackDelegate();
+			pickerDelegate.callbackMethod = method(:onWaterCheckPicked);
+			WatchUi.pushView(new DurationPicker(DurationPicker.HHMM), pickerDelegate, WatchUi.SLIDE_UP);
+			
+			return;
+		}
+		
+		if(item == :smokeCheck) {
+			var pickerDelegate = new DurationPickerCallbackDelegate();
+			pickerDelegate.callbackMethod = method(:onSmokeCheckPicked);
+			WatchUi.pushView(new DurationPicker(DurationPicker.HHMM), pickerDelegate, WatchUi.SLIDE_UP);
+		
+			return;
+		}
+		
+		if(item == :tempCheck) {
+			var pickerDelegate = new DurationPickerCallbackDelegate();
+			pickerDelegate.callbackMethod = method(:onTempCheckPicked);
+			WatchUi.pushView(new DurationPicker(DurationPicker.HHMM), pickerDelegate, WatchUi.SLIDE_UP);
+			
+			return;
+		}
+
 	}
+	
+	function onTempCheckPicked(time) {
+		var timeout = ((time[0] * 60 * 60) + (time[2] * 60));
+		_app.controller.setTempCheckTime(timeout);
+	}
+	 
+	function onSmokeCheckPicked(time) {
+		var timeout = ((time[0] * 60 * 60) + (time[2] * 60));
+		_app.controller.setSmokeCheckTime(timeout);
+	}
+	
+	function onWaterCheckPicked(time){
+		var timeout = ((time[0] * 60 * 60) + (time[2] * 60));
+		_app.controller.setWaterCheckTime(timeout);
+	}
+	
 }

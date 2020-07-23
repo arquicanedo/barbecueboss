@@ -6,10 +6,10 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 
 	hidden var app;
 	
-    function initialize() {
+    function initialize(app) {
         BehaviorDelegate.initialize();
         
-		app = Application.getApp();
+		self.app = app;
     }
 
     function onMenu() {
@@ -18,8 +18,8 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     		initMenu2();
     	}
     	else {
-    		var view = new SettingsView();
-    		var delegate = new SettingsDelegate();
+    		var view = new SettingsView(self.app);
+    		var delegate = new SettingsDelegate(self.app);
     		view.layoutLoaded.on(delegate.method(:onSettingsLayoutLoaded));
 			Toybox.WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
 		}
@@ -52,15 +52,11 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 		menu2.addItem(useGps);
 		menu2.addItem(useActivity);
 		
-		WatchUi.pushView(menu2, new SettingsMenu2Delegate([useGps, useActivity]), WatchUi.SLIDE_UP);    
+		WatchUi.pushView(menu2, new SettingsMenu2Delegate(self.app, [useGps, useActivity]), WatchUi.SLIDE_UP);    
     }
     
    	function onSelect() {
-		//System.println("barbecue_appDelegate.onSelect Menu behavior triggered");
-		
-		//Toybox.WatchUi.pushView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
 		Toybox.WatchUi.switchToView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
-		//Toybox.System.println("Changed to MainMenu()");
 		return true;
 	}
 	
@@ -130,6 +126,6 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     }
     
     function onNextPage() {
-    	WatchUi.switchToView(new SmokeView(), new SmokeViewDelegate(), WatchUi.SLIDE_UP);
+    	WatchUi.switchToView(new SmokeView(self.app), new SmokeViewDelegate(self.app), WatchUi.SLIDE_UP);
     }
 }

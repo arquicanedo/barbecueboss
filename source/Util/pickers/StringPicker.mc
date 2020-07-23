@@ -1,4 +1,4 @@
-using Toybox.Application;
+/*using Toybox.Application;
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
@@ -59,4 +59,4 @@ class StringPicker extends WatchUi.Picker {
     function isDone(value) {
         return mFactory.isDone(value);
     }
-}
+}*/

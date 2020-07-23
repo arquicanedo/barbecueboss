@@ -1,5 +1,5 @@
 <layout id="WelcomeLayout">
-    <label x="center" y="180" text="@Strings.prompt" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label x="center" y="180" text="@Strings.AppName" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
     <label id="menuIcon" x="5" y="135" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_menu"/>
     <label id="smokeViewIcon" x="25" y="200" font="@Fonts.FONT_GLYPH2_SMALL" text="@Strings.glyph_2_down"/>
     <label id="playIcon" x="250" y="66" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_play"/>

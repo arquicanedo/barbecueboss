@@ -1,4 +1,4 @@
-using Toybox.WatchUi;
+/*using Toybox.WatchUi;
 using Toybox.System;
 using Toybox.Application;
 
@@ -59,3 +59,4 @@ class UnboundedTimeSelectionMenu extends Toybox.WatchUi.Menu {
 		self.addItem(Rez.Strings.menu_label_custom, :timerMenuCustom);
 	}
 }
+*/

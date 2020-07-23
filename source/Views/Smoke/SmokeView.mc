@@ -6,9 +6,12 @@ class SmokeView extends WatchUi.View {
 	
 	hidden var _dummyItem;
 	hidden var _dueTime;
+	hidden var _app;
 	
-	function initialize() {
+	function initialize(app) {
 		View.initialize();
+		
+		_app = app;
 		
 		if(self has :initializeBluetooth) {
 			initializeBluetooth();
@@ -27,7 +30,7 @@ class SmokeView extends WatchUi.View {
 			lst.setItems([_dummyItem]);
 		}
 		
-		Application.getApp().controller.timerChanged.on(method(:onSmokeTimerChanged));
+		_app.controller.timerChanged.on(method(:onSmokeTimerChanged));
 	}
 
 	function onHide() {
@@ -35,7 +38,7 @@ class SmokeView extends WatchUi.View {
 		lst.resetItems();
 		_dummyItem = null;
 		SteakListItem.MeatMap.remove(SteakEntry.SMOKE);
-		Application.getApp().controller.timerChanged.reset();
+		_app.controller.timerChanged.reset();
 	}
 	
 	function onSmokeTimerChanged(sender, value) {
@@ -54,7 +57,7 @@ class SmokeView extends WatchUi.View {
 		var diff = (_dueTime) - Time.now().value();
 		
 		if(diff < 0) {
-			System.println("smoke time diff is negative");
+			System.println("smoke diff neg.");
 			_dummyItem.getSteak().setTimeout(0);
 			return;
 		}
@@ -66,8 +69,8 @@ class SmokeView extends WatchUi.View {
 	(:btle)
 	function initializeBluetooth() {
 	
-		if(Application.getApp().controller.getMeatProbeEnabled()) {
-			var bt = Application.getApp().controller.getBluetoothController();
+		if(_app.controller.getMeatProbeEnabled()) {
+			var bt = _app.controller.getBluetoothController();
 			bt.scanResult.on(self.method(:onScanResult));
 			bt.connectionChanged.on(self.method(:onConnectionChanged));
 			bt.startScan();
@@ -90,29 +93,11 @@ class SmokeView extends WatchUi.View {
 	
 	(:btle)
 	function onTempChanged(sender, value) {
-		var unit = Application.getApp().controller.getMeatProbeUnit();
+		var unit = _app.controller.getMeatProbeUnit();
 		var temps = value.getTemps(unit);
 		findDrawableById("upperTemp").setTemps(temps);
 		findDrawableById("lowerTemp").setTemps(temps);
 		
 		WatchUi.requestUpdate();
 	}
-	
-	/*
-	(:btle)
-	function getProbeText(temps, unit) {
-	
-		var output = "";
-		for(var i = 0; i < temps.size(); i++) {
-			output += Lang.format(
-									"Probe $1$: $2$$3$", 
-									[
-										i, -1 == temps[i] ? "NOT CONNECTED" : temps[i].format("%.2f"), 
-										unit
-									]);
-			output += "\n";
-		}
-		
-		return output;
-	}*/
 }

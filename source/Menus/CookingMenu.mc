@@ -1,4 +1,4 @@
-using Toybox;
+/*using Toybox;
 
 class CookingMenu extends Toybox.WatchUi.Menu {
 	function initialize() {
@@ -7,4 +7,4 @@ class CookingMenu extends Toybox.WatchUi.Menu {
 		self.addItem("Searing (Flip)", :cookingMenuSearing);
 		self.addItem("Total Time", :cookingMenuTotalTime);
 	}
-}
+}*/

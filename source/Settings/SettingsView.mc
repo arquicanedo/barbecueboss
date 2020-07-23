@@ -8,10 +8,10 @@ class SettingsView extends WatchUi.View {
 	hidden var _app;
 	public var layoutLoaded = new SimpleCallbackEvent("layoutLoaded");
 	
-    function initialize() {
+    function initialize(app) {
         View.initialize();
     
-    	_app = Application.getApp();
+    	_app = app;
     }
 
     // Load your resources here

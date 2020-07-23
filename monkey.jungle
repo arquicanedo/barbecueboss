@@ -3,6 +3,6 @@ project.manifest = manifest.xml
 #TenergySolis = [./ext/tenergy/lib/ciq-tenergy-solis-barrel/TenergySolis.jungle]
 #base.barrelPath = $(base.barrelPath);$(TenergySolis)
 base.sourcePath = source;ext/tenergy/lib/ciq-tenergy-solis-barrel
-vivoactive.excludeAnnotations = smoke;btle;ciq3
+vivoactive.excludeAnnotations = btle;ciq3
 fr235.excludeAnnotations = btle;ciq3
 

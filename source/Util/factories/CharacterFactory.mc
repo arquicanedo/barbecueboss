@@ -1,4 +1,4 @@
-using Toybox.Graphics;
+/*using Toybox.Graphics;
 using Toybox.WatchUi;
 
 class CharacterFactory extends WatchUi.PickerFactory {
@@ -41,3 +41,4 @@ class CharacterFactory extends WatchUi.PickerFactory {
         return mAddOk and (value == DONE);
     }
 }
+*/

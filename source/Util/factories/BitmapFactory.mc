@@ -7,12 +7,12 @@ class BitmapFactory extends WatchUi.PickerFactory {
     const DONE = -1;
     hidden var app;
 
-    function initialize(bitmapSet, options) {
+    function initialize(app, bitmapSet, options) {
         PickerFactory.initialize();
         // Dictionary that maps key (SteakEntry.FoodType -> Bitmap)
         mBitmapSet = bitmapSet;
         mAddOk = (null != options) and (options.get(:addOk) == true);        
-        app = Application.getApp();
+        self.app = app;
     }
     
     function getValue(index) {

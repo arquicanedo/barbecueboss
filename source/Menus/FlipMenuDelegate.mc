@@ -14,12 +14,7 @@ class FlipMenuDelegate extends WatchUi.MenuInputDelegate {
 
 	//onMenuItem is for MenuDelegate
 	function onMenuItem(item){
-		self.onSelect(item);
-	}
 
-	//this is the new method for Menu2Delegate which can't be supported until there's some kind of #ifdef available for the build
-	//or a dynamic way of determining at runtime if it's supported without blowing up or failing to compile
-    function onSelect(item) {
     	var id = item;
     	var flips = 2;
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
@@ -49,5 +44,4 @@ class FlipMenuDelegate extends WatchUi.MenuInputDelegate {
 		
 		app.controller.decideSelection();
     }
-    
 }

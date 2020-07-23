@@ -7,10 +7,10 @@ class SettingsDelegate extends WatchUi.BehaviorDelegate {
 	hidden var _deviceSettings;
 	hidden var _app;
 	
-    function initialize() {
+    function initialize(app) {
         BehaviorDelegate.initialize();
        	_deviceSettings = System.getDeviceSettings();
-    	_app = Application.getApp();
+    	_app = app;
     }
 
 	function onSettingsLayoutLoaded(sender, settingsList) {

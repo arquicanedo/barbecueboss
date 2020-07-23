@@ -5,9 +5,9 @@ using Toybox.WatchUi;
 class BitmapPicker extends WatchUi.Picker {
     hidden var mFactory;
 
-    function initialize(bitmaps, pre_selected_item) {
+    function initialize(app, bitmaps, pre_selected_item) {
     	System.println("Bitmaps initialized: " + bitmaps);
-        mFactory = new BitmapFactory(bitmaps, {:addOk=>false});
+        mFactory = new BitmapFactory(app, bitmaps, {:addOk=>false});
 
         var string = Application.getApp().getProperty("string");
 

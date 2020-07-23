@@ -14,10 +14,10 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
 	hidden var _tempCheck;
 	hidden var _menu;
 	
-    function initialize() {
+    function initialize(app) {
         BehaviorDelegate.initialize();
-        _app = Application.getApp();
-        
+        _app = app;
+
         _app.controller.smokeSettingsChanged.on(method(:onSmokeSettingsChanged));
     }
 
@@ -65,7 +65,7 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
 			createBtleMenuItems(_menu);
     	}
 		
-		WatchUi.pushView(_menu, new SmokeSettingsMenu2InputDelegate(), WatchUi.SLIDE_UP);
+		WatchUi.pushView(_menu, new SmokeSettingsMenu2InputDelegate(_app), WatchUi.SLIDE_UP);
 	}
 	
 	(:ciq1)
@@ -76,7 +76,7 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
     	menu.addItem(WatchUi.loadResource(Rez.Strings.smoke_menu_smoke_check_text), :smokeCheck);
     	menu.addItem(WatchUi.loadResource(Rez.Strings.smoke_menu_temp_check_text), :tempCheck);
 
-		WatchUi.pushView(createMenu(), new SmokeSettingsInputDelegate(), WatchUi.SLIDE_UP);
+		WatchUi.pushView(menu, new SmokeSettingsInputDelegate(), WatchUi.SLIDE_UP);
 	}
 	    
     (:btle)
@@ -124,7 +124,7 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
    	
    	function onBack() {
    		_app.controller.smokeSettingsChanged.reset();
-		WatchUi.switchToView(new WelcomeView(), new WelcomeDelegate(), WatchUi.SLIDE_DOWN);
+		WatchUi.switchToView(new WelcomeView(), new WelcomeDelegate(_app), WatchUi.SLIDE_DOWN);
    		return true;
    	}
     

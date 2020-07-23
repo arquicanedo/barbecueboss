@@ -1,4 +1,4 @@
-using Toybox;
+/*using Toybox;
 
 class FlipMenu extends Toybox.WatchUi.Menu {
 
@@ -19,4 +19,4 @@ class FlipMenu extends Toybox.WatchUi.Menu {
 		//self.addItem(Rez.Strings.menu_label_custom, :flipMenuCustom);
 		
 	}
-}
+}*/

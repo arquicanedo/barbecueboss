@@ -31,8 +31,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		// The Food Type menu should be visible only when the timer is not initialized.
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		if (selectedSteak.getStatus() != Controller.INIT) {
-			WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);	
-			//WatchUi.pushView(new TotalTimeMenu(), new TotalTimeMenuDelegate(), WatchUi.SLIDE_UP);	
+			WatchUi.pushView(createTimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);	
 		}
 		else {
 			// We need a way to reuse these food types
@@ -42,7 +41,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 			//the user is changing items in the list
 			var foodIcons = self.getFoodIconsForDevice();	
 			var typeOfSteak = app.controller.getLastFoodType(app.controller.getSelectedSteak());
-			var bp = new BitmapPicker(foodIcons, typeOfSteak);
+			var bp = new BitmapPicker(self.app, foodIcons, typeOfSteak);
 			var bpd = new BitmapPickerCallbackDelegate(bp);
 			bpd.callbackMethod = method(:onBitmapPickerSelected);
 			WatchUi.pushView(bp, bpd, WatchUi.SLIDE_UP);
@@ -51,6 +50,20 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		return true;
 	}
 	
+	function createTimeSelectionMenu() {
+		var menu = new WatchUi.Menu();
+		menu.setTitle("Action?");
+		
+		// The Stop button should be visible only when the steak is running.
+		var selectedSteak = (self.app.controller.getSteaks())[self.app.controller.getSelectedSteak()];
+		if (selectedSteak.getStatus() != Controller.INIT) {
+			// Order matters. I think flip may be more common if you are using a total time
+			menu.addItem("Flip", :timerMenuFlip);
+			menu.addItem(Rez.Strings.menu_label_stop, :timerMenuStop);
+		}
+		
+		return menu;
+	}
 	
 	function getFoodIconsForDevice() {
 		var size = WatchUi.loadResource(Rez.Strings.bitmap_picker_icon_size);
@@ -99,7 +112,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 				break;
 			
 			case "EXTRA_LARGE":
-				return [
+				return [];
+				/*return Rez.Drawables has :BurgerIconExtraLarge ? [
 						Rez.Drawables.BurgerIconExtraLarge,
 						Rez.Drawables.BakeIconExtraLarge,
 						Rez.Drawables.ChickenIconExtraLarge,
@@ -108,11 +122,12 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 						Rez.Drawables.BeefIconExtraLarge,
 						Rez.Drawables.DrinkIconExtraLarge,
 						Rez.Drawables.SmokeIconExtraLarge
-					   ];			
+					   ] : [];*/			
 				break;		
 		}
 		
-		return [
+		return [];
+		/*return Rez.Drawables has :BurgerIconLarge ? [
 				Rez.Drawables.BurgerIconLarge,
 				Rez.Drawables.BakeIconLarge,
 				Rez.Drawables.ChickenIconLarge,
@@ -121,8 +136,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 				Rez.Drawables.BeefIconLarge,
 				Rez.Drawables.DrinkIconLarge,
 				Rez.Drawables.SmokeIconLarge
-				];
-		
+				] : [];
+		*/
 	}
 	
 	function onBitmapPickerSelected(selection) {
@@ -138,11 +153,18 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 
 		WatchUi.popView(WatchUi.SLIDE_DOWN);
         
-        //WatchUi.pushView(new TimeSelectionMenu(), new TimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);		
-		//WatchUi.pushView(new TotalTimeMenu(), new TotalTimeMenuDelegate(), WatchUi.SLIDE_UP);	
-		WatchUi.pushView(new CookingMenu(), new CookingMenuDelegate(), WatchUi.SLIDE_UP);	
+		WatchUi.pushView(createCookingMenu(), new CookingMenuDelegate(), WatchUi.SLIDE_UP);
 	}
 	
+	function createCookingMenu() {
+		var menu = new WatchUi.Menu();
+		
+		menu.setTitle("Mode?");
+		menu.addItem("Searing (Flip)", :cookingMenuSearing);
+		menu.addItem("Total Time", :cookingMenuTotalTime);
+	
+		return menu;
+	}
 	
 	// Detect Menu button input
     function onKey(keyEvent) {

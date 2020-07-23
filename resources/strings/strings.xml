@@ -1,7 +1,6 @@
 <strings>
     <string id="AppName">Barbecue Boss</string>
 
-    <string id="prompt">Barbecue Boss</string>
 	<string id="menu_timer_title">Flip Time</string>
 	<string id="menu_label_stop">Stop</string>
     <string id="menu_label_1">1 min</string>
