@@ -17,6 +17,7 @@ class Controller {
 	hidden static var FOOD_TYPE_KEY = "type";
 	hidden static var FOOD_TIME_KEY = "time";
 	hidden static var TOTAL_TIME_KEY = "total";
+	hidden static var FLIPS_KEY = "flips";
 	
 	//settings for devices with bluetooth support
 	(:btle)hidden static var MEAT_PROBE_ENABLED_KEY = "meatProbeEnabled";
@@ -492,8 +493,6 @@ class Controller {
 
 	function decideCancellation() {
 		var i = self.getSelectedSteak();
-		//System.println("Deciding Cancellation on steak");
-		//System.println(i);
 	}
 	
 	function nextSteak() {
@@ -580,12 +579,12 @@ class Controller {
     }
 
     function getLastFlips(i) {
-    	var key = "Flips" + i;
+    	var key = FLIPS_KEY + i;
     	return self.storage.getValue(key);
     }
     
     function setLastFlips(i, flips) {
-    	var key = "Flips" + i;
+    	var key = FLIPS_KEY + i;
     	self.storage.setValue(key, flips);
     }
 
