@@ -77,7 +77,7 @@ fenix5splus.excludeAnnotations = ciq1
 fenix5xplus.excludeAnnotations = ciq1
 
 fenix6.excludeAnnotations = ciq1
-fenix6pro.excludeAnnotations = ciq1
+#fenix6pro.excludeAnnotations = ciq1
 fenix6s.excludeAnnotations = ciq1
 fenix6xpro.excludeAnnotations = ciq1
 
