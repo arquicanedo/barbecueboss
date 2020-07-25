@@ -1,5 +1,5 @@
 <layout id="SmokeLayout">
-	<label id="menuIcon" x="center" y="20" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_menu"/>
+	<label id="menuIcon" x="187" y="top" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_menu"/>
 	<drawable id="upperTemp" class="ProbeTempDrawable">
 		<param name="x">60</param>
 		<param name="y">50</param>
