@@ -1,4 +1,5 @@
 <layout id="WelcomeLayout">
     <label x="center" y="240" text="@Strings.AppName" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="menuIcon" x="330" y="100" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_menu"/>
     <label x="187" y="top" text="@Strings.glyph_2_down" font="@Fonts.FONT_GLYPH2_SMALL"/>
 </layout>
