@@ -10,6 +10,7 @@ epix.excludeAnnotations = btle;ciq3
 
 d2bravo.excludeAnnotations = btle;ciq3
 d2bravo_titanium.excludeAnnotations = btle;ciq3
+d2charlie.excludeAnnotations = btle;ciq3
 
 fenix3.excludeAnnotations = btle;ciq3
 fenix3_hr.excludeAnnotations = btle;ciq3
