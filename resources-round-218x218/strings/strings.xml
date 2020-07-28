@@ -1,8 +1,8 @@
 <strings>
-    <string id="maxSteaks">6</string>
+    <string id="maxSteaks">5</string>
     
     <!-- BitmapPicker icon size to use for this particular device-->
-    <string id="bitmap_picker_icon_size">LARGE</string>
+    <string id="bitmap_picker_icon_size">MEDIUM</string>
 	<string id="settings_activity">Activity</string>
 
 	<string id="smoker_checks_icon_size">LARGE</string>

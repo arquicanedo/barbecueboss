@@ -128,11 +128,17 @@ class SmokeView extends WatchUi.View {
 				break;
 			
 			case "EXTRA_LARGE":
-				return {
-						"Water" => Rez.Drawables.H2OIconExtraLarge,
-						"Smoke" => Rez.Drawables.CO2IconExtraLarge,
-						"Temp" => Rez.Drawables.TempIconExtraLarge,
-					   };
+				if(Rez.Drawables has :H2OIconExtraLarge &&
+					Rez.Drawables has :CO2IconExtraLarge &&
+					Rez.Drawables has :TempIconExtraLarge ) {
+					return {
+							"Water" => Rez.Drawables.H2OIconExtraLarge,
+							"Smoke" => Rez.Drawables.CO2IconExtraLarge,
+							"Temp" => Rez.Drawables.TempIconExtraLarge,
+						   };
+				}
+				
+				return {};
 				break;		
 		}
 	}
