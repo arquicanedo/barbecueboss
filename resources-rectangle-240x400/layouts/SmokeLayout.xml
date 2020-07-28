@@ -1,0 +1,26 @@
+<layout id="SmokeLayout">
+	<label id="menuIcon" x="212" y="338" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_menu"/>
+	<drawable id="smokeList" class="ListDrawable">
+		<param name="titleX">"center"</param>
+		<param name="titleY">"top"</param>
+		<param name="itemOriginX">40</param>
+		<param name="itemOriginY">100</param>
+		<!--<param name="flipOriginX">185</param> -->
+		<param name="targetOriginX">86</param>
+		<param name="selectorOriginX">40</param>
+		<param name="listItemOffsetY">100</param>
+		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
+		<param name="font">Graphics.FONT_MEDIUM</param>
+		<param name="itemColor">Graphics.COLOR_WHITE</param>
+		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
+		<param name="iconOffsetY">0</param>
+		<param name="iconSize">SteakListItem.LARGE</param>
+		<param name="hasFlip">false</param>
+		<param name="hasFlame">false</param>
+		<param name="isSmoking">true</param>
+		<!--<param name="gpsX">70</param>
+		<param name="gpsY">230</param>
+		<param name="activityX">90</param>
+		<param name="activityY">230</param> -->
+	</drawable>
+</layout>
