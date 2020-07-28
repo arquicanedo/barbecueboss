@@ -1,15 +1,15 @@
 <layout id="SmokeLayout">
-	<label id="menuIcon" x="5" y="135" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_menu"/>
+	<label id="menuIcon" x="2" y="100" font="@Fonts.FONT_GLYPH1_SMALL" text="@Strings.glyph_1_menu"/>
 	<drawable id="smokeList" class="ListDrawable">
 		<param name="itemOriginX">40</param>
-		<param name="itemOriginY">120</param>
-		<param name="targetOriginX">110</param>
-		<param name="listItemOffsetY">150</param>
+		<param name="itemOriginY">90</param>
+		<param name="targetOriginX">90</param>
+		<param name="listItemOffsetY">80</param>
 		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
 		<param name="font">Graphics.FONT_MEDIUM</param>
 		<param name="itemColor">Graphics.COLOR_WHITE</param>
-		<param name="iconOffsetY">-15</param>
-		<param name="iconSize">SteakListItem.EXTRA_LARGE</param>
+		<param name="iconOffsetY">-5</param>
+		<param name="iconSize">SteakListItem.LARGE</param>
 		<param name="hasFlip">false</param>
 		<param name="hasFlame">false</param>
 	</drawable>
