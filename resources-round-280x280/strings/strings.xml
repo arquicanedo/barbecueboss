@@ -5,12 +5,4 @@
     <string id="bitmap_picker_icon_size">EXTRA_LARGE</string>
 	
 	<string id="tenergy_scan_menu_title">Scanning</string>
-	
-	<string id="smoker_checks_icon_size">LARGE</string>
-	<string id="smoker_water_check_x">130</string>
-	<string id="smoker_water_check_y">170</string>
-	<string id="smoker_smoke_check_x">130</string>
-	<string id="smoker_smoke_check_y">75</string>
-	<string id="smoker_temp_check_x">200</string>
-	<string id="smoker_temp_check_y">125</string>
 </strings>

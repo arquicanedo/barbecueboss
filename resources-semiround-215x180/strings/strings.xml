@@ -1,12 +1,5 @@
 <strings>
 	<string id="maxSteaks">6</string>
 	<!-- BitmapPicker icon size to use for this particular device-->
-    <string id="bitmap_picker_icon_size">EXTRA_LARGE</string>
-	<string id="smoker_checks_icon_size">LARGE</string>
-	<string id="smoker_water_check_x">95</string>
-	<string id="smoker_water_check_y">120</string>
-	<string id="smoker_smoke_check_x">95</string>
-	<string id="smoker_smoke_check_y">50</string>
-	<string id="smoker_temp_check_x">145</string>
-	<string id="smoker_temp_check_y">85</string>					
+    <string id="bitmap_picker_icon_size">EXTRA_LARGE</string>					
 </strings>

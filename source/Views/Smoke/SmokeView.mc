@@ -8,6 +8,11 @@ class SmokeView extends WatchUi.View {
 	hidden var _dueTime;
 	hidden var _app;
 	
+	// Very basic behavior now. These trigger only once.
+	hidden var _smokeCheckTriggered = false;
+	hidden var _waterCheckTriggered = false;
+	hidden var _tempCheckTriggered = false;
+	
 	function initialize(app) {
 		View.initialize();
 		
@@ -65,83 +70,29 @@ class SmokeView extends WatchUi.View {
 			_dummyItem.getSteak().setTimeout(diff);
 		}
 		
-		
-		var checksIcons = self.getSmokerChecksIconsForDevice();
-		var alarmDuration = 2 * 60;
-		
-		
-		// Enforce Smoke Checks
-    	if (diff <= _app.controller.getWaterCheckTime() && diff >= (_app.controller.getWaterCheckTime() - alarmDuration)) {
-    		var bitmap = new WatchUi.Bitmap({
-			    :rezId => checksIcons["Water"],
-			    :locX => WatchUi.loadResource(Rez.Strings.smoker_water_check_x).toNumber(), 
-			    :locY => WatchUi.loadResource(Rez.Strings.smoker_water_check_y).toNumber()
-			});
-			bitmap.draw(dc);
-    	}
-    	if (diff <= _app.controller.getSmokeCheckTime() && diff >= (_app.controller.getSmokeCheckTime() - alarmDuration)) {
-    		var bitmap = new WatchUi.Bitmap({
-			    :rezId => checksIcons["Smoke"],
-			    :locX => WatchUi.loadResource(Rez.Strings.smoker_smoke_check_x).toNumber(), 
-			    :locY => WatchUi.loadResource(Rez.Strings.smoker_smoke_check_y).toNumber()
-			});
-			bitmap.draw(dc);
-    	}
-    	if (diff <= _app.controller.getTempCheckTime() && diff >= (_app.controller.getTempCheckTime() - alarmDuration)) {
-    		var bitmap = new WatchUi.Bitmap({
-			    :rezId => checksIcons["Temp"],
-			    :locX => WatchUi.loadResource(Rez.Strings.smoker_temp_check_x).toNumber(), 
-			    :locY => WatchUi.loadResource(Rez.Strings.smoker_temp_check_y).toNumber()
-			});
-			bitmap.draw(dc);
-    	}
+		self.smokeCheckWarning(diff);
+
     	
 	}
 	
-	
-	function getSmokerChecksIconsForDevice() {
-		var size = WatchUi.loadResource(Rez.Strings.smoker_checks_icon_size);
+	function smokeCheckWarning(diff) {
+    	if (diff <= _app.controller.getWaterCheckTime() && false == self._waterCheckTriggered) {
+			self._waterCheckTriggered = true;
+			Toybox.WatchUi.pushView(new SmokeCheckView("Water"), new SmokeCheckViewDelegate(), WatchUi.SLIDE_UP);	
+    	}
+    	if (diff <= _app.controller.getSmokeCheckTime() && false == self._smokeCheckTriggered) {
+			self._smokeCheckTriggered = true;
+			Toybox.WatchUi.pushView(new SmokeCheckView("Smoke"), new SmokeCheckViewDelegate(), WatchUi.SLIDE_UP);
+    	}
+    	if (diff <= _app.controller.getTempCheckTime() && false == self._tempCheckTriggered) {
+    		self._tempCheckTriggered = true;
+			Toybox.WatchUi.pushView(new SmokeCheckView("Temp"), new SmokeCheckViewDelegate(), WatchUi.SLIDE_UP);
 
-		switch(size) {
-			case "SMALL":
-				return {
-					"Water" => Rez.Drawables.H2OIconSmall,
-					"Smoke" => Rez.Drawables.CO2IconSmall,
-					"Temp" => Rez.Drawables.TempIconSmall,
-					};
-				break;
-				
-			case "MEDIUM":
-				return {
-					"Water" => Rez.Drawables.H2OIconMedium,
-					"Smoke" => Rez.Drawables.CO2IconMedium,
-					"Temp" => Rez.Drawables.TempIconMedium,
-					};
-				break;
-				
-			case "LARGE":
-				return {
-					"Water" => Rez.Drawables.H2OIconLarge,
-					"Smoke" => Rez.Drawables.CO2IconLarge,
-					"Temp" => Rez.Drawables.TempIconLarge,
-					};
-				break;
-			
-			case "EXTRA_LARGE":
-				if(Rez.Drawables has :H2OIconExtraLarge &&
-					Rez.Drawables has :CO2IconExtraLarge &&
-					Rez.Drawables has :TempIconExtraLarge ) {
-					return {
-							"Water" => Rez.Drawables.H2OIconExtraLarge,
-							"Smoke" => Rez.Drawables.CO2IconExtraLarge,
-							"Temp" => Rez.Drawables.TempIconExtraLarge,
-						   };
-				}
-				
-				return {};
-				break;		
-		}
+    	}
+	    System.println(Lang.format("ALARM UPDATE [$1$, $2$, $3$]", [self._waterCheckTriggered, self._smokeCheckTriggered, self._tempCheckTriggered]));
 	}
+	
+
 	
 	(:btle)
 	function initializeBluetooth() {
