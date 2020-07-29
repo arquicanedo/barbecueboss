@@ -43,7 +43,7 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
 			_menu.updateItem(_smokeCheck, 1);
 			
 			_tempCheck.setSubLabel((_app.controller.getTempCheckTime() / 60).toString() + " min.");
-			_menu.updateItem(_tempCheck, 1);
+			_menu.updateItem(_tempCheck, 2);
 		}
 		
 	}
