@@ -6,9 +6,9 @@ class UnboundedTimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 
 	hidden var app;
 
-    function initialize() {
+    function initialize(app) {
         MenuInputDelegate.initialize();
-        self.app = Application.getApp();
+        self.app = app;
     }
 
 	//onMenuItem is for MenuDelegate
@@ -19,15 +19,12 @@ class UnboundedTimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 	//this is the new method for Menu2Delegate which can't be supported until there's some kind of #ifdef available for the build
 	//or a dynamic way of determining at runtime if it's supported without blowing up or failing to compile
     function onSelect(item) {
-    
-    	//var id = item.getId();
-    	var id = item;
     	var timeout = 1;
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		
     	//System.println("Selected timer menu item: " + id.toString());
 
-		if(id == :timerMenuStop) {
+		if(item == :timerMenuStop) {
 			// Reset steakEntry
 			selectedSteak.setTimeout(0);
 			selectedSteak.setStatus(Controller.INIT);	
@@ -35,22 +32,22 @@ class UnboundedTimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 			return;
 		}
 		
-        if(id == :timerMenu1) {
+        if(item == :timerMenu1) {
 			timeout = 1;
 	    }
-	    else if(id == :timerMenu2) {
+	    else if(item == :timerMenu2) {
 			timeout = 2;
 	    }
-	    else if(id == :timerMenu3) {
+	    else if(item == :timerMenu3) {
 			timeout = 3;
 	    }
-	    else if(id == :timerMenu4) {
+	    else if(item == :timerMenu4) {
 			timeout = 4;
 	    }
-	    else if(id == :timerMenu5) {
+	    else if(item == :timerMenu5) {
 			timeout = 5;
 	    } 
-	    else if(id == :timerMenuLast) {
+	    else if(item == :timerMenuLast) {
 	    	var lastTimeout = app.controller.getLastTimeout(app.controller.getSelectedSteak());
 			selectedSteak.setTimePerFlip(lastTimeout);
 			selectedSteak.setTimeout(selectedSteak.getTimePerFlip());
@@ -59,7 +56,7 @@ class UnboundedTimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 			app.controller.decideSelection();
 			return;
 	    }
-	    else if(id == :timerMenuCustom) {
+	    else if(item == :timerMenuCustom) {
 	    	timeout = -1;
 	    }
 
@@ -77,12 +74,7 @@ class UnboundedTimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 			app.controller.decideSelection();
 		}
     }
-    
-    
-    function timerCooking() {
-		Toybox.System.println("Cooking timer....");
-	}
-	
+
 	
 	function onPickerSelected(values){
 		//System.println(values);

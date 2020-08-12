@@ -60,7 +60,6 @@ class Controller {
 	// Data Store
 	public var storage;
 	
-	hidden var _smoking = false;
 	
 	// This is a hack. I don't know how to do it properly because the BitMapFactory returns the bitmap but I need the index
 	public var lastSelectedFoodType = null;
@@ -549,43 +548,35 @@ class Controller {
     }
     
     function getLastFoodType(i) {
-    	var key = FOOD_TYPE_KEY + i;
-    	return self.storage.getValue(key);
+    	return self.storage.getValue(FOOD_TYPE_KEY + i);
     }
     
     function setLastFoodType(i, foodType) {
-    	var key = FOOD_TYPE_KEY + i;
-    	self.storage.setValue(key, foodType);
+    	self.storage.setValue(FOOD_TYPE_KEY + i, foodType);
     }
     
     function getLastTimeout(i) {
-    	var key = FOOD_TIME_KEY + i;
-    	return self.storage.getValue(key);
+    	return self.storage.getValue(FOOD_TIME_KEY + i);
     }
     
     function setLastTimeout(i, timeout) {
-    	var key = FOOD_TIME_KEY + i;
-    	self.storage.setValue(key, timeout);
+    	self.storage.setValue(FOOD_TIME_KEY + i, timeout);
     }
     
     function getLastTotalTime(i) {
-    	var key = TOTAL_TIME_KEY + i;
-    	return self.storage.getValue(key);
+    	return self.storage.getValue(TOTAL_TIME_KEY + i);
     }
     
     function setLastTotalTime(i, time) {
-    	var key = TOTAL_TIME_KEY + i;
-    	self.storage.setValue(key, time);
+    	self.storage.setValue(TOTAL_TIME_KEY + i, time);
     }
 
     function getLastFlips(i) {
-    	var key = FLIPS_KEY + i;
-    	return self.storage.getValue(key);
+    	return self.storage.getValue(FLIPS_KEY + i);
     }
     
     function setLastFlips(i, flips) {
-    	var key = FLIPS_KEY + i;
-    	self.storage.setValue(key, flips);
+    	self.storage.setValue(FLIPS_KEY + i, flips);
     }
 
     function getTimeOfDay() {

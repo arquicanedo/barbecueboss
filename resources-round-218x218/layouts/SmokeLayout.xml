@@ -14,7 +14,7 @@
 		<param name="itemColor">Graphics.COLOR_WHITE</param>
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
 		<param name="iconOffsetY">0</param>
-		<param name="iconSize">SteakListItem.LARGE</param>
+		<param name="iconSize">SteakListItem.SMALL</param>
 		<param name="hasFlip">false</param>
 		<param name="hasFlame">false</param>
 		<param name="isSmoking">true</param>

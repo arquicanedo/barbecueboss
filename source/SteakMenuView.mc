@@ -20,10 +20,10 @@ class SteakMenuView extends WatchUi.View {
 	hidden var _etaY;
 	hidden var _timeProgressBar;
 	
-    function initialize() {
+    function initialize(app) {
         View.initialize();
         
-        _app = Application.getApp();	
+        _app = app;	
     }
 
 	function dispose() {

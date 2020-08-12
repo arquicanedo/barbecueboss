@@ -33,7 +33,7 @@ class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 		// Flip and set timeout to the elapsed time when the flip occurred
 		if (item == :timerMenuFlip) {
 			selectedSteak.setCurrentFlip(selectedSteak.getCurrentFlip()+1);
-			System.println(Lang.format("The setTimeout = $1$ and the elapsedTimeout = $2$", [selectedSteak.getTimePerFlip(), selectedSteak.getTimeout()])); 
+			//System.println(Lang.format("The setTimeout = $1$ and the elapsedTimeout = $2$", [selectedSteak.getTimePerFlip(), selectedSteak.getTimeout()])); 
 			selectedSteak.setTimePerFlip(selectedSteak.getTimeout());
 		}
 	}

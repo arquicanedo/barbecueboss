@@ -61,7 +61,7 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     }
     
    	function onSelect() {
-		Toybox.WatchUi.switchToView(new SteakMenuView(), new SteakMenuDelegate(), WatchUi.SLIDE_UP);
+		Toybox.WatchUi.switchToView(new SteakMenuView(self.app), new SteakMenuDelegate(self.app), WatchUi.SLIDE_UP);
 		return true;
 	}
 	
@@ -78,7 +78,6 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     }
    	
    	function onBack() {
-		var app = Application.getApp();
 		// Save menu prompted if activity is enabled and there is at least one steak that has been initialized
 		if(app.controller.getActivityEnabled() && app.controller.steaksInitialized()) {
 			self.promptSaveSession();
@@ -109,8 +108,6 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     //this is how we want to handle responses from the confirmation view when we're deciding if we want to save/discard the activity
     //etc.
     function onSaveConfirm(response) {
-    	
-    	var app = Application.getApp();
     	 
     	if(response == WatchUi.CONFIRM_YES) {
     		app.controller.recordingStop();

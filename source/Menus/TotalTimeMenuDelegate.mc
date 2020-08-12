@@ -7,9 +7,9 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 
 	hidden var app;
 
-    function initialize() {
+    function initialize(app) {
         MenuInputDelegate.initialize();
-        self.app = Application.getApp();
+        self.app = app;
     }
 
 	//onMenuItem is for MenuDelegate
@@ -20,14 +20,12 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 	//this is the new method for Menu2Delegate which can't be supported until there's some kind of #ifdef available for the build
 	//or a dynamic way of determining at runtime if it's supported without blowing up or failing to compile
     function onSelect(item) {
-    
-    	var id = item;
     	var totalTime = 0;
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		
 		
 		// Quickmenu
-		if(id == :totalTimeMenuLast) {
+		if(item == :totalTimeMenuLast) {
 			var lastTotalTime = app.controller.getLastTotalTime(app.controller.getSelectedSteak());
 			var lastFlips = app.controller.getLastFlips(app.controller.getSelectedSteak());
 			selectedSteak.setTotalTime(lastTotalTime);
@@ -39,19 +37,19 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 			return;
 		}
 				
-        if(id == :totalTimeMenu4) {
+        if(item == :totalTimeMenu4) {
 			totalTime = 4;
 	    }
-        if(id == :totalTimeMenu8) {
+        if(item == :totalTimeMenu8) {
 			totalTime = 8;
 	    }
-	    else if(id == :totalTimeMenu10) {
+	    else if(item == :totalTimeMenu10) {
 			totalTime = 10;
 	    }
-	    else if(id == :totalTimeMenu12) {
+	    else if(item == :totalTimeMenu12) {
 			totalTime = 12;
 	    }
-	    else if(id == :totalTimeMenuCustom) {
+	    else if(item == :totalTimeMenuCustom) {
 	    	totalTime = -1;
 	    }
 
@@ -61,7 +59,7 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 			pickerDelegate.callbackMethod = method(:onPickerSelected);
 
 			// This is a weird behavior. I could not find a valid combination with popView, pushView. This seems to be the way to do it.
-			WatchUi.switchToView(createFlipMenu(), new FlipMenuDelegate(), WatchUi.SLIDE_UP);
+			WatchUi.switchToView(createFlipMenu(), new FlipMenuDelegate(self.app), WatchUi.SLIDE_UP);
 			WatchUi.pushView(new DurationPicker(DurationPicker.MMSS), pickerDelegate, WatchUi.SLIDE_UP);
 
 		}

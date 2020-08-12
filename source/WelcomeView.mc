@@ -4,8 +4,7 @@ using Toybox.System;
 
 
 class WelcomeView extends WatchUi.View {
-	
-	hidden var timer;
+
 	hidden var logoImage;
 	hidden var logoX;
 	hidden var logoY;

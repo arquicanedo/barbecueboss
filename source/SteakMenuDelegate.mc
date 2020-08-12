@@ -11,8 +11,8 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	hidden var isTouchScreen = false;
 	hidden var screenShape = System.SCREEN_SHAPE_SEMI_ROUND;
 
-    function initialize() {
-        app = Application.getApp();
+    function initialize(app) {
+        self.app = app;
         BehaviorDelegate.initialize();
         
         var deviceSettings = System.getDeviceSettings();

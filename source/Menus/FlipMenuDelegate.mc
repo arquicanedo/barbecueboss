@@ -7,28 +7,27 @@ class FlipMenuDelegate extends WatchUi.MenuInputDelegate {
 
 	hidden var app;
 
-    function initialize() {
+    function initialize(app) {
         MenuInputDelegate.initialize();
-        self.app = Application.getApp();
+        self.app = app;
     }
 
 	//onMenuItem is for MenuDelegate
 	function onMenuItem(item){
 
-    	var id = item;
     	var flips = 2;
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		
-        if(id == :flipMenu2) {
+        if(item == :flipMenu2) {
 			flips = 2;
 	    }
-	    else if(id == :flipMenu4) {
+	    else if(item == :flipMenu4) {
 			flips = 4;
 	    }
-	    else if(id == :flipMenu6) {
+	    else if(item == :flipMenu6) {
 			flips = 6;
 	    }
-	    else if(id == :flipMenu8) {
+	    else if(item == :flipMenu8) {
 			flips = 8;
 	    }
 		

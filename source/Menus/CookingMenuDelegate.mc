@@ -21,12 +21,12 @@ class CookingMenuDelegate extends WatchUi.MenuInputDelegate {
         if(item == :cookingMenuSearing) {
 			WatchUi.popView(WatchUi.SLIDE_DOWN);
 			//WatchUi.pushView(new UnboundedTimeSelectionMenu(), new UnboundedTimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);
-			WatchUi.pushView(createUnboundedTimeMenu(), new UnboundedTimeSelectionMenuDelegate(), WatchUi.SLIDE_UP);
+			WatchUi.pushView(createUnboundedTimeMenu(), new UnboundedTimeSelectionMenuDelegate(self._app), WatchUi.SLIDE_UP);
 	    }
 	    else if(item == :cookingMenuTotalTime) {
 			WatchUi.popView(WatchUi.SLIDE_DOWN);
 			//WatchUi.pushView(new TotalTimeMenu(), new TotalTimeMenuDelegate(), WatchUi.SLIDE_UP);
-			WatchUi.pushView(createTotalTimeMenu(), new TotalTimeMenuDelegate(), WatchUi.SLIDE_UP);
+			WatchUi.pushView(createTotalTimeMenu(), new TotalTimeMenuDelegate(self._app), WatchUi.SLIDE_UP);
 	    }		
     }
     
