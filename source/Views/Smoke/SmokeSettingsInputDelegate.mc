@@ -154,16 +154,19 @@ class SmokeSettingsInputDelegate extends WatchUi.MenuInputDelegate {
 	function onTempCheckPicked(time) {
 		var timeout = ((time[0] * 60 * 60) + (time[2] * 60));
 		_app.controller.setTempCheckTime(timeout);
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}
 	 
 	function onSmokeCheckPicked(time) {
 		var timeout = ((time[0] * 60 * 60) + (time[2] * 60));
 		_app.controller.setSmokeCheckTime(timeout);
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}
 	
 	function onWaterCheckPicked(time){
 		var timeout = ((time[0] * 60 * 60) + (time[2] * 60));
 		_app.controller.setWaterCheckTime(timeout);
+		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}
 	
 }
