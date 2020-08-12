@@ -57,9 +57,8 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 		if(totalTime == -1) {
 			var pickerDelegate = new DurationPickerCallbackDelegate();
 			pickerDelegate.callbackMethod = method(:onPickerSelected);
-
-			// This is a weird behavior. I could not find a valid combination with popView, pushView. This seems to be the way to do it.
-			WatchUi.switchToView(createFlipMenu(), new FlipMenuDelegate(self.app), WatchUi.SLIDE_UP);
+			
+			WatchUi.popView(WatchUi.SLIDE_DOWN);
 			WatchUi.pushView(new DurationPicker(DurationPicker.MMSS), pickerDelegate, WatchUi.SLIDE_UP);
 
 		}
@@ -93,10 +92,11 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 
 		selectedSteak.setTotalTime(totalTime);
 		app.controller.setLastTotalTime(app.controller.getSelectedSteak(), totalTime); 
-			
-		//WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+
+		WatchUi.popView(WatchUi.SLIDE_DOWN);
+		WatchUi.pushView(createFlipMenu(), new FlipMenuDelegate(self.app), WatchUi.SLIDE_UP);
 	}
 	
 
-	
 }
+

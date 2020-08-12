@@ -32,17 +32,11 @@ class UnboundedTimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 			return;
 		}
 		
-        if(item == :timerMenu1) {
-			timeout = 1;
-	    }
-	    else if(item == :timerMenu2) {
+ 		if(item == :timerMenu2) {
 			timeout = 2;
 	    }
 	    else if(item == :timerMenu3) {
 			timeout = 3;
-	    }
-	    else if(item == :timerMenu4) {
-			timeout = 4;
 	    }
 	    else if(item == :timerMenu5) {
 			timeout = 5;
@@ -63,7 +57,8 @@ class UnboundedTimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 		//custom timeout, show the picker
 		if(timeout == -1) {
 			var pickerDelegate = new DurationPickerCallbackDelegate();
-			pickerDelegate.callbackMethod = method(:onPickerSelected);
+			pickerDelegate.callbackMethod = method(:onUnboundedPickerSelected);
+			WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 			WatchUi.pushView(new DurationPicker(DurationPicker.MMSS), pickerDelegate, WatchUi.SLIDE_UP);
 		}
 		else {
@@ -76,7 +71,7 @@ class UnboundedTimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
     }
 
 	
-	function onPickerSelected(values){
+	function onUnboundedPickerSelected(values){
 		//System.println(values);
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		var timeout = ((values[0] * 60) + values[2]);

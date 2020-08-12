@@ -162,9 +162,9 @@ class DurationPickerCallbackDelegate extends WatchUi.PickerDelegate {
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
     }
 
+	// The callback should be responsible for deciding what to do with the views
     function onAccept(values) {
-        //var time = values[0] + WatchUi.loadResource(Rez.Strings.timeSeparator) + values[2].format(DURATION_MINUTE_FORMAT);
         self.callbackMethod.invoke(values);
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
+        //WatchUi.popView(WatchUi.SLIDE_DOWN);
 	}
 }

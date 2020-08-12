@@ -138,6 +138,7 @@ class SmokeViewDelegate extends WatchUi.BehaviorDelegate {
     	System.println(time);
     	var dueTime = Time.now().add(new Time.Duration((time[0] * (60*60)) + (time[2]*60)));
     	_app.controller.startSmoker(dueTime);
+    	WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
     }
     
     function onSelect() {
