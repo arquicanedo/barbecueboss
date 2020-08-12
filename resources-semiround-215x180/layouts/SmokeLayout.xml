@@ -12,5 +12,6 @@
 		<param name="iconSize">SteakListItem.LARGE</param>
 		<param name="hasFlip">false</param>
 		<param name="hasFlame">false</param>
+		<param name="isSmoking">true</param>		
 	</drawable>
 </layout>
