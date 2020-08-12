@@ -127,6 +127,7 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 		return true;
     }
     
+    (:smoke)
     function onNextPage() {
     	WatchUi.switchToView(new SmokeView(self.app), new SmokeViewDelegate(self.app), WatchUi.SLIDE_UP);
     }

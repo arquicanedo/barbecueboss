@@ -67,7 +67,7 @@ class TotalTimeMenuDelegate extends WatchUi.MenuInputDelegate {
 			selectedSteak.setTotalTime(totalTime * 60);
 			app.controller.setLastTotalTime(app.controller.getSelectedSteak(), totalTime*60);
 			WatchUi.popView(WatchUi.SLIDE_DOWN);
-			WatchUi.pushView(createFlipMenu(), new FlipMenuDelegate(), WatchUi.SLIDE_UP);
+			WatchUi.pushView(createFlipMenu(), new FlipMenuDelegate(self.app), WatchUi.SLIDE_UP);
 		}
     }
     

@@ -1,8 +1,8 @@
+/*
 using Toybox.WatchUi;
 using Toybox.System;
 using Toybox.Application;
 
-/*
 class StringPickerDelegate extends WatchUi.PickerDelegate {
     hidden var mPicker;
 

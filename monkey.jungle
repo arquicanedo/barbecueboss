@@ -6,21 +6,21 @@ base.sourcePath = source;ext/tenergy/lib/ciq-tenergy-solis-barrel
 
 #low-mem / CIQ1 devices
 
-epix.excludeAnnotations = btle;ciq3
+epix.excludeAnnotations = btle;ciq3;smoke
 
-d2bravo.excludeAnnotations = btle;ciq3
-d2bravo_titanium.excludeAnnotations = btle;ciq3
-d2charlie.excludeAnnotations = btle;ciq3
+d2bravo.excludeAnnotations = btle;ciq3;smoke
+d2bravo_titanium.excludeAnnotations = btle;ciq3;smoke
+d2charlie.excludeAnnotations = btle;ciq3;smoke 
 
-fenix3.excludeAnnotations = btle;ciq3
-fenix3_hr.excludeAnnotations = btle;ciq3
+fenix3.excludeAnnotations = btle;ciq3;smoke;smoke
+fenix3_hr.excludeAnnotations = btle;ciq3;smoke;smoke
 
-fr230.excludeAnnotations = btle;ciq3
-fr235.excludeAnnotations = btle;ciq3
-fr630.excludeAnnotations = btle;ciq3
-fr920xt.excludeAnnotations = btle;ciq3
+fr230.excludeAnnotations = btle;ciq3;smoke
+fr235.excludeAnnotations = btle;ciq3;smoke
+fr630.excludeAnnotations = btle;ciq3;smoke
+fr920xt.excludeAnnotations = btle;ciq3;smoke
 
-vivoactive.excludeAnnotations = btle;ciq3
+vivoactive.excludeAnnotations = btle;ciq3;smoke
 
 #CIQ2 devices
 
