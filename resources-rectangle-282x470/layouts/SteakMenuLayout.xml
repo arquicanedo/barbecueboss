@@ -3,9 +3,9 @@
 		<param name="titleX">"center"</param>
 		<param name="titleY">"top"</param>
 		<param name="itemOriginX">25</param>
-		<param name="itemOriginY">10</param>
-		<param name="flipOriginX">120</param>
-		<param name="targetOriginX">185</param>
+		<param name="itemOriginY">25</param>
+		<param name="flipOriginX">215</param>
+		<param name="targetOriginX">118</param>
 		<param name="selectorOriginX">10</param>
 		<param name="listItemOffsetY">25</param>
 		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
@@ -18,6 +18,8 @@
 		<param name="gpsY">380</param>
 		<param name="activityX">70</param>
 		<param name="activityY">380</param>
+		<param name="progressBarY">10</param>
+		<param name="etaY">0</param>
 	</drawable>
 	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="380" x="center"/>
 	<label id="timeLabel" x="210" y="375" font="Graphics.FONT_TINY" text="" color="Graphics.COLOR_WHITE" />
