@@ -1,5 +1,5 @@
 <strings>
-	<string id="maxSteaks">8</string>
+	<string id="maxSteaks">7</string>
 	
 	<!-- BitmapPicker icon size to use for this particular device-->
     <string id="bitmap_picker_icon_size">LARGE</string>

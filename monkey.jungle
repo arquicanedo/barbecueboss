@@ -47,6 +47,7 @@ edge130.excludeAnnotations = btle
 edge130plus.excludeAnnotations = btle
 edge1030bontrager.excludeAnnotations = btle
 edge520plus.excludeAnnotations = btle
+edge820.excludeAnnotations = btle
 
 fenix5.excludeAnnotations = btle
 fenix5s.excludeAnnotations = btle
