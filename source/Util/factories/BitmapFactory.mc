@@ -24,8 +24,8 @@ class BitmapFactory extends WatchUi.PickerFactory {
     }
 
     function getDrawable(item, selected) {
-    	System.println(mBitmapSet);
-    	System.println(item + " " + selected);
+    	//System.println(mBitmapSet);
+    	//System.println(item + " " + selected);
     	
     	var bitmap = new WatchUi.Bitmap({
 		    :rezId=>self.mBitmapSet[item],

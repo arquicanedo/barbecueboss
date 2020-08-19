@@ -6,7 +6,7 @@ class BitmapPicker extends WatchUi.Picker {
     hidden var mFactory;
 
     function initialize(app, bitmaps, pre_selected_item) {
-    	System.println("Bitmaps initialized: " + bitmaps);
+    	//System.println("Bitmaps initialized: " + bitmaps);
         mFactory = new BitmapFactory(app, bitmaps, {:addOk=>false});
 
         var string = Application.getApp().getProperty("string");
