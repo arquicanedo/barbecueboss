@@ -76,21 +76,7 @@
     <bitmap id="SmokeIconLarge" filename="../../img/icons/smoke/smoke-32x32.png"/>
     <bitmap id="SmokeIconExtraLarge" filename="../../img/icons/smoke/smoke-64x64.png"/>
     
-    <bitmap id="H2OIconSmall" filename="../../img/icons/h2o/h2o-16x16.png"/>
-    <bitmap id="H2OIconMedium" filename="../../img/icons/h2o/h2o-24x24.png"/>
-    <bitmap id="H2OIconLarge" filename="../../img/icons/h2o/h2o-32x32.png"/>
-    <!--<bitmap id="H2OIconExtraLarge" filename="../../img/icons/h2o/h2o-64x64.png"/>-->
-    
-    <bitmap id="CO2IconSmall" filename="../../img/icons/co2/co2-16x16.png"/>
-    <bitmap id="CO2IconMedium" filename="../../img/icons/co2/co2-24x24.png"/>
-    <bitmap id="CO2IconLarge" filename="../../img/icons/co2/co2-32x32.png"/>
-    <!--<bitmap id="CO2IconExtraLarge" filename="../../img/icons/co2/co2-64x64.png"/>-->
-    
-    <bitmap id="TempIconSmall" filename="../../img/icons/temp/temp-16x16.png"/>
-    <bitmap id="TempIconMedium" filename="../../img/icons/temp/temp-24x24.png"/>
-    <bitmap id="TempIconLarge" filename="../../img/icons/temp/temp-32x32.png"/>
-    <!--<bitmap id="TempIconExtraLarge" filename="../../img/icons/temp/temp-64x64.png"/>-->
-    
+
     <drawable-list id="arrow" foreground="Graphics.COLOR_WHITE">
         <shape type="polygon" points="[[118, 120],[148, 120], [133, 140]]" color="Graphics.COLOR_WHITE"/>
     </drawable-list>
