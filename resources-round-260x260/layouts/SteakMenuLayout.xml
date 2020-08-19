@@ -4,7 +4,7 @@
 		<param name="titleY">"top"</param>
 		<param name="itemOriginX">40</param>
 		<param name="itemOriginY">40</param>
-		<param name="flipOriginX">160</param>
+		<param name="flipOriginX">170</param>
 		<param name="targetOriginX">100</param>
 		<param name="selectorOriginX">30</param>
 		<param name="listItemOffsetY">28</param>
