@@ -4,9 +4,11 @@ using Toybox.WatchUi;
 class CharacterFactory extends WatchUi.PickerFactory {
     hidden var mCharacterSet;
     hidden var mAddOk;
+    hidden var app;
     const DONE = -1;
 
     function initialize(characterSet, options) {
+        app = Application.getApp();
         PickerFactory.initialize();
         mCharacterSet = characterSet;
         mAddOk = (null != options) and (options.get(:addOk) == true);
@@ -34,7 +36,7 @@ class CharacterFactory extends WatchUi.PickerFactory {
             return new WatchUi.Text( {:text=>Rez.Strings.characterPickerOk, :color=>Graphics.COLOR_WHITE, :font=>Graphics.FONT_LARGE, :locX =>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_CENTER } );
         }
 
-        return new WatchUi.Text( { :text=>getValue(index), :color=>Graphics.COLOR_WHITE, :font=> Graphics.FONT_LARGE, :locX =>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_CENTER } );
+        return new WatchUi.Text( { :text=>app.controller.storage.getValue(index), :color=>Graphics.COLOR_WHITE, :font=> Graphics.FONT_LARGE, :locX =>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_CENTER } );
     }
 
     function isDone(value) {

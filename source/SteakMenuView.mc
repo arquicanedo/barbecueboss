@@ -4,6 +4,7 @@ using Toybox.System;
 using Toybox.Application;
 
 
+
 class SteakMenuView extends WatchUi.View {
 
 	hidden var app;
@@ -49,13 +50,13 @@ class SteakMenuView extends WatchUi.View {
     // loading resources into memory.
     function onShow() {
     
-    	var steakList = View.findDrawableById("steakList");
+    	var steakList = View.findDrawableById("steakList") as ListDrawable;
 	 	steakList.setMaxItems(app.controller.getTotalSteaks());
 	 	steakList.setItems(self.getSteakItems(steakList, app.controller.getSteaks()));
 
 		self._timeLabel = View.findDrawableById("timeLabel");
 		
-		var list = View.findDrawableById("steakList");
+		var list = View.findDrawableById("steakList") as ListDrawable;
         if(self.app.controller.getGpsEnabled()) {
         	self._gpsIcon = WatchUi.loadResource(Rez.Drawables.GpsIconSmall);
         	self._gpsX = list.getParams().get(:gpsX);

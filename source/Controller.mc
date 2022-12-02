@@ -1,3 +1,4 @@
+import Toybox.Lang;
 using Toybox.Application;
 using Toybox.WatchUi;
 using Toybox.System;
@@ -5,6 +6,7 @@ using Toybox.Timer;
 using Toybox.Time;
 using Toybox.Position;
 using Toybox.ActivityRecording;
+using Toybox.Attention;
 //using Toybox.Application.Storage;
 
 
@@ -69,8 +71,8 @@ class Controller {
 		System.println("initializing controller...");
 
 		if(Attention has :vibrate){
-			self.flipVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
-			self.startSteakVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
+			self.flipVibrator = [ new Attention.VibeProfile(50, 500) ];
+			self.startSteakVibrator = [ new Attention.VibeProfile(50, 500) ];
 		} 
 		
 		self.initializeDefaultSettings();
@@ -83,7 +85,7 @@ class Controller {
 		
 		// Timer always running. 
 		self.myTimer = new Timer.Timer();
-		self.myTimer.start(method(:timerCallback), 1000, true);
+		self.myTimer.start(self.app.controller.method(:timerCallback), 1000, true);
 		
 	
 		for(var i = 0; i < self.total_steaks; i++) {
@@ -181,7 +183,7 @@ class Controller {
 		
 		if(self.gpsEnabled) {
 			System.println("Initializing GPS sensing.......");
-	    	Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :onPosition ) );
+	    	Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, self.app.controller.method( :onPosition ) );
 	    }
 	    else {
 	    	System.println("GPS disabled by app settings.");
@@ -190,7 +192,7 @@ class Controller {
 	
 	function disableGPS() {
 		System.println("Stopping GPS sensing.......");
-		Position.enableLocationEvents( Position.LOCATION_DISABLE, method( :onPosition ) );
+		Position.enableLocationEvents( Position.LOCATION_DISABLE, self.app.controller.method( :onPosition ) );
 	}
 	
 	function printGPS() {
@@ -278,7 +280,7 @@ class Controller {
 	}
 	
 	function timerResume(i) {
-	    self.myTimer.start(method(:timerCallback), 1000, true);
+	    self.myTimer.start(self.app.controller.method(:timerCallback), 1000, true);
 	}
 	    
     /************** UNTIL HERE ***********/

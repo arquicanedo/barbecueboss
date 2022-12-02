@@ -2,16 +2,19 @@ using Toybox.Application;
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
+/*
 class StringPicker extends WatchUi.Picker {
     const mCharacterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     hidden var mTitleText;
     hidden var mFactory;
 
+
+
     function initialize() {
         mFactory = new CharacterFactory(mCharacterSet, {:addOk=>true});
         mTitleText = "";
 
-        var string = Application.getApp().getProperty("string");
+        var string = Application.getApp().controller.getValue("string");
         var defaults = null;
         var titleText = Rez.Strings.stringPickerTitle;
 
@@ -21,7 +24,7 @@ class StringPicker extends WatchUi.Picker {
             defaults = [mFactory.getIndex(string.substring(string.length()-1, string.length()))];
         }
 
-        mTitle = new WatchUi.Text({:text=>titleText, :locX =>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_BOTTOM, :color=>Graphics.COLOR_WHITE});
+        var mTitle = new WatchUi.Text({:text=>titleText, :locX =>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_BOTTOM, :color=>Graphics.COLOR_WHITE});
 
         Picker.initialize({:title=>mTitle, :pattern=>[mFactory], :defaults=>defaults});
     }
@@ -60,3 +63,4 @@ class StringPicker extends WatchUi.Picker {
         return mFactory.isDone(value);
     }
 }
+*/

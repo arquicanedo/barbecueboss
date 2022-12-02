@@ -52,6 +52,7 @@ class DurationPicker extends WatchUi.Picker {
         factories = new [FACTORY_COUNT_24_HOUR];
         factories[0] = new NumberFactory(0, 59, 1, 
         	{ 
+                :format => DURATION_MINUTE_FORMAT, 
         		:font => self.fontSize
         	}
         );
@@ -100,7 +101,7 @@ class DurationPicker extends WatchUi.Picker {
     }
 
     function splitStoredTime(arraySize) {
-        var storedValue = Application.getApp().getProperty("time");
+        var storedValue = Application.getApp().controller.getValue("time");
         var defaults = null;
         var separatorIndex = 0;
         var spaceIndex;
@@ -138,11 +139,13 @@ class DurationPickerCallbackDelegate extends WatchUi.PickerDelegate {
 
     function onCancel() {
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        return true;
     }
 
     function onAccept(values) {
         //var time = values[0] + WatchUi.loadResource(Rez.Strings.timeSeparator) + values[2].format(DURATION_MINUTE_FORMAT);
         self.callbackMethod.invoke(values);
         WatchUi.popView(WatchUi.SLIDE_DOWN);
+        return true;
 	}
 }

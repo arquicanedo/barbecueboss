@@ -17,14 +17,14 @@ class SettingsView extends WatchUi.View {
     // Load your resources here
     function onLayout(dc) {
 	    View.setLayout(Rez.Layouts.SettingsLayout(dc));
-	    layoutLoaded.emit(findDrawableById("settingsList"));
+	    layoutLoaded.emit(View.findDrawableById("settingsList"));
     }
 
     // Called when this View is brought to the foreground. Restore
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
-    	var list = findDrawableById("settingsList");
+    	var list = View.findDrawableById("settingsList") as ListDrawable;
         var settings = new [2];
         var font = list.getParams().get(:font);
 
@@ -52,7 +52,7 @@ class SettingsView extends WatchUi.View {
     }
     
     function dispose() {
-    	var list = findDrawableById("settingsList");
+    	var list = View.findDrawableById("settingsList") as ListDrawable;
     	var items = list.getItems();
     	
     	if(null != items) {

@@ -1,6 +1,6 @@
-using Toybox.WatchUi;
-using Toybox.System;
-using Toybox.Time;
+import Toybox.WatchUi;
+import Toybox.System;
+import Toybox.Time;
 
 class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 
@@ -77,7 +77,7 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 	// Detect Menu button input
 	
     function onKey(keyEvent) {
-        System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
+        //System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
         
         if(keyEvent.getKey() == WatchUi.KEY_ENTER) {
         	self.onMenu();

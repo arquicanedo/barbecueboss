@@ -2,6 +2,7 @@ using Toybox.WatchUi;
 using Toybox.System;
 using Toybox.Application;
 
+/*
 class StringPickerDelegate extends WatchUi.PickerDelegate {
     hidden var mPicker;
 
@@ -17,6 +18,7 @@ class StringPickerDelegate extends WatchUi.PickerDelegate {
         else {
             mPicker.removeCharacter();
         }
+        return true;
     }
 
     function onAccept(values) {
@@ -26,12 +28,13 @@ class StringPickerDelegate extends WatchUi.PickerDelegate {
         }
         else {
             if(mPicker.getTitle().length() == 0) {
-                Application.getApp().deleteProperty("string");
+                Application.getApp().controller.deleteValue("string");
             }
             else {
-                Application.getApp().setProperty("string", mPicker.getTitle());
+                Application.getApp().controller.setValue("string", mPicker.getTitle());
             }
             return true;
         }
     }
 }
+*/
