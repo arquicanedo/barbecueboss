@@ -101,7 +101,7 @@ class DurationPicker extends WatchUi.Picker {
     }
 
     function splitStoredTime(arraySize) {
-        var storedValue = Application.getApp().controller.getValue("time");
+        var storedValue = Application.getApp().controller.storageGetValue("time");
         var defaults = null;
         var separatorIndex = 0;
         var spaceIndex;

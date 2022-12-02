@@ -31,7 +31,7 @@ class StringPickerDelegate extends WatchUi.PickerDelegate {
                 Application.getApp().controller.deleteValue("string");
             }
             else {
-                Application.getApp().controller.setValue("string", mPicker.getTitle());
+                Application.getApp().controller.storageSetValue("string", mPicker.getTitle());
             }
             return true;
         }

@@ -14,7 +14,7 @@ class StringPicker extends WatchUi.Picker {
         mFactory = new CharacterFactory(mCharacterSet, {:addOk=>true});
         mTitleText = "";
 
-        var string = Application.getApp().controller.getValue("string");
+        var string = Application.getApp().controller.storageGetValue("string");
         var defaults = null;
         var titleText = Rez.Strings.stringPickerTitle;
 
