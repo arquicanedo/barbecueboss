@@ -7,6 +7,7 @@ class NumberFactory extends WatchUi.PickerFactory {
     hidden var mIncrement;
     hidden var mFormatString;
     hidden var mFont;
+    hidden var app; 
 
     function getIndex(value) {
         var index = (value / mIncrement) - mStart;
@@ -14,6 +15,8 @@ class NumberFactory extends WatchUi.PickerFactory {
     }
 
     function initialize(start, stop, increment, options) {
+        app = Application.getApp();
+        
         PickerFactory.initialize();
 
         mStart = start;

@@ -17,5 +17,6 @@ class SimpleDispatchConfirmationDelegate extends WatchUi.ConfirmationDelegate {
 	
 	function onResponse(response) {
 		self.callbackMethod.invoke(response);
+		return true;
 	}
 }

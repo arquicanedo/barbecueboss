@@ -62,7 +62,7 @@ class SettingsListItem extends WatchUi.Drawable {
 		_statusSetter.invoke(status);
 	}
 
-	function draw(dc, x, y) {
+	function drawMe(dc, x, y) {
 		Drawable.draw(dc);
 		dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
 		dc.drawText(x + 5, y, _font, _text, Graphics.TEXT_JUSTIFY_LEFT);

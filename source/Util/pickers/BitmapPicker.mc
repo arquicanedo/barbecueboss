@@ -9,7 +9,7 @@ class BitmapPicker extends WatchUi.Picker {
     	System.println("Bitmaps initialized: " + bitmaps);
         mFactory = new BitmapFactory(bitmaps, {:addOk=>false});
 
-        var string = Application.getApp().getProperty("string");
+        var string = Application.getApp().controller.storageGetValue("string");
 
         var title = new WatchUi.Text( 
         	{

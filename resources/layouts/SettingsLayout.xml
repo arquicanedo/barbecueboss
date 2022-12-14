@@ -7,7 +7,7 @@
 		<param name="selectorOriginX">20</param>
 		<param name="listItemOffsetY">35</param>
 		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
-		<param name="font">Graphics.FONT_MEDIUM</param>
+		<param name="font">Graphics.FONT_SMALL</param>
 		<param name="itemColor">Graphics.COLOR_WHITE</param>
 		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
 		<param name="iconOffsetY">3</param>

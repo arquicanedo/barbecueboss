@@ -1,6 +1,6 @@
-using Toybox.WatchUi;
-using Toybox.Timer;
-using Toybox.System;
+import Toybox.WatchUi;
+import Toybox.Timer;
+import Toybox.System;
 
 
 class WelcomeView extends WatchUi.View {
@@ -55,9 +55,4 @@ class WelcomeView extends WatchUi.View {
     function onHide() {
     	self.logoImage = null;
     }
-    
-	function selectTime(minutes) {
-		System.print("User selected");
-		System.println(minutes);
-	}	
 }

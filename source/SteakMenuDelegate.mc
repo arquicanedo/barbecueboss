@@ -21,13 +21,12 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onMenu() {
-		System.println("SteakMenuDelegate.onMenu pressed");
+		//System.println("SteakMenuDelegate.onMenu pressed");
         return true;
     }
     
    	function onSelect() {
-		System.println("SteakMenuDelegate.onSelect pressed");
-
+		//System.println("SteakMenuDelegate.onSelect pressed");
 
 		// The Food Type menu should be visible only when the timer is not initialized.
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
@@ -41,7 +40,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 			//will only be created when something is selected for editing so its memory footprint only applies when
 			//the user is changing items in the list
 			var foodIcons = self.getFoodIconsForDevice();	
-			var typeOfSteak = app.controller.lastSelectedFoodType;
+			var typeOfSteak = app.controller.getLastFoodType(app.controller.getSelectedSteak());
 			var bp = new BitmapPicker(foodIcons, typeOfSteak);
 			var bpd = new BitmapPickerCallbackDelegate(bp);
 			bpd.callbackMethod = method(:onBitmapPickerSelected);
@@ -66,8 +65,6 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 					Rez.Drawables.BeefIconSmall,
 					Rez.Drawables.DrinkIconSmall
 					];
-			
-				break;
 				
 			case "MEDIUM":
 				return [
@@ -79,8 +76,6 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 					Rez.Drawables.BeefIconMedium,
 					Rez.Drawables.DrinkIconMedium
 					];
-			
-				break;
 				
 			case "LARGE":
 				return [
@@ -92,8 +87,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 						Rez.Drawables.BeefIconLarge,
 						Rez.Drawables.DrinkIconLarge
 						];
-			
-				break;
+
 			
 			case "EXTRA_LARGE":
 				return [
@@ -104,8 +98,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 						Rez.Drawables.FishIconExtraLarge,
 						Rez.Drawables.BeefIconExtraLarge,
 						Rez.Drawables.DrinkIconExtraLarge
-					   ];			
-				break;		
+					   ];					
 		}
 		
 		return [
@@ -129,6 +122,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 		// Change steak properties to update it on the SteakMenu
 		var selectedSteak = (app.controller.getSteaks())[app.controller.getSelectedSteak()];
 		selectedSteak.setFoodType(typeOfSteak);
+		app.controller.setLastFoodType(app.controller.getSelectedSteak(), typeOfSteak);
 
 		WatchUi.popView(WatchUi.SLIDE_DOWN);
         
@@ -150,7 +144,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	
 	// Detect Menu button input
     function onKey(keyEvent) {
-        System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7        
+        //System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7        
         return true;
     }
     
@@ -202,6 +196,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     	else if(dir == WatchUi.SWIPE_UP) {
     		app.controller.previousSteak();
     	}
+		return true;
     }
 }
 
@@ -271,6 +266,7 @@ class BitmapPickerDelegate extends WatchUi.PickerDelegate {
 
     function onCancel() {
         WatchUi.popView(WatchUi.SLIDE_DOWN);
+		return true;
     }
 
     function onAccept(values) {

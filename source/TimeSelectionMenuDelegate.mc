@@ -32,7 +32,7 @@ class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 			// Reset steakEntry
 			selectedSteak.setTimeout(0);
 			selectedSteak.setStatus(Controller.INIT);	
-			selectedSteak.setFoodType(SteakEntry.BEEF);
+			//selectedSteak.setFoodType(SteakEntry.BEEF);
 			return;
 		}
 		
@@ -52,7 +52,7 @@ class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 			timeout = 5;
 	    } 
 	    else if(id == :timerMenuLast) {
-	    	var lastTimeout = app.controller.storageGetValue("lastSteakTimeout");
+	    	var lastTimeout = app.controller.getLastTimeout(app.controller.getSelectedSteak());
 			selectedSteak.setTimeout(lastTimeout);
 			app.controller.decideSelection();
 			return;
@@ -86,7 +86,7 @@ class TimeSelectionMenuDelegate extends WatchUi.MenuInputDelegate {
 		var steak_i = app.controller.getSelectedSteak();
 		var steaks = app.controller.getSteaks(); 
 		steaks[steak_i].setTimeout(timeout);
-		app.controller.storageSetValue("lastSteakTimeout", timeout);
+		app.controller.setLastTimeout(steak_i, steaks[steak_i].getTimeout());
 		app.controller.decideSelection();
 		WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 	}
