@@ -40,7 +40,7 @@ class NumberFactory extends WatchUi.PickerFactory {
     function getDrawable(index, selected) {
         return new WatchUi.Text( 
         	{ 
-        		:text=>app.controller.storage.getValue(index).format(mFormatString), 
+        		:text=>getValue(index).format(mFormatString), 
         		:color=>Graphics.COLOR_WHITE, 
         		:font=> mFont, 
         		:locX =>WatchUi.LAYOUT_HALIGN_CENTER, 
