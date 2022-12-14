@@ -65,8 +65,6 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 					Rez.Drawables.BeefIconSmall,
 					Rez.Drawables.DrinkIconSmall
 					];
-			
-				break;
 				
 			case "MEDIUM":
 				return [
@@ -78,8 +76,6 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 					Rez.Drawables.BeefIconMedium,
 					Rez.Drawables.DrinkIconMedium
 					];
-			
-				break;
 				
 			case "LARGE":
 				return [
@@ -91,8 +87,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 						Rez.Drawables.BeefIconLarge,
 						Rez.Drawables.DrinkIconLarge
 						];
-			
-				break;
+
 			
 			case "EXTRA_LARGE":
 				return [
@@ -103,8 +98,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 						Rez.Drawables.FishIconExtraLarge,
 						Rez.Drawables.BeefIconExtraLarge,
 						Rez.Drawables.DrinkIconExtraLarge
-					   ];			
-				break;		
+					   ];					
 		}
 		
 		return [
@@ -150,7 +144,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
 	
 	// Detect Menu button input
     function onKey(keyEvent) {
-        System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7        
+        //System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7        
         return true;
     }
     
@@ -202,6 +196,7 @@ class SteakMenuDelegate extends WatchUi.BehaviorDelegate {
     	else if(dir == WatchUi.SWIPE_UP) {
     		app.controller.previousSteak();
     	}
+		return true;
     }
 }
 
@@ -271,6 +266,7 @@ class BitmapPickerDelegate extends WatchUi.PickerDelegate {
 
     function onCancel() {
         WatchUi.popView(WatchUi.SLIDE_DOWN);
+		return true;
     }
 
     function onAccept(values) {

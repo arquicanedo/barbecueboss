@@ -141,7 +141,7 @@ class SteakListItem extends WatchUi.Drawable {
 		we use the _meatMap dictionary to fetch the appropriate cached image so we don't have to do the heavy lifting of loading a resource while we're
 		trying to draw on the screen so it executes quickly
 	*/
-	function draw(dc, x, y) {
+	function drawMe(dc, x, y) {
 		Drawable.draw(dc);
 	
 		dc.setColor(self.decideColor(), Graphics.COLOR_BLACK);

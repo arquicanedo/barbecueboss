@@ -102,5 +102,6 @@ class SettingsDelegate extends WatchUi.BehaviorDelegate {
     	}
     	
     	WatchUi.requestUpdate();
+		return true;
     }
 }

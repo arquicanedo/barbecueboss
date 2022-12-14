@@ -1,3 +1,4 @@
+import Toybox.Lang;
 using Toybox.Application;
 using Toybox.WatchUi;
 using Toybox.System;
@@ -5,6 +6,7 @@ using Toybox.Timer;
 using Toybox.Time;
 using Toybox.Position;
 using Toybox.ActivityRecording;
+using Toybox.Attention;
 //using Toybox.Application.Storage;
 
 
@@ -69,8 +71,8 @@ class Controller {
 		System.println("initializing controller...");
 
 		if(Attention has :vibrate){
-			self.flipVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
-			self.startSteakVibrator = [ new WatchUi.Attention.VibeProfile(50, 500) ];
+			self.flipVibrator = [ new Attention.VibeProfile(50, 500) ];
+			self.startSteakVibrator = [ new Attention.VibeProfile(50, 500) ];
 		} 
 		
 		self.initializeDefaultSettings();

@@ -19,7 +19,7 @@ class TimeSelectionMenu extends Toybox.WatchUi.Menu {
 	}
 
 	function initialize() {
-		Toybox.WatchUi.Menu.initialize();
+		//Toybox.WatchUi.Menu.initialize();
 		
 		self.setTitle(WatchUi.loadResource(Rez.Strings.menu_timer_title));
 		self.app = Application.getApp();

@@ -12,6 +12,7 @@ class ListDrawable extends Toybox.WatchUi.Drawable {
 	hidden var _items;
 	hidden var _selectorText;
 	hidden var _selectorFont;
+	hidden var _itemColor;
 	
 	hidden var _params;
 	
@@ -26,6 +27,7 @@ class ListDrawable extends Toybox.WatchUi.Drawable {
 		_selectorColor = params.get(:selectorColor);
 		_selectorFont = null == params.get(:selectorFont) ? params.get(:font) : WatchUi.loadResource(params.get(:selectorFont));
 		_selectorText = null == params.get(:selectorText) ? ">" : params.get(:selectorText);
+		_itemColor = null;
 	}
 
 	function getSelectedItem() {
@@ -88,7 +90,7 @@ class ListDrawable extends Toybox.WatchUi.Drawable {
 				dc.drawText(_selectorX, offset + 2, _selectorFont, _selectorText, Graphics.TEXT_JUSTIFY_LEFT);
 			}
  		
- 			_items[i].draw(dc, _listX, offset);
+ 			_items[i].drawMe(dc, _listX, offset);
 		}
 	}
 	

@@ -18,7 +18,7 @@
 			item.toggle();
 		}
 		
-		return true;
+		//return true;
 	}
 	
  }

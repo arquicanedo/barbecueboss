@@ -15,6 +15,12 @@ Food Pixel Art Icons - Freepik https://www.flaticon.com/authors/freepik/
 
 ## What's New
 
+1.2.0 -
+- icons and cook times are preserved from the last session
+- support for newer devices (Fenix 7*)
+- lots of layout tweaks and memory optimizations
+- project is now modernized to compile with Visual Studio code 
+
 1.1.0 -
  - brought to you by warmer temperatures and more outdoor cooking
  - added icons everywhere to denote food types, show what buttons do what actions
