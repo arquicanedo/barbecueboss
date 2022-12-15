@@ -17,7 +17,7 @@ Food Pixel Art Icons - Freepik https://www.flaticon.com/authors/freepik/
 
 1.2.0 -
 - icons and cook times are preserved from the last session
-- support for newer devices (Fenix 7*)
+- support for 416x416 pixel devices (epix, D2Air, D2 Mach 1, Venu 2, Venu 2 Plus)
 - lots of layout tweaks and memory optimizations
 - project is now modernized to compile with Visual Studio code 
 
