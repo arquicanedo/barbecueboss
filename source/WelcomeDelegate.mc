@@ -35,7 +35,8 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
     														app.controller.getGpsEnabled(), 
     														{ 
     															:getter => app.controller.method(:getGpsEnabled), 
-    															:setter => app.controller.method(:setGpsEnabled)
+    															:setter => app.controller.method(:setGpsEnabled),
+																:alignment => 1
     														});
     														
     		var useActivity = new SettingsToggleMenuItem( WatchUi.loadResource(Rez.Strings.settings_activity), 
@@ -44,7 +45,8 @@ class WelcomeDelegate extends WatchUi.BehaviorDelegate {
 														  app.controller.getActivityEnabled(), 
 														  {
 														  	:getter => app.controller.method(:getActivityEnabled),
-														  	:setter => app.controller.method(:setActivityEnabled)
+														  	:setter => app.controller.method(:setActivityEnabled),
+															:alignment => 1
 														  });
 
     		var menu2 = new WatchUi.Menu2({:title=> WatchUi.loadResource(Rez.Strings.settings_title)});
