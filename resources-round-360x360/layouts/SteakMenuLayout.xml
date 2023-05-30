@@ -1,0 +1,24 @@
+<layout id="SteakMenuLayout">
+	<drawable id="steakList" class="ListDrawable">
+		<param name="titleX">"center"</param>
+		<param name="titleY">"top"</param>
+		<param name="itemOriginX">55</param>
+		<param name="itemOriginY">65</param>
+		<param name="flipOriginX">145</param>
+		<param name="targetOriginX">238</param>
+		<param name="selectorOriginX">40</param>
+		<param name="listItemOffsetY">35</param>
+		<param name="listJustification">Graphics.TEXT_JUSTIFY_LEFT</param>
+		<param name="font">Graphics.FONT_TINY</param>
+		<param name="itemColor">Graphics.COLOR_WHITE</param>
+		<param name="selectorColor">Graphics.COLOR_ORANGE</param>
+		<param name="iconOffsetY">5</param>
+		<param name="iconSize">SteakListItem.LARGE</param>
+		<param name="gpsX">120</param>
+		<param name="gpsY">315</param>
+		<param name="activityX">140</param>
+		<param name="activityY">315</param>
+	</drawable>
+	<bitmap id="logo" filename="../../resources/images/launcher_icon.png" y="315" x="center"/>
+	<label id="timeLabel" x="230" y="310" font="Graphics.FONT_XTINY" text="" color="Graphics.COLOR_WHITE" />
+</layout>

@@ -15,6 +15,12 @@ Food Pixel Art Icons - Freepik https://www.flaticon.com/authors/freepik/
 
 ## What's New
 
+1.2.2 -
+- Venu 2S is now properly rendering the steak menu
+
+1.2.1 - 
+- adds support for Venu 2S
+
 1.2.0 -
 - icons and cook times are preserved from the last session
 - support for 416x416 pixel devices (epix, D2Air, D2 Mach 1, Venu 2, Venu 2 Plus)
