@@ -15,7 +15,10 @@ Food Pixel Art Icons - Freepik https://www.flaticon.com/authors/freepik/
 
 ## What's New
 
-1.2.1 -
+1.2.2 -
+- Venu 2S is now properly rendering the steak menu
+
+1.2.1 - 
 - adds support for Venu 2S
 
 1.2.0 -
