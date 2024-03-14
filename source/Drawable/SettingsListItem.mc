@@ -70,7 +70,7 @@ class SettingsListItem extends WatchUi.Drawable {
 		var img = _status ? _onImage : _offImage;
 		var width = dc.getWidth();
 		
-		dc.drawBitmap(dc.getWidth() - (img.getWidth() * 2), y + _offsetCenterY, img); 
+		dc.drawBitmap(width - (img.getWidth() * 2), y + _offsetCenterY, img); 
 	}
 	
 	function setSelected(selected){

@@ -14,6 +14,9 @@ Food Pixel Art Icons - Freepik https://www.flaticon.com/authors/freepik/
 
 
 ## What's New
+1.2.4 - 
+- Adds support for two 454x454 round devices: Venu 3 and Forerunner 965.
+
 1.2.3 - 
 - Adds support for Fenix 7X PRO.
 
